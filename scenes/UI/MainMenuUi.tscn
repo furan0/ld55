@@ -37,7 +37,7 @@ layout_mode = 2
 [node name="title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "Ludum Dare 54 !"
+text = "Ludum Dare 55 !"
 
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
