@@ -1,0 +1,166 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+env:
+  GODOT_VERSION: 4.1.1
+  ITCH_USERNAME: furaune
+  ITCH_GAME_ID: ld54-test
+  
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch, or when a new tag is created
+  push:
+    branches: [ main ]
+    tags:
+      - '*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      name: ${{ matrix.name }}
+      container:
+        image: barichello/godot-ci:4.1.1
+      strategy:
+        fail-fast: false
+        matrix:
+          include:
+  
+            - preset: Web
+              path: ./build/web/index.html
+              name: HTML5
+              upload: build/web
+  
+            - preset: Linux/X11
+              path: ./build/linux/ld54.x86_64
+              name: Linux
+              upload: build/linux
+  
+            - preset: Windows Desktop
+              path: ./build/windows/ld54.exe
+              name: Windows
+              upload: build/windows
+  
+      steps:
+  
+        - uses: actions/checkout@v3
+
+        - name: Setup
+          run: |
+            mkdir -v -p ~/.local/share/godot/export_templates
+            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+  
+        - run: mkdir -p "$(dirname '${{ matrix.path }}')"
+  
+        - run: godot -v --headless --export-release '${{ matrix.preset }}' '${{ matrix.path }}'
+  
+        - name: '📤 Upload artifact'
+          uses: 'actions/upload-artifact@v3'
+          with:
+            name: ${{ matrix.name }}
+            path: ${{ matrix.upload }}
+            if-no-files-found: error
+          
+  export-web:
+    name: Web Export
+    runs-on: ubuntu-latest
+    if: (github.event_name != 'pull_request') && !contains(github.ref, 'refs/tags/')
+    needs:
+      - build
+    steps:
+    
+      - uses: actions/checkout@v3
+
+      - run: mkdir -v -p build
+
+      - name: '📥 Download artifacts: HTML5'
+        uses: actions/download-artifact@v3
+        with:
+          name: HTML5
+          path: build
+
+      # Workaround for SharedArrayBuffer support on GitHub Pages
+      # See: https://github.com/godotengine/godot-docs/issues/7084
+      - run: |
+          curl -fsSL https://github.com/gzuidhof/coi-serviceworker/raw/master/coi-serviceworker.min.js > build/coi-serviceworker.min.js
+          sed -i 's#\(		<script src="index.js"></script>\)#		<script src="coi-serviceworker.min.js"></script>\n\1#g' build/index.html
+          
+      - name: Deploy to CI GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          BRANCH: build # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          CLEAN: false
+
+  deploy-itch:
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push') && contains(github.ref, 'refs/tags/')
+    needs:
+      - build
+    strategy:
+      fail-fast: true
+      matrix:
+          include:
+  
+            - preset: Web
+              name: HTML5
+              channel: HTML5
+  
+            - preset: Linux/X11
+              name: Linux
+              channel: linux
+  
+            - preset: Windows Desktop
+              name: Windows
+              channel: windows
+              
+    name: Deploy 🚀 - Itch.io ${{ matrix.name }}
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: ${{ matrix.name }}
+          path: build/${{ matrix.name }}
+      - uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+          gameData: ./build/${{ matrix.name }}
+          itchUsername: ${{env.ITCH_USERNAME}}
+          itchGameId: ${{ env.ITCH_GAME_ID }}
+          buildChannel: ${{ matrix.channel }}
+          buildNumber: ${{  github.ref_name }}
+          
+  deploy-web:
+    name: Deploy 🚀 - Github pages
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push') && contains(github.ref, 'refs/tags/')
+    needs:
+      - build
+    steps:
+    
+      - uses: actions/checkout@v3
+    
+      - run: mkdir -v -p build
+    
+      - name: '📥 Download artifacts: HTML5'
+        uses: actions/download-artifact@v3
+        with:
+          name: HTML5
+          path: build
+    
+      # Workaround for SharedArrayBuffer support on GitHub Pages
+      # See: https://github.com/godotengine/godot-docs/issues/7084
+      - run: |
+          curl -fsSL https://github.com/gzuidhof/coi-serviceworker/raw/master/coi-serviceworker.min.js > build/coi-serviceworker.min.js
+          sed -i 's#\(		<script src="index.js"></script>\)#		<script src="coi-serviceworker.min.js"></script>\n\1#g' build/index.html
+          
+      - name: Deploy to CI GitHub Pages 🚀 - folder ${{  github.ref_name }}
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          BRANCH: build # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          CLEAN: false
+          TARGET-FOLDER: ${{  github.ref_name }}

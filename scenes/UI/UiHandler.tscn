@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://duxcaaa2ewb7q"]
+
+[ext_resource type="Script" path="res://scripts/UI/UiHandler.gd" id="1_c1gba"]
+[ext_resource type="Script" path="res://scripts/audio/SimpleAudioPlayer.gd" id="2_58hdu"]
+[ext_resource type="Resource" uid="uid://dptal6medw6bn" path="res://assets/audio/UISoundDB.tres" id="3_v0vif"]
+
+[node name="UiHandler" type="CanvasLayer"]
+script = ExtResource("1_c1gba")
+
+[node name="SimpleAudioPlayer" type="Node" parent="."]
+script = ExtResource("2_58hdu")
+soundsDatabase = Array[Resource("res://scripts/audio/SoundDB.gd")]([ExtResource("3_v0vif")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SimpleAudioPlayer"]
+max_polyphony = 5
+
+[connection signal="backRequestedWithEmptyHierarchy" from="." to="SimpleAudioPlayer" method="playSound" binds= ["back"]]
+[connection signal="uiGoback" from="." to="SimpleAudioPlayer" method="playSound" binds= ["back"]]
+[connection signal="uiSwitched" from="." to="SimpleAudioPlayer" method="playSound" binds= ["select"]]
