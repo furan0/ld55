@@ -17,7 +17,7 @@ config/icon="res://assets/godot.svg"
 
 [autoload]
 
-Global="*res://scenes/logic/global.tscn"
+Global="*res://scripts/logic/Global.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
@@ -32,7 +32,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [rendering]
 
