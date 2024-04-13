@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://pfaxr3ii4krq"]
+[gd_scene load_steps=19 format=3 uid="uid://pfaxr3ii4krq"]
 
 [ext_resource type="Script" path="res://scenes/entities/Rig2D/rig_pretre.gd" id="1_65tdl"]
+[ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="1_mhdmb"]
 [ext_resource type="Texture2D" uid="uid://bspql1u73ap2v" path="res://scenes/entities/Rig2D/pretre/baton.png" id="2_1co7o"]
 [ext_resource type="Texture2D" uid="uid://t6mmxrgi10jc" path="res://scenes/entities/Rig2D/pretre/body.png" id="3_ibwq7"]
 [ext_resource type="Texture2D" uid="uid://cpfsgcg3ky1s0" path="res://scenes/entities/Rig2D/pretre/basrobe.png" id="4_77xs2"]
 [ext_resource type="Texture2D" uid="uid://d31jqjvy1euw0" path="res://scenes/entities/Rig2D/pretre/tete.png" id="5_g1bse"]
-[ext_resource type="Shader" path="res://scenes/entities/Rig2D/character.gdshader" id="6_1tgfe"]
 [ext_resource type="Texture2D" uid="uid://c36ujftreh01q" path="res://scenes/entities/Rig2D/pretre/chapeau.png" id="6_njg6k"]
 [ext_resource type="Texture2D" uid="uid://be7qomarn6xd4" path="res://scenes/entities/Rig2D/pretre/barbe.png" id="7_dn062"]
 [ext_resource type="Texture2D" uid="uid://dr3u01edb53du" path="res://scenes/entities/Rig2D/pretre/wolopose.png" id="8_6kdlm"]
@@ -13,10 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bwe31ci2m0f3k" path="res://scenes/entities/Rig2D/pretre/eye.png" id="9_8x71d"]
 [ext_resource type="Texture2D" uid="uid://u8bgohyhdggc" path="res://scenes/entities/Rig2D/pretre/wolobarbe.png" id="9_t60uc"]
 [ext_resource type="Texture2D" uid="uid://dnaqwlwlyylle" path="res://scenes/entities/Rig2D/pretre/wolobarbe2.png" id="10_rs1wl"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8igwp"]
-shader = ExtResource("6_1tgfe")
-shader_parameter/overridecolor = Color(0.803922, 0.490196, 0.690196, 1)
 
 [sub_resource type="Animation" id="Animation_0r3lg"]
 resource_name = "idle"
@@ -1161,7 +1157,7 @@ _data = {
 }
 
 [node name="RigPretre" type="Node2D"]
-material = SubResource("ShaderMaterial_8igwp")
+material = ExtResource("1_mhdmb")
 script = ExtResource("1_65tdl")
 
 [node name="muppet" type="Node2D" parent="."]

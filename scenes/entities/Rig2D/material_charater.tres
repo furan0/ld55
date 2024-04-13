@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://38toavh4tfdm"]
+
+[ext_resource type="Shader" path="res://scenes/entities/Rig2D/character.gdshader" id="1_opags"]
+
+[resource]
+shader = ExtResource("1_opags")
+shader_parameter/overridecolor = Color(0.803922, 0.490196, 0.690196, 1)
