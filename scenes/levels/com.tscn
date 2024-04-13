@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsnofdxy1j8q1"]
+
+[ext_resource type="PackedScene" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="1_xebl6"]
+
+[node name="Com" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -550
+position = Vector2(-6, 17)
+polygon = PackedVector2Array(49, -250, 1316, -250, 1313, 855, -203, 847, -285, -313)
+
+[node name="RigEpee" parent="." instance=ExtResource("1_xebl6")]
+position = Vector2(582, 405)
+scale = Vector2(0.52, 0.52)
+
+[node name="muppet" parent="RigEpee" index="1"]
+position = Vector2(4, -98)
+
+[editable path="RigEpee"]
