@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2r4xpnpn38x1"]
+[gd_scene load_steps=17 format=3 uid="uid://d2r4xpnpn38x1"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
@@ -6,15 +6,26 @@
 [ext_resource type="Script" path="res://scenes/characters/wololo/SelectorHandler.gd" id="3_jcn6r"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_x4spd"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_r2ehe"]
+[ext_resource type="Texture2D" uid="uid://b3ufgi634200c" path="res://scenes/characters/wololo/circle_texture.png" id="6_iee5h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_vu2ye"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="7_6lja1"]
 [ext_resource type="PackedScene" uid="uid://pfaxr3ii4krq" path="res://scenes/entities/Rig2D/rig_pretre.tscn" id="8_h3pwf"]
+[ext_resource type="Script" path="res://scenes/characters/wololo/ConvertionHandler.gd" id="9_3ocsr"]
+[ext_resource type="Script" path="res://scenes/characters/wololo/TargetIndicator.gd" id="10_03c5p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cejr7"]
+radius = 187.024
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1abu"]
 radius = 187.024
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yrr8"]
 radius = 28.0
 height = 78.0
+
+[sub_resource type="Resource" id="Resource_p7dyc"]
+script = ExtResource("7_6lja1")
+expression = "not hasTarget"
 
 [node name="Wololo" instance=ExtResource("1_nuijn")]
 platform_floor_layers = 872349696
@@ -26,7 +37,30 @@ script = ExtResource("3_jcn6r")
 [node name="CollisionShape" type="CollisionShape2D" parent="SelectorHandler" index="0"]
 shape = SubResource("CircleShape2D_cejr7")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="ConvertionHandler" type="Area2D" parent="." index="1"]
+script = ExtResource("9_3ocsr")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="ConvertionHandler" index="0"]
+shape = SubResource("CircleShape2D_w1abu")
+debug_color = Color(0.752941, 0.270588, 0.909804, 0.419608)
+
+[node name="Timer" type="Timer" parent="ConvertionHandler" index="1"]
+wait_time = 0.3
+
+[node name="TargetIndicator" type="Node2D" parent="ConvertionHandler" index="2"]
+script = ExtResource("10_03c5p")
+
+[node name="Circle" type="Line2D" parent="ConvertionHandler/TargetIndicator" index="0"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(-1, -18, -21, -18, -42, -13, -55, -8, -62, -4, -62, 5, -53, 10, -37, 12, -6, 13, 24, 14, 44, 10, 53, 6, 56, -4, 46, -12, 34, -15, 14, -17)
+closed = true
+width = 8.0
+texture = ExtResource("6_iee5h")
+texture_mode = 1
+
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(-3, -19)
 shape = SubResource("CapsuleShape2D_4yrr8")
 
@@ -68,7 +102,7 @@ script = ExtResource("5_r2ehe")
 [node name="toConverting" type="Node" parent="StateMachine/MainState/Alive/Convertion/NoConvertion" index="0"]
 script = ExtResource("6_vu2ye")
 to = NodePath("../../Converting")
-event = &"startConversion"
+event = &"conversion"
 
 [node name="Converting" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="1"]
 script = ExtResource("5_r2ehe")
@@ -82,6 +116,12 @@ event = &"minigameSucc"
 script = ExtResource("6_vu2ye")
 to = NodePath("../../ConversionFailed")
 event = &"minigameFailed"
+
+[node name="noTarget" type="Node" parent="StateMachine/MainState/Alive/Convertion/Converting" index="2"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../ConversionFailed")
+guard = SubResource("Resource_p7dyc")
+delay_seconds = 0.4
 
 [node name="ConversionSucc" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="2"]
 script = ExtResource("5_r2ehe")
@@ -99,15 +139,25 @@ script = ExtResource("6_vu2ye")
 to = NodePath("../../NoConvertion")
 delay_seconds = 0.3
 
-[node name="InputHandler" type="Node" parent="." index="4"]
+[node name="InputHandler" type="Node" parent="." index="5"]
 script = ExtResource("2_6ewwq")
 inputProvider = 2
 
 [node name="RigPretre" parent="Graphsime" index="0" instance=ExtResource("8_h3pwf")]
 position = Vector2(-10, 13)
 
+[connection signal="minigameFailed" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["mingameFailed"]]
+[connection signal="minigameSuccesful" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["minigameSucc"]]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/SelectingUnits" to="SelectorHandler" method="startSelection"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/ReleasingUnits" to="SelectorHandler" method="releaseSelection"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Convertion/NoConvertion" to="ConvertionHandler" method="enableNewConvertion"]
+[connection signal="state_exited" from="StateMachine/MainState/Alive/Convertion/NoConvertion" to="ConvertionHandler" method="disableNewConvertion"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Convertion/Converting" to="ConvertionHandler" method="startMinigameOnCurrentTarget"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Convertion/Converting" to="MoveHandler" method="setCanMove" binds= [false]]
+[connection signal="state_exited" from="StateMachine/MainState/Alive/Convertion/Converting" to="MoveHandler" method="setCanMove" binds= [true]]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Convertion/ConversionSucc" to="ConvertionHandler" method="convertTarget"]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="ConvertionHandler" method="stopAllConvertion"]
+[connection signal="convertion" from="InputHandler" to="StateMachine" method="send_event" binds= ["conversion"]]
 [connection signal="moveEnded" from="InputHandler" to="MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
 [connection signal="moveRequested" from="InputHandler" to="MoveHandler" method="moveToward"]
 [connection signal="selectEnded" from="InputHandler" to="StateMachine" method="send_event" binds= ["stopSelection"]]

@@ -11,6 +11,16 @@ enum EFaction {BLUE, RED, GAIA}
 @export var faction : EFaction = EFaction.GAIA
 signal factionChanged()
 
+static func getFactionColor(faction_ : EFaction) -> Color:
+	match faction_:
+		EFaction.BLUE:
+			return Color.ROYAL_BLUE
+		EFaction.RED:
+			return Color.BROWN
+		EFaction.GAIA:
+			return Color.PEACH_PUFF
+	return Color.PEACH_PUFF
+
 # life & hitpoints
 @export var MAX_HEALTH := 100
 @onready var health := MAX_HEALTH

@@ -1,11 +1,6 @@
 class_name  Rig2D
 extends Node2D
 
-@export_group("Color param")
-@export var blue_color = Color.ROYAL_BLUE
-@export var red_color = Color.BROWN
-@export var gaia_color = Color.PEACH_PUFF
-
 @export var color_target = Color.AQUA
 @export var blink_time := 3;
 
@@ -46,8 +41,11 @@ func _ready():
 	local_hud = hud.instantiate()
 	add_child(local_hud)
 	local_hud.position = hud_offset
+	
+	# Connect onfaction change
+	get_parent().get_parent().factionChanged.connect(update_color)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	scale = Vector2(-1,1) if get_parent().get_parent().velocity.x > 0.0 else Vector2.ONE
 	
 func on_pv_change(new_pv):
@@ -55,7 +53,6 @@ func on_pv_change(new_pv):
 	call_deferred("do_blink")
 	
 func do_blink():
-	print("blink")
 	muppet.scale = Vector2(1.3,0.7)
 	var tw := get_tree().create_tween()
 	tw.tween_property(muppet,"scale",Vector2(0.8,1.2),0.1)
@@ -82,9 +79,4 @@ func update_color():
 		set_color(color_target)
 		return
 	var team := get_parent().get_parent().faction as Character.EFaction
-	if team == Character.EFaction.BLUE:
-		set_color(blue_color)
-	elif team == Character.EFaction.RED:
-		set_color(red_color)
-	else:
-		set_color(gaia_color)
+	set_color(Character.getFactionColor(team))

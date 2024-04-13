@@ -159,10 +159,10 @@ script = ExtResource("4_dbweh")
 to = NodePath("../../Attacking")
 event = &"enemyInRange"
 
+[node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
+
 [node name="SelectionHandler" type="Node" parent="." index="5"]
 script = ExtResource("5_pwg7j")
-
-[node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
 
 [connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
 [connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
