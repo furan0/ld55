@@ -63,6 +63,11 @@ initial_state = NodePath("MovingTo")
 [node name="MovingTo" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="0"]
 script = ExtResource("3_lcycw")
 
+[node name="toAttackAction" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/MovingTo" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../AttackAction")
+event = &"canAttack"
+
 [node name="AttackAction" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="1"]
 script = ExtResource("2_u12xd")
 initial_state = NodePath("PreAttack")
@@ -70,11 +75,30 @@ initial_state = NodePath("PreAttack")
 [node name="PreAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="0"]
 script = ExtResource("3_lcycw")
 
+[node name="toAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction/PreAttack" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Attack")
+delay_seconds = 0.1
+
 [node name="Attack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="1"]
 script = ExtResource("3_lcycw")
 
+[node name="toPostAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../PostAttack")
+
 [node name="PostAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="2"]
 script = ExtResource("3_lcycw")
+
+[node name="toMovingTo" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="3"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../MovingTo")
+event = &"stopAttack"
+
+[node name="toItself" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="4"]
+script = ExtResource("4_dbweh")
+to = NodePath("../..")
+delay_seconds = 1.0
 
 [node name="toIdle" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="2"]
 script = ExtResource("4_dbweh")
@@ -124,15 +148,18 @@ event = &"enemyInRange"
 [node name="SelectionHandler" type="Node" parent="." index="5"]
 script = ExtResource("5_pwg7j")
 
+[connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
 [connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
 [connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
 [connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="AttackHandler" method="enableTargetLooking" binds= [false]]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]

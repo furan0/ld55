@@ -72,6 +72,16 @@ func processAttacking(_delta):
 		var desiredPos := targetPos - targetDir * desiredOffset
 		rushingToward.emit(desiredPos)
 
+## Attack current target
+func attack():
+	# First, check target validity
+	if !isTargetValid(target):
+		# Invalidtarget -> remove it and look again
+		lookForTarget()
+		return
+	
+	
+
 func lookForTarget():
 	if !isLookingForTarget:
 		return

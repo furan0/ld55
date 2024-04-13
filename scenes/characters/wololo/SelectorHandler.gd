@@ -8,6 +8,7 @@ signal selectionEnded()
 var currentSelection = []
 
 @export var SelectionPositionRadius := 150.0
+@export var showPosHelper := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,7 +65,7 @@ func addToSelection(selection : SelectionHandler):
 
 func _draw():
 	# Debug draw
-	if !OS.has_feature("editor"):
+	if !OS.has_feature("editor") || !showPosHelper:
 		return
 	
 	draw_circle(Vector2.ZERO, SelectionPositionRadius, Color.RED)
