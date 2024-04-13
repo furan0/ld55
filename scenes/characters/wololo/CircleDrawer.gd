@@ -20,7 +20,7 @@ func draw_my_circle():
 		to_draw += [Vector2(cos(theta),sin(theta))*radius]
 		points = PackedVector2Array(to_draw)
 		if i % 5:
-			await get_tree().physics_frame
+			await get_tree().process_frame
 		#if stop_draw:
 			#stop_draw = false
 			#drawing = false
@@ -37,7 +37,7 @@ func undraw():
 	for i in range(n_points):
 		to_draw.pop_back()
 		points = PackedVector2Array(to_draw)
-		await get_tree().physics_frame
+		await get_tree().process_frame
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
