@@ -18,3 +18,7 @@ func walk():
 	muppet.visible = true
 	key_frame.visible = false
 	animator.play("walk")
+
+#func _process(delta):
+	#if (Input.is_action_just_pressed("down")):
+		#on_pv_change(50)

@@ -1158,6 +1158,7 @@ _data = {
 
 [node name="RigPretre" type="Node2D"]
 material = ExtResource("1_mhdmb")
+position = Vector2(295, 348)
 script = ExtResource("1_65tdl")
 
 [node name="muppet" type="Node2D" parent="."]
