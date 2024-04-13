@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4a4qfkwu06hv"]
 
-[ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_ckk2v"]
 [ext_resource type="PackedScene" uid="uid://d2r4xpnpn38x1" path="res://scenes/characters/wololo/wololo.tscn" id="1_u2i6l"]
+[ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
 vertices = PackedVector2Array(1072, 34, 1096, 568, 787, 216, 722, 43, 542, 411, 506, 533, 529, 411, 443, 330, 433, 185, 427, 332, 410, 581, 88, 597, 93, 67, 419, 58)
@@ -11,11 +11,25 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="test" type="Node2D"]
 
-[node name="Wololo" parent="." instance=ExtResource("1_u2i6l")]
-position = Vector2(196, 367)
-
-[node name="Character" parent="." instance=ExtResource("1_ckk2v")]
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_0g87o")
+
+[node name="Wololo" parent="." instance=ExtResource("1_u2i6l")]
+position = Vector2(266, 471)
+
+[node name="Peon" parent="." instance=ExtResource("2_6ongp")]
+position = Vector2(205, 143)
+
+[node name="Peon3" parent="." instance=ExtResource("2_6ongp")]
+position = Vector2(312, 143)
+
+[node name="Peon4" parent="." instance=ExtResource("2_6ongp")]
+position = Vector2(118, 228)
+
+[node name="Peon5" parent="." instance=ExtResource("2_6ongp")]
+position = Vector2(386, 432)
+
+[node name="Peon2" parent="." instance=ExtResource("2_6ongp")]
+position = Vector2(895, 143)
+faction = 0

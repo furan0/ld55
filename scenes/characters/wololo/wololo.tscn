@@ -1,19 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2r4xpnpn38x1"]
+[gd_scene load_steps=9 format=3 uid="uid://d2r4xpnpn38x1"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/Wololo.gd" id="2_n4dux"]
+[ext_resource type="Script" path="res://scenes/characters/wololo/SelectorHandler.gd" id="3_jcn6r"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_x4spd"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_r2ehe"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_vu2ye"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cejr7"]
+radius = 187.024
 
 [node name="Wololo" instance=ExtResource("1_nuijn")]
+platform_floor_layers = 872349696
 script = ExtResource("2_n4dux")
 
-[node name="DefaultSprite" parent="." index="0"]
+[node name="SelectorHandler" type="Area2D" parent="." index="0"]
+script = ExtResource("3_jcn6r")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="SelectorHandler" index="0"]
+shape = SubResource("CircleShape2D_cejr7")
+
+[node name="SelectionMarker" type="Polygon2D" parent="SelectorHandler" index="1"]
+color = Color(0.427451, 0.427451, 0.427451, 1)
+polygon = PackedVector2Array(-4, -191, 130, -136, 170, -61, 185, 36, 143, 115, 82, 167, -6, 189, -91, 162, -165, 91, -187, -1, -173, -78, -115, -151)
+
+[node name="DefaultSprite" parent="." index="1"]
 modulate = Color(1, 0.164706, 0.376471, 1)
 position = Vector2(-2, 2)
 
-[node name="InputHandler" type="Node" parent="." index="3"]
+[node name="InputHandler" type="Node" parent="." index="4"]
 script = ExtResource("2_6ewwq")
 inputProvider = 2
 
+[node name="Selection" type="Node" parent="StateMachine/MainState/Alive" index="2"]
+script = ExtResource("4_x4spd")
+initial_state = NodePath("NoSelection")
+
+[node name="NoSelection" type="Node" parent="StateMachine/MainState/Alive/Selection" index="0"]
+script = ExtResource("5_r2ehe")
+
+[node name="toSelectingUnits" type="Node" parent="StateMachine/MainState/Alive/Selection/NoSelection" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../SelectingUnits")
+event = &"startSelection"
+
+[node name="SelectingUnits" type="Node" parent="StateMachine/MainState/Alive/Selection" index="1"]
+script = ExtResource("5_r2ehe")
+
+[node name="ReleasingUnits" type="Node" parent="StateMachine/MainState/Alive/Selection/SelectingUnits" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../ReleasingUnits")
+event = &"stopSelection"
+
+[node name="ReleasingUnits" type="Node" parent="StateMachine/MainState/Alive/Selection" index="2"]
+script = ExtResource("5_r2ehe")
+
+[node name="toNoSelection" type="Node" parent="StateMachine/MainState/Alive/Selection/ReleasingUnits" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../NoSelection")
+delay_seconds = 0.1
+
+[node name="Convertion" type="Node" parent="StateMachine/MainState/Alive" index="3"]
+script = ExtResource("4_x4spd")
+initial_state = NodePath("NoConvertion")
+
+[node name="NoConvertion" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="0"]
+script = ExtResource("5_r2ehe")
+
+[node name="toConverting" type="Node" parent="StateMachine/MainState/Alive/Convertion/NoConvertion" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../Converting")
+event = &"startConversion"
+
+[node name="Converting" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="1"]
+script = ExtResource("5_r2ehe")
+
+[node name="toConversionSucc" type="Node" parent="StateMachine/MainState/Alive/Convertion/Converting" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../ConversionSucc")
+event = &"minigameSucc"
+
+[node name="toConversionFailed" type="Node" parent="StateMachine/MainState/Alive/Convertion/Converting" index="1"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../ConversionFailed")
+event = &"minigameFailed"
+
+[node name="ConversionSucc" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="2"]
+script = ExtResource("5_r2ehe")
+
+[node name="toNoConversion" type="Node" parent="StateMachine/MainState/Alive/Convertion/ConversionSucc" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../NoConvertion")
+delay_seconds = 0.3
+
+[node name="ConversionFailed" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="3"]
+script = ExtResource("5_r2ehe")
+
+[node name="toNoConversion" type="Node" parent="StateMachine/MainState/Alive/Convertion/ConversionFailed" index="0"]
+script = ExtResource("6_vu2ye")
+to = NodePath("../../NoConvertion")
+delay_seconds = 0.3
+
 [connection signal="moveEnded" from="InputHandler" to="MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
 [connection signal="moveRequested" from="InputHandler" to="MoveHandler" method="moveToward"]
+[connection signal="selectEnded" from="InputHandler" to="StateMachine" method="send_event" binds= ["stopSelection"]]
+[connection signal="selectStarted" from="InputHandler" to="StateMachine" method="send_event" binds= ["startSelection"]]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/SelectingUnits" to="SelectorHandler" method="startSelection"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/ReleasingUnits" to="SelectorHandler" method="releaseSelection"]

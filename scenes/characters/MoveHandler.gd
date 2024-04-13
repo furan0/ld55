@@ -23,6 +23,11 @@ var calculatedVelocity := Vector2.ZERO
 @export var pathDesiredDistance := 4.0
 @export var targetDesiredDistance := 4.0
 
+## Signal handling
+signal startMoving()
+signal stopMoving()
+var isMoving := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Make sure to not await during _ready.
@@ -35,9 +40,11 @@ func _physics_process(_delta):
 		# Check if target Direction or position is used 
 		if useNaveMeshAgent:
 			#NavMesh control
-			if navigation_agent.is_navigation_finished():
+			if isMoving && navigation_agent.is_navigation_finished():
+				print("Point reached")
+				isMoving = false
 				direction = Vector2.ZERO
-			else:
+			elif !navigation_agent.is_navigation_finished():
 				var current_agent_position: Vector2 = global_position
 				var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 				direction = current_agent_position.direction_to(next_path_position)
@@ -57,9 +64,20 @@ func _physics_process(_delta):
 		else :
 			# We are starting to move
 			calculatedVelocity = lerp(previousVelocity, calculatedVelocity, acc_start)
+			
 	else:
 		# Can't move => no velocity*
 		calculatedVelocity = Vector2.ZERO
+		direction = Vector2.ZERO
+	
+	if isMoving && (direction == Vector2.ZERO):
+		# We stopped moving
+		isMoving = false;
+		stopMoving.emit()
+	elif !isMoving && (direction != Vector2.ZERO):
+		# We started moving
+		isMoving = true
+		startMoving.emit()
 
 ##Setup navmesh agent params
 func actorSetup():
@@ -79,3 +97,6 @@ func moveTo(target_pos : Vector2):
 	useNaveMeshAgent = true
 	# cancel target direction
 	targetDirection = Vector2.ZERO
+
+func setCanMove(status : bool):
+	canMove = status

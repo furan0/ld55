@@ -24,6 +24,11 @@ signal moveRequested(dir : Vector2)
 ## Emitted when a move started
 signal moveStarted()
 signal moveEnded()
+## Emitted when selection started/ended
+signal selectStarted()
+signal selectEnded()
+## Emitted when convertion requested
+signal convertion()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +50,16 @@ func _process(_delta):
 	elif isMoving:
 		moveEnded.emit()
 		isMoving = false
+	
+	## Check convertion
+	if (Input.is_action_just_pressed(getAction("convertion"))):
+		convertion.emit()
+	
+	## Check selection
+	if (Input.is_action_just_pressed(getAction("selection"))):
+		selectStarted.emit()
+	if (Input.is_action_just_released(getAction("selection"))):
+		selectEnded.emit()
 
 ## Function used to spoof a input signal
 func spoofInput(inputName : String, value):
@@ -56,6 +71,17 @@ func spoofInput(inputName : String, value):
 				moveStarted.emit()
 			else:
 				moveEnded.emit()
+		"convertion":
+			convertion.emit()
+		"setSelection":
+			if value:
+				selectStarted.emit()
+			else:
+				selectEnded.emit()
+		"select":
+			selectStarted.emit()
+		"release":
+			selectEnded.emit()
 
 
 ## Map given action for each player and return the new action string

@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://djyfw78hvalds"]
+
+[ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_urfq2"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="2_u12xd"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="3_lcycw"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_dbweh"]
+[ext_resource type="Script" path="res://scenes/characters/peon/SelectionHandler.gd" id="5_pwg7j"]
+
+[node name="Peon" instance=ExtResource("1_urfq2")]
+
+[node name="Status" type="Node" parent="StateMachine/MainState/Alive" index="2"]
+script = ExtResource("2_u12xd")
+initial_state = NodePath("Selected")
+
+[node name="Selected" type="Node" parent="StateMachine/MainState/Alive/Status" index="0"]
+script = ExtResource("3_lcycw")
+
+[node name="toIdle" type="Node" parent="StateMachine/MainState/Alive/Status/Selected" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Idle")
+event = &"released"
+
+[node name="Attacking" type="Node" parent="StateMachine/MainState/Alive/Status" index="1"]
+script = ExtResource("2_u12xd")
+initial_state = NodePath("MovingTo")
+
+[node name="MovingTo" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="0"]
+script = ExtResource("3_lcycw")
+
+[node name="AttackAction" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="1"]
+script = ExtResource("2_u12xd")
+initial_state = NodePath("PreAttack")
+
+[node name="PreAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="0"]
+script = ExtResource("3_lcycw")
+
+[node name="Attack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="1"]
+script = ExtResource("3_lcycw")
+
+[node name="PostAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="2"]
+script = ExtResource("3_lcycw")
+
+[node name="toIdle" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="2"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Idle")
+
+[node name="toSelected" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="3"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Selected")
+event = &"selected"
+
+[node name="Idle" type="Node" parent="StateMachine/MainState/Alive/Status" index="2"]
+script = ExtResource("2_u12xd")
+initial_state = NodePath("Carefree")
+
+[node name="Carefree" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="0"]
+script = ExtResource("3_lcycw")
+
+[node name="Aware" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="1"]
+script = ExtResource("3_lcycw")
+
+[node name="toSelected" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="2"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Selected")
+event = &"selected"
+
+[node name="toAttacking" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="3"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Attacking")
+event = &"enemyInRange"
+
+[node name="SelectionHandler" type="Node" parent="." index="4"]
+script = ExtResource("5_pwg7j")
+
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
+[connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
+[connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]
+[connection signal="selected" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["selected"]]
