@@ -14,6 +14,9 @@ signal factionChanged()
 # life & hitpoints
 @export var MAX_HEALTH := 100
 @onready var health := MAX_HEALTH
+@export var invisible := false
+signal hurt()
+signal lifeChanged(newValue : int)
 
 #Child nodes
 @onready var move_handler : MoveHandler = %MoveHandler
@@ -40,3 +43,15 @@ func setFaction(newFaction : EFaction):
 func kill():
 	is_dead = true
 	dead.emit()
+
+func hit(damage : int):
+	if invisible || is_dead:
+		return
+	else:
+		health = max(health - damage, 0)
+		hurt.emit()
+		lifeChanged.emit(health)
+		
+		if health == 0:
+			# We are dead...
+			kill()

@@ -25,6 +25,7 @@ signal newTargetFound()
 @export var attackRange := 75
 @export var rushMargin := 10
 @export var attackHitPoint := 25
+@export var displayRangeDebug := false
 
 var isAttacking := false
 signal rushingToward(pos : Vector2)
@@ -80,6 +81,7 @@ func attack():
 		lookForTarget()
 		return
 	
+	target.hit(attackHitPoint)
 	
 
 func lookForTarget():
@@ -154,7 +156,7 @@ func isTargetValid(body : Node2D) -> bool:
 
 func _draw():
 	# Debug draw
-	if !OS.has_feature("editor"):
+	if !OS.has_feature("editor") || !displayRangeDebug:
 		return
 	
 	draw_circle(Vector2.ZERO, rushDistance, Color.ORANGE)
