@@ -1,7 +1,5 @@
 extends Area2D
 
-@onready var selection_marker = $SelectionMarker
-
 signal selectionStarted()
 signal selectionEnded()
 
@@ -12,7 +10,6 @@ var currentSelection = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	selection_marker.hide()
 	monitoring = false
 	
 	body_entered.connect(bodyDetected)
@@ -30,12 +27,10 @@ func _process(_delta):
 		i += 1
 
 func startSelection():
-	selection_marker.show()
 	monitoring = true
 	selectionStarted.emit()
 
 func releaseSelection():
-	selection_marker.hide()
 	monitoring = false
 	selectionEnded.emit()
 	
