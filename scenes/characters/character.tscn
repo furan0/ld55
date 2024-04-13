@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8a68p88th32d"]
+[gd_scene load_steps=11 format=3 uid="uid://b8a68p88th32d"]
 
 [ext_resource type="Script" path="res://scenes/characters/Character.gd" id="1_true6"]
 [ext_resource type="Texture2D" uid="uid://bg2bdwlmu5ycs" path="res://assets/godot.svg" id="2_m058b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_tiv0h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="7_pt6ja"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="7_ron71"]
+[ext_resource type="Script" path="res://scenes/characters/LookAt.gd" id="9_lf48e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_64fn3"]
 radius = 47.0
@@ -73,6 +74,10 @@ event = &"stopMove"
 
 [node name="Dead" type="Node" parent="StateMachine/MainState"]
 script = ExtResource("7_pt6ja")
+
+[node name="LookAt" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_lf48e")
 
 [connection signal="dead" from="." to="StateMachine" method="send_event" binds= ["dead"]]
 [connection signal="startMoving" from="MoveHandler" to="StateMachine" method="send_event" binds= ["startMove"]]

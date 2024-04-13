@@ -7,7 +7,7 @@ signal selectionEnded()
 
 var currentSelection = []
 
-@export var SelectionPositionRadius := 10.0
+@export var SelectionPositionRadius := 150.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

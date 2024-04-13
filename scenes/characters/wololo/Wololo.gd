@@ -1,4 +1,5 @@
 extends Character
+class_name Wololo
 ## Wololo class
 ##
 ## Main player class. handle 'Wololo' and 'Ayoooo' stuffs i guess....

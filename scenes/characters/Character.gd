@@ -11,6 +11,10 @@ enum EFaction {BLUE, RED, GAIA}
 @export var faction : EFaction = EFaction.GAIA
 signal factionChanged()
 
+# life & hitpoints
+@export var MAX_HEALTH := 100
+@onready var health := MAX_HEALTH
+
 #Child nodes
 @onready var move_handler : MoveHandler = %MoveHandler
 
