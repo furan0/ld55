@@ -1,15 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4a4qfkwu06hv"]
+[gd_scene load_steps=10 format=3 uid="uid://b4a4qfkwu06hv"]
 
 [ext_resource type="PackedScene" uid="uid://d2r4xpnpn38x1" path="res://scenes/characters/wololo/wololo.tscn" id="1_u2i6l"]
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
 [ext_resource type="Texture2D" uid="uid://u0na3vrousr5" path="res://scenes/levels/decors/cailloux.png" id="3_m3sat"]
 [ext_resource type="Texture2D" uid="uid://dwsdyra3net5r" path="res://scenes/levels/decors/roche.png" id="4_6ehds"]
+[ext_resource type="Script" path="res://scenes/levels/ShakyShaky.gd" id="5_djlqj"]
+[ext_resource type="Script" path="res://scenes/levels/Camera.gd" id="5_efp2c"]
+[ext_resource type="Script" path="res://scenes/levels/CameraTarget.gd" id="7_8hb2s"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
 vertices = PackedVector2Array(719, 43, 1072, 34, 1097, 585, 809, 518, 589, 119, 499, 545, 435, 198, 420, 581, 88, 597, 93, 67, 419, 58, 462, 566)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6), PackedInt32Array(7, 8, 9, 10, 6), PackedInt32Array(7, 6, 5, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(84, 58, 78, 608, 420, 591, 467, 575, 502, 555, 808, 528, 1108, 598, 1082, 24, 716, 34, 584, 110, 443, 182, 429, 48)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_na20g"]
+radius = 7.07107
 
 [node name="test" type="Node2D"]
 y_sort_enabled = true
@@ -18,7 +24,8 @@ y_sort_enabled = true
 position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_0g87o")
 
-[node name="Wololo" parent="." instance=ExtResource("1_u2i6l")]
+[node name="Player1" parent="." instance=ExtResource("1_u2i6l")]
+unique_name_in_owner = true
 position = Vector2(266, 471)
 faction = 0
 
@@ -49,3 +56,17 @@ texture = ExtResource("3_m3sat")
 [node name="Roche" type="Sprite2D" parent="."]
 position = Vector2(507, 80)
 texture = ExtResource("4_6ehds")
+
+[node name="Camera" type="Node2D" parent="."]
+script = ExtResource("5_efp2c")
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+script = ExtResource("5_djlqj")
+
+[node name="CameraTarget1" type="CharacterBody2D" parent="Camera"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_8hb2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/CameraTarget1"]
+shape = SubResource("CircleShape2D_na20g")
