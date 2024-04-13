@@ -1,5 +1,9 @@
 extends Rig2D
 
+func _ready():
+	super._ready()
+	idle()
+
 func convertion():
 	muppet.visible = false
 	key_frame.visible = true

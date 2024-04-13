@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://u8bgohyhdggc" path="res://scenes/entities/Rig2D/pretre/wolobarbe.png" id="9_t60uc"]
 [ext_resource type="Texture2D" uid="uid://dnaqwlwlyylle" path="res://scenes/entities/Rig2D/pretre/wolobarbe2.png" id="10_rs1wl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4uu18"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8igwp"]
 shader = ExtResource("6_1tgfe")
-shader_parameter/overridecolor = Color(0, 0.654902, 0.788235, 1)
+shader_parameter/overridecolor = Color(0.803922, 0.490196, 0.690196, 1)
 
 [sub_resource type="Animation" id="Animation_0r3lg"]
 resource_name = "idle"
@@ -1161,9 +1161,11 @@ _data = {
 }
 
 [node name="RigPretre" type="Node2D"]
+material = SubResource("ShaderMaterial_8igwp")
 script = ExtResource("1_65tdl")
 
 [node name="muppet" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="Baton" type="Sprite2D" parent="muppet"]
 z_index = -4
@@ -1190,7 +1192,6 @@ offset = Vector2(-6, -24)
 
 [node name="Chapeau" type="Sprite2D" parent="muppet/Body/Tete"]
 z_index = 1
-material = SubResource("ShaderMaterial_4uu18")
 position = Vector2(-2, -46)
 texture = ExtResource("6_njg6k")
 
@@ -1212,7 +1213,6 @@ texture = ExtResource("9_8x71d")
 [node name="keyframe" type="Node2D" parent="."]
 
 [node name="Wolopose" type="Sprite2D" parent="keyframe"]
-visible = false
 position = Vector2(-2, -140)
 texture = ExtResource("8_6kdlm")
 
