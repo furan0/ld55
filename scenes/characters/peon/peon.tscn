@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djyfw78hvalds"]
+[gd_scene load_steps=13 format=3 uid="uid://djyfw78hvalds"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_urfq2"]
 [ext_resource type="Script" path="res://scenes/characters/peon/Peon.gd" id="2_gniem"]
@@ -6,10 +6,23 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="3_lcycw"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_dbweh"]
 [ext_resource type="Script" path="res://scenes/characters/peon/SelectionHandler.gd" id="5_pwg7j"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="7_a2lh4"]
 [ext_resource type="Script" path="res://scenes/characters/peon/AttackHandler.gd" id="7_sikxc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aaboq"]
 radius = 269.091
+
+[sub_resource type="Resource" id="Resource_s07df"]
+script = ExtResource("7_a2lh4")
+expression = "not hasTarget"
+
+[sub_resource type="Resource" id="Resource_0a316"]
+script = ExtResource("7_a2lh4")
+expression = "hasTarget"
+
+[sub_resource type="Resource" id="Resource_1rhho"]
+script = ExtResource("7_a2lh4")
+expression = "not hasTarget"
 
 [node name="Peon" instance=ExtResource("1_urfq2")]
 script = ExtResource("2_gniem")
@@ -18,6 +31,8 @@ peonType = 0
 [node name="AttackHandler" type="Node2D" parent="." index="0"]
 script = ExtResource("7_sikxc")
 rushDistance = 150
+attackRange = 100
+rushMargin = 20
 
 [node name="AreaAware" type="Area2D" parent="AttackHandler" index="0"]
 monitorable = false
@@ -27,10 +42,11 @@ shape = SubResource("CircleShape2D_aaboq")
 debug_color = Color(0.262745, 0.631373, 0, 0.419608)
 
 [node name="AwareTimer" type="Timer" parent="AttackHandler" index="1"]
+wait_time = 0.5
 
 [node name="Status" type="Node" parent="StateMachine/MainState/Alive" index="2"]
 script = ExtResource("2_u12xd")
-initial_state = NodePath("Selected")
+initial_state = NodePath("Idle")
 
 [node name="Selected" type="Node" parent="StateMachine/MainState/Alive/Status" index="0"]
 script = ExtResource("3_lcycw")
@@ -63,6 +79,7 @@ script = ExtResource("3_lcycw")
 [node name="toIdle" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="2"]
 script = ExtResource("4_dbweh")
 to = NodePath("../../Idle")
+guard = SubResource("Resource_s07df")
 
 [node name="toSelected" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="3"]
 script = ExtResource("4_dbweh")
@@ -76,8 +93,23 @@ initial_state = NodePath("Carefree")
 [node name="Carefree" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="0"]
 script = ExtResource("3_lcycw")
 
+[node name="toAware" type="Node" parent="StateMachine/MainState/Alive/Status/Idle/Carefree" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Aware")
+guard = SubResource("Resource_0a316")
+
 [node name="Aware" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="1"]
 script = ExtResource("3_lcycw")
+
+[node name="toCarefree" type="Node" parent="StateMachine/MainState/Alive/Status/Idle/Aware" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Carefree")
+guard = SubResource("Resource_1rhho")
+
+[node name="toAttacking" type="Node" parent="StateMachine/MainState/Alive/Status/Idle/Aware" index="1"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../../Attacking")
+event = &"startRush"
 
 [node name="toSelected" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="2"]
 script = ExtResource("4_dbweh")
@@ -92,7 +124,16 @@ event = &"enemyInRange"
 [node name="SelectionHandler" type="Node" parent="." index="5"]
 script = ExtResource("5_pwg7j")
 
+[connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
+[connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
+[connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]
+[connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
+[connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="AttackHandler" method="enableTargetLooking" binds= [false]]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
 [connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]

@@ -41,7 +41,7 @@ func _physics_process(_delta):
 		if useNaveMeshAgent:
 			#NavMesh control
 			if isMoving && navigation_agent.is_navigation_finished():
-				print("Point reached")
+				#print("Point reached")
 				isMoving = false
 				direction = Vector2.ZERO
 			elif !navigation_agent.is_navigation_finished():

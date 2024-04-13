@@ -23,28 +23,54 @@ signal newTargetFound()
 @export_group("Attack settings")
 @export var rushDistance := 100
 @export var attackRange := 75
+@export var rushMargin := 10
 @export var attackHitPoint := 25
 
 var isAttacking := false
-signal startRush(pos : Vector2)
+signal rushingToward(pos : Vector2)
+signal startRush()
+signal canAttack()
+signal stopAttack()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Start scanning at beginning 
 	lookForTarget()
 
-
+## Process called every frame when aware but not attacking
 func processAware(_delta):
-	if target == null:
-		printerr("Aware without a valid target...")
-		targetLost.emit()
-		return;
+	# First, check target validity
+	if !isTargetValid(target):
+		# Invalidtarget -> remove it and look again
+		lookForTarget()
+		return
 	
 	var targetPos = target.global_position
 	var currentPos = get_parent().global_position
 	if abs(currentPos.distance_to(targetPos) ) <= rushDistance:
-		startRush.emit(targetPos)
-		
+		startRush.emit()
+
+## Process called every frame when attacking
+func processAttacking(_delta):
+	# First, check target validity
+	if !isTargetValid(target):
+		# Invalidtarget -> remove it and look again
+		lookForTarget()
+		return
+	
+	# Check if target in combat range
+	var targetPos : Vector2  = target.global_position
+	var currentPos : Vector2 = get_parent().global_position
+	if abs(currentPos.distance_to(targetPos) ) <= attackRange:
+		canAttack.emit()
+	else:
+		# Stop atacking
+		stopAttack.emit()
+		# Calculate new rush position
+		var targetDir := (targetPos - currentPos).normalized()
+		var desiredOffset := attackRange - rushMargin
+		var desiredPos := targetPos - targetDir * desiredOffset
+		rushingToward.emit(desiredPos)
 
 func lookForTarget():
 	if !isLookingForTarget:
@@ -64,7 +90,7 @@ func lookForTarget():
 	var currentBestDist : float = 999999999999.0
 	for body in bodies:
 		#check if same faction or not character
-		if not body is Character || body.faction == get_parent().faction:
+		if !isTargetValid(body):
 			continue
 			
 		# check distance
@@ -105,6 +131,17 @@ func enableTargetLooking(enabled : bool):
 		lookForTarget()
 	isLookingForTarget = enabled
 
+func isTargetValid(body : Node2D) -> bool:
+	if body == null:
+		return false
+	if not body is Character:
+		return false
+	if body.faction == get_parent().faction:
+		return false
+	if body.is_dead:
+		return false
+	return true
+
 func _draw():
 	# Debug draw
 	if !OS.has_feature("editor"):
@@ -112,3 +149,4 @@ func _draw():
 	
 	draw_circle(Vector2.ZERO, rushDistance, Color.ORANGE)
 	draw_circle(Vector2.ZERO, attackRange, Color.RED)
+
