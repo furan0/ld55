@@ -83,14 +83,14 @@ func _process(_delta : float):
 		var status := ResourceLoader.load_threaded_get_status(sceneCurrentlyLoading, progress) 
 		match status:
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-				$LoadingUI.loadPercent = progress[0]
+				%LoadingUI.loadPercent = progress[0]
 			ResourceLoader.THREAD_LOAD_FAILED | ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 				# Error !! Signal it then abort scene switching
 				push_error(\"Scene loading failed ! Wanted scene : \" + sceneCurrentlyLoading)
 				isANewSceneLoading = false
 			ResourceLoader.THREAD_LOAD_LOADED:
 				isANewSceneLoading = false
-				$LoadingUI.loadPercent = 100.0
+				%LoadingUI.loadPercent = 100.0
 				call_deferred(\"_completeSceneLoading\", sceneCurrentlyLoading)
 
 
@@ -108,8 +108,8 @@ func goto_scene(path : String) -> void:
 		return
 		
 	# First, show the loading UI at 0%
-	$LoadingUI.loadPercent = 0.0
-	$LoadingUI.displayUI()
+	%LoadingUI.loadPercent = 0.0
+	%LoadingUI.displayUI()
 	
 	# Then start the loading process
 	ResourceLoader.load_threaded_request(path)
@@ -136,7 +136,7 @@ func _completeSceneLoading(path : String) -> void:
 	get_tree().current_scene = currentScene
 	
 	# remove Loading UI & signal end of scene switching
-	$LoadingUI.hideUI()
+	%LoadingUI.hideUI()
 	sceneSwitchCompleted.emit()
 	print(\"Scene switching completed\")
 "
@@ -152,4 +152,5 @@ The following are handled by this script:
 script = SubResource("GDScript_s08av")
 
 [node name="LoadingUI" parent="." instance=ExtResource("2_8p2q1")]
+unique_name_in_owner = true
 visible = false

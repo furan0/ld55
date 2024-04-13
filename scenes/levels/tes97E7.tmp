@@ -10,9 +10,9 @@ radius = 47.0
 height = 94.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
-vertices = PackedVector2Array(1072, 34, 1096, 568, 787, 216, 722, 43, 542, 411, 506, 533, 529, 411, 443, 330, 433, 185, 427, 332, 410, 581, 88, 597, 93, 67, 419, 58)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 10, 11, 12, 13, 8), PackedInt32Array(8, 7, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(84, 58, 78, 608, 420, 591, 436, 341, 502, 555, 787, 231, 1108, 598, 1082, 24, 716, 34, 536, 401, 443, 182, 429, 48)])
+vertices = PackedVector2Array(1072, 34, 1097, 587, 762, 577, 748, 307, 726, 43, 729, 156, 427, 332, 410, 581, 88, 597, 93, 67, 419, 58, 434, 193)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(3, 6, 11, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(84, 58, 78, 608, 420, 591, 436, 341, 739, 318, 753, 587, 1108, 598, 1082, 24, 716, 34, 719, 147, 443, 182, 429, 48)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="test" type="Node2D"]
@@ -41,8 +41,11 @@ script = ExtResource("4_335sl")
 inputProvider = 2
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_0g87o")
+
+[node name="testTarget" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(945, 532)
 
 [connection signal="moveEnded" from="Wololo/InputHandler" to="Wololo/MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
 [connection signal="moveRequested" from="Wololo/InputHandler" to="Wololo/MoveHandler" method="moveToward"]
