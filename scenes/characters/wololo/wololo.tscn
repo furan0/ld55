@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2r4xpnpn38x1"]
+[gd_scene load_steps=10 format=3 uid="uid://d2r4xpnpn38x1"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_x4spd"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_r2ehe"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_vu2ye"]
+[ext_resource type="PackedScene" uid="uid://pfaxr3ii4krq" path="res://scenes/entities/Rig2D/rig_pretre.tscn" id="8_h3pwf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cejr7"]
 radius = 187.024
@@ -97,6 +98,12 @@ delay_seconds = 0.3
 [node name="InputHandler" type="Node" parent="." index="4"]
 script = ExtResource("2_6ewwq")
 inputProvider = 2
+
+[node name="DefaultSprite" parent="LookAt" index="0"]
+visible = false
+
+[node name="RigPretre" parent="Graphsime" index="0" instance=ExtResource("8_h3pwf")]
+position = Vector2(-10, 13)
 
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/SelectingUnits" to="SelectorHandler" method="startSelection"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/ReleasingUnits" to="SelectorHandler" method="releaseSelection"]

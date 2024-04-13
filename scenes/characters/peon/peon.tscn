@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djyfw78hvalds"]
+[gd_scene load_steps=14 format=3 uid="uid://djyfw78hvalds"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_urfq2"]
 [ext_resource type="Script" path="res://scenes/characters/peon/Peon.gd" id="2_gniem"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/characters/peon/SelectionHandler.gd" id="5_pwg7j"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="7_a2lh4"]
 [ext_resource type="Script" path="res://scenes/characters/peon/AttackHandler.gd" id="7_sikxc"]
+[ext_resource type="PackedScene" uid="uid://bv3wjwnvjht23" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="9_a6ot0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aaboq"]
 radius = 269.091
@@ -148,11 +149,14 @@ event = &"enemyInRange"
 [node name="SelectionHandler" type="Node" parent="." index="5"]
 script = ExtResource("5_pwg7j")
 
+
+[node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
+
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
 [connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
 [connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
 [connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
 [connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
-[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
@@ -161,7 +165,6 @@ script = ExtResource("5_pwg7j")
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
-[connection signal="state_entered" from="StateMachine/MainState/Dead" to="AttackHandler" method="enableTargetLooking" binds= [false]]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
 [connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
 [connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]

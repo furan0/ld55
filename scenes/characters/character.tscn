@@ -86,8 +86,11 @@ unique_name_in_owner = true
 script = ExtResource("9_lf48e")
 
 [node name="DefaultSprite" type="Sprite2D" parent="LookAt"]
+visible = false
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_m058b")
+
+[node name="Graphsime" type="Node2D" parent="."]
 
 [connection signal="dead" from="." to="StateMachine" method="send_event" binds= ["dead"]]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="MoveHandler" method="setCanMove" binds= [false]]
