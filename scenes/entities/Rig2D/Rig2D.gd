@@ -2,6 +2,10 @@ class_name  Rig2D
 extends Node2D
 
 @export_group("Color param")
+@export var blue_color = Color.ROYAL_BLUE
+@export var red_color = Color.BROWN
+@export var gaia_color = Color.PEACH_PUFF
+
 @export var color_target = Color.AQUA
 @export var blink_time := 3;
 
@@ -37,8 +41,8 @@ func _ready():
 	
 	material = material.duplicate() # making the material unique.
 	_override_mat(self)
-	set_color(color_target)
-	
+	update_color()
+
 	# putting HUD
 	local_hud = hud.instantiate()
 	add_child(local_hud)
@@ -71,3 +75,12 @@ func dead():
 		for j in range(5):
 			await get_tree().physics_frame
 		material.set_shader_parameter("blink_color",Color(Color.BLACK,(i)/5.0));
+
+func update_color():
+	var team := get_parent().get_parent().faction as Character.EFaction
+	if team == Character.EFaction.BLUE:
+		set_color(blue_color)
+	elif team == Character.EFaction.RED:
+		set_color(red_color)
+	else:
+		set_color(gaia_color)

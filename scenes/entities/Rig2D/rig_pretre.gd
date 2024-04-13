@@ -3,7 +3,10 @@ extends Rig2D
 func _ready():
 	super._ready()
 	idle()
-
+	$"../../StateMachine/MainState/Alive/Movement/Move".state_entered.connect(walk)
+	$"../../StateMachine/MainState/Alive/Movement/Stopped".state_entered.connect(idle)
+	$"../../StateMachine/MainState/Alive/Convertion/Converting".state_entered.connect(convertion)
+	
 func convertion():
 	muppet.visible = false
 	key_frame.visible = true
