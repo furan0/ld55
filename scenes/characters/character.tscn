@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8a68p88th32d"]
+
+[ext_resource type="Script" path="res://scenes/characters/Character.gd" id="1_true6"]
+[ext_resource type="Texture2D" uid="uid://bg2bdwlmu5ycs" path="res://assets/godot.svg" id="2_m058b"]
+[ext_resource type="Script" path="res://scenes/characters/MoveHandler.gd" id="3_h45uq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_64fn3"]
+radius = 47.0
+height = 94.0
+
+[node name="Character" type="CharacterBody2D"]
+position = Vector2(196, 165)
+script = ExtResource("1_true6")
+
+[node name="DefaultSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_m058b")
+
+[node name="MoveHandler" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_h45uq")
+acc_start = 0.3
+acc_end = 0.2
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="MoveHandler"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_64fn3")

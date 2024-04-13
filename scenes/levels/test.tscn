@@ -1,13 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4a4qfkwu06hv"]
+[gd_scene load_steps=4 format=3 uid="uid://b4a4qfkwu06hv"]
 
-[ext_resource type="Script" path="res://scenes/characters/Character.gd" id="1_qwud8"]
-[ext_resource type="Texture2D" uid="uid://bg2bdwlmu5ycs" path="res://assets/godot.svg" id="2_riefg"]
-[ext_resource type="Script" path="res://scenes/characters/MoveHandler.gd" id="2_vtdt5"]
-[ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="4_335sl"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_64fn3"]
-radius = 47.0
-height = 94.0
+[ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_ckk2v"]
+[ext_resource type="PackedScene" uid="uid://d2r4xpnpn38x1" path="res://scenes/characters/wololo/wololo.tscn" id="1_u2i6l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
 vertices = PackedVector2Array(1072, 34, 1096, 568, 787, 216, 722, 43, 542, 411, 506, 533, 529, 411, 443, 330, 433, 185, 427, 332, 410, 581, 88, 597, 93, 67, 419, 58)
@@ -17,32 +11,11 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="test" type="Node2D"]
 
-[node name="Wololo" type="CharacterBody2D" parent="."]
-position = Vector2(196, 165)
-script = ExtResource("1_qwud8")
+[node name="Wololo" parent="." instance=ExtResource("1_u2i6l")]
+position = Vector2(196, 367)
 
-[node name="Sprite2D" type="Sprite2D" parent="Wololo"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_riefg")
-
-[node name="MoveHandler" type="Node2D" parent="Wololo"]
-unique_name_in_owner = true
-script = ExtResource("2_vtdt5")
-acc_start = 0.3
-acc_end = 0.2
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Wololo/MoveHandler"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wololo"]
-shape = SubResource("CapsuleShape2D_64fn3")
-
-[node name="InputHandler" type="Node" parent="Wololo"]
-script = ExtResource("4_335sl")
-inputProvider = 2
+[node name="Character" parent="." instance=ExtResource("1_ckk2v")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_0g87o")
-
-[connection signal="moveEnded" from="Wololo/InputHandler" to="Wololo/MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
-[connection signal="moveRequested" from="Wololo/InputHandler" to="Wololo/MoveHandler" method="moveToward"]

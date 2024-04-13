@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2r4xpnpn38x1"]
+
+[ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
+[ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
+[ext_resource type="Script" path="res://scenes/characters/wololo/Wololo.gd" id="2_n4dux"]
+
+[node name="Wololo" instance=ExtResource("1_nuijn")]
+script = ExtResource("2_n4dux")
+
+[node name="DefaultSprite" parent="." index="0"]
+modulate = Color(1, 0.164706, 0.376471, 1)
+position = Vector2(-2, 2)
+
+[node name="InputHandler" type="Node" parent="." index="3"]
+script = ExtResource("2_6ewwq")
+inputProvider = 2
+
+[connection signal="moveEnded" from="InputHandler" to="MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
+[connection signal="moveRequested" from="InputHandler" to="MoveHandler" method="moveToward"]
