@@ -28,10 +28,6 @@ motion_mode = 1
 platform_floor_layers = 0
 script = ExtResource("1_true6")
 
-[node name="DefaultSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_m058b")
-
 [node name="MoveHandler" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 2)
@@ -88,6 +84,10 @@ script = ExtResource("7_pt6ja")
 [node name="LookAt" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("9_lf48e")
+
+[node name="DefaultSprite" type="Sprite2D" parent="LookAt"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_m058b")
 
 [connection signal="dead" from="." to="StateMachine" method="send_event" binds= ["dead"]]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="MoveHandler" method="setCanMove" binds= [false]]

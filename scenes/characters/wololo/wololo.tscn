@@ -25,14 +25,6 @@ shape = SubResource("CircleShape2D_cejr7")
 color = Color(0.427451, 0.427451, 0.427451, 1)
 polygon = PackedVector2Array(-4, -191, 130, -136, 170, -61, 185, 36, 143, 115, 82, 167, -6, 189, -91, 162, -165, 91, -187, -1, -173, -78, -115, -151)
 
-[node name="DefaultSprite" parent="." index="1"]
-modulate = Color(1, 0.164706, 0.376471, 1)
-position = Vector2(-2, 2)
-
-[node name="InputHandler" type="Node" parent="." index="4"]
-script = ExtResource("2_6ewwq")
-inputProvider = 2
-
 [node name="Selection" type="Node" parent="StateMachine/MainState/Alive" index="2"]
 script = ExtResource("4_x4spd")
 initial_state = NodePath("NoSelection")
@@ -102,9 +94,13 @@ script = ExtResource("6_vu2ye")
 to = NodePath("../../NoConvertion")
 delay_seconds = 0.3
 
+[node name="InputHandler" type="Node" parent="." index="4"]
+script = ExtResource("2_6ewwq")
+inputProvider = 2
+
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/SelectingUnits" to="SelectorHandler" method="startSelection"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/ReleasingUnits" to="SelectorHandler" method="releaseSelection"]
 [connection signal="moveEnded" from="InputHandler" to="MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
 [connection signal="moveRequested" from="InputHandler" to="MoveHandler" method="moveToward"]
 [connection signal="selectEnded" from="InputHandler" to="StateMachine" method="send_event" binds= ["stopSelection"]]
 [connection signal="selectStarted" from="InputHandler" to="StateMachine" method="send_event" binds= ["startSelection"]]
-[connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/SelectingUnits" to="SelectorHandler" method="startSelection"]
-[connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/ReleasingUnits" to="SelectorHandler" method="releaseSelection"]
