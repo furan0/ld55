@@ -17,7 +17,7 @@ func draw_my_circle():
 	to_draw = []
 	for i in range(n_points):
 		var theta = 2 * PI * i/n_points 
-		to_draw += [Vector2(cos(theta),sin(theta))*radius]
+		to_draw += [Vector2(cos(theta),sin(theta)*0.8)*radius]
 		points = PackedVector2Array(to_draw)
 		if i % 5:
 			await get_tree().process_frame
