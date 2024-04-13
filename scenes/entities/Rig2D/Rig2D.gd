@@ -65,3 +65,9 @@ func do_blink():
 	for i in range(blink_time):
 		await get_tree().physics_frame
 	material.set_shader_parameter("blink_color",Color(Color.WHITE,0.0));
+
+func dead():
+	for i in range(5):
+		for j in range(5):
+			await get_tree().physics_frame
+		material.set_shader_parameter("blink_color",Color(Color.BLACK,(i)/5.0));

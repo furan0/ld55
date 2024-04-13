@@ -1158,7 +1158,6 @@ _data = {
 
 [node name="RigPretre" type="Node2D"]
 material = ExtResource("1_mhdmb")
-position = Vector2(295, 348)
 script = ExtResource("1_65tdl")
 
 [node name="muppet" type="Node2D" parent="."]
@@ -1176,6 +1175,7 @@ texture = ExtResource("3_ibwq7")
 offset = Vector2(9, -60)
 
 [node name="Basrobe" type="Sprite2D" parent="muppet/Body"]
+visible = false
 z_index = -2
 position = Vector2(2, -1)
 texture = ExtResource("4_77xs2")
@@ -1208,6 +1208,7 @@ position = Vector2(-14, -23)
 texture = ExtResource("9_8x71d")
 
 [node name="keyframe" type="Node2D" parent="."]
+visible = false
 
 [node name="Wolopose" type="Sprite2D" parent="keyframe"]
 position = Vector2(-2, -140)
