@@ -46,7 +46,9 @@ func _ready():
 	local_hud = hud.instantiate()
 	add_child(local_hud)
 	local_hud.position = hud_offset
-	
+
+func _physics_process(delta):
+	scale = Vector2(-1,1) if get_parent().get_parent().velocity.x > 0.0 else Vector2.ONE
 	
 func on_pv_change(new_pv):
 	local_hud.set_life(new_pv)
