@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djyfw78hvalds"]
+[gd_scene load_steps=15 format=3 uid="uid://djyfw78hvalds"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_urfq2"]
 [ext_resource type="Script" path="res://scenes/characters/peon/Peon.gd" id="2_gniem"]
@@ -12,6 +12,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aaboq"]
 radius = 269.091
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ebq"]
+radius = 27.0
+height = 78.0
 
 [sub_resource type="Resource" id="Resource_s07df"]
 script = ExtResource("7_a2lh4")
@@ -45,6 +49,10 @@ debug_color = Color(0.262745, 0.631373, 0, 0.419608)
 [node name="AwareTimer" type="Timer" parent="AttackHandler" index="1"]
 wait_time = 0.5
 
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -36)
+shape = SubResource("CapsuleShape2D_h1ebq")
+
 [node name="Status" type="Node" parent="StateMachine/MainState/Alive" index="2"]
 script = ExtResource("2_u12xd")
 initial_state = NodePath("Idle")
@@ -64,6 +72,11 @@ initial_state = NodePath("MovingTo")
 [node name="MovingTo" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="0"]
 script = ExtResource("3_lcycw")
 
+[node name="toAttackAction" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/MovingTo" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../AttackAction")
+event = &"canAttack"
+
 [node name="AttackAction" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="1"]
 script = ExtResource("2_u12xd")
 initial_state = NodePath("PreAttack")
@@ -71,11 +84,30 @@ initial_state = NodePath("PreAttack")
 [node name="PreAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="0"]
 script = ExtResource("3_lcycw")
 
+[node name="toAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction/PreAttack" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../Attack")
+delay_seconds = 0.1
+
 [node name="Attack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="1"]
 script = ExtResource("3_lcycw")
 
+[node name="toPostAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" index="0"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../PostAttack")
+
 [node name="PostAttack" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="2"]
 script = ExtResource("3_lcycw")
+
+[node name="toMovingTo" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="3"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../MovingTo")
+event = &"stopAttack"
+
+[node name="toItself" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction" index="4"]
+script = ExtResource("4_dbweh")
+to = NodePath("../..")
+delay_seconds = 1.0
 
 [node name="toIdle" type="Node" parent="StateMachine/MainState/Alive/Status/Attacking" index="2"]
 script = ExtResource("4_dbweh")
@@ -112,6 +144,11 @@ script = ExtResource("4_dbweh")
 to = NodePath("../../../Attacking")
 event = &"startRush"
 
+[node name="toAttackAction" type="Node" parent="StateMachine/MainState/Alive/Status/Idle/Aware" index="2"]
+script = ExtResource("4_dbweh")
+to = NodePath("../../../Attacking/AttackAction")
+event = &"canAttack"
+
 [node name="toSelected" type="Node" parent="StateMachine/MainState/Alive/Status/Idle" index="2"]
 script = ExtResource("4_dbweh")
 to = NodePath("../../Selected")
@@ -127,10 +164,18 @@ script = ExtResource("5_pwg7j")
 
 [node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
 
+[connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
+[connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
+[connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
+[connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
 [connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]

@@ -32,8 +32,8 @@ peonType = 2
 position = Vector2(551, 269)
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("3_jgbgq")]
-offset_left = 33.0
-offset_top = 23.0
-offset_right = 612.0
-offset_bottom = 501.0
+offset_left = -9.0
+offset_top = -25.0
+offset_right = 353.0
+offset_bottom = 458.0
 initial_node_to_watch = NodePath("../Peon")

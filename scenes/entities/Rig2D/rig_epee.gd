@@ -1,13 +1,22 @@
 extends Rig2D
 
-#
+@onready var state_machine = %StateMachine
+@onready var peon = $"../.."
+
 ## Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
-	$"../../StateMachine/MainState/Alive/Movement/Move".state_entered.connect(walk)
-	$"../../StateMachine/MainState/Alive/Movement/Stopped".state_entered.connect(idle)
-	$"../../StateMachine/MainState/Alive/Status/Attacking/AttackAction/PreAttack".state_entered.connect(preattaque)
-	$"../../StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack".state_entered.connect(attaque)
+	state_machine.get_node("MainState/Alive/Movement/Move").state_entered.connect(walk)
+	state_machine.get_node("MainState/Alive/Movement/Stopped").state_entered.connect(idle)
+	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction/PreAttack").state_entered.connect(preattaque)
+	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction/Attack").state_entered.connect(attaque)
+	peon.lifeChanged.connect(on_pv_change)
+	peon.dead.connect(dead)
+
+##### Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+	#if (Input.is_action_just_pressed("down")):
+		#dead()
 
 
 func walk():
