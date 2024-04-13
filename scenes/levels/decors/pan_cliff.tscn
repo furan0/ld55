@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2u4tdpvhw5s8"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7ylwa"]
+b = Vector2(504, 299)
+
+[node name="PanCliff" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_7ylwa")
+debug_color = Color(0.996078, 0, 0.172549, 0.419608)

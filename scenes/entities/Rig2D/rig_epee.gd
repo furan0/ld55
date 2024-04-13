@@ -6,10 +6,10 @@ extends Rig2D
 	#pass # Replace with function body.
 #
 #
-### Called every frame. 'delta' is the elapsed time since the previous frame.
+##### Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 	#if (Input.is_action_just_pressed("down")):
-		#on_pv_change(50)
+		#dead()
 
 func walk():
 	animator.play("walk")
@@ -19,3 +19,8 @@ func attaque():
 	animator.play("attaque")
 func preattaque():
 	animator.play("preattaque")
+	
+func dead():
+	animator.play("dead")
+	super.dead()
+	

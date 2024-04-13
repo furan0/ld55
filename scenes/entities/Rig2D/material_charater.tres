@@ -4,5 +4,5 @@
 
 [resource]
 shader = ExtResource("1_opags")
-shader_parameter/overridecolor = Color(0.803922, 0.490196, 0.690196, 1)
+shader_parameter/overridecolor = Color(0.560784, 0.509804, 0.384314, 1)
 shader_parameter/blink_color = Color(0, 0, 0, 0)
