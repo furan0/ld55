@@ -10,6 +10,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(84, 58, 78, 608, 420, 5
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="test" type="Node2D"]
+y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(2, 0)
