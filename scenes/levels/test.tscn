@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b4a4qfkwu06hv"]
+[gd_scene load_steps=2 format=3 uid="uid://b4a4qfkwu06hv"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_p25sy"]
 
 [node name="test" type="Node2D"]
+
+[node name="Wololo" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Wololo"]
+texture = SubResource("ImageTexture_p25sy")
