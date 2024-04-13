@@ -78,6 +78,9 @@ func dead():
 		material.set_shader_parameter("blink_color",Color(Color.BLACK,(i)/5.0));
 
 func update_color():
+	if not(get_parent().get_parent() is Character):
+		set_color(color_target)
+		return
 	var team := get_parent().get_parent().faction as Character.EFaction
 	if team == Character.EFaction.BLUE:
 		set_color(blue_color)
