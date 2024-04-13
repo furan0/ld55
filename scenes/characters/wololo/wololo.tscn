@@ -99,9 +99,6 @@ delay_seconds = 0.3
 script = ExtResource("2_6ewwq")
 inputProvider = 2
 
-[node name="DefaultSprite" parent="LookAt" index="0"]
-visible = false
-
 [node name="RigPretre" parent="Graphsime" index="0" instance=ExtResource("8_h3pwf")]
 position = Vector2(-10, 13)
 

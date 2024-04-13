@@ -149,16 +149,15 @@ event = &"enemyInRange"
 [node name="SelectionHandler" type="Node" parent="." index="5"]
 script = ExtResource("5_pwg7j")
 
-
 [node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
 
-[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
 [connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
 [connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
 [connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
 [connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
-[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]

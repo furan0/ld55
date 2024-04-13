@@ -17,7 +17,6 @@ var local_hud
 var animator : AnimationPlayer
 var muppet : Node2D
 var key_frame : Node2D
-var _fallback_anim = "idle"
 
 func play_by_name(anim_name_str="idle"):
 	if (animator == null) or not(has_method(anim_name_str)):
