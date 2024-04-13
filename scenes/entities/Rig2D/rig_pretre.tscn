@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://pfaxr3ii4krq"]
+[gd_scene load_steps=20 format=3 uid="uid://pfaxr3ii4krq"]
 
 [ext_resource type="Script" path="res://scenes/entities/Rig2D/rig_pretre.gd" id="1_65tdl"]
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="1_mhdmb"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bwe31ci2m0f3k" path="res://scenes/entities/Rig2D/pretre/eye.png" id="9_8x71d"]
 [ext_resource type="Texture2D" uid="uid://u8bgohyhdggc" path="res://scenes/entities/Rig2D/pretre/wolobarbe.png" id="9_t60uc"]
 [ext_resource type="Texture2D" uid="uid://dnaqwlwlyylle" path="res://scenes/entities/Rig2D/pretre/wolobarbe2.png" id="10_rs1wl"]
+[ext_resource type="PackedScene" uid="uid://edalvnqioi01" path="res://scenes/characters/wololo/CircleDrawer.tscn" id="14_8ajnv"]
 
 [sub_resource type="Animation" id="Animation_ewhtx"]
 length = 0.001
@@ -1235,3 +1236,5 @@ libraries = {
 }
 autoplay = "idle"
 speed_scale = 1.5
+
+[node name="CircleDrawer" parent="." instance=ExtResource("14_8ajnv")]

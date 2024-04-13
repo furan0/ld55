@@ -6,8 +6,6 @@
 [node name="CircleDrawer" type="Line2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(341, 200)
-points = PackedVector2Array(169, 60, 251, 203, 325, 312, 414, 332, 496, 405, 672, 398, 707, 235, 625, 125, 482, 116)
 texture = ExtResource("1_d5f33")
 texture_mode = 1
 script = ExtResource("1_vkvw4")

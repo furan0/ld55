@@ -10,6 +10,9 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Movement/Stopped").state_entered.connect(idle)
 	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction/PreAttack").state_entered.connect(preattaque)
 	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction/Attack").state_entered.connect(attaque)
+	state_machine.get_node("MainState/Alive/Status/Selected").state_entered.connect(on_select)
+	state_machine.get_node("MainState/Alive/Status/Selected").state_exited.connect(deslect)
+	
 	peon.lifeChanged.connect(on_pv_change)
 	peon.dead.connect(dead)
 
@@ -18,7 +21,10 @@ func _ready():
 	#if (Input.is_action_just_pressed("down")):
 		#dead()
 
-
+func on_select():
+	$Circle.visible = true
+func deslect():
+	$Circle.visible = false
 func walk():
 	animator.play("walk")
 func idle():

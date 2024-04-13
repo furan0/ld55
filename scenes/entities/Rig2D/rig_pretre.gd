@@ -9,9 +9,14 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Movement/Move").state_entered.connect(walk)
 	state_machine.get_node("MainState/Alive/Movement/Stopped").state_entered.connect(idle)
 	state_machine.get_node("MainState/Alive/Convertion/Converting").state_entered.connect(convertion)
+	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_entered.connect($CircleDrawer.draw_my_circle)
+	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_exited.connect($CircleDrawer.undraw)
+
+	
+	
 	wololo.lifeChanged.connect(on_pv_change)
 	wololo.dead.connect(dead)
-	
+	$CircleDrawer.radius = $"../../SelectorHandler/CollisionShape".shape.radius
 	
 func convertion():
 	muppet.visible = false

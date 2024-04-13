@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv3wjwnvjht23"]
+[gd_scene load_steps=17 format=3 uid="uid://bv3wjwnvjht23"]
 
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="1_5ad1s"]
 [ext_resource type="Script" path="res://scenes/entities/Rig2D/rig_epee.gd" id="2_o4ma3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwqk2lcs6jldy" path="res://scenes/entities/Rig2D/epee/couvrechef.png" id="6_bb38w"]
 [ext_resource type="Texture2D" uid="uid://dnd71y1vqasn7" path="res://scenes/entities/Rig2D/epee/epee.png" id="7_1n317"]
 [ext_resource type="Texture2D" uid="uid://dryoj3th5tdfn" path="res://scenes/entities/Rig2D/epee/main.png" id="8_kfw6w"]
+[ext_resource type="Texture2D" uid="uid://b3ufgi634200c" path="res://scenes/characters/wololo/circle_texture.png" id="9_ntf6g"]
 
 [sub_resource type="Animation" id="Animation_vmwid"]
 length = 0.001
@@ -1833,3 +1834,14 @@ position = Vector2(-33, -17)
 texture = ExtResource("8_kfw6w")
 
 [node name="keyframe" type="Node2D" parent="."]
+
+[node name="Circle" type="Line2D" parent="."]
+visible = false
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(-1, -18, -21, -18, -42, -13, -55, -8, -62, -4, -62, 5, -53, 10, -37, 12, -6, 13, 24, 14, 44, 10, 53, 6, 56, -4, 46, -12, 34, -15, 14, -17)
+closed = true
+width = 8.0
+texture = ExtResource("9_ntf6g")
+texture_mode = 1
