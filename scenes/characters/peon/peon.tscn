@@ -166,6 +166,9 @@ script = ExtResource("4_dbweh")
 to = NodePath("../../Attacking")
 event = &"enemyInRange"
 
+[node name="Graphsime" parent="." index="4"]
+scale = Vector2(0.78939, 0.78939)
+
 [node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
 unique_name_in_owner = true
 

@@ -12,7 +12,7 @@ func _process(_delta):
 
 
 func set_life(new_life):
-	$c.visible = true
+	$c.visible = new_life!=100
 	var tw := get_tree().create_tween()
 	tw.tween_property($c/lifered,"value",new_life,0.05)
 	tw.tween_property($c/life,"value",new_life,0.4)

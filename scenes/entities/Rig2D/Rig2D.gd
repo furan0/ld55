@@ -34,6 +34,8 @@ func _ready():
 	key_frame = get_node("keyframe")
 	
 	material = material.duplicate() # making the material unique.
+	#_override_mat(muppet)
+	#_override_mat(key_frame)
 	_override_mat(self)
 	update_color()
 
