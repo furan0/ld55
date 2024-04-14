@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://p7o51iq35snm" path="res://scenes/UI/CreditUI.tscn" id="5_rqt24"]
 
 [node name="MainMenu" type="Node"]
+process_mode = 3
 
 [node name="UiHandler" parent="." instance=ExtResource("1_5li7n")]
 panels = {

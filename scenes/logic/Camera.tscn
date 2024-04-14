@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctx1rymrrlspd"]
 
-[ext_resource type="Script" path="res://scenes/levels/Camera.gd" id="1_ujehi"]
+[ext_resource type="Script" path="res://scenes/logic/Camera.gd" id="1_ujehi"]
 [ext_resource type="Script" path="res://scenes/levels/ShakyShaky.gd" id="2_faiyw"]
-[ext_resource type="Script" path="res://scenes/levels/CameraTarget.gd" id="3_q8tl3"]
+[ext_resource type="Script" path="res://scenes/logic/CameraTarget.gd" id="3_q8tl3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_na20g"]
 radius = 7.07107
@@ -10,7 +10,7 @@ radius = 7.07107
 [node name="Camera" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ujehi")
-zoom_speed = 0.15
+zoom_speed = 0.08
 min_zoom = 0.25
 max_zoom = 0.65
 margin = Vector2(400, 400)
