@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ci6wjs5avnyk7"]
+[gd_scene load_steps=26 format=3 uid="uid://ci6wjs5avnyk7"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_h714r"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
@@ -21,7 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_2x2xm"]
 [ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]
 [ext_resource type="PackedScene" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
+[ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="23_4bjis"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_bu7te"]
+[ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="23_l20eh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
 vertices = PackedVector2Array(1148, 674, 1019, 559, 1198, 542, 1713, 646, 1768, 738, 3289, 1988, 4051, 2209, 3879, 2423, 3194, 2469, 2430, 2234, 2411, 2095, 3013, 1938, 3210, 1528, 3346, 1595, 3010, 1926, 2952, 1810, 3289, 3314, 2932, 3352, 2555, 3235, 2418, 2516, 3573, 3139, 1876, 1439, 1671, 1969, 1497, 2046, 769, 932, 744, 841, 1098, 766, 1655, 1073, 476, 2742, 194, 2731, 335, 1212, 2235, 2549, 2310, 3055, 2174, 2627, 1472, 2844, 2039, 2655, 2038, 2655, 1814, 2670, 1479, 2449, 1541, 2423, 1105, 2867, 613, 3078, 431, 3027, 440, 2986, 675, 3000, 890, 3068, 755, 2920, 1379, 2378, 3624, 1783, 2788, 1789, 2787, 1789, 2103, 1636, 1967, 1893, 1382, 2251)
@@ -337,6 +339,29 @@ position = Vector2(821, 1771)
 
 [node name="Sword2" parent="Entities" instance=ExtResource("22_uvc4h")]
 position = Vector2(919, 2943)
+
+[node name="sol" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.290196)
+z_index = -3000
+z_as_relative = false
+texture_repeat = 2
+texture = ExtResource("23_l20eh")
+polygon = PackedVector2Array(-241, 37, 4249, 64, 4511, 3716, 2178, 3801, -262, 3454)
+
+[node name="sol2" type="Polygon2D" parent="."]
+z_index = -2999
+z_as_relative = false
+texture_repeat = 2
+texture = ExtResource("23_4bjis")
+polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
+
+[node name="sol3" type="Polygon2D" parent="."]
+z_index = -2999
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(1630, 866)
+texture = ExtResource("23_4bjis")
+polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
 
 [editable path="Camera"]
 [editable path="Arena/MurailleTour"]
