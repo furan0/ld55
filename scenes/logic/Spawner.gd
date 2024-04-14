@@ -10,15 +10,15 @@ func _ready():
 
 ## Spawn a given group
 func spawnGroup(group : SpawnGroup):
-	var Spawnindex = 0
+	var spawnindex = 0
 	for entity in group.group:
-		if Spawnindex >= spawnPoints.size():
+		if spawnindex >= spawnPoints.size():
 			break
 		
 		var node = entity.instantiate()
 		get_tree().root.add_child(node)
-		node.global_position = global_position
+		node.global_position = spawnPoints[spawnindex].global_position
 		newCharacterCreated.emit(node)
 		print("Entity spawned : " + str(node) + " at " + str(global_position) + " from " + str(self))
 		
-		Spawnindex += 1
+		spawnindex += 1

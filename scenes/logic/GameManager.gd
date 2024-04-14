@@ -56,22 +56,23 @@ func _ready():
 	parseWololo()
 	parseSpawners()
 
+func countPeon():
+	nbPeonsBlue = 0
+	nbPeonsRed = 0
+	nbPeonsGaia = 0
+	
+	for peon in peons:
+		if peon.is_dead:
+			continue
+		match peon.faction:
+			Character.EFaction.BLUE:
+				nbPeonsBlue += 1
+			Character.EFaction.RED:
+				nbPeonsRed += 1
+			Character.EFaction.GAIA:
+				nbPeonsGaia += 1
 
 func _callbackPeonDied(peon : Character):
-	match peon.faction:
-		Character.EFaction.BLUE:
-			nbPeonsBlue -= 1
-			if nbPeonsBlue <= 0:
-				noMoreBluePeon.emit()
-		Character.EFaction.RED:
-			nbPeonsRed -= 1
-			if nbPeonsRed <= 0:
-				noMoreRedPeon.emit()
-		Character.EFaction.GAIA:
-			nbPeonsGaia -= 1
-			if nbPeonsGaia <= 0:
-				noMoreGaiaPeon.emit()
-	
 	checkIfSpawnRequired()
 
 func _callbackWololoDied(wololo : Character):
@@ -118,16 +119,9 @@ func _callbackNewCharacterCreated(carac : Character):
 
 func parsePeon():
 	peons = get_tree().get_nodes_in_group("peon")
-	
+	countPeon()
 	for peon in peons:
 		peon.deadSelf.connect(_callbackPeonDied)
-		match peon.faction:
-			Character.EFaction.BLUE:
-				nbPeonsBlue += 1
-			Character.EFaction.RED:
-				nbPeonsRed += 1
-			Character.EFaction.GAIA:
-				nbPeonsGaia += 1
 
 func addPeon(peon : Peon):
 	peon.deadSelf.connect(_callbackPeonDied)
@@ -159,8 +153,18 @@ func checkIfSpawnRequired():
 	if spawners.is_empty() || spawnLibrary == null:
 		return
 	
+	countPeon()
+	
 	var colorCond : bool = min(nbPeonsRed, nbPeonsBlue) <= nbColorThres
 	var gaiaCond : bool = nbPeonsGaia <= nbGaiaThres
+	
+	print("Check spawn")
+	print("=> Gaia : " + str(nbPeonsGaia))
+	print("=> Blue : " + str(nbPeonsBlue))
+	print("=> Red : " + str(nbPeonsRed))
+	print("=> Color Cond : " + str(colorCond))
+	print("=> Gaia Cond : " + str(gaiaCond))
+	
 	if colorCond && gaiaCond:
 		#A spawn is required ! 
 		print("Spawn required")
