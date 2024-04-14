@@ -30,7 +30,7 @@ expression = "hasTarget"
 script = ExtResource("7_a2lh4")
 expression = "not hasTarget"
 
-[node name="Peon" instance=ExtResource("1_urfq2")]
+[node name="Peon" groups=["peon"] instance=ExtResource("1_urfq2")]
 script = ExtResource("2_gniem")
 peonType = 0
 
@@ -192,7 +192,7 @@ script = ExtResource("5_pwg7j")
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
-[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus"]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
 [connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
 [connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]
 [connection signal="selected" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["selected"]]
