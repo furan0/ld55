@@ -1,12 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvbkfkqsdl5xc"]
+[gd_scene load_steps=21 format=3 uid="uid://dvbkfkqsdl5xc"]
 
 [ext_resource type="Script" path="res://scenes/UI/ending/VictoryUI.gd" id="1_6cvq8"]
-[ext_resource type="PackedScene" uid="uid://dokfq6dcsk74e" path="res://scenes/UI/ending/victory.tscn" id="1_tlsjd"]
+[ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="2_qsx6v"]
+[ext_resource type="Texture2D" uid="uid://cwp325oc2eg3" path="res://scenes/UI/ending/2.png" id="2_tun8n"]
+[ext_resource type="Texture2D" uid="uid://i1ymyorblpg2" path="res://scenes/UI/ending/1.png" id="3_viypk"]
+[ext_resource type="Texture2D" uid="uid://87b47w2qyybr" path="res://scenes/UI/ending/3.png" id="4_g7hpw"]
+[ext_resource type="Texture2D" uid="uid://b5pq8o2d8fg6n" path="res://scenes/UI/ending/4.png" id="5_y5ytd"]
+[ext_resource type="Texture2D" uid="uid://v73fasvrtf2u" path="res://scenes/UI/ending/6.png" id="6_qua4u"]
+[ext_resource type="Texture2D" uid="uid://cs424npd3ji8u" path="res://scenes/UI/ending/5.png" id="7_rguaq"]
+[ext_resource type="Texture2D" uid="uid://trrffla3a8ld" path="res://scenes/UI/ending/7.png" id="8_xrjiw"]
+[ext_resource type="Texture2D" uid="uid://dlbnt2xiqqxkm" path="res://scenes/UI/ending/8.png" id="9_xu0mb"]
 
 [sub_resource type="Animation" id="Animation_oi4d5"]
 resource_name = "EndAnimation"
 length = 0.75
-loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -114,11 +121,52 @@ _data = {
 "RESET": SubResource("Animation_j1d7e")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wkhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tun8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_viypk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tun8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g7hpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y5ytd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qua4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rguaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qua4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xrjiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xu0mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y5ytd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="Animation" id="Animation_vcca4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -130,7 +178,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -140,6 +188,27 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0mr6e"]
+resource_name = "arena"
+
+[sub_resource type="Animation" id="Animation_7psu3"]
+resource_name = "defeat"
+
+[sub_resource type="Animation" id="Animation_y8g2j"]
+resource_name = "multi"
 
 [sub_resource type="Animation" id="Animation_1qbnf"]
 resource_name = "victory"
@@ -158,7 +227,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -170,7 +239,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -180,15 +249,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 0.0]
 }
-
-[sub_resource type="Animation" id="Animation_7psu3"]
-resource_name = "defeat"
-
-[sub_resource type="Animation" id="Animation_y8g2j"]
-resource_name = "multi"
-
-[sub_resource type="Animation" id="Animation_0mr6e"]
-resource_name = "arena"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jqed6"]
 _data = {
@@ -200,10 +260,12 @@ _data = {
 }
 
 [node name="EndingUI" type="Node2D"]
+process_mode = 3
 z_index = 4026
 script = ExtResource("1_6cvq8")
 
 [node name="AnimationFond" type="Node2D" parent="."]
+position = Vector2(-619, -497)
 
 [node name="carrehaut" type="Polygon2D" parent="AnimationFond"]
 position = Vector2(274, 72)
@@ -224,11 +286,18 @@ root_node = NodePath(".")
 libraries = {
 "": SubResource("AnimationLibrary_l8gx2")
 }
-autoplay = "EndAnimation"
 
-[node name="VictoryAnim" parent="." instance=ExtResource("1_tlsjd")]
-position = Vector2(616, 496)
+[node name="VictoryAnim" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-2, 1)
 scale = Vector2(0.579798, 0.579798)
+
+[node name="SpriteVictory" type="AnimatedSprite2D" parent="VictoryAnim"]
+unique_name_in_owner = true
+material = ExtResource("2_qsx6v")
+sprite_frames = SubResource("SpriteFrames_0wkhf")
+autoplay = "default"
+frame_progress = 0.166291
 
 [node name="AnimationSpecificPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VictoryAnim")

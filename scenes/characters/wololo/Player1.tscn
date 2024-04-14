@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2r4xpnpn38x1" path="res://scenes/characters/wololo/wololo.tscn" id="1_koa5d"]
 
-[node name="Player1" instance=ExtResource("1_koa5d")]
+[node name="Player1" groups=["player"] instance=ExtResource("1_koa5d")]
 faction = 0
 
 [node name="InputHandler" parent="." index="5"]

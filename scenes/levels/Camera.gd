@@ -8,6 +8,7 @@ extends Node2D
 @export var target1 : Node2D = null
 @export var target2 : Node2D = null
 var targetsToTrack = []
+@export var doTracking := true
 
 @export var move_speed = 0.5  	# camera position lerp speed
 @export var zoom_speed = 0.25  	# camera zoom lerp speed
@@ -37,7 +38,7 @@ func _ready():
 var targets = []  # Array of targets to be tracked.
 
 func _process(_delta):
-	if !targetsToTrack:
+	if !targetsToTrack || !doTracking:
 		return
 		
 	# Keep the camera centered between the targets

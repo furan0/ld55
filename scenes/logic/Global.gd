@@ -134,3 +134,10 @@ func _completeSceneLoading(path : String) -> void:
 	$LoadingUI.hideUI()
 	sceneSwitchCompleted.emit()
 	print("Scene switching completed")
+
+
+func _pauseGame():
+	get_tree().paused = true
+	
+func _unpauseGame():
+	get_tree().paused = false

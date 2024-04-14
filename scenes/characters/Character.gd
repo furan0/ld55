@@ -4,6 +4,7 @@ class_name Character
 ## Handle lifecyle
 var is_dead := false
 signal dead()
+signal deadSelf(me : Character)
 
 ## Faction handling 
 enum EFaction {BLUE, RED, GAIA}
@@ -24,7 +25,7 @@ static func getFactionColor(faction_ : EFaction) -> Color:
 # life & hitpoints
 @export var MAX_HEALTH := 100
 @onready var health := MAX_HEALTH
-@export var invisible := false
+@export var invicible := false
 signal hurt()
 signal lifeChanged(newValue : int)
 
@@ -60,9 +61,10 @@ func setFaction(newFaction : EFaction):
 func kill():
 	is_dead = true
 	dead.emit()
+	deadSelf.emit(self)
 
 func hit(damage : int):
-	if invisible || is_dead:
+	if invicible || is_dead:
 		return
 	else:
 		health = max(health - damage, 0)

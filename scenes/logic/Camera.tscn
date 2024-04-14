@@ -12,7 +12,7 @@ script = ExtResource("1_ujehi")
 min_zoom = 0.1
 max_zoom = 0.65
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 zoom = Vector2(0.75, 0.75)
 script = ExtResource("2_faiyw")
 
