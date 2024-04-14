@@ -7,6 +7,11 @@ extends Node2D
 var camera = null
 
 @onready var sprite_victory = %SpriteVictory
+@onready var crying = %Crying
+@onready var sprite_victory_multi = %SpriteVictoryMulti
+@onready var crying_multi = %CryingMulti
+
+
 
 @export var cameraWantedZoom := 1.0
 @export var cameraZoomTime := 1.0
@@ -22,12 +27,12 @@ func _ready():
 	camera.add_child.call_deferred(self)
 	position = Vector2.ZERO
 
-func _onDefeat():
+func _onDefeat(looser : Character):
 	match game_manager.currentGameMode:
 		GameManager.EGameMode.SINGLE:
-			playDefeat(Character.EFaction.RED)
+			playDefeat(looser)
 		GameManager.EGameMode.ARENA:
-			playArena()
+			playArena(looser)
 
 func _onVictory(victor : Character):
 	match game_manager.currentGameMode:
@@ -35,23 +40,37 @@ func _onVictory(victor : Character):
 			playVictory(victor)
 		GameManager.EGameMode.MULTI:
 			# TODO : change to multi when done
-			playVictory(victor)
+			playMulti(victor)
 
 func playVictory(victor : Character):
 	var color : Color = Character.getFactionColor(victor.faction)
 	sprite_victory.material.set_shader_parameter("overridecolor",color)
 	
-	print ("Victory in color : " + str(color))
 	_playAnimation(victor, "victory")
 
-func playDefeat(vicFaction : Character.EFaction):
-	#_playAnimation("defeat")
-	pass
+func playDefeat(looser : Character):
+	var color : Color = Character.getFactionColor(looser.faction)
+	crying.material.set_shader_parameter("overridecolor",color)
+
+	_playAnimation(looser, "defeat")
 
 func playMulti(victor : Character):
+	#retrieve colors
+	var colorVictor
+	var colorLooser
+	if victor.faction == Character.EFaction.BLUE:
+		colorVictor = Character.getFactionColor(Character.EFaction.BLUE)
+		colorLooser = Character.getFactionColor(Character.EFaction.RED)
+	else:
+		colorVictor = Character.getFactionColor(Character.EFaction.RED)
+		colorLooser = Character.getFactionColor(Character.EFaction.BLUE)
+	#Set them
+	sprite_victory_multi.material.set_shader_parameter("overridecolor",colorVictor)
+	crying_multi.material.set_shader_parameter("overridecolor",colorLooser)
+	
 	_playAnimation(victor, "multi")
 
-func playArena():
+func playArena(victor : Character):
 	#_playAnimation("arena")
 	pass
 
@@ -70,4 +89,5 @@ func _doCameraMove(target : Node2D):
 	camera.get_parent().doTracking = false
 	await get_tree().create_tween().tween_property(camera, "zoom", Vector2.ONE * cameraWantedZoom, cameraZoomTime).finished
 	await get_tree().create_timer(cameraZoomWaiting).timeout
+	Global.pauseGame()
 	return

@@ -2,6 +2,8 @@ extends Node2D
 class_name Minigame
 ## Minigame main class for the conversion mechanism
 
+@export var delayBeforeDestruction := 0.2
+
 var callback : Callable
 
 func setCallback(callback_ : Callable):
@@ -17,4 +19,5 @@ func terminateMinigame(successStatus : bool):
 	print ("End minigame")
 	if callback != null:
 		callback.call(successStatus)
-	queue_free()
+	
+	get_tree().create_timer(delayBeforeDestruction).timeout.connect(queue_free)
