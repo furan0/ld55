@@ -11,7 +11,7 @@
 script = ExtResource("1_01055")
 
 [node name="game" type="Node2D" parent="."]
-position = Vector2(5, -240)
+position = Vector2(5, -140)
 
 [node name="Boot" type="Sprite2D" parent="game"]
 position = Vector2(-7, -115)
@@ -34,6 +34,6 @@ texture = ExtResource("6_d2vtq")
 
 [node name="Interface" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(3.25, -284.75)
+position = Vector2(3.25, -184.75)
 scale = Vector2(1.00769, 0.983636)
 texture = ExtResource("2_ec3px")

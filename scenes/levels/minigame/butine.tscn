@@ -97,6 +97,7 @@ script = ExtResource("1_ngq3b")
 
 [node name="game" type="Node2D" parent="."]
 z_index = 1
+position = Vector2(-266, -186)
 
 [node name="Panel" type="Sprite2D" parent="game"]
 position = Vector2(170, -3)

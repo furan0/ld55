@@ -101,8 +101,9 @@ func startMinigameOnCurrentTarget():
 		return;
 	
 	var scene := minigame.instantiate()
-	scene.global_position = global_position
+	
 	add_child(scene)
+	scene.global_position = global_position
 	var game = scene as Minigame
 	if game == null:
 		printerr("Minigame scene is not of minigame type")
