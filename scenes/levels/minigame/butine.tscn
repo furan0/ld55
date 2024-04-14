@@ -120,6 +120,7 @@ offset = Vector2(2, -6)
 [node name="Abeille" type="Sprite2D" parent="game/Panel"]
 z_index = 3
 position = Vector2(-165, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_yudrt")
 offset = Vector2(0, -2)
 
