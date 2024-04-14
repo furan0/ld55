@@ -1160,6 +1160,7 @@ _data = {
 [node name="RigPretre" type="Node2D"]
 material = ExtResource("1_mhdmb")
 script = ExtResource("1_65tdl")
+hud_offset = Vector2(0, -200)
 
 [node name="muppet" type="Node2D" parent="."]
 use_parent_material = true
@@ -1238,3 +1239,9 @@ autoplay = "idle"
 speed_scale = 1.5
 
 [node name="CircleDrawer" parent="." instance=ExtResource("14_8ajnv")]
+
+[node name="shadow" type="Polygon2D" parent="."]
+z_index = -16
+position = Vector2(5, 3)
+color = Color(0, 0, 0, 0.690196)
+polygon = PackedVector2Array(27, -21, 10, -23, -5, -23, -19, -20, -33, -14, -34, -6, -29, 1, -18, 6, -4, 8, 13, 10, 27, 9, 35, 5, 37, -2, 37, -9)

@@ -14,8 +14,8 @@ func _process(_delta):
 func set_life(new_life):
 	$c.visible = new_life!=100
 	var tw := get_tree().create_tween()
-	tw.tween_property($c/lifered,"value",new_life,0.05)
-	tw.tween_property($c/life,"value",new_life,0.4)
+	tw.tween_property($c/lifered,"value",new_life,0.05).set_ease(Tween.EASE_IN)
+	tw.tween_property($c/life,"value",new_life,0.4).set_ease(Tween.EASE_IN)
 	
 	var tw_shake := get_tree().create_tween()
 	tw_shake.tween_property($c,"position",Vector2(3,7),0.1)
