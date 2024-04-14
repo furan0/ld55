@@ -6,6 +6,7 @@ var busy = false
 func action_just_press():
 	if busy:
 		return
+	$sfx.play_sound()
 	busy = true
 	get_tree().create_tween().tween_property($game/Panel/Abeille,"position",$game/Panel/Abeille.position,randf_range(1.0,1.5))
 

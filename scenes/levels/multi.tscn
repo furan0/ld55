@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
 [ext_resource type="PackedScene" uid="uid://csnwttatywcsu" path="res://scenes/characters/wololo/Player1.tscn" id="4_qplbe"]
 [ext_resource type="PackedScene" uid="uid://di4em2gl1wet1" path="res://scenes/characters/wololo/Player2.tscn" id="5_bgqmb"]
-[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="6_4xcts"]
+[ext_resource type="PackedScene" path="res://scenes/characters/peon/Archer.tscn" id="6_4xcts"]
 [ext_resource type="PackedScene" uid="uid://cv0sddc4mspe" path="res://scenes/levels/decors/voiture.tscn" id="6_6i4b2"]
 [ext_resource type="PackedScene" uid="uid://deucexott6afu" path="res://scenes/levels/decors/poubelle.tscn" id="7_amq52"]
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="7_dvgvo"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://s1lemdx2sdo0" path="res://scenes/levels/decors/mega_sol.tscn" id="14_wglcn"]
 [ext_resource type="PackedScene" uid="uid://cv2w473lfk1vb" path="res://scenes/levels/decors/voiturePropre.tscn" id="15_w86nd"]
 [ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_2x2xm"]
-[ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]
+[ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]<
 [ext_resource type="PackedScene" uid="uid://cnhb6w0apc0pa" path="res://scenes/logic/spawner.tscn" id="18_q14su"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_bu7te"]

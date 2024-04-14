@@ -15,11 +15,13 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Movement/Stopped").state_entered.connect(idle)
 	state_machine.get_node("MainState/Alive/Convertion/Converting").state_entered.connect(convertion)
 	state_machine.get_node("MainState/Alive/Convertion/Converting").state_exited.connect(leaveConversion)
+	
 	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_entered.connect($CircleDrawer.draw_my_circle)
 	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_exited.connect($CircleDrawer.undraw)
+	
 	state_machine.get_node("MainState/Alive/Convertion/Converting/toConversionFailed").taken.connect(target_lost)
 	state_machine.get_node("MainState/Alive/Convertion/Converting/noTarget").taken.connect(no_target)
-	state_machine.get_node("MainState/Alive/Convertion/ConversionSucc").state_entered.connect(no_target)
+	state_machine.get_node("MainState/Alive/Convertion/ConversionSucc").state_entered.connect(succ_conv)
 
 	wololo.lifeChanged.connect(on_pv_change)
 	wololo.dead.connect(dead)

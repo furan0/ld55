@@ -11,7 +11,6 @@ func attaque():
 	var target = get_parent().get_parent().get_node("AttackHandler").target
 	if target == null:
 		return
-		
 	var instance := fx_tir.instantiate()
 	papa.add_child(instance)
 	instance.draw_from_a_to_b(global_position,target.global_position)
