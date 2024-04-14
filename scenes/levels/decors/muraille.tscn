@@ -10,10 +10,9 @@ script = ExtResource("1_xre4k")
 z_index = -1999
 texture_filter = 1
 texture_repeat = 2
-points = PackedVector2Array(154, 94, 406, 80, 650, 86, 896, 120, 1076, 170, 1148, 228, 1186, 334, 1174, 492, 1140, 582, 1066, 720, 770, 760, 482, 732, 416, 522, 504, 324)
 width = 380.0
 texture = ExtResource("1_8177p")
 texture_mode = 1
 
 [node name="edges" type="Line2D" parent="."]
-points = PackedVector2Array(435, 220, 741, 249, 939, 322, 1022, 423, 992, 473, 742, 510, 656, 406, 463, 292)
+visible = false

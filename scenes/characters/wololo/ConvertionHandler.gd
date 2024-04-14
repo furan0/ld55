@@ -6,6 +6,7 @@ class_name ConversionHandler
 @onready var target_indicator = $TargetIndicator
 @onready var state_machine = %StateMachine
 @onready var wololo = $".."
+@onready var input_handler = %InputHandler
 
 var target : Peon = null
 @export var canConvert := true
@@ -110,6 +111,7 @@ func startMinigameOnCurrentTarget():
 		minigameFailed.emit()
 		return;
 	game.setCallback(minigameCallback)
+	input_handler.convertion.connect(game.action_just_press)
 	game.runMinigame()
 
 func minigameCallback(status : bool):
@@ -118,6 +120,7 @@ func minigameCallback(status : bool):
 		minigameSuccesful.emit()
 	else:
 		minigameFailed.emit()
+		updateTarget(null)
 
 func isTargetValid(node : Node2D) -> bool :
 	if node == null:

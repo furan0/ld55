@@ -16,7 +16,6 @@ var targetsToTrack = []
 @export var max_zoom = 0.75  	# camera won't zoom closer than this
 @export var margin = Vector2(400, 200)  # include some buffer area around targets
 
-
 func _ready():
 	if target1 == null:
 		target1 = get_node_or_null("%Player1")
@@ -28,15 +27,17 @@ func _ready():
 		targetsToTrack.append(camera_target1)
 	camera_target1.get_parent().remove_child(camera_target1)
 	get_tree().get_root().add_child.call_deferred(camera_target1)
+	camera_target1.centerOntarget.call_deferred()
 	
 	if target2 != null:
 		camera_target2.setTarget(target2)
 		targetsToTrack.append(camera_target2)
 	camera_target2.get_parent().remove_child(camera_target2)
 	get_tree().get_root().add_child.call_deferred(camera_target2)
-
-var targets = []  # Array of targets to be tracked.
-
+	camera_target2.centerOntarget.call_deferred()
+	
+	centerCamera.call_deferred()
+	
 func _process(_delta):
 	if !targetsToTrack || !doTracking:
 		return
@@ -62,3 +63,13 @@ func _process(_delta):
 	
 	# Set proper zoom to the Camera
 	camera.zoom = lerp(camera.zoom, Vector2.ONE * z, zoom_speed)
+
+func centerCamera():
+	if !targetsToTrack || !doTracking:
+		return
+		
+	var p = Vector2.ZERO
+	for target in targetsToTrack:
+		p += target.global_position
+	p /= targetsToTrack.size()
+	global_position = p

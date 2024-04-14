@@ -1,6 +1,5 @@
 extends Minigame
 
-var tw : Tween
 @export var n_iteration := 5
 
 @onready var can := $game/Can
@@ -36,8 +35,8 @@ func action_just_press():
 	var tw2 = get_tree().create_tween()
 	tw2.tween_property(boot,"position",Vector2(0.0,-115),0.1)
 	tw2.set_parallel(true).tween_property(boot,"scale",Vector2.ONE,0.1)
-	if (iter<=n_iteration):
-		tw.tween_property($Interface,"scale",Vector2.ONE*0.2,0.1)
+	if (iter>=n_iteration):
+		get_tree().create_tween().tween_property($Interface,"scale",Vector2.ONE*0.2,0.1)
 		terminateMinigame(true)
 
 # Called when the node enters the scene tree for the first time.

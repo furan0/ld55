@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djyfw78hvalds"]
+[gd_scene load_steps=17 format=3 uid="uid://djyfw78hvalds"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_urfq2"]
 [ext_resource type="Script" path="res://scenes/characters/peon/Peon.gd" id="2_gniem"]
@@ -10,9 +10,10 @@
 [ext_resource type="Script" path="res://scenes/characters/peon/AttackHandler.gd" id="7_sikxc"]
 [ext_resource type="PackedScene" uid="uid://bv3wjwnvjht23" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="9_a6ot0"]
 [ext_resource type="PackedScene" uid="uid://cdo2lsow45oqo" path="res://scenes/entities/Rig2D/rig_archer.tscn" id="9_by125"]
+[ext_resource type="PackedScene" uid="uid://bujq3v7c01fq8" path="res://scenes/entities/Rig2D/rig_cheval.tscn" id="10_1nou2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aaboq"]
-radius = 525.001
+radius = 578.778
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ebq"]
 radius = 41.0
@@ -174,6 +175,9 @@ unique_name_in_owner = true
 
 [node name="RigArcher" parent="Graphsime" index="1" instance=ExtResource("9_by125")]
 unique_name_in_owner = true
+visible = false
+
+[node name="RigCheval" parent="Graphsime" index="2" instance=ExtResource("10_1nou2")]
 visible = false
 
 [node name="SelectionHandler" type="Node2D" parent="." index="5"]

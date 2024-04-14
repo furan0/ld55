@@ -11,6 +11,7 @@ enum EPeonType {SWORD, ARCHER, HORSE}
 
 @onready var rig_epee = %RigEpee
 @onready var rig_archer = %RigArcher
+@onready var rig_cheval = $Graphsime/RigCheval
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,9 +26,10 @@ func _ready():
 		EPeonType.ARCHER:
 			rig_archer.show()
 			rig_epee.hide()
-		_:
+		EPeonType.HORSE:
 			rig_archer.hide()
-			rig_epee.show()
+			rig_epee.hide()
+			rig_cheval.show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

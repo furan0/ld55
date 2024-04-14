@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c33hpvjntowt4"]
+
+[ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="1_yht1l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dha3"]
+radius = 745.081
+
+[node name="Cheval" instance=ExtResource("1_yht1l")]
+peonType = 2
+
+[node name="AttackHandler" parent="." index="0"]
+rushDistance = 500
+attackHitPoint = 20
+
+[node name="CollisionShape2D" parent="AttackHandler/AreaAware" index="0"]
+shape = SubResource("CircleShape2D_8dha3")
+
+[node name="MoveHandler" parent="." index="1"]
+MAX_SPEED = 500.0
+acc_start = 0.1
+
+[connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
+[connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
+[connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
+[connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
+[connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
+[connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]
+[connection signal="selected" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["selected"]]

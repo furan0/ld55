@@ -9,6 +9,8 @@ enum EGameMode { MENU, SINGLE, MULTI, ARENA }
 @export var player2 : Character = null
 
 @export var nextLevelPath : String = "res://scenes/levels/MainMenu.tscn"
+##Time before unpausing the game. Negative value to never unpause automatically
+@export var timeBeforeLevelStart := 0.2
 
 var peons := []
 var nbPeonsBlue := 0
@@ -25,6 +27,12 @@ signal defeat(looser : Character)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Set itself unpausable, then pause the game nextFrame
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	Global.pauseGame.call_deferred()
+	if (timeBeforeLevelStart >= 0.0):
+		get_tree().create_timer(timeBeforeLevelStart).timeout.connect(Global.unpauseGame)
+	
 	# Fetch players if not set
 	if currentGameMode == EGameMode.SINGLE || currentGameMode == EGameMode.ARENA:
 		if player1 == null:

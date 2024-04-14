@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://s1lemdx2sdo0"]
+
+[ext_resource type="Texture2D" uid="uid://2vhxn3cb4yc7" path="res://scenes/levels/decors/sol3.png" id="1_fn8rf"]
+[ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="2_eonui"]
+
+[node name="MegaSol" type="Node2D"]
+
+[node name="Sol7" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.721569)
+z_index = -15
+position = Vector2(3.04907, 26.0138)
+rotation = -0.295457
+scale = Vector2(2.13274, 6.46721)
+texture = ExtResource("1_fn8rf")
+
+[node name="Sol2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.482353)
+position = Vector2(-49.9509, 32.0138)
+scale = Vector2(1.80501, 4.45823)
+texture = ExtResource("2_eonui")
+
+[node name="Sol3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.482353)
+position = Vector2(-45.9509, -78.9862)
+rotation = 0.72155
+scale = Vector2(1.80501, 4.45823)
+texture = ExtResource("2_eonui")
+
+[node name="Sol4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.482353)
+position = Vector2(46.0491, -6.98621)
+rotation = -0.901185
+scale = Vector2(1.77485, 4.4622)
+texture = ExtResource("2_eonui")
+
+[node name="Sol5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.482353)
+position = Vector2(-4.95093, -93.986)
+rotation = -1.65762
+scale = Vector2(1.80501, 4.45823)
+texture = ExtResource("2_eonui")
+
+[node name="Sol6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.572549)
+position = Vector2(63.0491, 160.014)
+rotation = 1.35232
+scale = Vector2(1.21319, 2.96995)
+texture = ExtResource("2_eonui")
+
+[node name="Sol8" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.160784)
+z_index = -935
+position = Vector2(54.0491, -24.9862)
+rotation = 0.983462
+scale = Vector2(3.75827, 10.4557)
+texture = ExtResource("2_eonui")

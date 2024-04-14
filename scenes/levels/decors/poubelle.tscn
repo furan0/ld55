@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://deucexott6afu"]
+
+[ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_byy06"]
+[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="2_30r56"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3nrc"]
+height = 39.0
+
+[node name="Poubelle" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="NodeYSorted" type="Node2D" parent="."]
+script = ExtResource("1_byy06")
+
+[node name="Poubelle" type="Sprite2D" parent="NodeYSorted"]
+position = Vector2(-1.5, -19)
+texture = ExtResource("2_30r56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -6.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_t3nrc")

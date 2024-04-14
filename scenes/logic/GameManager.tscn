@@ -7,6 +7,7 @@
 script = ExtResource("1_kpebv")
 
 [node name="EndingUI" parent="." instance=ExtResource("2_0g6ux")]
+visible = false
 
 [connection signal="defeat" from="." to="EndingUI" method="_onDefeat"]
 [connection signal="victory" from="." to="EndingUI" method="_onVictory"]

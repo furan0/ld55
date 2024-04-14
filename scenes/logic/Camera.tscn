@@ -8,8 +8,10 @@
 radius = 7.07107
 
 [node name="Camera" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_ujehi")
-min_zoom = 0.1
+zoom_speed = 0.15
+min_zoom = 0.25
 max_zoom = 0.65
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4a4qfkwu06hv"]
+[gd_scene load_steps=16 format=3 uid="uid://b4a4qfkwu06hv"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="7_fghda"]
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="8_sk5f3"]
+[ext_resource type="Texture2D" uid="uid://drshoc1gcupsh" path="res://scenes/levels/decors/trash1.png" id="9_oo4kj"]
+[ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="10_ycw8m"]
+[ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="11_v7igv"]
+[ext_resource type="Texture2D" uid="uid://2vhxn3cb4yc7" path="res://scenes/levels/decors/sol3.png" id="12_5ayhh"]
+[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="13_1rawv"]
+[ext_resource type="Texture2D" uid="uid://c3genxcfcopev" path="res://scenes/levels/decors/arbre.png" id="14_pc0xh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
 vertices = PackedVector2Array(-308, -516, -13, -509, -14, -509, -441, -615, -442, -616, 930, 213, 829, 617, 228, 695, 531, -443, -651, 569, -983, -328, -882, -546, -535, -670, 859, -569, 1061, -483, 1217, -99, 1180, 86)
@@ -36,11 +42,6 @@ faction = 0
 position = Vector2(-219, 380)
 faction = 0
 
-[node name="Roche" type="Sprite2D" parent="."]
-position = Vector2(1001, -632)
-rotation = 0.597601
-texture = ExtResource("4_6ehds")
-
 [node name="Muraille" parent="." instance=ExtResource("7_fghda")]
 
 [node name="render" parent="Muraille" index="0"]
@@ -50,16 +51,6 @@ points = PackedVector2Array(-877, 722, -1129, -18, -971, -371, -493, -546, 539, 
 [node name="edges" parent="Muraille" index="1"]
 visible = false
 points = PackedVector2Array(-534, -675, -884, -549, -995, -330, -654, 578, 227, 701, 821, 623, 929, 215, 1174, 92, 1225, -93, 1066, -477, 860, -567, 533, -441, -309, -519)
-
-[node name="Roche2" type="Sprite2D" parent="."]
-position = Vector2(-187, -615)
-rotation = 0.243145
-scale = Vector2(2.70662, 1.0904)
-texture = ExtResource("4_6ehds")
-
-[node name="Roche3" type="Sprite2D" parent="."]
-position = Vector2(-432, 360)
-texture = ExtResource("4_6ehds")
 
 [node name="Player1" parent="." instance=ExtResource("5_wyrrg")]
 unique_name_in_owner = true
@@ -80,5 +71,51 @@ faction = 1
 [node name="GameManager" parent="." instance=ExtResource("8_sk5f3")]
 unique_name_in_owner = true
 currentGameMode = 2
+
+[node name="Decors" type="Node2D" parent="."]
+
+[node name="Roche" type="Sprite2D" parent="Decors"]
+position = Vector2(1001, -632)
+rotation = 0.597601
+texture = ExtResource("4_6ehds")
+
+[node name="Roche2" type="Sprite2D" parent="Decors"]
+position = Vector2(-187, -615)
+rotation = 0.243145
+scale = Vector2(2.70662, 1.0904)
+texture = ExtResource("4_6ehds")
+
+[node name="Roche3" type="Sprite2D" parent="Decors"]
+position = Vector2(-432, 360)
+texture = ExtResource("4_6ehds")
+
+[node name="Trash1" type="Sprite2D" parent="."]
+position = Vector2(-186, 115)
+scale = Vector2(1.92105, 1.98276)
+texture = ExtResource("9_oo4kj")
+
+[node name="Trash2" type="Sprite2D" parent="."]
+position = Vector2(441, 440)
+scale = Vector2(1.18966, 1.65789)
+texture = ExtResource("10_ycw8m")
+
+[node name="Sol2" type="Sprite2D" parent="."]
+position = Vector2(-54, 245)
+scale = Vector2(1.74627, 1.60938)
+texture = ExtResource("11_v7igv")
+
+[node name="Sol3" type="Sprite2D" parent="."]
+position = Vector2(589, 264)
+scale = Vector2(1.23077, 1.83871)
+texture = ExtResource("12_5ayhh")
+
+[node name="Poubelle" type="Sprite2D" parent="."]
+position = Vector2(-376, 389)
+texture = ExtResource("13_1rawv")
+
+[node name="Arbre" type="Sprite2D" parent="."]
+position = Vector2(70, 2.99998)
+scale = Vector2(0.616883, 0.658824)
+texture = ExtResource("14_pc0xh")
 
 [editable path="Muraille"]
