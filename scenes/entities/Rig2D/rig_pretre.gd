@@ -3,6 +3,8 @@ extends Rig2D
 @onready var state_machine = %StateMachine
 @onready var wololo = $"../.."
 
+@export var circleOffset := 1.0
+
 var isConverting := false
 var nextState  = null
 
@@ -16,11 +18,9 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_entered.connect($CircleDrawer.draw_my_circle)
 	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_exited.connect($CircleDrawer.undraw)
 
-	
-	
 	wololo.lifeChanged.connect(on_pv_change)
 	wololo.dead.connect(dead)
-	$CircleDrawer.radius = $"../../SelectorHandler/CollisionShape".shape.radius
+	$CircleDrawer.radius = $"../../SelectorHandler/CollisionShape".shape.radius + circleOffset
 	
 func convertion():
 	isConverting = true

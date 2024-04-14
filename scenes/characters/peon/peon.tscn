@@ -176,7 +176,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 visible = false
 
-[node name="SelectionHandler" type="Node" parent="." index="5"]
+[node name="SelectionHandler" type="Node2D" parent="." index="5"]
 script = ExtResource("5_pwg7j")
 
 [connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
@@ -184,15 +184,15 @@ script = ExtResource("5_pwg7j")
 [connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
 [connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
 [connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
-[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
-[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus"]
 [connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
 [connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]
 [connection signal="selected" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["selected"]]

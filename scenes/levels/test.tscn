@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4a4qfkwu06hv"]
 
-[ext_resource type="PackedScene" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
+[ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
 [ext_resource type="Texture2D" uid="uid://dwsdyra3net5r" path="res://scenes/levels/decors/roche.png" id="4_6ehds"]
-[ext_resource type="PackedScene" path="res://scenes/characters/wololo/Player1.tscn" id="5_wyrrg"]
-[ext_resource type="PackedScene" path="res://scenes/characters/wololo/Player2.tscn" id="6_fq8db"]
-[ext_resource type="PackedScene" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
+[ext_resource type="PackedScene" uid="uid://i0rm7872wjok" path="res://scenes/characters/wololo/Player1.tscn" id="5_wyrrg"]
+[ext_resource type="PackedScene" uid="uid://di4em2gl1wet1" path="res://scenes/characters/wololo/Player2.tscn" id="6_fq8db"]
+[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="7_fghda"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
