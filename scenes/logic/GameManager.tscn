@@ -5,6 +5,7 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_kpebv")
+timeBeforeLevelStart = 0.4
 
 [node name="EndingUI" parent="." instance=ExtResource("2_0g6ux")]
 visible = false

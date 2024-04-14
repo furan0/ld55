@@ -194,7 +194,7 @@ script = ExtResource("5_pwg7j")
 [connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Attacking" to="AttackHandler" method="processAttacking"]
-[connection signal="state_entered" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
+[connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" to="AttackHandler" method="attack"]
 [connection signal="state_processing" from="StateMachine/MainState/Alive/Status/Idle/Aware" to="AttackHandler" method="processAware"]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
 [connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
