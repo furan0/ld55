@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ci6wjs5avnyk7"]
+[gd_scene load_steps=25 format=3 uid="uid://ci6wjs5avnyk7"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_h714r"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cv2w473lfk1vb" path="res://scenes/levels/decors/voiturePropre.tscn" id="15_w86nd"]
 [ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_2x2xm"]
 [ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]
+[ext_resource type="PackedScene" uid="uid://cnhb6w0apc0pa" path="res://scenes/logic/spawner.tscn" id="18_q14su"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_bu7te"]
 
@@ -306,6 +307,8 @@ width = 250.0
 
 [node name="edges" parent="Arena/MurailleCentrale" index="1"]
 points = PackedVector2Array(1778, 2597, 2409, 2518, 2413, 2233, 2364, 2089, 2167, 1966, 1951, 1903, 1502, 2058, 1399, 2244)
+
+[node name="Spawner" parent="Arena" instance=ExtResource("18_q14su")]
 
 [node name="Entities" type="Node2D" parent="."]
 

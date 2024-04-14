@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://oqr6act0nr3e"]
+[gd_scene load_steps=4 format=3 uid="uid://oqr6act0nr3e"]
 
 [ext_resource type="Script" path="res://scenes/logic/GameManager.gd" id="1_kpebv"]
 [ext_resource type="PackedScene" uid="uid://dvbkfkqsdl5xc" path="res://scenes/UI/ending/VictoryUI.tscn" id="2_0g6ux"]
+[ext_resource type="Resource" uid="uid://m1mklle42rbt" path="res://ressources/StandardSpawn.tres" id="2_2clnu"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_kpebv")
 timeBeforeLevelStart = 0.4
+spawnLibrary = ExtResource("2_2clnu")
 
 [node name="EndingUI" parent="." instance=ExtResource("2_0g6ux")]
 visible = false

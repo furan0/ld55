@@ -25,6 +25,15 @@ signal gameEnded()
 signal victory(victor : Character)
 signal defeat(looser : Character)
 
+@export_group("Spawner settings")
+var spawners := []
+@export var canSpawn := true
+@export var spawnLibrary : SpawnLibrary
+## Spawn peons if Gaia count is lower or equal AND other threshold is met
+@export var nbGaiaThres := 5
+## Spawn peons if color count is lower or equal AND other threshold is met
+@export var nbColorThres := 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Set itself unpausable, then pause the game nextFrame
@@ -45,6 +54,7 @@ func _ready():
 	
 	parsePeon()
 	parseWololo()
+	parseSpawners()
 
 
 func _callbackPeonDied(peon : Character):
@@ -96,6 +106,12 @@ func _callbackWololoDied(wololo : Character):
 			# Game keep going on if other wololo died
 			# TODO : spawn a new wololo somewhere
 
+func _callbackNewCharacterCreated(carac : Character):
+	if carac is Wololo:
+		addWololo(carac as Wololo)
+	else:
+		addPeon(carac as Peon)
+
 func parsePeon():
 	peons = get_tree().get_nodes_in_group("peon")
 	
@@ -109,8 +125,39 @@ func parsePeon():
 			Character.EFaction.GAIA:
 				nbPeonsGaia += 1
 
+func addPeon(peon : Peon):
+	peon.deadSelf.connect(_callbackPeonDied)
+	match peon.faction:
+		Character.EFaction.BLUE:
+			nbPeonsBlue += 1
+		Character.EFaction.RED:
+			nbPeonsRed += 1
+		Character.EFaction.GAIA:
+			nbPeonsGaia += 1
+
 func parseWololo():
 	wololos = get_tree().get_nodes_in_group("wololo")
 	
 	for wololo in wololos:
 		wololo.deadSelf.connect(_callbackWololoDied)
+
+func addWololo(wololo : Wololo):
+	wololos.append(wololo)
+	wololo.deadSelf.connect(_callbackWololoDied)
+
+func parseSpawners():
+	spawners = get_tree().get_nodes_in_group("spawner")
+	
+	for spawner in spawners:
+		spawner.newCharacterCreated.connect(_callbackNewCharacterCreated)
+
+func checkIfSpawnRequired():
+	if spawners.is_empty() || spawnLibrary == null:
+		return
+	
+	var colorCond : bool = min(nbPeonsRed, nbPeonsBlue) <= nbColorThres
+	var gaiaCond : bool = nbPeonsGaia <= nbGaiaThres
+	if colorCond && gaiaCond:
+		#A spawn is required ! 
+		var rng = randi() % spawners.size()
+		spawners[rng].spawnGroup(spawnLibrary.getRandomGroup())
