@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cv2w473lfk1vb" path="res://scenes/levels/decors/voiturePropre.tscn" id="15_w86nd"]
 [ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_2x2xm"]
 [ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]
-[ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
+[ext_resource type="PackedScene" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_bu7te"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
@@ -264,7 +264,6 @@ texture = ExtResource("13_i6jbo")
 z_index = -1295
 position = Vector2(2404, 2126)
 rotation = -1.86783
-scale = Vector2(1, 1)
 texture = ExtResource("11_80cfn")
 
 [node name="Trash16" type="Sprite2D" parent="Arena/Decors"]

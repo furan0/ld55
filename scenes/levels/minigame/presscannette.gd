@@ -13,6 +13,7 @@ var busy = false
 func action_just_press():
 	if busy :
 		return
+	$effect.play_sound()
 	busy = true
 	iter +=1.0
 	fx.visible = true

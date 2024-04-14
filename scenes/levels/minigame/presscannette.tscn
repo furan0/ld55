@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbk6q5w5i4ici"]
+[gd_scene load_steps=10 format=3 uid="uid://cbk6q5w5i4ici"]
 
 [ext_resource type="Script" path="res://scenes/levels/minigame/presscannette.gd" id="1_01055"]
 [ext_resource type="Texture2D" uid="uid://b8kplcvppouw2" path="res://scenes/levels/minigame/ecras/interface.png" id="2_ec3px"]
@@ -6,12 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://dllist4duoq4k" path="res://scenes/levels/minigame/ecras/splash.png" id="4_rfo1b"]
 [ext_resource type="Texture2D" uid="uid://c71ye1h5uu4jr" path="res://scenes/levels/minigame/ecras/can.png" id="4_w5bng"]
 [ext_resource type="Texture2D" uid="uid://bcg3o3bijg4va" path="res://scenes/levels/minigame/ecras/speedtrait.png" id="6_d2vtq"]
+[ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="7_rh8rr"]
+[ext_resource type="AudioStream" uid="uid://bwt5ua2dun2bj" path="res://assets/audio/ld55_uiclick_r1.wav" id="8_epdgv"]
+[ext_resource type="AudioStream" uid="uid://dy5coid223fmd" path="res://assets/audio/ld55_uiclick_r2.wav" id="9_0u8f8"]
 
 [node name="Presscannette" type="Node2D"]
+z_index = 2000
 script = ExtResource("1_01055")
 
 [node name="game" type="Node2D" parent="."]
-position = Vector2(5, -140)
+position = Vector2(5, -346)
 
 [node name="Boot" type="Sprite2D" parent="game"]
 z_index = 10
@@ -35,6 +39,12 @@ texture = ExtResource("6_d2vtq")
 
 [node name="Interface" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(3.25, -184.75)
+position = Vector2(3.25, -390.75)
 scale = Vector2(1.00769, 0.983636)
 texture = ExtResource("2_ec3px")
+
+[node name="effect" type="AudioStreamPlayer2D" parent="."]
+attenuation = 0.34151
+max_polyphony = 4
+script = ExtResource("7_rh8rr")
+audio_clips = Array[AudioStream]([ExtResource("8_epdgv"), ExtResource("9_0u8f8")])
