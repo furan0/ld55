@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4a4qfkwu06hv"]
+[gd_scene load_steps=17 format=3 uid="uid://b4a4qfkwu06hv"]
 
 [ext_resource type="PackedScene" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" path="res://scenes/characters/wololo/Player2.tscn" id="6_fq8db"]
 [ext_resource type="PackedScene" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="7_fghda"]
+[ext_resource type="Texture2D" uid="uid://c3genxcfcopev" path="res://scenes/levels/decors/arbre.png" id="8_wg3k5"]
+[ext_resource type="Texture2D" uid="uid://c0tfh1vm7omik" path="res://scenes/levels/decors/bafle.png" id="9_qoxn8"]
+[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="10_iimnm"]
+[ext_resource type="Texture2D" uid="uid://xbnm4oerx8ja" path="res://scenes/levels/decors/sol1.png" id="11_hhvda"]
+[ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="12_fksnk"]
+[ext_resource type="Texture2D" uid="uid://drshoc1gcupsh" path="res://scenes/levels/decors/trash1.png" id="13_y8mko"]
+[ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="14_sw2ib"]
+[ext_resource type="Texture2D" uid="uid://c1bnu6pvy38vi" path="res://scenes/levels/decors/voiture.png" id="15_pvf8m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
 vertices = PackedVector2Array(-308, -516, -13, -509, -14, -509, -441, -615, -442, -616, 930, 213, 829, 617, 228, 695, 531, -443, -651, 569, -983, -328, -882, -546, -535, -670, 859, -569, 1061, -483, 1217, -99, 1180, 86)
@@ -75,5 +83,38 @@ faction = 1
 [node name="Archer2" parent="." instance=ExtResource("7_ab2pd")]
 position = Vector2(281, -102)
 faction = 1
+
+[node name="Arbre" type="Sprite2D" parent="."]
+position = Vector2(292, 228)
+texture = ExtResource("8_wg3k5")
+
+[node name="Bafle" type="Sprite2D" parent="."]
+position = Vector2(-46, 51)
+texture = ExtResource("9_qoxn8")
+
+[node name="Poubelle" type="Sprite2D" parent="."]
+position = Vector2(108.857, 105)
+scale = Vector2(1.71429, 1.71429)
+texture = ExtResource("10_iimnm")
+
+[node name="Sol1" type="Sprite2D" parent="."]
+position = Vector2(-314, 175)
+texture = ExtResource("11_hhvda")
+
+[node name="Sol2" type="Sprite2D" parent="."]
+position = Vector2(529, 334)
+texture = ExtResource("12_fksnk")
+
+[node name="Trash1" type="Sprite2D" parent="."]
+position = Vector2(-209, 156)
+texture = ExtResource("13_y8mko")
+
+[node name="Trash2" type="Sprite2D" parent="."]
+position = Vector2(103, 184)
+texture = ExtResource("14_sw2ib")
+
+[node name="Voiture" type="Sprite2D" parent="."]
+position = Vector2(-327, 183)
+texture = ExtResource("15_pvf8m")
 
 [editable path="Muraille"]
