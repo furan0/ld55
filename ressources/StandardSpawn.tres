@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="SpawnLibrary" load_steps=13 format=3 uid="uid://m1mklle42rbt"]
+
+[ext_resource type="Script" path="res://ressources/SpawnGroup.gd" id="1_5eah6"]
+[ext_resource type="Script" path="res://ressources/SpawnLibrary.gd" id="1_vdy24"]
+[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="1_wgdc3"]
+[ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="2_02slu"]
+[ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="4_0ouwy"]
+
+[sub_resource type="Resource" id="Resource_o1iat"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("1_wgdc3"), ExtResource("2_02slu"), ExtResource("1_wgdc3")])
+
+[sub_resource type="Resource" id="Resource_33g2k"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("4_0ouwy"), ExtResource("1_wgdc3"), ExtResource("4_0ouwy")])
+
+[sub_resource type="Resource" id="Resource_s8g2o"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("4_0ouwy"), ExtResource("4_0ouwy")])
+
+[sub_resource type="Resource" id="Resource_1rou4"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("2_02slu"), ExtResource("2_02slu")])
+
+[sub_resource type="Resource" id="Resource_ibk35"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("4_0ouwy")])
+
+[sub_resource type="Resource" id="Resource_pof4y"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("1_wgdc3")])
+
+[sub_resource type="Resource" id="Resource_thyfy"]
+script = ExtResource("1_5eah6")
+group = Array[PackedScene]([ExtResource("4_0ouwy"), ExtResource("2_02slu"), ExtResource("4_0ouwy")])
+
+[resource]
+script = ExtResource("1_vdy24")
+library = Array[ExtResource("1_5eah6")]([SubResource("Resource_o1iat"), SubResource("Resource_33g2k"), SubResource("Resource_s8g2o"), SubResource("Resource_1rou4"), SubResource("Resource_ibk35"), SubResource("Resource_pof4y"), SubResource("Resource_thyfy")])
