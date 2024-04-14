@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name SelectionHandler
 ## handle selection (duuh...)
 ##
@@ -34,7 +34,7 @@ func select(selector_ : Node):
 	setSelectionStatus(false)
 	
 	# Log selection
-	print(str(self) + " is selected")
+	#print(str(self) + " is selected")
 
 ##Release an unit from selection
 func release():
@@ -46,7 +46,7 @@ func release():
 		setSelectionStatus(true)
 		
 		# Log selection
-		print(str(self) + " is released")
+		#print(str(self) + " is released")
 
 ##Assign a position to go to
 func setSelectionPosition(targetPos : Vector2):

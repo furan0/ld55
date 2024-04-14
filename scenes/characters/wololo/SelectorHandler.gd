@@ -4,6 +4,7 @@ signal selectionStarted()
 signal selectionEnded()
 
 var currentSelection = []
+var startingAngle := PI + 1.41 * 0.2 # Je sors ça de mon cul.
 
 @export var SelectionPositionRadius := 150.0
 @export var showPosHelper := false
@@ -21,10 +22,16 @@ func _process(_delta):
 	# Assign a point for each one
 	var i := 0
 	for selected in currentSelection:
-		var posX = SelectionPositionRadius * cos(increment * i) + global_position.x
-		var posY = SelectionPositionRadius * sin(increment * i) + global_position.y
+		print("Angle target " + str(i) + " : " + str(global_position.angle_to_point(selected.global_position)))
+		var posX = SelectionPositionRadius * cos(startingAngle + increment * i) + global_position.x
+		var posY = SelectionPositionRadius * sin(startingAngle + increment * i) + global_position.y
 		selected.setSelectionPosition(Vector2 (posX, posY))
 		i += 1
+
+func sort_selection_clockwise(a, b):
+	var angleA = global_position.angle_to_point(a.global_position)
+	var angleB = global_position.angle_to_point(b.global_position)
+	return  angleA < angleB
 
 func startSelection():
 	monitoring = true
@@ -57,6 +64,15 @@ func bodyDetected(body : Node2D):
 func addToSelection(selection : SelectionHandler):
 	selection.select(self)
 	currentSelection.append(selection)
+	
+	# Set starting anle or sort selection
+	if (currentSelection.size() == 1):
+		# We are the first one -> set starting angle
+		pass
+		# startingAngle = global_position.angle_to_point(selection.global_position)
+	else:
+		# We are not the first one -> sort the selection array by angle
+		currentSelection.sort_custom(sort_selection_clockwise)
 
 func _draw():
 	# Debug draw
