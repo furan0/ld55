@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4giumrwdfn52"]
+[gd_scene load_steps=4 format=3 uid="uid://b4giumrwdfn52"]
 
+[ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_c5u44"]
 [ext_resource type="Texture2D" uid="uid://dwsdyra3net5r" path="res://scenes/levels/decors/roche.png" id="1_gao6q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kffp"]
@@ -9,10 +10,13 @@ height = 128.0
 [node name="Roche" type="StaticBody2D"]
 scale = Vector2(2, 2)
 
-[node name="Roche" type="Sprite2D" parent="."]
-position = Vector2(11, -31)
-texture = ExtResource("1_gao6q")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_4kffp")
+
+[node name="NodeYSorted" type="Node2D" parent="."]
+script = ExtResource("1_c5u44")
+
+[node name="Roche" type="Sprite2D" parent="NodeYSorted"]
+position = Vector2(11, -31)
+texture = ExtResource("1_gao6q")

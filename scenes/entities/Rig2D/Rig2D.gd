@@ -37,6 +37,8 @@ func _ready():
 	#_override_mat(muppet)
 	#_override_mat(key_frame)
 	_override_mat(self)
+	if has_node("shadow"):
+		$shadow.use_parent_material = false
 	update_color()
 
 	# putting HUD
@@ -46,6 +48,9 @@ func _ready():
 	
 	# Connect onfaction change
 	get_parent().get_parent().factionChanged.connect(update_color)
+
+func _process(delta):
+	z_index = int(global_position.y)
 
 func _physics_process(_delta):
 	scale = Vector2(-1,1) if get_parent().get_parent().velocity.x > 0.0 else Vector2.ONE
