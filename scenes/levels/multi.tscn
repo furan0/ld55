@@ -38,9 +38,11 @@ metadata/_edit_lock_ = true
 [node name="GameManager" parent="." instance=ExtResource("7_dvgvo")]
 unique_name_in_owner = true
 currentGameMode = 2
+nbColorThres = 4
 
 [node name="Camera" parent="." instance=ExtResource("1_h714r")]
 position = Vector2(1769, 2072)
+margin = Vector2(450, 450)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" parent="Camera" index="0"]
@@ -259,8 +261,9 @@ rotation = -0.246624
 texture = ExtResource("10_wc0d5")
 
 [node name="Poubelle5" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(2384, 2127)
+position = Vector2(2373, 2134)
 rotation = -1.27478
+scale = Vector2(1.35542, 1.79552)
 texture = ExtResource("13_i6jbo")
 
 [node name="Sol11" type="Sprite2D" parent="Arena/Decors"]
@@ -308,6 +311,45 @@ width = 250.0
 
 [node name="edges" parent="Arena/MurailleCentrale" index="1"]
 points = PackedVector2Array(1778, 2597, 2409, 2518, 2413, 2233, 2364, 2089, 2167, 1966, 1951, 1903, 1502, 2058, 1399, 2244)
+
+[node name="Spawners" type="Node2D" parent="Arena"]
+metadata/_edit_lock_ = true
+
+[node name="Spawner" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
+position = Vector2(1454, 828)
+
+[node name="Spawner2" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
+position = Vector2(878, 2788)
+
+[node name="SpawnPoint1" parent="Arena/Spawners/Spawner2" index="0"]
+position = Vector2(-127, -81)
+
+[node name="SpawnPoint2" parent="Arena/Spawners/Spawner2" index="1"]
+position = Vector2(-63, -11)
+
+[node name="SpawnPoint3" parent="Arena/Spawners/Spawner2" index="2"]
+position = Vector2(-73, 107)
+
+[node name="Spawner3" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
+position = Vector2(375, 2015)
+rotation = -1.63143
+
+[node name="Spawner4" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
+position = Vector2(3314, 3093)
+rotation = -4.53942
+
+[node name="Spawner5" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
+position = Vector2(3697, 2202)
+rotation = -4.53942
+
+[node name="SpawnPoint1" parent="Arena/Spawners/Spawner5" index="0"]
+position = Vector2(-105.748, 16.4451)
+
+[node name="SpawnPoint2" parent="Arena/Spawners/Spawner5" index="1"]
+position = Vector2(-16.7963, -171.671)
+
+[node name="SpawnPoint3" parent="Arena/Spawners/Spawner5" index="2"]
+position = Vector2(148.812, 3.43987)
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -366,3 +408,8 @@ polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552,
 [editable path="Camera"]
 [editable path="Arena/MurailleTour"]
 [editable path="Arena/MurailleCentrale"]
+[editable path="Arena/Spawners/Spawner"]
+[editable path="Arena/Spawners/Spawner2"]
+[editable path="Arena/Spawners/Spawner3"]
+[editable path="Arena/Spawners/Spawner4"]
+[editable path="Arena/Spawners/Spawner5"]

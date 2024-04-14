@@ -22,7 +22,7 @@ func _process(_delta):
 	# Assign a point for each one
 	var i := 0
 	for selected in currentSelection:
-		print("Angle target " + str(i) + " : " + str(global_position.angle_to_point(selected.global_position)))
+		#print("Angle target " + str(i) + " : " + str(global_position.angle_to_point(selected.global_position)))
 		var posX = SelectionPositionRadius * cos(startingAngle + increment * i) + global_position.x
 		var posY = SelectionPositionRadius * sin(startingAngle + increment * i) + global_position.y
 		selected.setSelectionPosition(Vector2 (posX, posY))
