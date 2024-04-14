@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8a68p88th32d"]
+[gd_scene load_steps=14 format=3 uid="uid://b8a68p88th32d"]
 
 [ext_resource type="Script" path="res://scenes/characters/Character.gd" id="1_true6"]
 [ext_resource type="Script" path="res://scenes/characters/MoveHandler.gd" id="3_h45uq"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="7_pt6ja"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="7_ron71"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="9_frh2p"]
+[ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="9_ho86x"]
+[ext_resource type="AudioStream" uid="uid://p833sm7space" path="res://assets/audio/buitdebas_session.wav" id="10_hnooh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_64fn3"]
 radius = 27.0
@@ -81,6 +83,18 @@ script = ExtResource("7_pt6ja")
 
 [node name="Graphsime" type="Node2D" parent="."]
 
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.405
+pitch_scale = 1.14
+attenuation = 0.183011
+max_polyphony = 3
+bus = &"Sfx"
+script = ExtResource("9_ho86x")
+audio_clips = Array[AudioStream]([ExtResource("10_hnooh")])
+looping = true
+
 [connection signal="dead" from="." to="StateMachine" method="send_event" binds= ["dead"]]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Movement/Stopped" to="walk_sound" method="stop_play"]
+[connection signal="state_entered" from="StateMachine/MainState/Alive/Movement/Move" to="walk_sound" method="play_sound"]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="MoveHandler" method="setCanMove" binds= [false]]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="CollisionShape2D" method="set_disabled" binds= [true]]

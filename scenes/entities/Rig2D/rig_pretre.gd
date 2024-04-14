@@ -21,7 +21,7 @@ func _ready():
 	
 	state_machine.get_node("MainState/Alive/Convertion/Converting/toConversionFailed").taken.connect(target_lost)
 	state_machine.get_node("MainState/Alive/Convertion/Converting/noTarget").taken.connect(no_target)
-	state_machine.get_node("MainState/Alive/Convertion/ConversionSucc").state_entered.connect(no_target)
+	state_machine.get_node("MainState/Alive/Convertion/ConversionSucc").state_entered.connect(succ_conv)
 
 	wololo.lifeChanged.connect(on_pv_change)
 	wololo.dead.connect(dead)
