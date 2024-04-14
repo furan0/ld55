@@ -136,8 +136,12 @@ func _completeSceneLoading(path : String) -> void:
 	print("Scene switching completed")
 
 
-func _pauseGame():
+## Reload current scene
+func reloadCurrentScene():
+	goto_scene(get_tree().current_scene.scene_file_path)
+
+func pauseGame():
 	get_tree().paused = true
 	
-func _unpauseGame():
+func unpauseGame():
 	get_tree().paused = false

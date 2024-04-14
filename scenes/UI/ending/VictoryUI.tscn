@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvbkfkqsdl5xc"]
+[gd_scene load_steps=30 format=3 uid="uid://dvbkfkqsdl5xc"]
 
 [ext_resource type="Script" path="res://scenes/UI/ending/VictoryUI.gd" id="1_6cvq8"]
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="2_qsx6v"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cs424npd3ji8u" path="res://scenes/UI/ending/5.png" id="7_rguaq"]
 [ext_resource type="Texture2D" uid="uid://trrffla3a8ld" path="res://scenes/UI/ending/7.png" id="8_xrjiw"]
 [ext_resource type="Texture2D" uid="uid://dlbnt2xiqqxkm" path="res://scenes/UI/ending/8.png" id="9_xu0mb"]
+[ext_resource type="Texture2D" uid="uid://kfvpbwxwalmb" path="res://scenes/UI/ending/crying.png" id="11_1jrgd"]
+[ext_resource type="Script" path="res://scripts/UI/SimpleButton.gd" id="11_xhfen"]
+[ext_resource type="Shader" path="res://scenes/entities/Rig2D/character.gdshader" id="12_8283k"]
+[ext_resource type="Texture2D" uid="uid://cr4qk7jaf4ctg" path="res://scenes/UI/ending/hand.png" id="12_ku5s1"]
+[ext_resource type="Texture2D" uid="uid://bg0i7885y2sjb" path="res://scenes/UI/ending/baton.png" id="13_mkc0u"]
 
 [sub_resource type="Animation" id="Animation_oi4d5"]
 resource_name = "EndAnimation"
@@ -162,6 +167,121 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx4uy"]
+shader = ExtResource("12_8283k")
+shader_parameter/overridecolor = Color(0.560784, 0.509804, 0.384314, 1)
+shader_parameter/blink_color = Color(0, 0, 0, 0.360784)
+
+[sub_resource type="Animation" id="Animation_3xe2c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(35, -399)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CryingMulti:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, -317)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CryingMulti:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pchgy"]
+resource_name = "caseeeee"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -341), Vector2(17, -358), Vector2(18, -341)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00811327, 0.00064559, 0.0229225, -0.00867187, 0.0156683, -0.00677694, 0.0225277, 0.00523596, -0.0178053, 0.0156683, -0.00677694, 0.0225277, 0.00523596, -0.0178053, 0.0156683, -0.00677694, 0.0225277, 0.00523596, -0.0178053, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CryingMulti:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CryingMulti:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tbdg"]
+_data = {
+"RESET": SubResource("Animation_3xe2c"),
+"caseeeee": SubResource("Animation_pchgy")
+}
+
 [sub_resource type="Animation" id="Animation_vcca4"]
 length = 0.001
 tracks/0/type = "value"
@@ -200,15 +320,113 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LooseAnim:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MultiAnim:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("../MultiAnim:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("../MultiAnim:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_0mr6e"]
 resource_name = "arena"
 
 [sub_resource type="Animation" id="Animation_7psu3"]
 resource_name = "defeat"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LooseAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_y8g2j"]
 resource_name = "multi"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MultiAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.5001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../MultiAnim:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../MultiAnim:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_1qbnf"]
 resource_name = "victory"
@@ -298,6 +516,129 @@ material = ExtResource("2_qsx6v")
 sprite_frames = SubResource("SpriteFrames_0wkhf")
 autoplay = "default"
 frame_progress = 0.166291
+
+[node name="MainMenuButton" type="Button" parent="VictoryAnim"]
+offset_left = 62.0906
+offset_top = 367.369
+offset_right = 300.091
+offset_bottom = 431.369
+text = "Go back Home"
+script = ExtResource("11_xhfen")
+sceneToLoad = "res://scenes/levels/MainMenu.tscn"
+
+[node name="NextLevelButton" type="Button" parent="VictoryAnim"]
+offset_left = -344.948
+offset_top = 363.92
+offset_right = -106.948
+offset_bottom = 427.92
+text = "Kick more Asses"
+script = ExtResource("11_xhfen")
+goToNextLevel = true
+
+[node name="MultiAnim" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-2, 1)
+scale = Vector2(0.579798, 0.579798)
+
+[node name="SpriteVictoryMulti" type="AnimatedSprite2D" parent="MultiAnim"]
+unique_name_in_owner = true
+z_index = 80
+material = ExtResource("2_qsx6v")
+sprite_frames = SubResource("SpriteFrames_0wkhf")
+autoplay = "default"
+frame_progress = 0.166291
+
+[node name="MainMenuButton" type="Button" parent="MultiAnim"]
+offset_left = 62.0906
+offset_top = 367.369
+offset_right = 300.091
+offset_bottom = 431.369
+text = "Go back Home"
+script = ExtResource("11_xhfen")
+sceneToLoad = "res://scenes/levels/MainMenu.tscn"
+
+[node name="TryAgainButton" type="Button" parent="MultiAnim"]
+offset_left = -344.948
+offset_top = 363.92
+offset_right = -106.948
+offset_bottom = 427.92
+text = "Take your revenge"
+script = ExtResource("11_xhfen")
+reloadCurrentScene = true
+
+[node name="LooseAnimMulti" type="Node2D" parent="MultiAnim"]
+position = Vector2(248.362, 208.693)
+scale = Vector2(0.380236, 0.383071)
+
+[node name="CryingMulti" type="Sprite2D" parent="MultiAnim/LooseAnimMulti"]
+unique_name_in_owner = true
+z_index = 4
+material = SubResource("ShaderMaterial_qx4uy")
+position = Vector2(-15, -317)
+texture = ExtResource("11_1jrgd")
+
+[node name="Hand" type="Sprite2D" parent="MultiAnim/LooseAnimMulti"]
+modulate = Color(0.721569, 0.721569, 0.721569, 1)
+z_index = 86
+position = Vector2(35, -399)
+texture = ExtResource("12_ku5s1")
+
+[node name="Baton" type="Sprite2D" parent="MultiAnim/LooseAnimMulti/Hand"]
+z_index = -16
+position = Vector2(13, -15)
+texture = ExtResource("13_mkc0u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MultiAnim/LooseAnimMulti"]
+libraries = {
+"": SubResource("AnimationLibrary_1tbdg")
+}
+autoplay = "caseeeee"
+
+[node name="LooseAnim" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 181)
+scale = Vector2(0.565866, 0.570086)
+
+[node name="Crying" type="Sprite2D" parent="LooseAnim"]
+unique_name_in_owner = true
+z_index = 4
+material = ExtResource("2_qsx6v")
+position = Vector2(-15, -317)
+texture = ExtResource("11_1jrgd")
+
+[node name="Hand" type="Sprite2D" parent="LooseAnim"]
+z_index = 86
+position = Vector2(35, -399)
+texture = ExtResource("12_ku5s1")
+
+[node name="Baton" type="Sprite2D" parent="LooseAnim/Hand"]
+z_index = -16
+position = Vector2(13, -15)
+texture = ExtResource("13_mkc0u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LooseAnim"]
+libraries = {
+"": SubResource("AnimationLibrary_1tbdg")
+}
+autoplay = "caseeeee"
+
+[node name="MainMenuButton" type="Button" parent="LooseAnim"]
+offset_left = 67.1537
+offset_top = 63.1484
+offset_right = 305.154
+offset_bottom = 127.148
+text = "Go back Home"
+script = ExtResource("11_xhfen")
+sceneToLoad = "res://scenes/levels/MainMenu.tscn"
+
+[node name="TryAgainButton" type="Button" parent="LooseAnim"]
+offset_left = -355.208
+offset_top = 54.3778
+offset_right = -117.208
+offset_bottom = 118.378
+text = "Restart Party"
+script = ExtResource("11_xhfen")
+reloadCurrentScene = true
 
 [node name="AnimationSpecificPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VictoryAnim")

@@ -5,8 +5,10 @@ class_name GameManager
 enum EGameMode { MENU, SINGLE, MULTI, ARENA }
 @export var currentGameMode := EGameMode.MENU
 
-var player1 : Character = null
-var player2 : Character = null
+@export var player1 : Character = null
+@export var player2 : Character = null
+
+@export var nextLevelPath : String = "res://scenes/levels/MainMenu.tscn"
 
 var peons := []
 var nbPeonsBlue := 0
@@ -19,7 +21,7 @@ signal noMoreGaiaPeon()
 var wololos := []
 signal gameEnded()
 signal victory(victor : Character)
-signal defeat()
+signal defeat(looser : Character)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,7 +63,7 @@ func _callbackWololoDied(wololo : Character):
 		EGameMode.SINGLE:
 			if wololo.faction == Character.EFaction.BLUE:
 				# Main player died => defeat
-				defeat.emit()
+				defeat.emit(wololo)
 			else:
 				#Other wololo died => Victory
 				victory.emit(player1)
@@ -81,7 +83,7 @@ func _callbackWololoDied(wololo : Character):
 		EGameMode.ARENA:
 			if wololo.faction == Character.EFaction.BLUE:
 				# Main player died => defeat
-				defeat.emit()
+				defeat.emit(wololo)
 				gameEnded.emit()
 			# Game keep going on if other wololo died
 			# TODO : spawn a new wololo somewhere
