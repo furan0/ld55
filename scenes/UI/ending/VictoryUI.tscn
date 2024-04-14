@@ -1,0 +1,237 @@
+[gd_scene load_steps=12 format=3 uid="uid://dvbkfkqsdl5xc"]
+
+[ext_resource type="Script" path="res://scenes/UI/ending/VictoryUI.gd" id="1_6cvq8"]
+[ext_resource type="PackedScene" uid="uid://dokfq6dcsk74e" path="res://scenes/UI/ending/victory.tscn" id="1_tlsjd"]
+
+[sub_resource type="Animation" id="Animation_oi4d5"]
+resource_name = "EndAnimation"
+length = 0.75
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../carrehaut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1013, -639), Vector2(130, -251), Vector2(130, -251), Vector2(274, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../carrehaut:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.413753, -0.413753, -0.413753, -0.413753]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../carrebas:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(155, 1488), Vector2(1047, 1096), Vector2(1047, 1096), Vector2(877, 710)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../carrebas:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.413753, -0.413753, -0.413753, -0.413753]
+}
+
+[sub_resource type="Animation" id="Animation_j1d7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../carrehaut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(274, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../carrehaut:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.413753]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../carrebas:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(877, 710)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../carrebas:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.413753]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l8gx2"]
+_data = {
+"EndAnimation": SubResource("Animation_oi4d5"),
+"RESET": SubResource("Animation_j1d7e")
+}
+
+[sub_resource type="Animation" id="Animation_vcca4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(616, 496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1qbnf"]
+resource_name = "victory"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(616, 496), Vector2(616, 496)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7psu3"]
+resource_name = "defeat"
+
+[sub_resource type="Animation" id="Animation_y8g2j"]
+resource_name = "multi"
+
+[sub_resource type="Animation" id="Animation_0mr6e"]
+resource_name = "arena"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jqed6"]
+_data = {
+"RESET": SubResource("Animation_vcca4"),
+"arena": SubResource("Animation_0mr6e"),
+"defeat": SubResource("Animation_7psu3"),
+"multi": SubResource("Animation_y8g2j"),
+"victory": SubResource("Animation_1qbnf")
+}
+
+[node name="EndingUI" type="Node2D"]
+z_index = 4026
+script = ExtResource("1_6cvq8")
+
+[node name="AnimationFond" type="Node2D" parent="."]
+
+[node name="carrehaut" type="Polygon2D" parent="AnimationFond"]
+position = Vector2(274, 72)
+rotation = -0.413753
+color = Color(0.313726, 0.313726, 0.313726, 1)
+offset = Vector2(-590, 1393)
+polygon = PackedVector2Array(-27, -1807, -23, -974, 1843.94, -967.995, 1229, -1807)
+
+[node name="carrebas" type="Polygon2D" parent="AnimationFond"]
+position = Vector2(877, 710)
+rotation = -0.413753
+color = Color(0.313726, 0.313726, 0.313726, 1)
+offset = Vector2(-590, 1393)
+polygon = PackedVector2Array(-582.355, -1807.3, -23, -974, 1225, -974, 1229, -1807)
+
+[node name="AnimationFondPlayer" type="AnimationPlayer" parent="AnimationFond"]
+root_node = NodePath(".")
+libraries = {
+"": SubResource("AnimationLibrary_l8gx2")
+}
+autoplay = "EndAnimation"
+
+[node name="VictoryAnim" parent="." instance=ExtResource("1_tlsjd")]
+position = Vector2(616, 496)
+scale = Vector2(0.579798, 0.579798)
+
+[node name="AnimationSpecificPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../VictoryAnim")
+libraries = {
+"": SubResource("AnimationLibrary_jqed6")
+}

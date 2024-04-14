@@ -7,10 +7,6 @@ var callback : Callable
 func setCallback(callback_ : Callable):
 	callback = callback_
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func runMinigame():
 	# Todo for each child
 	#Dummy example here
