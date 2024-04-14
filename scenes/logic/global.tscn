@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvtw5rwbwhptf"]
+[gd_scene load_steps=4 format=3 uid="uid://dvtw5rwbwhptf"]
 
 [ext_resource type="Script" path="res://scenes/logic/Global.gd" id="1_aorhf"]
 [ext_resource type="PackedScene" uid="uid://bsutykcmunj6m" path="res://scenes/UI/loading_ui.tscn" id="2_8p2q1"]
+[ext_resource type="Script" path="res://scenes/logic/GameManager.gd" id="3_16yhj"]
 
 [node name="Global" type="Node"]
 editor_description = "Game Main autoloaded class.
@@ -16,3 +17,7 @@ script = ExtResource("1_aorhf")
 [node name="LoadingUI" parent="." instance=ExtResource("2_8p2q1")]
 unique_name_in_owner = true
 visible = false
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_16yhj")
