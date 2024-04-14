@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://i0rm7872wjok"]
+[gd_scene load_steps=2 format=3 uid="uid://csnwttatywcsu"]
 
 [ext_resource type="PackedScene" uid="uid://d2r4xpnpn38x1" path="res://scenes/characters/wololo/wololo.tscn" id="1_koa5d"]
 
@@ -7,3 +7,6 @@ faction = 0
 
 [node name="InputHandler" parent="." index="5"]
 inputProvider = 0
+
+[node name="RigPretre" parent="Graphsime" index="0"]
+show_behind_parent = true

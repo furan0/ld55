@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4a4qfkwu06hv"]
 
-[ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
+[ext_resource type="PackedScene" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
 [ext_resource type="Texture2D" uid="uid://dwsdyra3net5r" path="res://scenes/levels/decors/roche.png" id="4_6ehds"]
-[ext_resource type="PackedScene" uid="uid://i0rm7872wjok" path="res://scenes/characters/wololo/Player1.tscn" id="5_wyrrg"]
-[ext_resource type="PackedScene" uid="uid://di4em2gl1wet1" path="res://scenes/characters/wololo/Player2.tscn" id="6_fq8db"]
-[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
+[ext_resource type="PackedScene" uid="uid://csnwttatywcsu" path="res://scenes/characters/wololo/Player1.tscn" id="5_wyrrg"]
+[ext_resource type="PackedScene" path="res://scenes/characters/wololo/Player2.tscn" id="6_fq8db"]
+[ext_resource type="PackedScene" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="7_fghda"]
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="8_sk5f3"]
 
@@ -16,6 +16,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-658, 579, -994, -329, 
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="test" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Camera" parent="." instance=ExtResource("1_34fdf")]
 
@@ -44,7 +45,7 @@ texture = ExtResource("4_6ehds")
 
 [node name="render" parent="Muraille" index="0"]
 position = Vector2(-47, -316)
-points = PackedVector2Array(-877, 722, -1129, -18, -971, -371, -493, -546, 539, -337, 1118, -627, 1504, 154, 1444, 564, 1158, 685, 1127, 850, 1053, 1119, 267, 1230, -732, 1048, -897, 662)
+points = PackedVector2Array(-877, 722, -1129, -18, -971, -371, -493, -546, 539, -337, 863, -547, 1063, -569, 1234, -521, 1349, -430, 1504, 154, 1444, 564, 1158, 685, 1127, 850, 1053, 1119, 267, 1230, -732, 1048, -897, 662)
 
 [node name="edges" parent="Muraille" index="1"]
 visible = false

@@ -50,7 +50,7 @@ func _ready():
 	get_parent().get_parent().factionChanged.connect(update_color)
 
 func _process(_delta):
-	z_index = int(global_position.y)
+	z_index = int(global_position.y/10.0)
 	
 func _physics_process(_delta):
 		scale = Vector2(-1,1) if get_parent().get_parent().currentDirection.x > 0.0 else Vector2.ONE
