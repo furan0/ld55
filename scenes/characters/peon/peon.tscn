@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://djyfw78hvalds"]
+[gd_scene load_steps=16 format=3 uid="uid://djyfw78hvalds"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_urfq2"]
 [ext_resource type="Script" path="res://scenes/characters/peon/Peon.gd" id="2_gniem"]
@@ -9,13 +9,14 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="7_a2lh4"]
 [ext_resource type="Script" path="res://scenes/characters/peon/AttackHandler.gd" id="7_sikxc"]
 [ext_resource type="PackedScene" uid="uid://bv3wjwnvjht23" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="9_a6ot0"]
+[ext_resource type="PackedScene" uid="uid://cdo2lsow45oqo" path="res://scenes/entities/Rig2D/rig_archer.tscn" id="9_by125"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aaboq"]
-radius = 269.091
+radius = 525.001
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ebq"]
-radius = 27.0
-height = 78.0
+radius = 41.0
+height = 90.0
 
 [sub_resource type="Resource" id="Resource_s07df"]
 script = ExtResource("7_a2lh4")
@@ -35,9 +36,15 @@ peonType = 0
 
 [node name="AttackHandler" type="Node2D" parent="." index="0"]
 script = ExtResource("7_sikxc")
-rushDistance = 150
-attackRange = 100
-rushMargin = 20
+TargetWeigth = {
+0: 1.0,
+1: 0.5,
+2: 2.0,
+"wololo": 0.5
+}
+rushDistance = 400
+attackRange = 150
+rushMargin = 25
 
 [node name="AreaAware" type="Area2D" parent="AttackHandler" index="0"]
 monitorable = false
@@ -50,7 +57,7 @@ debug_color = Color(0.262745, 0.631373, 0, 0.419608)
 wait_time = 0.5
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, -36)
+position = Vector2(0, -35)
 shape = SubResource("CapsuleShape2D_h1ebq")
 
 [node name="Status" type="Node" parent="StateMachine/MainState/Alive" index="2"]
@@ -160,6 +167,11 @@ to = NodePath("../../Attacking")
 event = &"enemyInRange"
 
 [node name="RigEpee" parent="Graphsime" index="0" instance=ExtResource("9_a6ot0")]
+unique_name_in_owner = true
+
+[node name="RigArcher" parent="Graphsime" index="1" instance=ExtResource("9_by125")]
+unique_name_in_owner = true
+visible = false
 
 [node name="SelectionHandler" type="Node" parent="." index="5"]
 script = ExtResource("5_pwg7j")

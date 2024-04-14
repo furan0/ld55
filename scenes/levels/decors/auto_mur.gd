@@ -5,7 +5,7 @@ const pan := preload("res://scenes/levels/decors/pan_cliff.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	trace()
+	#trace()
 	pass # Replace with function body.
 
 func trace():

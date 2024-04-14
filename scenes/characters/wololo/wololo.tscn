@@ -14,14 +14,14 @@
 [ext_resource type="Script" path="res://scenes/characters/wololo/TargetIndicator.gd" id="10_03c5p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cejr7"]
-radius = 187.024
+radius = 285.773
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w1abu"]
-radius = 187.024
+radius = 547.008
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yrr8"]
-radius = 28.0
-height = 78.0
+radius = 37.0
+height = 90.0
 
 [sub_resource type="Resource" id="Resource_p7dyc"]
 script = ExtResource("7_6lja1")
@@ -33,6 +33,7 @@ script = ExtResource("2_n4dux")
 
 [node name="SelectorHandler" type="Area2D" parent="." index="0"]
 script = ExtResource("3_jcn6r")
+SelectionPositionRadius = 175.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="SelectorHandler" index="0"]
 shape = SubResource("CircleShape2D_cejr7")

@@ -9,9 +9,25 @@ class_name Peon
 enum EPeonType {SWORD, ARCHER, HORSE}
 @export var peonType : EPeonType = EPeonType.SWORD
 
+@onready var rig_epee = %RigEpee
+@onready var rig_archer = %RigArcher
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
+	
+	# Show appropriate Rig for the Peon type
+	match peonType:
+		EPeonType.SWORD:
+			rig_archer.hide()
+			rig_epee.show()
+		EPeonType.ARCHER:
+			rig_archer.show()
+			rig_epee.hide()
+		_:
+			rig_archer.hide()
+			rig_epee.show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsnofdxy1j8q1"]
 
-[ext_resource type="PackedScene" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="1_xebl6"]
+[ext_resource type="PackedScene" uid="uid://bv3wjwnvjht23" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="1_xebl6"]
 
 [node name="Com" type="Node2D"]
 
