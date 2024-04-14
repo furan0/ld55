@@ -18,6 +18,9 @@ minAttackRange = 200
 rushMargin = 15
 attackHitPoint = 20
 
+[node name="toPostAttack" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" index="0"]
+delay_seconds = 0.05
+
 [connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
 [connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
 [connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
