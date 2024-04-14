@@ -7,7 +7,7 @@
 [node name="RigEpee" instance=ExtResource("1_w6fw8")]
 
 [node name="Cheval" type="Sprite2D" parent="muppet/root/Body" index="0"]
-z_index = 3
+z_index = 1
 position = Vector2(-44, -36)
 scale = Vector2(1.32922, 1.32922)
 texture = ExtResource("4_k6o4l")
