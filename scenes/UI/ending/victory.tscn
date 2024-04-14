@@ -41,9 +41,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_423v2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ir2wr")
 }],
 "loop": true,
 "name": &"default",
@@ -55,4 +52,3 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0wkhf")
 autoplay = "default"
-frame_progress = 0.166291
