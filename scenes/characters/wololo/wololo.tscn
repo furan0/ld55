@@ -13,8 +13,9 @@
 [ext_resource type="Script" path="res://scenes/characters/wololo/ConvertionHandler.gd" id="9_3ocsr"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/TargetIndicator.gd" id="10_03c5p"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cejr7"]
-radius = 285.773
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5v2n"]
+radius = 304.0
+height = 780.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w1abu"]
 radius = 547.008
@@ -36,7 +37,8 @@ script = ExtResource("3_jcn6r")
 SelectionPositionRadius = 175.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="SelectorHandler" index="0"]
-shape = SubResource("CircleShape2D_cejr7")
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_i5v2n")
 
 [node name="ConvertionHandler" type="Area2D" parent="." index="1"]
 script = ExtResource("9_3ocsr")
@@ -146,6 +148,7 @@ inputProvider = 2
 
 [node name="RigPretre" parent="Graphsime" index="0" instance=ExtResource("8_h3pwf")]
 position = Vector2(-10, 13)
+circleOffset = 76.0
 
 [connection signal="lookAtTarget" from="ConvertionHandler" to="." method="lookAt"]
 [connection signal="minigameFailed" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["mingameFailed"]]
