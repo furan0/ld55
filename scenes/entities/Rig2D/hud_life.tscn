@@ -1,14 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciyycovgdptid"]
+[gd_scene load_steps=7 format=3 uid="uid://ciyycovgdptid"]
 
 [ext_resource type="Script" path="res://scenes/entities/Rig2D/hud_life.gd" id="1_vjjhd"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_43ilf"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_x3pg3"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_60vv1"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_ixh1j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ety2s"]
 
@@ -18,14 +12,8 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 3.0
-expand_margin_bottom = 3.0
-
-[sub_resource type="ImageTexture" id="ImageTexture_tftlo"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_qbcm3"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_45prq"]
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_254b8"]
 
@@ -35,8 +23,8 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 3.0
-expand_margin_bottom = 3.0
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
 
 [node name="HudLife" type="Control"]
 z_index = 20
@@ -49,39 +37,28 @@ grow_vertical = 2
 script = ExtResource("1_vjjhd")
 
 [node name="c" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="life" type="HSlider" parent="c"]
 layout_mode = 0
-offset_left = -45.0
+offset_left = -75.0
 offset_top = -9.0
-offset_right = 46.0
+offset_right = 74.0
 offset_bottom = 7.0
 theme_override_icons/grabber = SubResource("ImageTexture_43ilf")
-theme_override_icons/grabber_highlight = SubResource("ImageTexture_x3pg3")
-theme_override_icons/grabber_disabled = SubResource("ImageTexture_60vv1")
-theme_override_icons/tick = SubResource("ImageTexture_ixh1j")
 theme_override_styles/slider = SubResource("StyleBoxEmpty_ety2s")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vd25b")
 value = 100.0
-editable = false
-scrollable = false
 
 [node name="lifered" type="HSlider" parent="c"]
 layout_mode = 0
-offset_left = -45.0
+offset_left = -75.0
 offset_top = -9.0
-offset_right = 46.0
+offset_right = 74.0
 offset_bottom = 7.0
 theme_override_icons/grabber = SubResource("ImageTexture_43ilf")
-theme_override_icons/grabber_highlight = SubResource("ImageTexture_tftlo")
-theme_override_icons/grabber_disabled = SubResource("ImageTexture_qbcm3")
-theme_override_icons/tick = SubResource("ImageTexture_45prq")
 theme_override_styles/slider = SubResource("StyleBoxEmpty_254b8")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_krj3h")
 value = 100.0
-editable = false
-scrollable = false

@@ -2780,7 +2780,7 @@ width = 8.0
 texture = ExtResource("9_5b7q4")
 texture_mode = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="shadow" type="Polygon2D" parent="."]
 z_index = -16
 color = Color(0, 0, 0, 0.690196)
 polygon = PackedVector2Array(27, -21, 10, -23, -5, -23, -19, -20, -33, -14, -34, -6, -29, 1, -18, 6, -4, 8, 13, 10, 27, 9, 35, 5, 37, -2, 37, -9)
