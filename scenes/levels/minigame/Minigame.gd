@@ -9,6 +9,10 @@ var callback : Callable
 func setCallback(callback_ : Callable):
 	callback = callback_
 
+func action_just_press():
+	# To be overriden by children
+	pass
+
 func runMinigame():
 	# Todo for each child
 	#Dummy example here

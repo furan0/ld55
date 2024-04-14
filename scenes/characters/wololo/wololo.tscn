@@ -1,14 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2r4xpnpn38x1"]
+[gd_scene load_steps=20 format=3 uid="uid://d2r4xpnpn38x1"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/Wololo.gd" id="2_n4dux"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/SelectorHandler.gd" id="3_jcn6r"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_x4spd"]
+[ext_resource type="PackedScene" uid="uid://cbk6q5w5i4ici" path="res://scenes/levels/minigame/presscannette.tscn" id="5_ekpv1"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_r2ehe"]
 [ext_resource type="Texture2D" uid="uid://b3ufgi634200c" path="res://scenes/characters/wololo/circle_texture.png" id="6_iee5h"]
+[ext_resource type="PackedScene" uid="uid://ug5erxsoup0s" path="res://scenes/levels/minigame/butine.tscn" id="6_o163u"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_vu2ye"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="7_6lja1"]
+[ext_resource type="PackedScene" uid="uid://413ofi323hy4" path="res://scenes/levels/minigame/TestMinigame.tscn" id="7_7emvp"]
 [ext_resource type="PackedScene" uid="uid://pfaxr3ii4krq" path="res://scenes/entities/Rig2D/rig_pretre.tscn" id="8_h3pwf"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/ConvertionHandler.gd" id="9_3ocsr"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/TargetIndicator.gd" id="10_03c5p"]
@@ -42,6 +45,11 @@ shape = SubResource("CapsuleShape2D_i5v2n")
 
 [node name="ConvertionHandler" type="Area2D" parent="." index="1"]
 script = ExtResource("9_3ocsr")
+convertionMinigames = {
+0: ExtResource("5_ekpv1"),
+1: ExtResource("6_o163u"),
+2: ExtResource("7_7emvp")
+}
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ConvertionHandler" index="0"]
 shape = SubResource("CircleShape2D_w1abu")
@@ -143,6 +151,7 @@ to = NodePath("../../NoConvertion")
 delay_seconds = 0.3
 
 [node name="InputHandler" type="Node" parent="." index="5"]
+unique_name_in_owner = true
 script = ExtResource("2_6ewwq")
 inputProvider = 2
 

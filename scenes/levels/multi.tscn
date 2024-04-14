@@ -1,0 +1,320 @@
+[gd_scene load_steps=21 format=3 uid="uid://ci6wjs5avnyk7"]
+
+[ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_h714r"]
+[ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
+[ext_resource type="PackedScene" uid="uid://csnwttatywcsu" path="res://scenes/characters/wololo/Player1.tscn" id="4_qplbe"]
+[ext_resource type="PackedScene" uid="uid://di4em2gl1wet1" path="res://scenes/characters/wololo/Player2.tscn" id="5_bgqmb"]
+[ext_resource type="PackedScene" uid="uid://cv0sddc4mspe" path="res://scenes/levels/decors/voiture.tscn" id="6_6i4b2"]
+[ext_resource type="PackedScene" uid="uid://deucexott6afu" path="res://scenes/levels/decors/poubelle.tscn" id="7_amq52"]
+[ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="7_dvgvo"]
+[ext_resource type="Texture2D" uid="uid://dwsdyra3net5r" path="res://scenes/levels/decors/roche.png" id="8_s0f2y"]
+[ext_resource type="Texture2D" uid="uid://drshoc1gcupsh" path="res://scenes/levels/decors/trash1.png" id="9_4ayqc"]
+[ext_resource type="PackedScene" uid="uid://c1j1j8r5unucw" path="res://scenes/levels/decors/arbre.tscn" id="9_o3ufj"]
+[ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="10_wc0d5"]
+[ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="11_80cfn"]
+[ext_resource type="Texture2D" uid="uid://2vhxn3cb4yc7" path="res://scenes/levels/decors/sol3.png" id="12_4uwqa"]
+[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="13_i6jbo"]
+[ext_resource type="Texture2D" uid="uid://xbnm4oerx8ja" path="res://scenes/levels/decors/sol1.png" id="14_blu3l"]
+[ext_resource type="PackedScene" uid="uid://s1lemdx2sdo0" path="res://scenes/levels/decors/mega_sol.tscn" id="14_wglcn"]
+[ext_resource type="PackedScene" uid="uid://cv2w473lfk1vb" path="res://scenes/levels/decors/voiturePropre.tscn" id="15_w86nd"]
+[ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_2x2xm"]
+[ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
+vertices = PackedVector2Array(1148, 674, 1019, 559, 1198, 542, 1713, 646, 1768, 738, 3289, 1988, 4051, 2209, 3879, 2423, 3194, 2469, 2430, 2234, 2411, 2095, 3013, 1938, 3210, 1528, 3346, 1595, 3010, 1926, 2952, 1810, 3289, 3314, 2932, 3352, 2555, 3235, 2418, 2516, 3573, 3139, 1876, 1439, 1671, 1969, 1497, 2046, 769, 932, 744, 841, 1098, 766, 1655, 1073, 476, 2742, 194, 2731, 335, 1212, 2235, 2549, 2310, 3055, 2173, 2628, 1472, 2844, 2018, 2634, 1800, 2636, 1479, 2449, 1542, 2423, 1105, 2867, 613, 3078, 431, 3027, 440, 2986, 675, 3000, 890, 3068, 755, 2920, 1399, 2396, 3624, 1783, 2788, 1789, 2787, 1789, 2103, 1636, 1967, 1893, 1382, 2252)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 9, 8, 20), PackedInt32Array(21, 22, 23, 24, 25, 26, 27), PackedInt32Array(28, 29, 30, 24), PackedInt32Array(31, 19, 18, 32, 33), PackedInt32Array(33, 32, 34, 35), PackedInt32Array(36, 35, 34), PackedInt32Array(37, 38, 36, 34, 39), PackedInt32Array(40, 41, 42, 43, 44), PackedInt32Array(44, 43, 45, 39), PackedInt32Array(46, 37, 39), PackedInt32Array(5, 47, 6), PackedInt32Array(48, 15, 14, 11, 10, 49), PackedInt32Array(50, 49, 10, 51), PackedInt32Array(21, 50, 51, 22), PackedInt32Array(46, 39, 45, 28, 24, 52), PackedInt32Array(23, 52, 24), PackedInt32Array(4, 27, 26, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1091, 757, 732, 834, 757, 928, 326, 1208, 184, 2741, 473, 2752, 739, 2922, 671, 2990, 433, 2976, 419, 3035, 611, 3089, 894, 3078, 1109, 2877, 1471, 2854, 2306, 3064, 2552, 3245, 2931, 3363, 3293, 3324, 3587, 3143, 3211, 2478, 3884, 2433, 4065, 2209, 3626, 1771, 3287, 1977, 3021, 1929, 3363, 1593, 3208, 1516, 2948, 1799, 2789, 1779, 2108, 1627, 1884, 1432, 1666, 1072, 1779, 736, 1720, 637, 1200, 532, 996, 552, 1135, 676)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="Multi" type="Node2D"]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="GameManager" parent="." instance=ExtResource("7_dvgvo")]
+unique_name_in_owner = true
+currentGameMode = 2
+
+[node name="Camera" parent="." instance=ExtResource("1_h714r")]
+position = Vector2(1769, 2072)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" parent="Camera" index="0"]
+zoom = Vector2(0.33, 0.33)
+
+[node name="CameraTarget1" parent="Camera" index="1"]
+process_mode = 3
+
+[node name="CameraTarget2" parent="Camera" index="2"]
+process_mode = 3
+
+[node name="Arena" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Decors" type="Node2D" parent="Arena"]
+metadata/_edit_lock_ = true
+
+[node name="Sol2" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1958, 2232)
+rotation = 0.177733
+scale = Vector2(3.94703, 4.38728)
+texture = ExtResource("11_80cfn")
+
+[node name="Roche" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(10247, 8504)
+rotation = 0.0920187
+scale = Vector2(3.56914, 1.54131)
+texture = ExtResource("8_s0f2y")
+
+[node name="Trash1" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2103, 2327)
+rotation = 0.679345
+texture = ExtResource("9_4ayqc")
+
+[node name="Voiture" parent="Arena/Decors" instance=ExtResource("6_6i4b2")]
+position = Vector2(2944, 1607)
+rotation = 2.80286
+scale = Vector2(1.7, -1.635)
+
+[node name="Poubelle" parent="Arena/Decors" instance=ExtResource("7_amq52")]
+position = Vector2(2937, 1753)
+rotation = -0.164128
+
+[node name="Poubelle2" parent="Arena/Decors" instance=ExtResource("7_amq52")]
+position = Vector2(2843, 1759)
+rotation = -0.0139495
+scale = Vector2(-1.75635, 1.75523)
+
+[node name="Trash2" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(3267, 1841)
+texture = ExtResource("10_wc0d5")
+
+[node name="Trash3" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(3195, 1607)
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash4" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1371, 1651)
+texture = ExtResource("10_wc0d5")
+
+[node name="Trash5" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1578, 1072)
+texture = ExtResource("9_4ayqc")
+
+[node name="Arbre" parent="Arena/Decors" instance=ExtResource("9_o3ufj")]
+z_index = 5
+position = Vector2(904, 595)
+rotation = -0.220723
+
+[node name="Sol3" type="Sprite2D" parent="Arena/Decors"]
+z_index = -230
+position = Vector2(1102, 600)
+rotation = 0.0566322
+scale = Vector2(2.65771, 2.39766)
+texture = ExtResource("12_4uwqa")
+
+[node name="Sol4" type="Sprite2D" parent="Arena/Decors"]
+z_index = -230
+position = Vector2(2727, 1696)
+rotation = 0.675219
+scale = Vector2(0.911647, 3.14593)
+texture = ExtResource("12_4uwqa")
+
+[node name="Sol5" type="Sprite2D" parent="Arena/Decors"]
+z_index = -3275
+position = Vector2(1723, 2556)
+rotation = -0.845595
+scale = Vector2(0.911647, 3.14593)
+texture = ExtResource("12_4uwqa")
+
+[node name="Sol1" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1568, 834)
+rotation = 0.182393
+scale = Vector2(2.18916, 1.84508)
+texture = ExtResource("14_blu3l")
+
+[node name="Roche2" parent="Arena/Decors" instance=ExtResource("16_iv56w")]
+position = Vector2(299, 2847)
+
+[node name="Poubelle3" parent="Arena/Decors" instance=ExtResource("7_amq52")]
+z_index = 105
+position = Vector2(295, 2953)
+rotation = 3.14159
+scale = Vector2(1.92, -2)
+
+[node name="Poubelle4" parent="Arena/Decors" instance=ExtResource("7_amq52")]
+z_index = -385
+position = Vector2(1846, 2616)
+rotation = 0.00267953
+scale = Vector2(2.09002, 1.53272)
+
+[node name="Trash6" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(338, 2982)
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash7" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(383, 2966)
+texture = ExtResource("10_wc0d5")
+
+[node name="Trash8" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(675, 2825)
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash9" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(755, 2885)
+texture = ExtResource("10_wc0d5")
+
+[node name="Roche4" parent="Arena/Decors" instance=ExtResource("16_iv56w")]
+position = Vector2(1328, 3373)
+
+[node name="Roche5" parent="Arena/Decors" instance=ExtResource("16_iv56w")]
+position = Vector2(2102, 2578)
+rotation = -0.0848009
+scale = Vector2(1.7, 1.4)
+
+[node name="Arbre2" parent="Arena/Decors" instance=ExtResource("9_o3ufj")]
+position = Vector2(1457, 2301)
+rotation = 0.401247
+scale = Vector2(0.506799, 0.506799)
+
+[node name="Arbre3" parent="Arena/Decors" instance=ExtResource("9_o3ufj")]
+position = Vector2(1472, 2358)
+rotation = -2.8634
+scale = Vector2(0.507, -0.507)
+
+[node name="MegaSol" parent="Arena/Decors" instance=ExtResource("14_wglcn")]
+position = Vector2(598, 1315)
+rotation = 0.000887671
+
+[node name="Trash10" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1541, 2420)
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash11" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1513, 2421)
+texture = ExtResource("10_wc0d5")
+
+[node name="VoiturePropre2" parent="Arena/Decors" instance=ExtResource("15_w86nd")]
+position = Vector2(3346, 1815)
+rotation = 2.87188
+scale = Vector2(2.03152, -1.5)
+
+[node name="Sol7" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -1540
+position = Vector2(3311, 1923)
+rotation = 2.52224
+scale = Vector2(3.74914, -1.24714)
+texture = ExtResource("11_80cfn")
+
+[node name="Sol8" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -1540
+position = Vector2(3083, 1932)
+rotation = -0.614887
+scale = Vector2(3.74914, -1.24714)
+texture = ExtResource("11_80cfn")
+
+[node name="Arbre4" parent="Arena/Decors" instance=ExtResource("9_o3ufj")]
+position = Vector2(4024, 2414)
+rotation = 2.34313
+scale = Vector2(0.715655, 0.715655)
+
+[node name="Sol9" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1955, 1610)
+rotation = 0.159309
+scale = Vector2(2.08, 2.08)
+texture = ExtResource("12_4uwqa")
+
+[node name="Sol10" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2174, 1662)
+rotation = 0.18171
+scale = Vector2(2.32, 1)
+texture = ExtResource("14_blu3l")
+
+[node name="Trash12" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1679, 1929)
+rotation = 2.22405
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash13" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2033, 1903)
+rotation = 0.554959
+scale = Vector2(0.684516, 0.684516)
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash14" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2386, 2109)
+rotation = 0.554959
+scale = Vector2(0.684516, 0.684516)
+texture = ExtResource("9_4ayqc")
+
+[node name="Trash15" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1733, 1926)
+rotation = -0.246624
+texture = ExtResource("10_wc0d5")
+
+[node name="Poubelle5" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2384, 2127)
+rotation = -1.27478
+texture = ExtResource("13_i6jbo")
+
+[node name="Sol11" type="Sprite2D" parent="Arena/Decors"]
+z_index = -1295
+position = Vector2(2404, 2126)
+rotation = -1.86783
+scale = Vector2(1, 1)
+texture = ExtResource("11_80cfn")
+
+[node name="Trash16" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2406, 2142)
+texture = ExtResource("10_wc0d5")
+
+[node name="MegaSol2" parent="Arena/Decors" instance=ExtResource("14_wglcn")]
+z_index = -2135
+position = Vector2(3789, 2236)
+rotation = -2.21098
+
+[node name="EstafetteMalBarree" parent="Arena/Decors" instance=ExtResource("16_2x2xm")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Arena"]
+position = Vector2(2, 0)
+navigation_polygon = SubResource("NavigationPolygon_5x0pt")
+
+[node name="Polygon2D" type="Polygon2D" parent="Arena/NavigationRegion2D"]
+visible = false
+polygon = PackedVector2Array(1392, 2254, 1504, 2054, 1674, 1978, 1966, 1904, 2402, 2102, 2420, 2234, 2408, 2508, 2230, 2540, 2168, 2618, 2018, 2624, 1804, 2626, 1544, 2412, 1480, 2438, 1408, 2390)
+
+[node name="MurailleTour" parent="Arena" instance=ExtResource("3_mmm6y")]
+metadata/_edit_lock_ = true
+
+[node name="render" parent="Arena/MurailleTour" index="0"]
+position = Vector2(119, 62)
+points = PackedVector2Array(-72, 1888, 30, 1029, 420, 787, 353, 491, 696, 276, 1093, 282, 1766, 410, 1867, 673, 1766, 968, 1927, 1251, 2068, 1386, 2438, 1460, 2795, 1130, 3279, 1298, 3777, 1634, 4167, 2092, 4127, 2570, 3427, 2590, 3743, 3128, 3450, 3373, 3187, 3487, 2780, 3516, 2581, 3459, 2274, 3323, 2102, 3169, 1332, 2988, 1067, 3003, 841, 3192, 463, 3215, 78, 3094, -141, 2875, -70, 1864)
+
+[node name="edges" parent="Arena/MurailleTour" index="1"]
+points = PackedVector2Array(153, 2877, 307, 1197, 729, 933, 659, 635, 865, 509, 1201, 509, 1757, 621, 1809, 731, 1693, 1059, 1915, 1419, 2107, 1601, 2599, 1703, 2953, 1385, 3339, 1517, 3781, 1813, 4111, 2209, 4093, 2467, 3251, 2485, 3645, 3155, 3269, 3377, 2909, 3405, 2497, 3243, 2303, 3083, 1441, 2879, 1121, 2895, 885, 3092, 608, 3111, 281, 3009)
+
+[node name="MurailleCentrale" parent="Arena" instance=ExtResource("3_mmm6y")]
+metadata/_edit_lock_ = true
+
+[node name="render" parent="Arena/MurailleCentrale" index="0"]
+position = Vector2(-104, 209)
+points = PackedVector2Array(1768, 2139, 1920, 2273, 2404, 2209, 2409, 2037, 2378, 1951, 2308, 1907, 2220, 1862, 2054, 1815, 1902, 1850, 1788, 1885, 1689, 1935, 1642, 2020, 1777, 2147)
+width = 250.0
+
+[node name="edges" parent="Arena/MurailleCentrale" index="1"]
+points = PackedVector2Array(1778, 2597, 2409, 2518, 2413, 2233, 2364, 2089, 2167, 1966, 1951, 1903, 1502, 2058, 1399, 2244)
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player1" parent="Entities" instance=ExtResource("4_qplbe")]
+unique_name_in_owner = true
+position = Vector2(690, 1272)
+
+[node name="Player2" parent="Entities" instance=ExtResource("5_bgqmb")]
+unique_name_in_owner = true
+position = Vector2(2878, 2738)
+
+[editable path="Camera"]
+[editable path="Arena/MurailleTour"]
+[editable path="Arena/MurailleCentrale"]

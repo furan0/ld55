@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1j1j8r5unucw"]
+
+[ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_d4dip"]
+[ext_resource type="Texture2D" uid="uid://c3genxcfcopev" path="res://scenes/levels/decors/arbre.png" id="2_cxnx8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3nrc"]
+radius = 54.5
+height = 180.0
+
+[node name="Arbre" type="StaticBody2D"]
+scale = Vector2(1.6, 1.6)
+
+[node name="NodeYSorted" type="Node2D" parent="."]
+script = ExtResource("1_d4dip")
+
+[node name="Arbre" type="Sprite2D" parent="NodeYSorted"]
+position = Vector2(-1.5, -19)
+texture = ExtResource("2_cxnx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, 60.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_t3nrc")

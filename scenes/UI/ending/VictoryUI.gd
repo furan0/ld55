@@ -9,9 +9,7 @@ var camera = null
 @onready var sprite_victory = %SpriteVictory
 @onready var crying = %Crying
 @onready var sprite_victory_multi = %SpriteVictoryMulti
-@onready var crying_multi = %CryingMulti
-
-
+@onready var crying_multi = $MultiAnim/LooseAnimMulti/Crying
 
 @export var cameraWantedZoom := 1.0
 @export var cameraZoomTime := 1.0
