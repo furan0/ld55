@@ -31,9 +31,14 @@ func walk():
 func idle():
 	animator.play("idle")
 func attaque():
+	$attaque.play_sound()
 	animator.play("attaque")
 func preattaque():
 	animator.play("preattaque")
+	
+func on_pv_change(new_pv):
+	super.on_pv_change(new_pv)
+	$hurt.play_sound()
 	
 func dead():
 	animator.play("dead")

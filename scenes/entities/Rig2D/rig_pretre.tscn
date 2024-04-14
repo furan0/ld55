@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pfaxr3ii4krq"]
+[gd_scene load_steps=36 format=3 uid="uid://pfaxr3ii4krq"]
 
 [ext_resource type="Script" path="res://scenes/entities/Rig2D/rig_pretre.gd" id="1_65tdl"]
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="1_mhdmb"]
@@ -14,6 +14,22 @@
 [ext_resource type="Texture2D" uid="uid://u8bgohyhdggc" path="res://scenes/entities/Rig2D/pretre/wolobarbe.png" id="9_t60uc"]
 [ext_resource type="Texture2D" uid="uid://dnaqwlwlyylle" path="res://scenes/entities/Rig2D/pretre/wolobarbe2.png" id="10_rs1wl"]
 [ext_resource type="PackedScene" uid="uid://edalvnqioi01" path="res://scenes/characters/wololo/CircleDrawer.tscn" id="14_8ajnv"]
+[ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="15_jttrw"]
+[ext_resource type="AudioStream" uid="uid://duvtq178ax8ha" path="res://assets/audio/ld55_wololo_r1.wav" id="16_qbh35"]
+[ext_resource type="AudioStream" uid="uid://cymfq88b7p06m" path="res://assets/audio/ld55_wololo_r2.wav" id="17_w0yv3"]
+[ext_resource type="AudioStream" uid="uid://j5kya31t1kpc" path="res://assets/audio/ld55_wololo_r3.wav" id="18_k18v5"]
+[ext_resource type="AudioStream" uid="uid://cb4bbrg0cbhre" path="res://assets/audio/ld55_wololo_r4.wav" id="19_dtsla"]
+[ext_resource type="AudioStream" uid="uid://di6jaouxm2815" path="res://assets/audio/ld55_wololo_r5.wav" id="20_pyioo"]
+[ext_resource type="AudioStream" uid="uid://d0orbwn7ebnur" path="res://assets/audio/ld55_hurted_r1.wav" id="21_ifpk5"]
+[ext_resource type="AudioStream" uid="uid://ccfr7ubyo4lwx" path="res://assets/audio/ld55_hurted_r2.wav" id="22_qf4lm"]
+[ext_resource type="AudioStream" uid="uid://bc55xdx0jqj13" path="res://assets/audio/ld55_hurted_r3.wav" id="23_n2spx"]
+[ext_resource type="AudioStream" uid="uid://btk566412yfpj" path="res://assets/audio/ld55_hurted_r4.wav" id="24_kxqsq"]
+[ext_resource type="AudioStream" uid="uid://da5u6k6f14oa5" path="res://assets/audio/ld55_hurted_r5.wav" id="25_5kkpv"]
+[ext_resource type="AudioStream" uid="uid://cwvag4ixe2ds3" path="res://assets/audio/ld55_hurted_r7.wav" id="26_b57ke"]
+[ext_resource type="AudioStream" uid="uid://b8a21fcfvfhre" path="res://assets/audio/ld55_wololo_rt_r1.wav" id="27_y5ckw"]
+[ext_resource type="AudioStream" uid="uid://dpvwsbrbkkdyu" path="res://assets/audio/ld55_wololo_rt_r2.wav" id="28_bhawd"]
+[ext_resource type="AudioStream" uid="uid://cfwgdw7kxphd6" path="res://assets/audio/ld55_wololo_rt_r3.wav" id="29_yqav1"]
+[ext_resource type="AudioStream" uid="uid://bng57vxxrmyws" path="res://assets/audio/ld55_wololo_rt_r4.wav" id="30_ta4rb"]
 
 [sub_resource type="Animation" id="Animation_ewhtx"]
 length = 0.001
@@ -1245,3 +1261,18 @@ z_index = -16
 position = Vector2(5, 3)
 color = Color(0, 0, 0, 0.690196)
 polygon = PackedVector2Array(27, -21, 10, -23, -5, -23, -19, -20, -33, -14, -34, -6, -29, 1, -18, 6, -4, 8, 13, 10, 27, 9, 35, 5, 37, -2, 37, -9)
+
+[node name="wololo" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 1.22
+script = ExtResource("15_jttrw")
+audio_clips = Array[AudioStream]([ExtResource("16_qbh35"), ExtResource("17_w0yv3"), ExtResource("18_k18v5"), ExtResource("19_dtsla"), ExtResource("20_pyioo")])
+pitch_distortion = 0.2
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("15_jttrw")
+audio_clips = Array[AudioStream]([ExtResource("21_ifpk5"), ExtResource("22_qf4lm"), ExtResource("23_n2spx"), ExtResource("24_kxqsq"), ExtResource("25_5kkpv"), ExtResource("26_b57ke")])
+
+[node name="wololo_rt" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("15_jttrw")
+audio_clips = Array[AudioStream]([ExtResource("27_y5ckw"), ExtResource("28_bhawd"), ExtResource("29_yqav1"), ExtResource("30_ta4rb")])
+pitch_distortion = 0.2
