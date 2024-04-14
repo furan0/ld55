@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scenes/entities/Rig2D/rig_epee.gd" id="2_o4ma3"]
 [ext_resource type="Texture2D" uid="uid://csongheu8pmrj" path="res://scenes/entities/Rig2D/epee/body.png" id="3_43yq0"]
 [ext_resource type="Texture2D" uid="uid://kmnm8a0beycl" path="res://scenes/entities/Rig2D/epee/epeejambe.png" id="4_8pu1j"]
-[ext_resource type="Texture2D" uid="uid://cytn776tmwhbu" path="res://scenes/entities/Rig2D/epee/tete.png" id="5_7tjqf"]
-[ext_resource type="Texture2D" uid="uid://cwqk2lcs6jldy" path="res://scenes/entities/Rig2D/epee/couvrechef.png" id="6_bb38w"]
+[ext_resource type="Texture2D" uid="uid://cytn776tmwhbu" path="res://scenes/entities/Rig2D/epee/tete.png" id="5_vcc0j"]
+[ext_resource type="Texture2D" uid="uid://cwqk2lcs6jldy" path="res://scenes/entities/Rig2D/epee/couvrechef.png" id="6_3vcjs"]
 [ext_resource type="Texture2D" uid="uid://dnd71y1vqasn7" path="res://scenes/entities/Rig2D/epee/epee.png" id="7_1n317"]
 [ext_resource type="Texture2D" uid="uid://dryoj3th5tdfn" path="res://scenes/entities/Rig2D/epee/main.png" id="8_kfw6w"]
 [ext_resource type="Texture2D" uid="uid://b3ufgi634200c" path="res://scenes/characters/wololo/circle_texture.png" id="9_ntf6g"]
@@ -1812,14 +1812,14 @@ offset = Vector2(-2, -25.5)
 z_index = 1
 use_parent_material = true
 position = Vector2(7, -45)
-texture = ExtResource("5_7tjqf")
+texture = ExtResource("5_vcc0j")
 offset = Vector2(-15, -18)
 
 [node name="Couvrechef" type="Sprite2D" parent="muppet/root/Body/Tete"]
 z_index = 2
 use_parent_material = true
 position = Vector2(-12, -26)
-texture = ExtResource("6_bb38w")
+texture = ExtResource("6_3vcjs")
 offset = Vector2(17, -19)
 
 [node name="Epee" type="Sprite2D" parent="muppet/root/Body"]
