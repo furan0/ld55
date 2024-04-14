@@ -13,6 +13,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	global_position = camera_target1.global_position
+	global_position = lerp(global_position,camera_target1.global_position,0.5)
 	
 
