@@ -9,7 +9,7 @@ radius = 745.081
 peonType = 2
 
 [node name="AttackHandler" parent="." index="0"]
-rushDistance = 500
+rushDistance = 600
 attackHitPoint = 20
 
 [node name="CollisionShape2D" parent="AttackHandler/AreaAware" index="0"]

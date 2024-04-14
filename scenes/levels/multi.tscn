@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://ci6wjs5avnyk7"]
+[gd_scene load_steps=24 format=3 uid="uid://ci6wjs5avnyk7"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_h714r"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
 [ext_resource type="PackedScene" uid="uid://csnwttatywcsu" path="res://scenes/characters/wololo/Player1.tscn" id="4_qplbe"]
 [ext_resource type="PackedScene" uid="uid://di4em2gl1wet1" path="res://scenes/characters/wololo/Player2.tscn" id="5_bgqmb"]
+[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="6_4xcts"]
 [ext_resource type="PackedScene" uid="uid://cv0sddc4mspe" path="res://scenes/levels/decors/voiture.tscn" id="6_6i4b2"]
 [ext_resource type="PackedScene" uid="uid://deucexott6afu" path="res://scenes/levels/decors/poubelle.tscn" id="7_amq52"]
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="7_dvgvo"]
@@ -23,8 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_bu7te"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
-vertices = PackedVector2Array(1148, 674, 1019, 559, 1198, 542, 1713, 646, 1768, 738, 3289, 1988, 4051, 2209, 3879, 2423, 3194, 2469, 2430, 2234, 2411, 2095, 3013, 1938, 3210, 1528, 3346, 1595, 3010, 1926, 2952, 1810, 3289, 3314, 2932, 3352, 2555, 3235, 2418, 2516, 3573, 3139, 1876, 1439, 1671, 1969, 1497, 2046, 769, 932, 744, 841, 1098, 766, 1655, 1073, 476, 2742, 194, 2731, 335, 1212, 2235, 2549, 2310, 3055, 2173, 2628, 1472, 2844, 2018, 2634, 1800, 2636, 1479, 2449, 1542, 2423, 1105, 2867, 613, 3078, 431, 3027, 440, 2986, 675, 3000, 890, 3068, 755, 2920, 1399, 2396, 3624, 1783, 2788, 1789, 2787, 1789, 2103, 1636, 1967, 1893, 1382, 2252)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 9, 8, 20), PackedInt32Array(21, 22, 23, 24, 25, 26, 27), PackedInt32Array(28, 29, 30, 24), PackedInt32Array(31, 19, 18, 32, 33), PackedInt32Array(33, 32, 34, 35), PackedInt32Array(36, 35, 34), PackedInt32Array(37, 38, 36, 34, 39), PackedInt32Array(40, 41, 42, 43, 44), PackedInt32Array(44, 43, 45, 39), PackedInt32Array(46, 37, 39), PackedInt32Array(5, 47, 6), PackedInt32Array(48, 15, 14, 11, 10, 49), PackedInt32Array(50, 49, 10, 51), PackedInt32Array(21, 50, 51, 22), PackedInt32Array(46, 39, 45, 28, 24, 52), PackedInt32Array(23, 52, 24), PackedInt32Array(4, 27, 26, 0)])
+vertices = PackedVector2Array(1148, 674, 1019, 559, 1198, 542, 1713, 646, 1768, 738, 3289, 1988, 4051, 2209, 3879, 2423, 3194, 2469, 2430, 2234, 2411, 2095, 3013, 1938, 3210, 1528, 3346, 1595, 3010, 1926, 2952, 1810, 3289, 3314, 2932, 3352, 2555, 3235, 2418, 2516, 3573, 3139, 1876, 1439, 1671, 1969, 1497, 2046, 769, 932, 744, 841, 1098, 766, 1655, 1073, 476, 2742, 194, 2731, 335, 1212, 2235, 2549, 2310, 3055, 2174, 2627, 1472, 2844, 2039, 2655, 2038, 2655, 1814, 2670, 1479, 2449, 1541, 2423, 1105, 2867, 613, 3078, 431, 3027, 440, 2986, 675, 3000, 890, 3068, 755, 2920, 1379, 2378, 3624, 1783, 2788, 1789, 2787, 1789, 2103, 1636, 1967, 1893, 1382, 2251)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 9, 8, 20), PackedInt32Array(21, 22, 23, 24, 25, 26, 27), PackedInt32Array(28, 29, 30, 24), PackedInt32Array(31, 19, 18, 32, 33), PackedInt32Array(33, 32, 34, 35), PackedInt32Array(36, 35, 34, 37), PackedInt32Array(38, 39, 37, 34, 40), PackedInt32Array(41, 42, 43, 44, 45), PackedInt32Array(45, 44, 46, 40), PackedInt32Array(47, 38, 40), PackedInt32Array(5, 48, 6), PackedInt32Array(49, 15, 14, 11, 10, 50), PackedInt32Array(51, 50, 10, 52), PackedInt32Array(21, 51, 52, 22), PackedInt32Array(47, 40, 46, 28, 24, 53), PackedInt32Array(23, 53, 24), PackedInt32Array(4, 27, 26, 0)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1091, 757, 732, 834, 757, 928, 326, 1208, 184, 2741, 473, 2752, 739, 2922, 671, 2990, 433, 2976, 419, 3035, 611, 3089, 894, 3078, 1109, 2877, 1471, 2854, 2306, 3064, 2552, 3245, 2931, 3363, 3293, 3324, 3587, 3143, 3211, 2478, 3884, 2433, 4065, 2209, 3626, 1771, 3287, 1977, 3021, 1929, 3363, 1593, 3208, 1516, 2948, 1799, 2789, 1779, 2108, 1627, 1884, 1432, 1666, 1072, 1779, 736, 1720, 637, 1200, 532, 996, 552, 1135, 676)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
@@ -264,7 +265,6 @@ texture = ExtResource("13_i6jbo")
 z_index = -1295
 position = Vector2(2404, 2126)
 rotation = -1.86783
-scale = Vector2(1, 1)
 texture = ExtResource("11_80cfn")
 
 [node name="Trash16" type="Sprite2D" parent="Arena/Decors"]
@@ -284,7 +284,7 @@ navigation_polygon = SubResource("NavigationPolygon_5x0pt")
 
 [node name="Polygon2D" type="Polygon2D" parent="Arena/NavigationRegion2D"]
 visible = false
-polygon = PackedVector2Array(1392, 2254, 1504, 2054, 1674, 1978, 1966, 1904, 2402, 2102, 2420, 2234, 2408, 2508, 2230, 2540, 2168, 2618, 2018, 2624, 1804, 2626, 1544, 2412, 1480, 2438, 1408, 2390)
+polygon = PackedVector2Array(1392, 2254, 1504, 2054, 1674, 1978, 1966, 1904, 2402, 2102, 2420, 2234, 2408, 2508, 2230, 2540, 2168, 2618, 2037, 2645, 1818, 2660, 1544, 2412, 1480, 2438, 1389, 2373)
 
 [node name="MurailleTour" parent="Arena" instance=ExtResource("3_mmm6y")]
 metadata/_edit_lock_ = true
@@ -311,23 +311,32 @@ points = PackedVector2Array(1778, 2597, 2409, 2518, 2413, 2233, 2364, 2089, 2167
 
 [node name="Player1" parent="Entities" instance=ExtResource("4_qplbe")]
 unique_name_in_owner = true
-position = Vector2(690, 1272)
+position = Vector2(428, 1272)
 
 [node name="Player2" parent="Entities" instance=ExtResource("5_bgqmb")]
 unique_name_in_owner = true
 position = Vector2(2878, 2738)
 
-[node name="Cheval" parent="." instance=ExtResource("23_bu7te")]
-position = Vector2(1464, 1385)
+[node name="Cheval" parent="Entities" instance=ExtResource("23_bu7te")]
+position = Vector2(3705, 2270)
 
-[node name="Cheval2" parent="." instance=ExtResource("23_bu7te")]
+[node name="Cheval2" parent="Entities" instance=ExtResource("23_bu7te")]
 position = Vector2(1271, 1120)
 
-[node name="Cheval3" parent="." instance=ExtResource("23_bu7te")]
+[node name="Cheval3" parent="Entities" instance=ExtResource("23_bu7te")]
 position = Vector2(1226, 950)
 
-[node name="Sword" parent="." instance=ExtResource("22_uvc4h")]
-position = Vector2(683, 1884)
+[node name="Sword" parent="Entities" instance=ExtResource("22_uvc4h")]
+position = Vector2(312, 2550)
+
+[node name="Archer" parent="Entities" instance=ExtResource("6_4xcts")]
+position = Vector2(3609, 2063)
+
+[node name="Archer2" parent="Entities" instance=ExtResource("6_4xcts")]
+position = Vector2(821, 1771)
+
+[node name="Sword2" parent="Entities" instance=ExtResource("22_uvc4h")]
+position = Vector2(919, 2943)
 
 [editable path="Camera"]
 [editable path="Arena/MurailleTour"]
