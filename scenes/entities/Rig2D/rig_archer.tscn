@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdo2lsow45oqo"]
+[gd_scene load_steps=28 format=3 uid="uid://cdo2lsow45oqo"]
 
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="1_ccki8"]
 [ext_resource type="Texture2D" uid="uid://bmpnvwia6slyr" path="res://scenes/entities/Rig2D/archer/torso.png" id="1_jylet"]
@@ -10,6 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://bqqfe7mic5j8u" path="res://scenes/entities/Rig2D/archer/couvrechef.png" id="5_wvagu"]
 [ext_resource type="Texture2D" uid="uid://d3j2bmsqrqpax" path="res://scenes/entities/Rig2D/archer/jambe.png" id="6_2s6aw"]
 [ext_resource type="Texture2D" uid="uid://b3ufgi634200c" path="res://scenes/characters/wololo/circle_texture.png" id="9_5b7q4"]
+[ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="11_7spk1"]
+[ext_resource type="AudioStream" uid="uid://jbpjbklvkkdj" path="res://assets/audio/ld55_fleche_r1.wav" id="12_3epvd"]
+[ext_resource type="AudioStream" uid="uid://d2v5flaldj3qq" path="res://assets/audio/ld55_fleche_r2.wav" id="13_p3ier"]
+[ext_resource type="AudioStream" uid="uid://clfcrjlch4j15" path="res://assets/audio/ld55_fleche_r3.wav" id="14_5sxll"]
+[ext_resource type="AudioStream" uid="uid://d0orbwn7ebnur" path="res://assets/audio/ld55_hurted_r1.wav" id="15_mwoma"]
+[ext_resource type="AudioStream" uid="uid://ccfr7ubyo4lwx" path="res://assets/audio/ld55_hurted_r2.wav" id="16_f2qeu"]
+[ext_resource type="AudioStream" uid="uid://bc55xdx0jqj13" path="res://assets/audio/ld55_hurted_r3.wav" id="17_d7aoa"]
+[ext_resource type="AudioStream" uid="uid://btk566412yfpj" path="res://assets/audio/ld55_hurted_r4.wav" id="18_qd6b4"]
+[ext_resource type="AudioStream" uid="uid://da5u6k6f14oa5" path="res://assets/audio/ld55_hurted_r5.wav" id="19_iyn8a"]
+[ext_resource type="AudioStream" uid="uid://cwvag4ixe2ds3" path="res://assets/audio/ld55_hurted_r7.wav" id="20_evwvi"]
 
 [sub_resource type="Animation" id="Animation_7s6vd"]
 length = 0.001
@@ -2784,3 +2794,12 @@ texture_mode = 1
 z_index = -16
 color = Color(0, 0, 0, 0.690196)
 polygon = PackedVector2Array(27, -21, 10, -23, -5, -23, -19, -20, -33, -14, -34, -6, -29, 1, -18, 6, -4, 8, 13, 10, 27, 9, 35, 5, 37, -2, 37, -9)
+
+[node name="attaque" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("11_7spk1")
+audio_clips = Array[AudioStream]([ExtResource("12_3epvd"), ExtResource("13_p3ier"), ExtResource("14_5sxll")])
+pitch_distortion = 0.3
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("11_7spk1")
+audio_clips = Array[AudioStream]([ExtResource("15_mwoma"), ExtResource("16_f2qeu"), ExtResource("17_d7aoa"), ExtResource("18_qd6b4"), ExtResource("19_iyn8a"), ExtResource("20_evwvi")])

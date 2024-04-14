@@ -17,17 +17,34 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Convertion/Converting").state_exited.connect(leaveConversion)
 	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_entered.connect($CircleDrawer.draw_my_circle)
 	state_machine.get_node("MainState/Alive/Selection/SelectingUnits").state_exited.connect($CircleDrawer.undraw)
+	state_machine.get_node("MainState/Alive/Convertion/Converting/toConversionFailed").taken.connect(target_lost)
+	state_machine.get_node("MainState/Alive/Convertion/Converting/noTarget").taken.connect(no_target)
+	state_machine.get_node("MainState/Alive/Convertion/ConversionSucc").state_entered.connect(no_target)
 
 	wololo.lifeChanged.connect(on_pv_change)
 	wololo.dead.connect(dead)
 	$CircleDrawer.radius = $"../../SelectorHandler/CollisionShape".shape.radius + circleOffset
-	
+
+func target_lost():
+	$wololo_rt.play_sound()
+
+func no_target():
+	$wololo_rt.play_sound()
+
+func succ_conv():
+	$wololo.play_sound()
+
+
 func convertion():
 	isConverting = true
 	muppet.visible = false
 	key_frame.visible = true
 	animator.play("wololo")
-
+	
+func on_pv_change(new_pv):
+	super.on_pv_change(new_pv)
+	$hurt.play_sound()
+	
 func leaveConversion():
 	isConverting = false
 	
