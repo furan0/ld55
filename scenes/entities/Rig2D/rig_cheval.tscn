@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://vf6rsba7aqhu"]
+[gd_scene load_steps=6 format=3 uid="uid://bujq3v7c01fq8"]
 
 [ext_resource type="PackedScene" uid="uid://bv3wjwnvjht23" path="res://scenes/entities/Rig2D/rig_epee.tscn" id="1_w6fw8"]
-[ext_resource type="Texture2D" uid="uid://dnd71y1vqasn7" path="res://scenes/entities/Rig2D/chavalier/epee.png" id="2_f01ix"]
 [ext_resource type="Texture2D" uid="uid://ilg3gbvughoe" path="res://scenes/entities/Rig2D/chavalier/cheval.png" id="4_k6o4l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hlaaw"]
+load_path = "res://.godot/imported/tete.png-9cd0c5dab7e1805e59f540a0ebeced34.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hudp8"]
+load_path = "res://.godot/imported/couvrechef.png-fb7107673f55fd06e3ce0c88332f9214.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6g3n"]
+load_path = "res://.godot/imported/epee.png-f836a1d091585debb8c1ba1b5627433a.ctex"
 
 [node name="RigEpee" instance=ExtResource("1_w6fw8")]
 
@@ -12,8 +20,12 @@ position = Vector2(-44, -36)
 scale = Vector2(1.32922, 1.32922)
 texture = ExtResource("4_k6o4l")
 
+[node name="Tete" parent="muppet/root/Body" index="1"]
+texture = SubResource("CompressedTexture2D_hlaaw")
+
 [node name="Couvrechef" parent="muppet/root/Body/Tete" index="0"]
 z_index = -1
+texture = SubResource("CompressedTexture2D_hudp8")
 
 [node name="Epee" parent="muppet/root/Body" index="2"]
-texture = ExtResource("2_f01ix")
+texture = SubResource("CompressedTexture2D_a6g3n")
