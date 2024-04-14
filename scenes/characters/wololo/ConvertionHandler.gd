@@ -88,6 +88,7 @@ func convertTarget():
 
 func startMinigameOnCurrentTarget():
 	if !isTargetValid(target):
+		updateTarget(null)
 		return
 	
 	lookAtTarget.emit(global_position.direction_to(target.global_position))

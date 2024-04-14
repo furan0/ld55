@@ -10,6 +10,7 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Movement/Stopped").state_entered.connect(idle)
 	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction/PreAttack").state_entered.connect(preattaque)
 	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction/Attack").state_entered.connect(attaque)
+	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction").state_exited.connect(idle)
 	state_machine.get_node("MainState/Alive/Status/Selected").state_entered.connect(on_select)
 	state_machine.get_node("MainState/Alive/Status/Selected").state_exited.connect(deslect)
 	
