@@ -71,6 +71,8 @@ func _callbackPeonDied(peon : Character):
 			nbPeonsGaia -= 1
 			if nbPeonsGaia <= 0:
 				noMoreGaiaPeon.emit()
+	
+	checkIfSpawnRequired()
 
 func _callbackWololoDied(wololo : Character):
 	# a player is dead => react differently depending on the context
@@ -105,6 +107,8 @@ func _callbackWololoDied(wololo : Character):
 				gameEnded.emit()
 			# Game keep going on if other wololo died
 			# TODO : spawn a new wololo somewhere
+			else:
+				checkIfSpawnRequired()
 
 func _callbackNewCharacterCreated(carac : Character):
 	if carac is Wololo:
@@ -159,5 +163,6 @@ func checkIfSpawnRequired():
 	var gaiaCond : bool = nbPeonsGaia <= nbGaiaThres
 	if colorCond && gaiaCond:
 		#A spawn is required ! 
+		print("Spawn required")
 		var rng = randi() % spawners.size()
 		spawners[rng].spawnGroup(spawnLibrary.getRandomGroup())

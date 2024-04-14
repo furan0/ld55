@@ -19,5 +19,6 @@ func spawnGroup(group : SpawnGroup):
 		get_tree().root.add_child(node)
 		node.global_position = global_position
 		newCharacterCreated.emit(node)
+		print("Entity spawned : " + str(node) + " at " + str(global_position) + " from " + str(self))
 		
 		Spawnindex += 1
