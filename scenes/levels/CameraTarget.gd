@@ -19,8 +19,6 @@ func _physics_process(_delta):
 	else:
 		velocity = targetVector.normalized() * cameraSpeed
 	move_and_slide()
-	
-	print("pos updated : " + str(global_position))
 
 func centerOntarget():
 	if target != null:

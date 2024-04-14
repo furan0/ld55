@@ -13,6 +13,7 @@ script = ExtResource("1_ujehi")
 zoom_speed = 0.15
 min_zoom = 0.25
 max_zoom = 0.65
+margin = Vector2(400, 400)
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 zoom = Vector2(0.75, 0.75)
