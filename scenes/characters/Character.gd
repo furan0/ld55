@@ -47,7 +47,7 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	# Calculate direction
-	if velocity.length() >= 0.01:
+	if velocity != Vector2.ZERO:
 		currentDirection = velocity.normalized()
 
 func _process(_delta):

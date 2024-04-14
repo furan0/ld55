@@ -147,6 +147,7 @@ inputProvider = 2
 [node name="RigPretre" parent="Graphsime" index="0" instance=ExtResource("8_h3pwf")]
 position = Vector2(-10, 13)
 
+[connection signal="lookAtTarget" from="ConvertionHandler" to="." method="lookAt"]
 [connection signal="minigameFailed" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["mingameFailed"]]
 [connection signal="minigameSuccesful" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["minigameSucc"]]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Selection/SelectingUnits" to="SelectorHandler" method="startSelection"]

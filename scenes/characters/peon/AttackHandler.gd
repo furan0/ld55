@@ -98,7 +98,7 @@ func lookForTarget():
 			# We lost curent target...
 			target = null
 			targetLost.emit()
-			print("target lost")
+			#print("target lost")
 		aware_timer.start()
 		return
 	
@@ -132,11 +132,11 @@ func lookForTarget():
 			# We lost curent target...
 			target = null
 			targetLost.emit()
-			print("target lost")
+			#print("target lost")
 	elif target != currentBestTarget:
 		target = currentBestTarget
 		newTargetFound.emit()
-		print("new target found : " + str(target) + " at distance : " + str(currentBestDist))
+		#print("new target found : " + str(target) + " at distance : " + str(currentBestDist))
 	
 	# LookAt a target
 	if target != null:

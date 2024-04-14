@@ -49,12 +49,12 @@ func _ready():
 	# Connect onfaction change
 	get_parent().get_parent().factionChanged.connect(update_color)
 
-func _process(delta):
+func _process(_delta):
 	z_index = int(global_position.y)
-
-func _physics_process(_delta):
-	scale = Vector2(-1,1) if get_parent().get_parent().velocity.x > 0.0 else Vector2.ONE
 	
+func _physics_process(_delta):
+		scale = Vector2(-1,1) if get_parent().get_parent().currentDirection.x > 0.0 else Vector2.ONE
+
 func on_pv_change(new_pv):
 	local_hud.set_life(new_pv)
 	call_deferred("do_blink")

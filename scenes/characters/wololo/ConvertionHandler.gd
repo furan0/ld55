@@ -17,6 +17,7 @@ var target : Peon = null
 	}
 signal minigameFailed()
 signal minigameSuccesful()
+signal lookAtTarget(dir : Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +32,7 @@ func updateTarget(newTarget : Node2D):
 		target_indicator.hide()
 		state_machine.set_expression_property("hasTarget", false)
 	else:
-		print("new target : " + str(target))
+		#print("new target : " + str(target))
 		target = newTarget
 		target_indicator.attachTarget(newTarget)
 		target_indicator.show()
@@ -88,6 +89,8 @@ func convertTarget():
 func startMinigameOnCurrentTarget():
 	if !isTargetValid(target):
 		return
+	
+	lookAtTarget.emit(global_position.direction_to(target.global_position))
 	
 	print("Minigame for peon of type " + str(target.peonType))
 	var minigame : PackedScene = convertionMinigames[target.peonType]
