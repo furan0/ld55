@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctx1rymrrlspd"]
+
+[ext_resource type="Script" path="res://scenes/levels/Camera.gd" id="1_ujehi"]
+[ext_resource type="Script" path="res://scenes/levels/ShakyShaky.gd" id="2_faiyw"]
+[ext_resource type="Script" path="res://scenes/levels/CameraTarget.gd" id="3_q8tl3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_na20g"]
+radius = 7.07107
+
+[node name="Camera" type="Node2D"]
+script = ExtResource("1_ujehi")
+min_zoom = 0.1
+max_zoom = 0.65
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+script = ExtResource("2_faiyw")
+
+[node name="CameraTarget1" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_q8tl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTarget1"]
+shape = SubResource("CircleShape2D_na20g")
+
+[node name="CameraTarget2" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_q8tl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTarget2"]
+shape = SubResource("CircleShape2D_na20g")

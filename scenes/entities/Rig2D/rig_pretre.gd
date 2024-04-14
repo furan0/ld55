@@ -4,8 +4,7 @@ extends Rig2D
 @onready var wololo = $"../.."
 
 var isConverting := false
-var nextState : Callable = func(): 
-	pass
+var nextState  = null
 
 func _ready():
 	super._ready()
@@ -31,7 +30,11 @@ func convertion():
 
 func leaveConversion():
 	isConverting = false
+	
+	if nextState == null:
+		nextState = idle
 	nextState.call()
+	nextState = null
 
 func idle():
 	if isConverting:

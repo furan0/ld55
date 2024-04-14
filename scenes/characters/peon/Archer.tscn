@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ng2bn7k1od2"]
+
+[ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="1_pgdjn"]
+
+[node name="Archer" instance=ExtResource("1_pgdjn")]
+peonType = 1
+
+[node name="AttackHandler" parent="." index="0"]
+TargetWeigth = {
+0: 2.0,
+1: 1.0,
+2: 0.5,
+"wololo": 0.5
+}
+rushDistance = 450
+attackRange = 400
+minAttackRange = 200
+rushMargin = 15
+attackHitPoint = 20
+
+[connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
+[connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
+[connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
+[connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
+[connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
+[connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]
+[connection signal="selected" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["selected"]]

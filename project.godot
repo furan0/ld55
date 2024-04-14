@@ -13,8 +13,10 @@ config_version=5
 config/name="ld55"
 run/main_scene="res://scenes/levels/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/bg_color=Color(0.27451, 0.27451, 0.27451, 1)
+boot_splash/image="res://assets/icons/furaune_light.png"
 config/icon="res://assets/godot.svg"
+boot_splash/minimum_display_time=300
 
 [autoload]
 

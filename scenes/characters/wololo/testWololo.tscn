@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bypn53mapty2v"]
+
+[ext_resource type="PackedScene" uid="uid://d2r4xpnpn38x1" path="res://scenes/characters/wololo/wololo.tscn" id="1_vin45"]
+
+[node name="Wololo" instance=ExtResource("1_vin45")]
+
+[connection signal="minigameFailed" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["mingameFailed"]]
+[connection signal="minigameSuccesful" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["minigameSucc"]]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="ConvertionHandler" method="stopAllConvertion"]
+[connection signal="convertion" from="InputHandler" to="StateMachine" method="send_event" binds= ["conversion"]]
+[connection signal="moveEnded" from="InputHandler" to="MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
+[connection signal="moveRequested" from="InputHandler" to="MoveHandler" method="moveToward"]
+[connection signal="selectEnded" from="InputHandler" to="StateMachine" method="send_event" binds= ["stopSelection"]]
+[connection signal="selectStarted" from="InputHandler" to="StateMachine" method="send_event" binds= ["startSelection"]]

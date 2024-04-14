@@ -5,11 +5,11 @@ const pan := preload("res://scenes/levels/decors/pan_cliff.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#trace()
+	trace()
 	pass # Replace with function body.
 
 func trace():
-	var line := $Line2D as Line2D
+	var line := $edges as Line2D
 	var n_pt = line.get_point_count() 
 	for point_index in range(n_pt):
 		var a := line.get_point_position(point_index)

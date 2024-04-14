@@ -1,11 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsutykcmunj6m"]
+[gd_scene load_steps=3 format=3 uid="uid://bsutykcmunj6m"]
 
 [ext_resource type="Script" path="res://scenes/UI/LoadingUI.gd" id="1_dtaya"]
+[ext_resource type="PackedScene" uid="uid://bnx2wauu57gqt" path="res://scenes/UI/Logo.tscn" id="2_g44iq"]
 
 [node name="LoadingUI" type="CanvasLayer" node_paths=PackedStringArray("loadingBar")]
 layer = 50
 script = ExtResource("1_dtaya")
-loadingBar = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/LoadingBar")
+loadingBar = NodePath("Panel/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/LoadingBar")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -16,38 +17,53 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -57.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_bottom = 40
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="Loading label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogoControl" type="Control" parent="Panel/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Logo" parent="Panel/VBoxContainer/CenterContainer/LogoControl" instance=ExtResource("2_g44iq")]
+scale = Vector2(0.560248, 0.556113)
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Loading label" type="Label" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Spacer2" type="Control" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LoadingBar" type="ProgressBar" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LoadingBar" type="ProgressBar" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3

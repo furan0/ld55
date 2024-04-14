@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b11gtgdgs01mv"]
+
+[ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="1_kvl2i"]
+
+[node name="Sword" instance=ExtResource("1_kvl2i")]
+
+[connection signal="canAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["canAttack"]]
+[connection signal="newTargetFound" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
+[connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
+[connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
+[connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="state_entered" from="StateMachine/MainState/Dead" to="SelectionHandler" method="setSelectionStatus" binds= [false]]
+[connection signal="released" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["released"]]
+[connection signal="requestSelecPos" from="SelectionHandler" to="MoveHandler" method="moveTo"]
+[connection signal="selected" from="SelectionHandler" to="StateMachine" method="send_event" binds= ["selected"]]

@@ -18,11 +18,13 @@ var target : Character = null
 
 signal targetLost()
 signal newTargetFound()
+signal lookAtTarget(dir : Vector2)
 
 
 @export_group("Attack settings")
 @export var rushDistance := 100
 @export var attackRange := 75
+@export var minAttackRange := 0
 @export var rushMargin := 10
 @export var attackHitPoint := 25
 @export var displayRangeDebug := false
@@ -62,7 +64,9 @@ func processAttacking(_delta):
 	# Check if target in combat range
 	var targetPos : Vector2  = target.global_position
 	var currentPos : Vector2 = get_parent().global_position
-	if abs(currentPos.distance_to(targetPos) ) <= attackRange:
+	var targetTooFar : bool = abs(currentPos.distance_to(targetPos) ) > attackRange
+	var targetTooClose : bool = abs(currentPos.distance_to(targetPos) ) < minAttackRange
+	if !targetTooFar && !targetTooClose:
 		canAttack.emit()
 	else:
 		# Stop atacking
@@ -106,7 +110,7 @@ func lookForTarget():
 			continue
 			
 		# check distance
-		var distance = body.global_position.distance_squared_to(get_parent().global_position)
+		var distance = body.global_position.distance_to(get_parent().global_position)
 		# Add target ponderation
 		# For Wololo
 		if body is Wololo:
@@ -133,6 +137,11 @@ func lookForTarget():
 		target = currentBestTarget
 		newTargetFound.emit()
 		print("new target found : " + str(target) + " at distance : " + str(currentBestDist))
+	
+	# LookAt a target
+	if target != null:
+		lookAtTarget.emit(global_position.direction_to(target.global_position))
+	
 	# Relaunch itself
 	aware_timer.start()
 
