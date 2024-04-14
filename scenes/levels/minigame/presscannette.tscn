@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbk6q5w5i4ici"]
+
+[ext_resource type="Script" path="res://scenes/levels/minigame/presscannette.gd" id="1_01055"]
+[ext_resource type="Texture2D" uid="uid://b8kplcvppouw2" path="res://scenes/levels/minigame/ecras/interface.png" id="2_ec3px"]
+[ext_resource type="Texture2D" uid="uid://usidfv7xssvn" path="res://scenes/levels/minigame/ecras/boot.png" id="3_hui2a"]
+[ext_resource type="Texture2D" uid="uid://dllist4duoq4k" path="res://scenes/levels/minigame/ecras/splash.png" id="4_rfo1b"]
+[ext_resource type="Texture2D" uid="uid://c71ye1h5uu4jr" path="res://scenes/levels/minigame/ecras/can.png" id="4_w5bng"]
+[ext_resource type="Texture2D" uid="uid://bcg3o3bijg4va" path="res://scenes/levels/minigame/ecras/speedtrait.png" id="6_d2vtq"]
+
+[node name="Presscannette" type="Node2D"]
+script = ExtResource("1_01055")
+
+[node name="game" type="Node2D" parent="."]
+position = Vector2(5, -240)
+
+[node name="Boot" type="Sprite2D" parent="game"]
+position = Vector2(-7, -115)
+texture = ExtResource("3_hui2a")
+
+[node name="Splash" type="Sprite2D" parent="game/Boot"]
+visible = false
+position = Vector2(3, 19)
+texture = ExtResource("4_rfo1b")
+
+[node name="Can" type="Sprite2D" parent="game"]
+position = Vector2(-10, 65)
+texture = ExtResource("4_w5bng")
+offset = Vector2(4, -40)
+
+[node name="Speedtrait" type="Sprite2D" parent="game"]
+visible = false
+position = Vector2(-1, -81)
+texture = ExtResource("6_d2vtq")
+
+[node name="Interface" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3.25, -284.75)
+scale = Vector2(1.00769, 0.983636)
+texture = ExtResource("2_ec3px")
