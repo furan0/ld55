@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7x1bdnb187y6"
-path="res://.godot/imported/vignetteitch.png-e28652c9dc685bee1fd57eaa14dbb998.ctex"
+uid="uid://b7554dvnoddkl"
+path="res://.godot/imported/vignetteld_blanc.png-be320464e5c797596232f3cde6bd99f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/logic/vignetteitch.png"
-dest_files=["res://.godot/imported/vignetteitch.png-e28652c9dc685bee1fd57eaa14dbb998.ctex"]
+source_file="res://com/vignetteld_blanc.png"
+dest_files=["res://.godot/imported/vignetteld_blanc.png-be320464e5c797596232f3cde6bd99f0.ctex"]
 
 [params]
 
