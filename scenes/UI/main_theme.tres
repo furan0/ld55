@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bnc7bmymnooik"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bnc7bmymnooik"]
 
 [ext_resource type="Texture2D" uid="uid://dhq20i1dswmv5" path="res://scenes/UI/ending/button.png" id="1_8t8tc"]
 [ext_resource type="FontFile" uid="uid://ng3vt51l6nms" path="res://scenes/UI/Spicy Soup.otf" id="1_qan07"]
 [ext_resource type="Texture2D" uid="uid://bforcwu366pev" path="res://scenes/UI/ending/buttover.png" id="2_11lb4"]
 [ext_resource type="Texture2D" uid="uid://bdbw45i05nn5u" path="res://scenes/UI/ending/button pressed.png" id="3_rgy1n"]
+[ext_resource type="Texture2D" uid="uid://b4jydnjuw5l3p" path="res://scenes/UI/bulle.png" id="5_35u4g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqs87"]
 
@@ -39,6 +40,14 @@ texture_margin_right = 32.7712
 texture_margin_bottom = 28.9157
 region_rect = Rect2(4.51749, 3.7352, 274.507, 155.374)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1x1kj"]
+texture = ExtResource("5_35u4g")
+texture_margin_left = 25.4459
+texture_margin_top = 23.9037
+texture_margin_right = 32.3856
+texture_margin_bottom = 27.7591
+region_rect = Rect2(6.90295, 1.93999, 338.892, 178.507)
+
 [resource]
 default_font = ExtResource("1_qan07")
 default_font_size = 20
@@ -55,3 +64,5 @@ Button/styles/normal = SubResource("StyleBoxTexture_85jwa")
 Button/styles/pressed = SubResource("StyleBoxTexture_ha00a")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = ExtResource("1_qan07")
+Panel/styles/panel = SubResource("StyleBoxTexture_1x1kj")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
