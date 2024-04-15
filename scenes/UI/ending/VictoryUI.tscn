@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvbkfkqsdl5xc"]
+[gd_scene load_steps=34 format=3 uid="uid://dvbkfkqsdl5xc"]
 
 [ext_resource type="Script" path="res://scenes/UI/ending/VictoryUI.gd" id="1_6cvq8"]
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="2_qsx6v"]
@@ -11,10 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://trrffla3a8ld" path="res://scenes/UI/ending/7.png" id="8_xrjiw"]
 [ext_resource type="Texture2D" uid="uid://dlbnt2xiqqxkm" path="res://scenes/UI/ending/8.png" id="9_xu0mb"]
 [ext_resource type="Texture2D" uid="uid://kfvpbwxwalmb" path="res://scenes/UI/ending/crying.png" id="11_1jrgd"]
+[ext_resource type="Theme" uid="uid://wmeskahx2suq" path="res://scenes/UI/main_theme.tres" id="11_n6765"]
 [ext_resource type="Script" path="res://scripts/UI/SimpleButton.gd" id="11_xhfen"]
 [ext_resource type="Shader" path="res://scenes/entities/Rig2D/character.gdshader" id="12_8283k"]
 [ext_resource type="Texture2D" uid="uid://cr4qk7jaf4ctg" path="res://scenes/UI/ending/hand.png" id="12_ku5s1"]
 [ext_resource type="Texture2D" uid="uid://bg0i7885y2sjb" path="res://scenes/UI/ending/baton.png" id="13_mkc0u"]
+[ext_resource type="PackedScene" path="res://scenes/UI/ending/bafleanim.tscn" id="13_x3x8k"]
+[ext_resource type="Texture2D" uid="uid://ijagk7f0tr4s" path="res://scenes/UI/ending/sol.png" id="14_raf7i"]
 [ext_resource type="Script" path="res://scenes/UI/ScoreLabel.gd" id="16_wdi5v"]
 
 [sub_resource type="Animation" id="Animation_oi4d5"]
@@ -514,14 +517,14 @@ position = Vector2(-619, -497)
 [node name="carrehaut" type="Polygon2D" parent="AnimationFond"]
 position = Vector2(274, 72)
 rotation = -0.413753
-color = Color(0.313726, 0.313726, 0.313726, 1)
+color = Color(0, 0, 0, 1)
 offset = Vector2(-590, 1393)
 polygon = PackedVector2Array(-27, -1807, -23, -974, 1843.94, -967.995, 1229, -1807)
 
 [node name="carrebas" type="Polygon2D" parent="AnimationFond"]
 position = Vector2(877, 710)
 rotation = -0.413753
-color = Color(0.313726, 0.313726, 0.313726, 1)
+color = Color(0, 0, 0, 1)
 offset = Vector2(-590, 1393)
 polygon = PackedVector2Array(-582.355, -1807.3, -23, -974, 1225, -974, 1229, -1807)
 
@@ -538,28 +541,41 @@ scale = Vector2(0.579798, 0.579798)
 
 [node name="SpriteVictory" type="AnimatedSprite2D" parent="VictoryAnim"]
 unique_name_in_owner = true
+z_index = 40
 material = ExtResource("2_qsx6v")
 sprite_frames = SubResource("SpriteFrames_0wkhf")
 autoplay = "default"
 frame_progress = 0.166291
 
 [node name="MainMenuButton" type="Button" parent="VictoryAnim"]
-offset_left = 62.0906
-offset_top = 367.369
-offset_right = 300.091
-offset_bottom = 431.369
+offset_left = 36.0
+offset_top = 390.0
+offset_right = 473.0
+offset_bottom = 491.0
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Go back Home"
 script = ExtResource("11_xhfen")
 sceneToLoad = "res://scenes/levels/MainMenu.tscn"
 
 [node name="NextLevelButton" type="Button" parent="VictoryAnim"]
-offset_left = -344.948
-offset_top = 363.92
-offset_right = -106.948
-offset_bottom = 427.92
+offset_left = -440.0
+offset_top = 398.0
+offset_right = -21.0
+offset_bottom = 499.0
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Kick more Asses"
 script = ExtResource("11_xhfen")
 goToNextLevel = true
+
+[node name="bafle" parent="VictoryAnim" instance=ExtResource("13_x3x8k")]
+position = Vector2(1.72473, 1.72474)
+
+[node name="Sol" type="Sprite2D" parent="VictoryAnim"]
+position = Vector2(-24.1463, 298.38)
+scale = Vector2(1.72474, 1.72474)
+texture = ExtResource("14_raf7i")
 
 [node name="MultiAnim" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -575,19 +591,23 @@ autoplay = "default"
 frame_progress = 0.166291
 
 [node name="MainMenuButton" type="Button" parent="MultiAnim"]
-offset_left = 62.0906
-offset_top = 367.369
-offset_right = 300.091
-offset_bottom = 431.369
+offset_left = 31.0453
+offset_top = 391.516
+offset_right = 471.045
+offset_bottom = 494.516
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Go back Home"
 script = ExtResource("11_xhfen")
 sceneToLoad = "res://scenes/levels/MainMenu.tscn"
 
 [node name="TryAgainButton" type="Button" parent="MultiAnim"]
-offset_left = -344.948
-offset_top = 363.92
-offset_right = -106.948
-offset_bottom = 427.92
+offset_left = -444.983
+offset_top = 393.24
+offset_right = -21.9826
+offset_bottom = 498.24
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Take your revenge"
 script = ExtResource("11_xhfen")
 reloadCurrentScene = true
@@ -619,6 +639,20 @@ libraries = {
 }
 autoplay = "caseeeee"
 
+[node name="bafle" parent="MultiAnim" instance=ExtResource("13_x3x8k")]
+position = Vector2(1.72473, 1.72474)
+
+[node name="Sol" type="Sprite2D" parent="MultiAnim"]
+position = Vector2(-24.1463, 298.38)
+scale = Vector2(1.72474, 1.72474)
+texture = ExtResource("14_raf7i")
+
+[node name="Sol2" type="Sprite2D" parent="MultiAnim"]
+self_modulate = Color(0.47451, 0.47451, 0.47451, 1)
+position = Vector2(225.941, 201.794)
+scale = Vector2(0.781594, 0.781594)
+texture = ExtResource("14_raf7i")
+
 [node name="LooseAnim" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 181)
@@ -648,22 +682,31 @@ libraries = {
 autoplay = "caseeeee"
 
 [node name="MainMenuButton" type="Button" parent="LooseAnim"]
-offset_left = 67.1537
-offset_top = 63.1484
-offset_right = 305.154
-offset_bottom = 127.148
+offset_left = 63.6193
+offset_top = 75.4272
+offset_right = 348.619
+offset_bottom = 186.427
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Go back Home"
 script = ExtResource("11_xhfen")
 sceneToLoad = "res://scenes/levels/MainMenu.tscn"
 
 [node name="TryAgainButton" type="Button" parent="LooseAnim"]
-offset_left = -355.208
-offset_top = 54.3778
-offset_right = -117.208
-offset_bottom = 118.378
+offset_left = -402.922
+offset_top = 84.1978
+offset_right = -40.9223
+offset_bottom = 196.198
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Restart Party"
 script = ExtResource("11_xhfen")
 reloadCurrentScene = true
+
+[node name="Sol" type="Sprite2D" parent="LooseAnim"]
+position = Vector2(-33.5769, -21.0494)
+scale = Vector2(1.72474, 1.72474)
+texture = ExtResource("14_raf7i")
 
 [node name="ArenaAnim" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -694,21 +737,30 @@ autoplay = "caseeeee"
 
 [node name="MainMenuButton" type="Button" parent="ArenaAnim"]
 offset_left = 67.1537
-offset_top = 63.1484
-offset_right = 305.154
-offset_bottom = 127.148
+offset_top = 80.6896
+offset_right = 387.588
+offset_bottom = 181.573
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Go back Home"
 script = ExtResource("11_xhfen")
 sceneToLoad = "res://scenes/levels/MainMenu.tscn"
 
 [node name="TryAgainButton" type="Button" parent="ArenaAnim"]
-offset_left = -355.208
-offset_top = 54.3778
-offset_right = -117.208
-offset_bottom = 118.378
+offset_left = -401.0
+offset_top = 86.0
+offset_right = -46.0
+offset_bottom = 187.0
+theme = ExtResource("11_n6765")
+theme_override_font_sizes/font_size = 41
 text = "Restart Party"
 script = ExtResource("11_xhfen")
 reloadCurrentScene = true
+
+[node name="Sol" type="Sprite2D" parent="ArenaAnim"]
+position = Vector2(-53.0161, -17.5412)
+scale = Vector2(1.72474, 1.72474)
+texture = ExtResource("14_raf7i")
 
 [node name="Node2D" type="Node2D" parent="ArenaAnim"]
 position = Vector2(0, -649.025)
@@ -718,6 +770,7 @@ offset_left = -415.293
 offset_top = -26.3118
 offset_right = 415.707
 offset_bottom = 37.6882
+theme = ExtResource("11_n6765")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
