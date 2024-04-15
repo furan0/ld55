@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cyl170n3ayyqe"]
+[gd_scene load_steps=30 format=3 uid="uid://cyl170n3ayyqe"]
 
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="1_p1w34"]
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="2_u7vm8"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="26_ods2g"]
 [ext_resource type="Texture2D" uid="uid://c1bnu6pvy38vi" path="res://scenes/levels/decors/voiture.png" id="27_3rq83"]
 [ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="27_iu66f"]
+[ext_resource type="Texture2D" uid="uid://djdgq5otwldho" path="res://scenes/entities/Rig2D/chavalier/knight.png" id="27_k548n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bupk2"]
 vertices = PackedVector2Array(2940, 2158, 2941, 2158, 2449, 2170, 2501, -605, 3121, -586, 3120, -586, 2096, -562, 2095, -562, 3696, -542, 4096, -486, 4094, -486, 3454, -109, 3089, 25, 2809, -35, 2607, -263, 1547, -368, 1793, -475, 1792, -474, 4778, 1202, 4659, 1461, 3017, 1210, 3007, 1152, 3863, 794, 3992, 745, 4835, 966, 3050, 88, 2163, 605, 2188, 305, 4795, 421, 4308, 496, 4298, 438, 2701, 1459, 4635, 1628, 4386, 2030, 3860, 2090, 4681, -256, 4791, 13, 4795, 420, 4210, 241, 4466, -386, 3942, 56, 3588, 651, 2919, 955, 3260, 309, 2651, 770, 3107, 186, 1321, -98, 1824, 178, 963, 419, 2033, 352, 1798, 739, 871, 765, 1759, 802, 942, 1257, 1231, 1708, 1816, 900, 1691, 2170, 1297, 2087, 1969, 1023, 2297, 1365, 2572, 1508, 4674, 1863, 4660, 1947)
@@ -772,6 +773,12 @@ faction = 1
 position = Vector2(2725, 5372)
 faction = 1
 
+[node name="AttackHandler" parent="Cheval" index="0"]
+attackHitPoint = 60
+
+[node name="Couvrechef" parent="Cheval/Graphsime/RigCheval/muppet/root/Body/Tete" index="0"]
+texture = ExtResource("27_k548n")
+
 [node name="Cheval5" parent="." instance=ExtResource("26_1piyo")]
 position = Vector2(2503, 4452)
 faction = 1
@@ -835,3 +842,5 @@ faction = 1
 [editable path="Arena/MurailleCentre"]
 [editable path="Arena/Bafle6"]
 [editable path="Arena/Bafle7"]
+[editable path="Cheval"]
+[editable path="Cheval/Graphsime/RigCheval"]
