@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" path="res://scenes/levels/decors/estarde.tscn" id="24_34t3c"]
 [ext_resource type="PackedScene" path="res://scenes/levels/decors/grillage.tscn" id="25_6ukt2"]
 [ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="25_d57lc"]
-[ext_resource type="PackedScene" path="res://scenes/UI/ending/bafleanim.tscn" id="25_x6myg"]
+[ext_resource type="PackedScene" uid="uid://cge7uchfm75vq" path="res://scenes/UI/ending/bafleanim.tscn" id="25_x6myg"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="26_6sqyi"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="27_n6guj"]
 [ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="28_6r1at"]
