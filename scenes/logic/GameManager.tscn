@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://oqr6act0nr3e"]
+[gd_scene load_steps=8 format=3 uid="uid://oqr6act0nr3e"]
 
 [ext_resource type="Script" path="res://scenes/logic/GameManager.gd" id="1_kpebv"]
 [ext_resource type="PackedScene" uid="uid://dvbkfkqsdl5xc" path="res://scenes/UI/ending/VictoryUI.tscn" id="2_0g6ux"]
 [ext_resource type="Resource" uid="uid://m1mklle42rbt" path="res://ressources/StandardSpawn.tres" id="2_2clnu"]
+[ext_resource type="Script" path="res://scenes/logic/musique_manager.gd" id="4_0n6sg"]
+[ext_resource type="AudioStream" uid="uid://cxgusbfom8jlx" path="res://assets/audio/baba_session.mp3" id="5_fwnnb"]
+[ext_resource type="AudioStream" uid="uid://bct3vjutc1xa4" path="res://assets/audio/endingvictoire_session.mp3" id="5_shxa7"]
+[ext_resource type="AudioStream" uid="uid://bbfuxcjgqgxk" path="res://assets/audio/wtf_session.mp3" id="6_mr37r"]
 
 [node name="GameManager" type="Node" groups=["manager"]]
 script = ExtResource("1_kpebv")
@@ -15,6 +19,21 @@ visible = false
 [node name="SpawnCheckTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="musique_manager" type="Node" parent="."]
+script = ExtResource("4_0n6sg")
+
+[node name="musiquetendue" type="AudioStreamPlayer" parent="musique_manager"]
+stream = ExtResource("5_fwnnb")
+bus = &"Music"
+
+[node name="musiquecalme" type="AudioStreamPlayer" parent="musique_manager"]
+stream = ExtResource("6_mr37r")
+bus = &"Music"
+
+[node name="musiquevictoire" type="AudioStreamPlayer" parent="musique_manager"]
+stream = ExtResource("5_shxa7")
+bus = &"Music"
 
 [connection signal="defeat" from="." to="EndingUI" method="_onDefeat"]
 [connection signal="victory" from="." to="EndingUI" method="_onVictory"]

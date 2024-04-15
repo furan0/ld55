@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxgb8qx4485pi"]
+[gd_scene load_steps=7 format=3 uid="uid://bxgb8qx4485pi"]
 
 [ext_resource type="PackedScene" uid="uid://duxcaaa2ewb7q" path="res://scenes/UI/UiHandler.tscn" id="1_5li7n"]
 [ext_resource type="PackedScene" uid="uid://djfdxmwa6507n" path="res://scenes/UI/MainMenuUi.tscn" id="2_emmkq"]
 [ext_resource type="PackedScene" uid="uid://c1lmfdelwaxbs" path="res://scenes/UI/OptionUI.tscn" id="3_2aexv"]
 [ext_resource type="PackedScene" uid="uid://bbqd8tlv4v8nq" path="res://scenes/UI/Option2UI.tscn" id="4_uh8ej"]
 [ext_resource type="PackedScene" uid="uid://p7o51iq35snm" path="res://scenes/UI/CreditUI.tscn" id="5_rqt24"]
+[ext_resource type="AudioStream" uid="uid://cf4edjopkxkcy" path="res://assets/audio/ambaicneA_r2_session.mp3" id="6_nsjyb"]
 
 [node name="MainMenu" type="Node"]
 process_mode = 3
@@ -17,3 +18,9 @@ panels = {
 "option2": ExtResource("4_uh8ej")
 }
 rootPanel = "mainMenu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nsjyb")
+volume_db = -3.662
+autoplay = true
+bus = &"Music"
