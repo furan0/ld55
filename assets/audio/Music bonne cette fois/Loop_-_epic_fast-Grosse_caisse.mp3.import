@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cngkkr2r16x7q"
+path="res://.godot/imported/Loop_-_epic_fast-Grosse_caisse.mp3-effe5b138fe03e62a058475600cfa400.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Music bonne cette fois/Loop_-_epic_fast-Grosse_caisse.mp3"
+dest_files=["res://.godot/imported/Loop_-_epic_fast-Grosse_caisse.mp3-effe5b138fe03e62a058475600cfa400.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
