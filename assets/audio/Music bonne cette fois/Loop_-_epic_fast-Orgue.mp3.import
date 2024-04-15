@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfufwlfamboyl"
+path="res://.godot/imported/Loop_-_epic_fast-Orgue.mp3-e62f80f60e0cc55a0f8450b952e00916.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Music bonne cette fois/Loop_-_epic_fast-Orgue.mp3"
+dest_files=["res://.godot/imported/Loop_-_epic_fast-Orgue.mp3-e62f80f60e0cc55a0f8450b952e00916.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

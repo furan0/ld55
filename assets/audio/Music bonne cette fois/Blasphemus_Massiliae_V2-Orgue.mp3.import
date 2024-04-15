@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b63kxcyu3tfqr"
+path="res://.godot/imported/Blasphemus_Massiliae_V2-Orgue.mp3-5a39aa2317db510b82d99b6e8992d84e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Music bonne cette fois/Blasphemus_Massiliae_V2-Orgue.mp3"
+dest_files=["res://.godot/imported/Blasphemus_Massiliae_V2-Orgue.mp3-5a39aa2317db510b82d99b6e8992d84e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
