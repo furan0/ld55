@@ -45,6 +45,7 @@ func _ready():
 	local_hud = hud.instantiate()
 	add_child(local_hud)
 	local_hud.position = hud_offset
+	local_hud.setMaxLife(get_parent().get_parent().MAX_HEALTH)
 	
 	# Connect onfaction change
 	get_parent().get_parent().factionChanged.connect(update_color)

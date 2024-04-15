@@ -102,8 +102,8 @@ func lookForTarget():
 		if target != null:
 			# We lost curent target...
 			target = null
-			targetLost.emit()
 			#print("target lost")
+		targetLost.emit()
 		aware_timer.start()
 		return
 	
@@ -146,6 +146,9 @@ func lookForTarget():
 	# LookAt a target
 	if target != null:
 		lookAtTarget.emit(global_position.direction_to(target.global_position))
+	
+	if (target == null):
+		targetLost.emit()
 	
 	# Relaunch itself
 	aware_timer.start()
