@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ci6wjs5avnyk7"]
+[gd_scene load_steps=29 format=3 uid="uid://ci6wjs5avnyk7"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_h714r"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
@@ -14,12 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="10_wc0d5"]
 [ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="11_80cfn"]
 [ext_resource type="Texture2D" uid="uid://2vhxn3cb4yc7" path="res://scenes/levels/decors/sol3.png" id="12_4uwqa"]
-[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="13_i6jbo"]
 [ext_resource type="Texture2D" uid="uid://xbnm4oerx8ja" path="res://scenes/levels/decors/sol1.png" id="14_blu3l"]
 [ext_resource type="PackedScene" uid="uid://s1lemdx2sdo0" path="res://scenes/levels/decors/mega_sol.tscn" id="14_wglcn"]
 [ext_resource type="PackedScene" uid="uid://cv2w473lfk1vb" path="res://scenes/levels/decors/voiturePropre.tscn" id="15_w86nd"]
 [ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_2x2xm"]
 [ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="16_iv56w"]
+[ext_resource type="PackedScene" path="res://scenes/levels/decors/estarde.tscn" id="16_whvor"]
+[ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="17_urrr2"]
+[ext_resource type="PackedScene" path="res://scenes/levels/decors/buisson.tscn" id="18_h3q5i"]
 [ext_resource type="PackedScene" uid="uid://cnhb6w0apc0pa" path="res://scenes/logic/spawner.tscn" id="18_q14su"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
 [ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="23_4bjis"]
@@ -27,9 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="23_l20eh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
-vertices = PackedVector2Array(1148, 674, 1019, 559, 1198, 542, 1713, 646, 1768, 738, 3289, 1988, 4051, 2209, 3879, 2423, 3194, 2469, 2430, 2234, 2411, 2095, 3013, 1938, 3210, 1528, 3346, 1595, 3010, 1926, 2952, 1810, 3289, 3314, 2932, 3352, 2555, 3235, 2418, 2516, 3573, 3139, 1876, 1439, 1671, 1969, 1497, 2046, 769, 932, 744, 841, 1098, 766, 1655, 1073, 476, 2742, 194, 2731, 335, 1212, 2235, 2549, 2310, 3055, 2174, 2627, 1472, 2844, 2039, 2655, 2038, 2655, 1814, 2670, 1479, 2449, 1541, 2423, 1105, 2867, 613, 3078, 431, 3027, 440, 2986, 675, 3000, 890, 3068, 755, 2920, 1379, 2378, 3624, 1783, 2788, 1789, 2787, 1789, 2103, 1636, 1967, 1893, 1382, 2251)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 9, 8, 20), PackedInt32Array(21, 22, 23, 24, 25, 26, 27), PackedInt32Array(28, 29, 30, 24), PackedInt32Array(31, 19, 18, 32, 33), PackedInt32Array(33, 32, 34, 35), PackedInt32Array(36, 35, 34, 37), PackedInt32Array(38, 39, 37, 34, 40), PackedInt32Array(41, 42, 43, 44, 45), PackedInt32Array(45, 44, 46, 40), PackedInt32Array(47, 38, 40), PackedInt32Array(5, 48, 6), PackedInt32Array(49, 15, 14, 11, 10, 50), PackedInt32Array(51, 50, 10, 52), PackedInt32Array(21, 51, 52, 22), PackedInt32Array(47, 40, 46, 28, 24, 53), PackedInt32Array(23, 53, 24), PackedInt32Array(4, 27, 26, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1091, 757, 732, 834, 757, 928, 326, 1208, 184, 2741, 473, 2752, 739, 2922, 671, 2990, 433, 2976, 419, 3035, 611, 3089, 894, 3078, 1109, 2877, 1471, 2854, 2306, 3064, 2552, 3245, 2931, 3363, 3293, 3324, 3587, 3143, 3211, 2478, 3884, 2433, 4065, 2209, 3626, 1771, 3287, 1977, 3021, 1929, 3363, 1593, 3208, 1516, 2948, 1799, 2789, 1779, 2108, 1627, 1884, 1432, 1666, 1072, 1779, 736, 1720, 637, 1200, 532, 996, 552, 1135, 676)])
+vertices = PackedVector2Array(1591, 2509, 1590, 2508, 1803, 2652, 2298, 2572, 2297, 2572, 2433, 2524, 1148, 674, 1019, 559, 1198, 542, 1713, 646, 1768, 738, 1655, 1073, 3289, 1988, 4051, 2209, 3879, 2423, 3203, 2457, 2443, 2242, 2402, 2075, 3013, 1938, 3210, 1528, 3346, 1595, 3010, 1926, 2952, 1810, 3420, 2877, 3264, 3069, 2904, 3372, 2557, 3236, 456, 2695, 195, 2729, 291, 1525, 349, 1540, 1357, 2260, 769, 932, 744, 841, 1098, 766, 3373, 3288, 3255, 3341, 1663, 1959, 769, 1095, 693, 981, 1876, 1439, 1962, 1874, 613, 3078, 431, 3027, 440, 2986, 675, 3000, 890, 3068, 754, 2921, 1105, 2867, 1496, 2036, 415, 1444, 328, 1380, 394, 1277, 2171, 2628, 2307, 3044, 1727, 2908, 1734, 2824, 2038, 2655, 3624, 1783, 2788, 1789, 2787, 1789, 2103, 1636, 1512, 2756, 1475, 2447, 1380, 2379, 1464, 2844, 1474, 2446)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(5, 16, 15, 23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(32, 33, 34), PackedInt32Array(24, 35, 36, 25), PackedInt32Array(37, 38, 39, 32, 34, 11, 40, 41), PackedInt32Array(42, 43, 44, 45, 46), PackedInt32Array(46, 45, 47, 48), PackedInt32Array(49, 50, 51, 52, 38, 37), PackedInt32Array(53, 54, 55, 56, 57), PackedInt32Array(12, 58, 13), PackedInt32Array(59, 22, 21, 18, 17, 60), PackedInt32Array(61, 60, 17, 41), PackedInt32Array(40, 61, 41), PackedInt32Array(3, 5, 26, 54, 53), PackedInt32Array(2, 57, 56, 62), PackedInt32Array(0, 2, 62, 63), PackedInt32Array(34, 6, 11), PackedInt32Array(50, 49, 31, 30), PackedInt32Array(48, 47, 27, 31, 64), PackedInt32Array(63, 62, 65, 48, 64, 66)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1091, 757, 732, 834, 757, 928, 680, 979, 754, 1091, 388, 1270, 316, 1383, 401, 1446, 345, 1529, 282, 1513, 184, 2741, 453, 2705, 739, 2922, 671, 2990, 433, 2976, 419, 3035, 611, 3089, 894, 3078, 1109, 2877, 1471, 2854, 1517, 2768, 1723, 2831, 1717, 2916, 2303, 3053, 2552, 3245, 2904, 3383, 3257, 3351, 3387, 3293, 3276, 3070, 3433, 2879, 3219, 2466, 3884, 2433, 4065, 2209, 3626, 1771, 3287, 1977, 3021, 1929, 3363, 1593, 3208, 1516, 2948, 1799, 2789, 1779, 2108, 1627, 1884, 1432, 1666, 1072, 1779, 736, 1720, 637, 1200, 532, 996, 552, 1135, 676)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Multi" type="Node2D"]
@@ -39,7 +41,7 @@ metadata/_edit_lock_ = true
 [node name="GameManager" parent="." instance=ExtResource("7_dvgvo")]
 unique_name_in_owner = true
 currentGameMode = 2
-nbColorThres = 4
+nbGaiaThres = 7
 
 [node name="Camera" parent="." instance=ExtResource("1_h714r")]
 position = Vector2(1769, 2072)
@@ -249,31 +251,9 @@ rotation = 0.554959
 scale = Vector2(0.684516, 0.684516)
 texture = ExtResource("9_4ayqc")
 
-[node name="Trash14" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(2386, 2109)
-rotation = 0.554959
-scale = Vector2(0.684516, 0.684516)
-texture = ExtResource("9_4ayqc")
-
 [node name="Trash15" type="Sprite2D" parent="Arena/Decors"]
 position = Vector2(1733, 1926)
 rotation = -0.246624
-texture = ExtResource("10_wc0d5")
-
-[node name="Poubelle5" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(2373, 2134)
-rotation = -1.27478
-scale = Vector2(1.35542, 1.79552)
-texture = ExtResource("13_i6jbo")
-
-[node name="Sol11" type="Sprite2D" parent="Arena/Decors"]
-z_index = -1295
-position = Vector2(2404, 2126)
-rotation = -1.86783
-texture = ExtResource("11_80cfn")
-
-[node name="Trash16" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(2406, 2142)
 texture = ExtResource("10_wc0d5")
 
 [node name="MegaSol2" parent="Arena/Decors" instance=ExtResource("14_wglcn")]
@@ -283,13 +263,49 @@ rotation = -2.21098
 
 [node name="EstafetteMalBarree" parent="Arena/Decors" instance=ExtResource("16_2x2xm")]
 
+[node name="estrade" parent="Arena/Decors" instance=ExtResource("16_whvor")]
+position = Vector2(538, 1188)
+
+[node name="Bafle" parent="Arena/Decors" instance=ExtResource("17_urrr2")]
+position = Vector2(397, 1217)
+scale = Vector2(0.711586, 0.711586)
+
+[node name="Bafle2" parent="Arena/Decors" instance=ExtResource("17_urrr2")]
+position = Vector2(673, 1084)
+scale = Vector2(0.592277, 0.592277)
+
+[node name="Bafle3" parent="Arena/Decors" instance=ExtResource("17_urrr2")]
+position = Vector2(342, 1473)
+rotation = -0.544426
+
+[node name="Trash14" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(346, 1250)
+texture = ExtResource("9_4ayqc")
+
+[node name="Bafle4" parent="Arena/Decors" instance=ExtResource("17_urrr2")]
+position = Vector2(3469, 3161)
+rotation = 3.14159
+scale = Vector2(1.78309, -1.78309)
+
+[node name="buisson" parent="Arena/Decors" instance=ExtResource("18_h3q5i")]
+position = Vector2(1587, 2887)
+rotation = 0.22632
+
+[node name="MegaSol3" parent="Arena/Decors" instance=ExtResource("14_wglcn")]
+position = Vector2(3098, 3124)
+rotation = 0.81899
+
+[node name="Roche3" parent="Arena/Decors" instance=ExtResource("16_iv56w")]
+position = Vector2(2361, 1060)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Arena"]
 position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_5x0pt")
 
 [node name="Polygon2D" type="Polygon2D" parent="Arena/NavigationRegion2D"]
 visible = false
-polygon = PackedVector2Array(1392, 2254, 1504, 2054, 1674, 1978, 1966, 1904, 2402, 2102, 2420, 2234, 2408, 2508, 2230, 2540, 2168, 2618, 2037, 2645, 1818, 2660, 1544, 2412, 1480, 2438, 1389, 2373)
+color = Color(1, 1, 1, 0.431373)
+polygon = PackedVector2Array(1368, 2262, 1503, 2044, 1666, 1968, 1961, 1885, 2393, 2082, 2433, 2243, 2423, 2517, 2294, 2563, 2168, 2618, 2037, 2645, 1806, 2642, 1596, 2500, 1480, 2438, 1389, 2373)
 
 [node name="MurailleTour" parent="Arena" instance=ExtResource("3_mmm6y")]
 metadata/_edit_lock_ = true
@@ -335,8 +351,12 @@ position = Vector2(375, 2015)
 rotation = -1.63143
 
 [node name="Spawner4" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
-position = Vector2(3314, 3093)
+position = Vector2(2904, 3179)
 rotation = -4.53942
+
+[node name="Spawner6" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
+position = Vector2(3110, 3185)
+rotation = -4.07372
 
 [node name="Spawner5" parent="Arena/Spawners" instance=ExtResource("18_q14su")]
 position = Vector2(3697, 2202)
@@ -389,6 +409,7 @@ z_as_relative = false
 texture_repeat = 2
 texture = ExtResource("23_l20eh")
 polygon = PackedVector2Array(-241, 37, 4249, 64, 4511, 3716, 2178, 3801, -262, 3454)
+metadata/_edit_lock_ = true
 
 [node name="sol2" type="Polygon2D" parent="."]
 z_index = -2999
@@ -405,6 +426,9 @@ position = Vector2(1630, 866)
 texture = ExtResource("23_4bjis")
 polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
 
+[node name="buisson" parent="." instance=ExtResource("18_h3q5i")]
+position = Vector2(4076, 2924)
+
 [editable path="Camera"]
 [editable path="Arena/MurailleTour"]
 [editable path="Arena/MurailleCentrale"]
@@ -412,4 +436,5 @@ polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552,
 [editable path="Arena/Spawners/Spawner2"]
 [editable path="Arena/Spawners/Spawner3"]
 [editable path="Arena/Spawners/Spawner4"]
+[editable path="Arena/Spawners/Spawner6"]
 [editable path="Arena/Spawners/Spawner5"]

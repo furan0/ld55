@@ -1,8 +1,14 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://b6fnv7e28kbko"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://b6fnv7e28kbko"]
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_avhms"]
 resource_name = "Limiter"
 threshold_db = -1.7
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_6ko4j"]
+resource_name = "Compressor"
+threshold = -16.0
+ratio = 18.1
+gain = 10.8
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_r8eng"]
 resource_name = "Compressor"
@@ -32,6 +38,8 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = -1.91699
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_6ko4j")
+bus/2/effect/0/enabled = true
 bus/3/name = &"wololo"
 bus/3/solo = false
 bus/3/mute = false
