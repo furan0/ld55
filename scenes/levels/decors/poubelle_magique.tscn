@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://lqm4j6bv6lbv"]
+
+[ext_resource type="Texture2D" uid="uid://drshoc1gcupsh" path="res://scenes/levels/decors/trash1.png" id="1_18sdy"]
+[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="2_xat81"]
+[ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="3_8lm81"]
+[ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="4_0jjok"]
+
+[node name="PoubelleMagique" type="Node2D"]
+rotation = 1.82387
+
+[node name="Trash14" type="Sprite2D" parent="."]
+position = Vector2(-13.2598, -26.5681)
+rotation = 0.554959
+scale = Vector2(0.684516, 0.684516)
+texture = ExtResource("1_18sdy")
+
+[node name="Poubelle5" type="Sprite2D" parent="."]
+position = Vector2(-26.2595, -1.56763)
+rotation = -1.27478
+scale = Vector2(1.35542, 1.79552)
+texture = ExtResource("2_xat81")
+
+[node name="Sol11" type="Sprite2D" parent="."]
+z_index = -1295
+position = Vector2(4.74048, -9.56808)
+rotation = -1.86783
+texture = ExtResource("3_8lm81")
+
+[node name="Trash16" type="Sprite2D" parent="."]
+position = Vector2(6.74048, 6.43192)
+texture = ExtResource("4_0jjok")
