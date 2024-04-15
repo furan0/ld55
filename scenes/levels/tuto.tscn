@@ -88,23 +88,33 @@ position = Vector2(91, 4888)
 [node name="Tuto Assets" type="Node2D" parent="."]
 
 [node name="dialog1" type="Area2D" parent="Tuto Assets"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("15_deryw")
 texts = Array[String](["Man I feel so  [color=ce42f5]wasted[/color]....
 (Press [color=ce42f5]K[/color] or [color=ce42f5]L[/color] to continue)", "I might have overdone it a [color=ce42f5]tiny  bit[/color] yesteday..."])
 
 [node name="dialog2" type="Area2D" parent="Tuto Assets"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("15_deryw")
 texts = Array[String]([" [color=ce42f5]Oh ! [/color]... Hey there, hello !"])
 
 [node name="dialog3" type="Area2D" parent="Tuto Assets"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("15_deryw")
 texts = Array[String]([" [color=ce42f5]OUTCH ![/color]", "Do you know who I am ?", "I am the  [color=ce42f5]TechnoMONK[/color] !", "Have a taste of my true power !!", "I'll [color=ce42f5]Summon[/color] you by my side...", "...and you're gonna [color=ce42f5]Fight for ME[/color]!"])
 
 [node name="dialog4" type="Area2D" parent="Tuto Assets"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("15_deryw")
 texts = Array[String](["(Press [color=ce42f5]K[/color] to start the summoning process)"])
 
 [node name="dialog5" type="Area2D" parent="Tuto Assets"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("15_deryw")
 texts = Array[String](["Now, that's much better...
 
@@ -112,6 +122,8 @@ Good boy ~~"])
 
 [node name="dialog6" type="Area2D" parent="Tuto Assets"]
 position = Vector2(4092, 7327)
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("15_deryw")
 texts = Array[String](["Come with me now, follow your [color=ce42f5]Master[/color]."])
 
@@ -120,6 +132,8 @@ shape = SubResource("SegmentShape2D_agbo2")
 
 [node name="dialog7" type="Area2D" parent="Tuto Assets"]
 position = Vector2(4092, 7327)
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("15_deryw")
 texts = Array[String](["(Maintain [color=ce42f5]L[/color] to command your army) "])
 
@@ -1323,6 +1337,8 @@ position = Vector2(4269, 2691)
 
 [node name="TriggetScene" type="Area2D" parent="Entities"]
 position = Vector2(2195, 1248)
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("15_deryw")
 texts = Array[String](["There are waaay too many crazy guys there", "I should find [color=ce42f5]another way[/color]... Or I'll get my ass [color=ce42f5]kicked[/color]"])
 
@@ -1331,6 +1347,8 @@ shape = SubResource("SegmentShape2D_dw71a")
 
 [node name="TriggetMissingCar" type="Area2D" parent="Entities"]
 position = Vector2(3191, 2179)
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("15_deryw")
 texts = Array[String](["Now... Where the hell did I park my [color=ce42f5]car[/color] ?", "I have to [color=ce42f5]find her[/color] !"])
 
@@ -1339,6 +1357,8 @@ shape = SubResource("SegmentShape2D_drs1p")
 
 [node name="TriggerCarOld" type="Area2D" parent="Entities"]
 position = Vector2(692, -425)
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("15_deryw")
 texts = Array[String](["Nope, that's not my ride...", "Mine is waaaaay more [color=ce42f5]FuNkY[/color]"])
 
@@ -1348,6 +1368,8 @@ shape = SubResource("CircleShape2D_h8ata")
 
 [node name="TriggerMusic" type="Area2D" parent="Entities"]
 position = Vector2(1573, -2858)
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("15_deryw")
 texts = Array[String](["Maaan... Such a [color=ce42f5]banger[/color] !"])
 
@@ -1357,6 +1379,8 @@ shape = SubResource("CircleShape2D_sejwd")
 
 [node name="TriggerVictory" type="Area2D" parent="Entities"]
 position = Vector2(3984, -3180)
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("15_deryw")
 texts = Array[String](["That's my girl !! [color=ce42f5]Pretty[/color] as ever !", "Now, time to go home"])
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://bxgb8qx4485pi"]
+[gd_scene load_steps=43 format=3 uid="uid://bxgb8qx4485pi"]
 
 [ext_resource type="PackedScene" uid="uid://duxcaaa2ewb7q" path="res://scenes/UI/UiHandler.tscn" id="1_5li7n"]
 [ext_resource type="PackedScene" uid="uid://djfdxmwa6507n" path="res://scenes/UI/MainMenuUi.tscn" id="2_emmkq"]
-[ext_resource type="PackedScene" uid="uid://bbmw34oswpj2w" path="res://scenes/UI/LevelSelectionUi.tscn" id="4_tqh7r"]
+[ext_resource type="PackedScene" uid="uid://c1lmfdelwaxbs" path="res://scenes/UI/OptionUI.tscn" id="3_2aexv"]
+[ext_resource type="PackedScene" uid="uid://bbqd8tlv4v8nq" path="res://scenes/UI/Option2UI.tscn" id="4_uh8ej"]
 [ext_resource type="PackedScene" uid="uid://p7o51iq35snm" path="res://scenes/UI/CreditUI.tscn" id="5_rqt24"]
 [ext_resource type="AudioStream" uid="uid://cf4edjopkxkcy" path="res://assets/audio/ambaicneA_r2_session.mp3" id="6_nsjyb"]
 [ext_resource type="Texture2D" uid="uid://b5tttl800882f" path="res://scenes/UI/ending/body.png" id="7_a884y"]
@@ -374,8 +375,9 @@ process_mode = 3
 [node name="UiHandler" parent="." instance=ExtResource("1_5li7n")]
 panels = {
 "credit": ExtResource("5_rqt24"),
-"levelSelection": ExtResource("4_tqh7r"),
-"mainMenu": ExtResource("2_emmkq")
+"mainMenu": ExtResource("2_emmkq"),
+"option": ExtResource("3_2aexv"),
+"option2": ExtResource("4_uh8ej")
 }
 rootPanel = "mainMenu"
 

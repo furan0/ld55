@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://djfdxmwa6507n"]
+[gd_scene load_steps=4 format=3 uid="uid://bbmw34oswpj2w"]
 
-[ext_resource type="Theme" uid="uid://bnc7bmymnooik" path="res://scenes/UI/main_theme.tres" id="1_4w4t4"]
-[ext_resource type="Script" path="res://scripts/UI/StandardUiPanel.gd" id="1_5i0kg"]
+[ext_resource type="Theme" uid="uid://bnc7bmymnooik" path="res://scenes/UI/main_theme.tres" id="1_lrhv7"]
+[ext_resource type="Script" path="res://scripts/UI/StandardUiPanel.gd" id="2_83qxm"]
 
 [sub_resource type="GDScript" id="GDScript_bkunk"]
 script/source = "extends TextureButton
@@ -22,16 +22,16 @@ func connectSignals():
 		print(\":(\")
 "
 
-[node name="MainMenuUi" type="Control" node_paths=PackedStringArray("initialFocus")]
+[node name="LevelSelectionUi" type="Control" node_paths=PackedStringArray("initialFocus")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_4w4t4")
-script = ExtResource("1_5i0kg")
-initialFocus = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Play")
+theme = ExtResource("1_lrhv7")
+script = ExtResource("2_83qxm")
+initialFocus = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_direction = 3
@@ -75,17 +75,21 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_constants/separation = 5
 
-[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Level1" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Play Solo !"
+text = "Level 1 : The Beginning"
 
-[node name="Endless" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Level2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Endless Mode"
+text = "Level 2 : PoneyPoney~"
 
-[node name="multi" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Level3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Two Player Versus"
+text = "Level 3 : ????"
+
+[node name="Level4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 4 : The ultimate King"
 
 [node name="version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -100,7 +104,8 @@ offset_right = 1241.0
 offset_bottom = 821.0
 script = SubResource("GDScript_bkunk")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Play" to="." method="requestPanelSwitch" binds= ["levelSelection"]]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Endless" to="." method="goToScene" binds= ["res://scenes/levels/endless.tscn"]]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/multi" to="." method="goToScene" binds= ["res://scenes/levels/multi.tscn"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level1" to="." method="goToScene" binds= ["res://scenes/levels/tuto.tscn"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level2" to="." method="goToScene" binds= ["res://scenes/levels/level3.tscn"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level3" to="." method="goToScene" binds= ["res://scenes/levels/level2.tscn"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level4" to="." method="goToScene" binds= ["res://scenes/levels/level4.tscn"]]
 [connection signal="pressed" from="TextureButton" to="." method="requestPanelSwitch" binds= ["credit"]]
