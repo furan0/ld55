@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://p7o51iq35snm"]
+[gd_scene load_steps=17 format=3 uid="uid://p7o51iq35snm"]
 
 [ext_resource type="Theme" uid="uid://bnc7bmymnooik" path="res://scenes/UI/main_theme.tres" id="1_48xu6"]
 [ext_resource type="Script" path="res://scripts/UI/StandardUiPanel.gd" id="1_uo0fe"]
@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b8gvnwo24ns7w" path="res://scenes/UI/credit/b1.png" id="6_6anxu"]
 [ext_resource type="Texture2D" uid="uid://dpmfn3hwdfh8p" path="res://scenes/UI/credit/b2.png" id="7_voi53"]
 [ext_resource type="Texture2D" uid="uid://vtcymdiittie" path="res://scenes/UI/credit/b3.png" id="8_q8xp4"]
-[ext_resource type="Texture2D" uid="uid://css5sjifwm4nq" path="res://scenes/UI/credit/flo.png" id="9_u21d1"]
+[ext_resource type="Texture2D" uid="uid://vpuy3ftl6noc" path="res://scenes/UI/credit/c1.png" id="9_4vfgh"]
 [ext_resource type="Texture2D" uid="uid://cqrbf4nu5eiqx" path="res://assets/icons/furaune_light.png" id="10_6xwu7"]
+[ext_resource type="Texture2D" uid="uid://c47lshnco240v" path="res://scenes/UI/credit/c2.png" id="10_15f63"]
 [ext_resource type="AudioStream" uid="uid://cbgmshpmwkah5" path="res://assets/audio/bordel_session.mp3" id="11_ig7j5"]
+[ext_resource type="Texture2D" uid="uid://dx4kaknvsd1e8" path="res://scenes/UI/credit/c3.png" id="11_reqpo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u5oy3"]
 animations = [{
@@ -50,6 +52,26 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1p1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4vfgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_15f63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_reqpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_15f63")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="CreditUI" type="Control"]
@@ -105,9 +127,11 @@ sprite_frames = SubResource("SpriteFrames_7p2ep")
 autoplay = "default"
 frame_progress = 0.440817
 
-[node name="Flo" type="Sprite2D" parent="."]
-position = Vector2(618, 545)
-texture = ExtResource("9_u21d1")
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(622, 488)
+scale = Vector2(0.786364, 0.786364)
+sprite_frames = SubResource("SpriteFrames_w1p1d")
+autoplay = "default"
 
 [node name="FurauneLight" type="Sprite2D" parent="."]
 position = Vector2(637, 117)
