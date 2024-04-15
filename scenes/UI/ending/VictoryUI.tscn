@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dvbkfkqsdl5xc"]
+[gd_scene load_steps=31 format=3 uid="uid://dvbkfkqsdl5xc"]
 
 [ext_resource type="Script" path="res://scenes/UI/ending/VictoryUI.gd" id="1_6cvq8"]
 [ext_resource type="Material" uid="uid://38toavh4tfdm" path="res://scenes/entities/Rig2D/material_charater.tres" id="2_qsx6v"]
@@ -15,8 +15,7 @@
 [ext_resource type="Shader" path="res://scenes/entities/Rig2D/character.gdshader" id="12_8283k"]
 [ext_resource type="Texture2D" uid="uid://cr4qk7jaf4ctg" path="res://scenes/UI/ending/hand.png" id="12_ku5s1"]
 [ext_resource type="Texture2D" uid="uid://bg0i7885y2sjb" path="res://scenes/UI/ending/baton.png" id="13_mkc0u"]
-[ext_resource type="Texture2D" uid="uid://ijagk7f0tr4s" path="res://scenes/UI/ending/sol.png" id="16_wxlfq"]
-[ext_resource type="PackedScene" uid="uid://cge7uchfm75vq" path="res://scenes/UI/ending/bafleanim.tscn" id="17_llkv2"]
+[ext_resource type="Script" path="res://scenes/UI/ScoreLabel.gd" id="16_wdi5v"]
 
 [sub_resource type="Animation" id="Animation_oi4d5"]
 resource_name = "EndAnimation"
@@ -370,9 +369,34 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ArenaAnim:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_0mr6e"]
 resource_name = "arena"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ArenaAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7psu3"]
 resource_name = "defeat"
@@ -490,14 +514,14 @@ position = Vector2(-619, -497)
 [node name="carrehaut" type="Polygon2D" parent="AnimationFond"]
 position = Vector2(274, 72)
 rotation = -0.413753
-color = Color(0, 0, 0, 1)
+color = Color(0.313726, 0.313726, 0.313726, 1)
 offset = Vector2(-590, 1393)
 polygon = PackedVector2Array(-27, -1807, -23, -974, 1843.94, -967.995, 1229, -1807)
 
 [node name="carrebas" type="Polygon2D" parent="AnimationFond"]
 position = Vector2(877, 710)
 rotation = -0.413753
-color = Color(0, 0, 0, 1)
+color = Color(0.313726, 0.313726, 0.313726, 1)
 offset = Vector2(-590, 1393)
 polygon = PackedVector2Array(-582.355, -1807.3, -23, -974, 1225, -974, 1229, -1807)
 
@@ -512,14 +536,8 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(-2, 1)
 scale = Vector2(0.579798, 0.579798)
 
-[node name="Sol" type="Sprite2D" parent="VictoryAnim"]
-position = Vector2(3.44948, 300.105)
-scale = Vector2(1.72474, 1.72474)
-texture = ExtResource("16_wxlfq")
-
 [node name="SpriteVictory" type="AnimatedSprite2D" parent="VictoryAnim"]
 unique_name_in_owner = true
-z_index = 2
 material = ExtResource("2_qsx6v")
 sprite_frames = SubResource("SpriteFrames_0wkhf")
 autoplay = "default"
@@ -543,8 +561,6 @@ text = "Kick more Asses"
 script = ExtResource("11_xhfen")
 goToNextLevel = true
 
-[node name="bafle" parent="VictoryAnim" instance=ExtResource("17_llkv2")]
-
 [node name="MultiAnim" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-2, 1)
@@ -557,12 +573,6 @@ material = ExtResource("2_qsx6v")
 sprite_frames = SubResource("SpriteFrames_0wkhf")
 autoplay = "default"
 frame_progress = 0.166291
-
-[node name="Sol2" type="Sprite2D" parent="MultiAnim/SpriteVictoryMulti"]
-z_index = -2
-position = Vector2(3.44948, 300.105)
-scale = Vector2(1.72474, 1.72474)
-texture = ExtResource("16_wxlfq")
 
 [node name="MainMenuButton" type="Button" parent="MultiAnim"]
 offset_left = 62.0906
@@ -608,8 +618,6 @@ libraries = {
 "": SubResource("AnimationLibrary_1tbdg")
 }
 autoplay = "caseeeee"
-
-[node name="bafle" parent="MultiAnim" instance=ExtResource("17_llkv2")]
 
 [node name="LooseAnim" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -657,13 +665,73 @@ text = "Restart Party"
 script = ExtResource("11_xhfen")
 reloadCurrentScene = true
 
-[node name="Sol2" type="Sprite2D" parent="LooseAnim"]
-position = Vector2(0, -10.5247)
-scale = Vector2(1.7672, 1.75412)
-texture = ExtResource("16_wxlfq")
+[node name="ArenaAnim" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 181)
+scale = Vector2(0.565866, 0.570086)
+
+[node name="Crying" type="Sprite2D" parent="ArenaAnim"]
+z_index = 4
+material = ExtResource("2_qsx6v")
+position = Vector2(-15, -317)
+texture = ExtResource("11_1jrgd")
+
+[node name="Hand" type="Sprite2D" parent="ArenaAnim"]
+z_index = 86
+position = Vector2(35, -399)
+texture = ExtResource("12_ku5s1")
+
+[node name="Baton" type="Sprite2D" parent="ArenaAnim/Hand"]
+z_index = -16
+position = Vector2(13, -15)
+texture = ExtResource("13_mkc0u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ArenaAnim"]
+libraries = {
+"": SubResource("AnimationLibrary_1tbdg")
+}
+autoplay = "caseeeee"
+
+[node name="MainMenuButton" type="Button" parent="ArenaAnim"]
+offset_left = 67.1537
+offset_top = 63.1484
+offset_right = 305.154
+offset_bottom = 127.148
+text = "Go back Home"
+script = ExtResource("11_xhfen")
+sceneToLoad = "res://scenes/levels/MainMenu.tscn"
+
+[node name="TryAgainButton" type="Button" parent="ArenaAnim"]
+offset_left = -355.208
+offset_top = 54.3778
+offset_right = -117.208
+offset_bottom = 118.378
+text = "Restart Party"
+script = ExtResource("11_xhfen")
+reloadCurrentScene = true
+
+[node name="Node2D" type="Node2D" parent="ArenaAnim"]
+position = Vector2(0, -649.025)
+
+[node name="ScoreLabel" type="RichTextLabel" parent="ArenaAnim/Node2D"]
+offset_left = -415.293
+offset_top = -26.3118
+offset_right = 415.707
+offset_bottom = 37.6882
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 6
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[center][b][color=ff0000]New High Score :  4242"
+autowrap_mode = 0
+script = ExtResource("16_wdi5v")
 
 [node name="AnimationSpecificPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VictoryAnim")
 libraries = {
 "": SubResource("AnimationLibrary_jqed6")
 }
+
+[connection signal="uiShown" from="." to="ArenaAnim/Node2D/ScoreLabel" method="updateDisplay"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dvbkfkqsdl5xc" path="res://scenes/UI/ending/VictoryUI.tscn" id="2_0g6ux"]
 [ext_resource type="Resource" uid="uid://m1mklle42rbt" path="res://ressources/StandardSpawn.tres" id="2_2clnu"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node" groups=["manager"]]
 script = ExtResource("1_kpebv")
 timeBeforeLevelStart = 0.4
 spawnLibrary = ExtResource("2_2clnu")
@@ -12,5 +12,10 @@ spawnLibrary = ExtResource("2_2clnu")
 [node name="EndingUI" parent="." instance=ExtResource("2_0g6ux")]
 visible = false
 
+[node name="SpawnCheckTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="defeat" from="." to="EndingUI" method="_onDefeat"]
 [connection signal="victory" from="." to="EndingUI" method="_onVictory"]
+[connection signal="timeout" from="SpawnCheckTimer" to="." method="checkIfSpawnRequired"]

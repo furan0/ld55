@@ -15,6 +15,8 @@ var camera = null
 @export var cameraZoomTime := 1.0
 @export var cameraZoomWaiting := 0.0
 
+signal uiShown()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -68,14 +70,17 @@ func playMulti(victor : Character):
 	
 	_playAnimation(victor, "multi")
 
-func playArena(victor : Character):
-	#_playAnimation("arena")
-	pass
+func playArena(looser : Character):
+	var color : Color = Character.getFactionColor(looser.faction)
+	crying.material.set_shader_parameter("overridecolor",color)
+
+	_playAnimation(looser, "arena")
 
 func _playAnimation(target : Node2D, animName : String):
 	await _doCameraMove(target)
 	
 	show()
+	uiShown.emit()
 	
 	var functor = func (_balec) :
 		animation_specific_player.play(animName)
