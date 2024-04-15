@@ -611,7 +611,7 @@ z_index = -3000
 z_as_relative = false
 texture_repeat = 2
 texture = ExtResource("24_v0uq0")
-polygon = PackedVector2Array(-241, 37, 4249, 64, 4511, 3716, 2178, 3801, -262, 3454)
+polygon = PackedVector2Array(-241, 37, 1138, -682, 4249, 64, 4511, 3716, 2807, 4306, 538, 4411, -262, 3454)
 metadata/_edit_lock_ = true
 
 [node name="Entities" type="Node2D" parent="."]

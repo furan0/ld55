@@ -2,7 +2,7 @@ extends RichTextLabel
 class_name ScoreLabel
 ## Display the score
 
-@onready var game_manager = %GameManager
+var game_manager
 
 var score := 0
 var isHighScore := false
