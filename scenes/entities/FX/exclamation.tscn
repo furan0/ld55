@@ -133,4 +133,4 @@ script = ExtResource("2_1etjm")
 audio_clips = Array[AudioStream]([ExtResource("3_nk56q")])
 pitch_distortion = -0.035
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="queue_free"]
+[connection signal="animation_finished" from="AnimationPlayer" to="audio_effect" method="queue_free"]
