@@ -193,3 +193,8 @@ func initialSpawn():
 	checkIfSpawnRequired()
 	if nbPeonsGaia <= nbGaiaThres:
 		get_tree().create_timer(0.3).timeout.connect(initialSpawn)
+
+## Make player 1 win the game
+func forceVictory():
+	victory.emit(player1)
+	gameEnded.emit()
