@@ -16,9 +16,9 @@ func connectSignals():
 	if logo != null:
 		focus_exited.connect(logo.pause)
 		focus_entered.connect(logo.playIt)
-		mouse_exited.connect(logo.pause)
+		mouse_entered.connect(logo.pause)
 		mouse_entered.connect(logo.playIt)
-	else:
+ 	else:
 		print(\":(\")
 "
 
@@ -100,7 +100,7 @@ offset_right = 1241.0
 offset_bottom = 821.0
 script = SubResource("GDScript_bkunk")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Play" to="." method="requestPanelSwitch" binds= ["levelSelection"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Play" to="." method="goToScene" binds= ["res://scenes/levels/tuto.tscn"]]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Endless" to="." method="goToScene" binds= ["res://scenes/levels/endless.tscn"]]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/multi" to="." method="goToScene" binds= ["res://scenes/levels/multi.tscn"]]
 [connection signal="pressed" from="TextureButton" to="." method="requestPanelSwitch" binds= ["credit"]]
