@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scenes/entities/FX/arc_fx.gd" id="1_ddu7s"]
 
 [sub_resource type="Curve" id="Curve_axkul"]
-_data = [Vector2(0, 0), 0.0, 6.48312, 0, 0, Vector2(0.50566, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.70909, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 6.48312, 0, 0, Vector2(0.387352, 0.979719), 0.0, 0.0, 0, 0, Vector2(0.782609, 0.98986), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.70909, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_vgqv2"]
-offsets = PackedFloat32Array(0, 0.525822, 1)
-colors = PackedColorArray(0.694118, 0.411765, 0.25098, 0.443137, 0.974151, 0.95029, 0.936703, 0.952941, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.230047, 1)
+colors = PackedColorArray(0.694118, 0.411765, 0.25098, 0.443137, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="ArcFx" type="Line2D"]
 width_curve = SubResource("Curve_axkul")
