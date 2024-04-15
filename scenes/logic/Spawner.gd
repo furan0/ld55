@@ -22,7 +22,7 @@ func spawnGroup(group : SpawnGroup):
 			continue 
 		
 		var node = entity.instantiate()
-		get_tree().root.add_child(node)
+		self.get_parent().add_child(node)
 		node.global_position = spawnPoints[spawnindex].global_position
 		newCharacterCreated.emit(node)
 		print("Entity spawned : " + str(node) + " at " + str(global_position) + " from " + str(self))

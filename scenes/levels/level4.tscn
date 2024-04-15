@@ -35,7 +35,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(1289, 2096, 1221, 1712, 933, 1260, 861, 764, 953, 416, 1313, -104, 1541, -376, 1789, -484, 2093, -572, 2501, -616, 3121, -596, 3697, -552, 4097, -496, 4469, -396, 4689, -264, 4801, 12, 4805, 420, 4845, 968, 4789, 1204, 4669, 1464, 4645, 1628, 4685, 1864, 4669, 1956, 4389, 2040, 3861, 2100, 2941, 2168, 2449, 2180, 1689, 2180)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Tuto" type="Node2D"]
+[node name="Tuto2" type="Node2D"]
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
@@ -841,8 +841,8 @@ faction = 1
 [connection signal="rushingToward" from="Cheval/AttackHandler" to="Cheval/MoveHandler" method="moveTo"]
 [connection signal="startRush" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["startRush"]]
 [connection signal="stopAttack" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["stopAttack"]]
-[connection signal="targetLost" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="targetLost" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="targetLost" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="state_entered" from="Cheval/StateMachine/MainState/Dead" to="Cheval/SelectionHandler" method="setSelectionStatus" binds= [false]]
 [connection signal="released" from="Cheval/SelectionHandler" to="Cheval/StateMachine" method="send_event" binds= ["released"]]
 [connection signal="requestSelecPos" from="Cheval/SelectionHandler" to="Cheval/MoveHandler" method="moveTo"]

@@ -41,11 +41,15 @@ script = ExtResource("7_6lja1")
 expression = "not hasTarget"
 
 [node name="Wololo" groups=["wololo"] instance=ExtResource("1_nuijn")]
+collision_layer = 8
+collision_mask = 9
 platform_floor_layers = 872349696
 script = ExtResource("2_n4dux")
 MAX_HEALTH = 300
 
 [node name="SelectorHandler" type="Area2D" parent="." index="0"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("3_jcn6r")
 SelectionPositionRadius = 175.0
 
@@ -54,6 +58,8 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_i5v2n")
 
 [node name="ConvertionHandler" type="Area2D" parent="." index="1"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("9_3ocsr")
 convertionMinigames = {
 0: ExtResource("5_ekpv1"),

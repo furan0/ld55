@@ -32,6 +32,8 @@ script = ExtResource("7_a2lh4")
 expression = "not hasTarget"
 
 [node name="Peon" groups=["peon"] instance=ExtResource("1_urfq2")]
+collision_layer = 4
+collision_mask = 13
 script = ExtResource("2_gniem")
 peonType = 0
 
@@ -48,6 +50,8 @@ attackRange = 150
 rushMargin = 25
 
 [node name="AreaAware" type="Area2D" parent="AttackHandler" index="0"]
+collision_layer = 0
+collision_mask = 12
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHandler/AreaAware" index="0"]
@@ -188,8 +192,8 @@ script = ExtResource("5_pwg7j")
 [connection signal="rushingToward" from="AttackHandler" to="MoveHandler" method="moveTo"]
 [connection signal="startRush" from="AttackHandler" to="StateMachine" method="send_event" binds= ["startRush"]]
 [connection signal="stopAttack" from="AttackHandler" to="StateMachine" method="send_event" binds= ["stopAttack"]]
-[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="targetLost" from="AttackHandler" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
+[connection signal="targetLost" from="AttackHandler" to="StateMachine" method="send_event" binds= ["targetLost"]]
 [connection signal="timeout" from="AttackHandler/AwareTimer" to="AttackHandler" method="lookForTarget"]
 [connection signal="state_entered" from="StateMachine/MainState/Alive" to="StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Status/Selected" to="AttackHandler" method="lookForTarget"]
