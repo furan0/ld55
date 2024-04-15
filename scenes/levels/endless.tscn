@@ -17,11 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="16_lhyvl"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="17_mfx2s"]
 [ext_resource type="PackedScene" uid="uid://cnhb6w0apc0pa" path="res://scenes/logic/spawner.tscn" id="18_k2irn"]
-[ext_resource type="PackedScene" path="res://scenes/levels/decors/buisson.tscn" id="19_svls4"]
+[ext_resource type="PackedScene" uid="uid://c8wclqvfmybjp" path="res://scenes/levels/decors/buisson.tscn" id="19_svls4"]
 [ext_resource type="PackedScene" uid="uid://ckuqmql0ohxwm" path="res://scenes/characters/wololo/Player.tscn" id="20_21mr6"]
-[ext_resource type="PackedScene" path="res://scenes/levels/decors/grillageoblique.tscn" id="22_k545h"]
-[ext_resource type="PackedScene" path="res://scenes/levels/decors/grillage.tscn" id="23_4s7yx"]
-[ext_resource type="PackedScene" path="res://scenes/levels/decors/estarde.tscn" id="24_cfxqc"]
+[ext_resource type="PackedScene" uid="uid://chfsqu5g61j6j" path="res://scenes/levels/decors/grillageoblique.tscn" id="22_k545h"]
+[ext_resource type="PackedScene" uid="uid://dale8rfmyv15r" path="res://scenes/levels/decors/grillage.tscn" id="23_4s7yx"]
+[ext_resource type="PackedScene" uid="uid://bgj340ju0h55d" path="res://scenes/levels/decors/estarde.tscn" id="24_cfxqc"]
 [ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="24_v0uq0"]
 [ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="25_6y0sj"]
 [ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="25_rcmfs"]
@@ -275,7 +275,6 @@ position = Vector2(1968, 2254)
 [node name="estrade" parent="Arena/Decors" instance=ExtResource("24_cfxqc")]
 position = Vector2(1971, 2911)
 rotation = -0.294753
-scale = Vector2(1, 1)
 
 [node name="Bafle" parent="Arena/Decors" instance=ExtResource("25_rcmfs")]
 position = Vector2(2061, 2774)
@@ -437,7 +436,6 @@ texture = ExtResource("10_yau2y")
 [node name="Roche2" parent="Arena/Decors" instance=ExtResource("12_cdy3k")]
 position = Vector2(3260, 2888)
 rotation = 0.355674
-scale = Vector2(2, 2)
 
 [node name="Roche3" parent="Arena/Decors" instance=ExtResource("12_cdy3k")]
 position = Vector2(323, 1779)

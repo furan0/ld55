@@ -29,3 +29,9 @@ texture = SubResource("CompressedTexture2D_hudp8")
 
 [node name="Epee" parent="muppet/root/Body" index="2"]
 texture = SubResource("CompressedTexture2D_a6g3n")
+
+[node name="attaque" parent="." index="5"]
+bus = &"reverb"
+
+[node name="hurt" parent="." index="6"]
+bus = &"reverb"

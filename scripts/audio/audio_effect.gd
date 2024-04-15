@@ -21,7 +21,7 @@ func play_sound():
 	stream = audio_clips[idx]
 	if pitch_distortion > 0.1 :
 		pitch_scale = randf_range(1.0-pitch_distortion,1.0+pitch_distortion)
-	
+	play(0.0)
 	playing = true
 	
 func stop_play():

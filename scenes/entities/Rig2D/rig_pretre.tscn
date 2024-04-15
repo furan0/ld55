@@ -1263,7 +1263,6 @@ color = Color(0, 0, 0, 0.690196)
 polygon = PackedVector2Array(27, -21, 10, -23, -5, -23, -19, -20, -33, -14, -34, -6, -29, 1, -18, 6, -4, 8, 13, 10, 27, 9, 35, 5, 37, -2, 37, -9)
 
 [node name="wololo" type="AudioStreamPlayer2D" parent="."]
-pitch_scale = 1.22
 attenuation = 3.73213
 max_polyphony = 2
 bus = &"Sfx"
@@ -1272,12 +1271,11 @@ audio_clips = Array[AudioStream]([ExtResource("16_qbh35"), ExtResource("17_w0yv3
 pitch_distortion = 0.2
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
-bus = &"Sfx"
+bus = &"reverb"
 script = ExtResource("15_jttrw")
 audio_clips = Array[AudioStream]([ExtResource("21_ifpk5"), ExtResource("22_qf4lm"), ExtResource("23_n2spx"), ExtResource("24_kxqsq"), ExtResource("25_5kkpv"), ExtResource("26_b57ke")])
 
 [node name="wololo_rt" type="AudioStreamPlayer2D" parent="."]
-volume_db = -4.394
 bus = &"Sfx"
 script = ExtResource("15_jttrw")
 audio_clips = Array[AudioStream]([ExtResource("27_y5ckw"), ExtResource("28_bhawd"), ExtResource("29_yqav1"), ExtResource("30_ta4rb")])

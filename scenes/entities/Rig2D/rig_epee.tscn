@@ -1866,10 +1866,12 @@ color = Color(0, 0, 0, 0.584314)
 polygon = PackedVector2Array(29, -18, 10, -20, -5, -23, -19, -20, -33, -14, -34, -6, -29, 1, -18, 6, -4, 8, 13, 10, 27, 9, 35, 5, 37, -2, 37, -9)
 
 [node name="attaque" type="AudioStreamPlayer2D" parent="."]
+bus = &"reverb"
 script = ExtResource("10_q647p")
 audio_clips = Array[AudioStream]([ExtResource("11_b6s4e"), ExtResource("12_2smxj"), ExtResource("13_qc2a2"), ExtResource("14_lixc3"), ExtResource("15_o8ndr")])
 pitch_distortion = 0.3
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
+bus = &"reverb"
 script = ExtResource("10_q647p")
 audio_clips = Array[AudioStream]([ExtResource("16_8sa18"), ExtResource("17_66u77"), ExtResource("18_k3vyg"), ExtResource("19_258n3"), ExtResource("20_nghfc"), ExtResource("21_1ym03")])

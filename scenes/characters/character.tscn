@@ -85,11 +85,17 @@ script = ExtResource("7_pt6ja")
 [node name="Graphsime" type="Node2D" parent="."]
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
-volume_db = -15.405
-pitch_scale = 1.14
-attenuation = 0.183011
 max_polyphony = 3
-bus = &"Sfx"
+panning_strength = 2.56
+bus = &"reverb"
+script = ExtResource("9_ho86x")
+audio_clips = Array[AudioStream]([ExtResource("10_hnooh")])
+looping = true
+
+[node name="walk_sound2" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 3
+panning_strength = 2.56
+bus = &"reverb"
 script = ExtResource("9_ho86x")
 audio_clips = Array[AudioStream]([ExtResource("10_hnooh")])
 looping = true

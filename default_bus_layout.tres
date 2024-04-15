@@ -1,4 +1,19 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://b6fnv7e28kbko"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://b6fnv7e28kbko"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_avhms"]
+resource_name = "Limiter"
+threshold_db = -1.7
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ulsot"]
+resource_name = "Amplify"
+volume_db = 8.06
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_sh1nf"]
+resource_name = "Reverb"
+room_size = 0.11
+damping = 0.08
+spread = 0.08
+wet = 0.2
 
 [resource]
 bus/1/name = &"Sfx"
@@ -7,9 +22,27 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLimiter_avhms")
+bus/1/effect/0/enabled = true
 bus/2/name = &"Music"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/3/name = &"wololo"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Sfx"
+bus/3/effect/0/effect = SubResource("AudioEffectAmplify_ulsot")
+bus/3/effect/0/enabled = true
+bus/4/name = &"reverb"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Sfx"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_sh1nf")
+bus/4/effect/0/enabled = true
