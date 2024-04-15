@@ -63,6 +63,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 currentGameMode = 1
 player1 = NodePath("../Entities/Player")
+nextLevelPath = "res://scenes/levels/level2.tscn"
 nbColorThres = 4
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target1") instance=ExtResource("2_idajm")]

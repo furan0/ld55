@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cyl170n3ayyqe"]
+[gd_scene load_steps=36 format=3 uid="uid://cyl170n3ayyqe"]
 
 [ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_24y3g"]
 [ext_resource type="Texture2D" uid="uid://c1bnu6pvy38vi" path="res://scenes/levels/decors/voiture.png" id="2_tiy3o"]
@@ -32,6 +32,22 @@
 [ext_resource type="PackedScene" path="res://scenes/levels/decors/grillage.tscn" id="29_ni8mo"]
 [ext_resource type="PackedScene" uid="uid://lqm4j6bv6lbv" path="res://scenes/levels/decors/poubelle_magique.tscn" id="30_us8ih"]
 
+[sub_resource type="GDScript" id="GDScript_fqopb"]
+script/source = "extends Node2D
+
+@onready var game_manager = %GameManager
+@onready var text_trigger_final = $Entities/TextTriggerFinal
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	setupWinConnections.call_deferred()
+
+func setupWinConnections():
+	game_manager.noMoreRedPeon.connect(text_trigger_final.displayText.bind(game_manager.player1))
+	text_trigger_final.triggerFinished.connect(game_manager.forceVictory)
+"
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bupk2"]
 vertices = PackedVector2Array(3145, 2198, 3146, 2198, 2380, 2206, 4108, 2123, 4109, 2123, 2078, 1841, 3972, 1510, 4665, 1541, 4777, 1978, 2379, 2206, 2044, 1883, 3989, 1356, 4385, 1288, 4709, 1466, 3778, 1343, 3017, 1210, 3975, 727, 4146, 681, 4560, 919, 3939, 55, 3940, 56, 3452, -109, 1816, 899, 1969, 1046, 1970, 1047, 1918, 1686, 1879, 1733, 1475, 1059, 1436, 936, 4802, -55, 4886, 926, 4308, 242, 4288, 135, 4638, -367, 1214, 2296, 1156, 1714, 3790, 1497, 1759, 802, 794, 777, 4053, -548, 2990, -640, 3259, 23, 3124, -8, 2429, -585, 2434, -636, 2405, 334, 2348, 233, 2488, 170, 2525, 207, 4223, 274, 4285, 470, 3719, 730, 2963, 931, 3020, 29, 2737, -91, 2655, -183, 2653, 1506, 2757, 36, 2445, -241, 1869, -449, 2249, -241, 1296, -267, 1510, -421, 1674, 75, 954, 276, 1618, 190, 955, 277, 3153, 124, 3724, 647, 2805, 744, 3087, 111, 2435, 696, 2634, 215, 2267, 410, 2434, 696, 1997, 685, 2019, 384, 2174, 327, 1799, 738, 1865, 253, 1677, 290, 1240, 1016, 885, 1295, 1273, 1078, 2238, 1262, 2315, 1404, 2545, 1379)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0), PackedInt32Array(5, 6, 7, 8, 3, 0, 2, 9, 10), PackedInt32Array(11, 12, 13, 7, 6), PackedInt32Array(12, 11, 14, 15, 16, 17, 18), PackedInt32Array(19, 20, 21), PackedInt32Array(22, 23, 24, 25, 26, 27, 28), PackedInt32Array(29, 30, 18, 31, 32, 33), PackedInt32Array(26, 10, 9, 34, 35), PackedInt32Array(36, 6, 5), PackedInt32Array(37, 22, 28, 38), PackedInt32Array(39, 33, 32, 19, 21, 40), PackedInt32Array(40, 21, 41, 42, 43, 44), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(49, 31, 18, 50), PackedInt32Array(17, 50, 18), PackedInt32Array(51, 16, 15, 52), PackedInt32Array(43, 42, 53, 54, 55), PackedInt32Array(14, 36, 5, 56), PackedInt32Array(53, 57, 54), PackedInt32Array(43, 55, 58, 59), PackedInt32Array(59, 58, 60), PackedInt32Array(61, 62, 59, 60, 63, 64), PackedInt32Array(64, 63, 65, 66), PackedInt32Array(67, 68, 51, 52, 69, 70), PackedInt32Array(57, 53, 70, 69, 71, 72), PackedInt32Array(48, 72, 71, 45), PackedInt32Array(73, 45, 71, 74, 75), PackedInt32Array(76, 77, 73, 75, 78), PackedInt32Array(79, 76, 78, 80), PackedInt32Array(38, 66, 65, 80, 78, 37), PackedInt32Array(38, 28, 81), PackedInt32Array(82, 38, 81, 83, 35), PackedInt32Array(26, 35, 83, 27), PackedInt32Array(25, 24, 84, 85, 5), PackedInt32Array(85, 86, 56, 5), PackedInt32Array(14, 56, 15)])
@@ -44,9 +60,17 @@ radius = 888.369
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxenn"]
 radius = 386.419
 
-[node name="Tuto2" type="Node2D"]
+[node name="Level4" type="Node2D"]
 y_sort_enabled = true
+script = SubResource("GDScript_fqopb")
 metadata/_edit_lock_ = true
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("player1") instance=ExtResource("3_c0bl3")]
+unique_name_in_owner = true
+currentGameMode = 1
+player1 = NodePath("../Entities/Player")
+canSpawn = false
+nbGaiaThres = 8
 
 [node name="NodeYSorted" type="Node2D" parent="."]
 position = Vector2(2537, 5202)
@@ -59,13 +83,6 @@ texture = ExtResource("2_tiy3o")
 flip_h = true
 
 [node name="bfff" type="Node2D" parent="NodeYSorted"]
-
-[node name="GameManager" parent="." node_paths=PackedStringArray("player1") instance=ExtResource("3_c0bl3")]
-unique_name_in_owner = true
-currentGameMode = 1
-player1 = NodePath("../Entities/Player")
-canSpawn = false
-nbGaiaThres = 8
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target1") instance=ExtResource("4_pb3f2")]
 position = Vector2(1784, 6646)
@@ -768,7 +785,6 @@ skew = 0.733038
 [node name="buisson" parent="Arena/Decors" instance=ExtResource("21_8ndho")]
 position = Vector2(2573, 6239)
 rotation = 0.0993696
-scale = Vector2(1, 1)
 
 [node name="buisson5" parent="Arena/Decors" instance=ExtResource("21_8ndho")]
 position = Vector2(2507, 6207)
@@ -1055,7 +1071,6 @@ position = Vector2(4691, 6166)
 
 [node name="PoubelleMagique" parent="Arena/Decors" instance=ExtResource("30_us8ih")]
 position = Vector2(4791, 6275)
-scale = Vector2(1, 1)
 
 [node name="buisson9" parent="Arena/Decors" instance=ExtResource("21_8ndho")]
 position = Vector2(859, 7618)
@@ -1186,6 +1201,10 @@ texts = Array[String](["Alright, now I'm [color=ce42f5]MAD[/color]!!!", "I'll ma
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerArmy2"]
 shape = SubResource("CircleShape2D_xxenn")
 
+[node name="TextTriggerFinal" parent="Entities" instance=ExtResource("27_11bqn")]
+position = Vector2(1480, 1982)
+texts = Array[String](["Now this festival is finaly [color=ce42f5]Cleansed[/color].", "Great Job, now I'm ready to tackle the....", "[color=ce42f5]ENDLESS MODE[/color]!!!"])
+
 [node name="Sword6" parent="Entities" instance=ExtResource("25_h80t4")]
 position = Vector2(1349, 401)
 faction = 1
@@ -1268,8 +1287,6 @@ faction = 1
 [node name="Sword3" parent="Entities" instance=ExtResource("25_h80t4")]
 position = Vector2(1692, -205)
 faction = 1
-
-[connection signal="noMoreRedPeon" from="GameManager" to="GameManager" method="forceVictory"]
 
 [editable path="Camera"]
 [editable path="Arena/Decors/Bafle6"]
