@@ -2,11 +2,12 @@ extends Node2D
 
 @onready var label = $PanelDialog/MarginContainer/RichTextLabel
 @export var defaultText := ""
-@export var displayTimePerLetter := 0.5
+@export var displayTimePerLetter := 0.07
 
 var textTweener : Tween
 
 signal textDisplayFinished()
+signal textDisplayIsClosing()
 var isTextDisplayFinished := true
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +27,8 @@ func displayText(text : String):
 
 func tweenText():
 	isTextDisplayFinished = false
-	var totalDisplayTime : float = displayTimePerLetter * label.text.length()
+	var nbCarac = strip_bbcode(label.text).length()
+	var totalDisplayTime : float = displayTimePerLetter * nbCarac
 	
 	# Generate new tweener
 	if textTweener != null:
@@ -50,8 +52,14 @@ func forceFullDisplayOrHide():
 	# Text fully displayed -> hide panel
 	else:
 		hide()
+		textDisplayIsClosing.emit()
 	
 
 func _text_display_is_finished():
 	isTextDisplayFinished = true
 	textDisplayFinished.emit()
+
+func strip_bbcode(source:String) -> String:
+	var regex = RegEx.new()
+	regex.compile("\\[.+?\\]")
+	return regex.sub(source, "", true)

@@ -162,10 +162,13 @@ position = Vector2(-10, 13)
 circleOffset = 76.0
 
 [node name="DialogBox" type="Node2D" parent="." index="9"]
+visible = false
 script = ExtResource("15_em83q")
 defaultText = "Yololooooooooooooooooooooooooooooooooo"
+displayTimePerLetter = 0.03
 
 [node name="PanelDialog" type="Panel" parent="DialogBox" index="0"]
+z_index = 4096
 offset_left = -386.0
 offset_top = -352.0
 offset_right = -103.0
@@ -179,19 +182,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 13
-theme_override_constants/margin_top = 11
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 11
 theme_override_constants/margin_bottom = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/PanelDialog/MarginContainer" index="0"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/bold_font_size = 35
+theme_override_font_sizes/italics_font_size = 35
+theme_override_font_sizes/bold_italics_font_size = 35
+bbcode_enabled = true
 text = "Yololooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
 scroll_active = false
+autowrap_mode = 2
 
 [connection signal="lookAtTarget" from="ConvertionHandler" to="." method="lookAt"]
 [connection signal="minigameFailed" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["mingameFailed"]]
