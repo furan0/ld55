@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ci6wjs5avnyk7"]
+[gd_scene load_steps=30 format=3 uid="uid://ci6wjs5avnyk7"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_h714r"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="3_mmm6y"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="22_uvc4h"]
 [ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="23_4bjis"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_bu7te"]
+[ext_resource type="PackedScene" uid="uid://c3v5h0ag2e5dv" path="res://scenes/levels/MusicTrigger.tscn" id="23_kjl16"]
 [ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="23_l20eh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
@@ -380,6 +381,9 @@ position = Vector2(2424, 1913)
 [node name="Player2" parent="Entities" instance=ExtResource("5_bgqmb")]
 unique_name_in_owner = true
 position = Vector2(2017, 1771)
+
+[node name="MusicTrigger" parent="Entities" instance=ExtResource("23_kjl16")]
+isHalfLife = true
 
 [node name="Cheval" parent="Entities" instance=ExtResource("23_bu7te")]
 position = Vector2(3799, 2370)

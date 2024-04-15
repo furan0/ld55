@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1mgpum08h5i5"]
+[gd_scene load_steps=28 format=3 uid="uid://d1mgpum08h5i5"]
 
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="1_efolb"]
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="2_glq0o"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="24_v0uq0"]
 [ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="25_6y0sj"]
 [ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="25_rcmfs"]
+[ext_resource type="PackedScene" uid="uid://c3v5h0ag2e5dv" path="res://scenes/levels/MusicTrigger.tscn" id="26_xr42r"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_78ka8"]
 vertices = PackedVector2Array(2028, 1077, 2604, 1187, 2603, 1187, 3053, 2883, 3243, 2997, 2858, 3060, 2378, 1611, 2241, 1734, 1732, 1764, 1771, 1612, 3345, 1393, 3583, 1592, 3565, 2652, 3064, 1716, 2994, 1520, 1921, 2528, 2105, 2631, 1775, 2897, 1544, 2782, 2379, 2016, 3484, 2803, 3189, 2717, 2382, 2479, 2099, 2216, 1958, 3636, 1636, 3405, 2136, 2770, 2251, 1952, 1832, 2209, 1550, 2000, 1289, 1867, 1255, 2664, 1237, 1895, 1397, 603, 1423, 475, 1483, 484, 1634, 821, 457, 1633, 337, 1574, 481, 1167, 859, 1191, 982, 1759, 3143, 1153, 3305, 1201, 3035, 1300, 2688, 1484, 1670, 1387, 1524, 1214, 1096, 1066, 966, 573, 418, 1823, 1258, 3586, 1191, 3639, 187, 2825, 1337, 3647, 242, 1966, 1777, 2909, 1927, 2958, 2123, 2699)
@@ -619,6 +620,9 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="Entities" instance=ExtResource("20_21mr6")]
 unique_name_in_owner = true
 position = Vector2(427, 2712)
+
+[node name="MusicTrigger" parent="Entities" instance=ExtResource("26_xr42r")]
+isHalfLife = true
 
 [editable path="Camera"]
 [editable path="Arena/MurailleTour2"]
