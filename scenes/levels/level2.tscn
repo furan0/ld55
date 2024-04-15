@@ -553,7 +553,7 @@ position = Vector2(-424, 3226)
 [node name="TextTriggerBroken" parent="Entities" instance=ExtResource("21_kl14r")]
 position = Vector2(-313, 3360)
 texts = Array[String](["Crap.... That's [color=ce42f5]busted[/color]...
-There is no way I can fix that", "I guess I'll have to \"find\" another one"])
+There is no way I'll fix it", "I guess I'll have to \"find\" another one"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerBroken"]
 shape = SubResource("CircleShape2D_lnlmn")
@@ -567,14 +567,14 @@ shape = SubResource("SegmentShape2D_kqsut")
 
 [node name="TextTriggerWrongCar" parent="Entities" instance=ExtResource("21_kl14r")]
 position = Vector2(1409, 858)
-texts = Array[String](["That one is waaaay to clean for me to \"borrow\" it...", "I need something with a little bit more  [color=ce42f5]Oomf[/color]..."])
+texts = Array[String](["That one is waaaay to clean for me to \"borrow\" it", "I need something with a little bit more  [color=ce42f5]Oomf[/color]..."])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerWrongCar"]
 shape = SubResource("CircleShape2D_or26n")
 
 [node name="TextTriggerGoodCar" parent="Entities" instance=ExtResource("21_kl14r")]
 position = Vector2(3743, 2358)
-texts = Array[String](["That one is [color=ce42f5]PERFECT[/color]!", "I love it like my own flesh already <3"])
+texts = Array[String](["That one is [color=ce42f5]PERFECT[/color]!", "I love it like my own flesh already  [color=ce42f5]<3[/color]"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerGoodCar"]
 shape = SubResource("CircleShape2D_or26n")
