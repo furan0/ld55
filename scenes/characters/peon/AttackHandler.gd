@@ -38,7 +38,7 @@ signal stopAttack()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Start scanning at beginning 
-	lookForTarget()
+	lookForTarget.call_deferred()
 
 ## Process called every frame when aware but not attacking
 func processAware(_delta):
@@ -179,3 +179,6 @@ func _draw():
 	draw_circle(Vector2.ZERO, rushDistance, Color.ORANGE)
 	draw_circle(Vector2.ZERO, attackRange, Color.RED)
 
+func stopAllAttack():
+	stopAttack.emit()
+	targetLost.emit()

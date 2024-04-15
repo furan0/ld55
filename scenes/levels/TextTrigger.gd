@@ -8,6 +8,7 @@ var currentIndex = 0
 var isDisplaying := false
 
 signal triggerFinished()
+signal triggerStarted()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,7 @@ func _on_body_entered(body : Node2D):
 	if isDisplaying:
 		return
 	if body is Wololo && body.faction == Character.EFaction.BLUE:
+		triggerStarted.emit()
 		displayText(body)
 
 func displayNextText(dialogBox : Node2D):
