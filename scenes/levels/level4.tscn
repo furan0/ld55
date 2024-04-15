@@ -1196,7 +1196,7 @@ shape = SubResource("CircleShape2D_r4v1i")
 
 [node name="TextTriggerArmy2" parent="Entities" instance=ExtResource("27_11bqn")]
 position = Vector2(1480, 1982)
-texts = Array[String](["Alright, now I'm [color=ce42f5]MAD[/color]!!!", "I'll make [color=ce42f5]ALL of them[/color] bow to me!"])
+texts = Array[String](["Hm... That's a [color=ce42f5]lot[/color] of unlightened.", "They will do fine as my personal army", "I shall [color=ce42f5]Summon[/color] them all to my command!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerArmy2"]
 shape = SubResource("CircleShape2D_xxenn")

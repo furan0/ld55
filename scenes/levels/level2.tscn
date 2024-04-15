@@ -33,14 +33,14 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0659339), -2.64268, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_rmgjx"]
+[sub_resource type="CurveTexture" id="CurveTexture_obkgk"]
 curve = SubResource("Curve_d75f2")
 
 [sub_resource type="Curve" id="Curve_t0udj"]
 _data = [Vector2(0, 0.076923), 0.0, 8.58242, 0, 0, Vector2(0.0704225, 0.978022), 0.0, 0.0, 0, 0, Vector2(0.7277, 0.791209), -0.99478, -0.99478, 0, 0, Vector2(1, 0.032967), -6.66187, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_ilg2j"]
+[sub_resource type="CurveTexture" id="CurveTexture_vvmso"]
 curve = SubResource("Curve_t0udj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fyjhw"]
@@ -56,9 +56,9 @@ gravity = Vector3(0, 98, 0)
 damping_min = 11.667
 damping_max = 19.167
 scale_max = 1.3
-scale_curve = SubResource("CurveTexture_ilg2j")
+scale_curve = SubResource("CurveTexture_vvmso")
 color = Color(0.964706, 0.92549, 0.866667, 1)
-alpha_curve = SubResource("CurveTexture_rmgjx")
+alpha_curve = SubResource("CurveTexture_obkgk")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5x0pt"]
 vertices = PackedVector2Array(3620, 1779, 4035, 2193, 3754, 2143, 1782, 2646, 1956, 2660, 1779, 2832, 1522, 2765, 2310, 3055, 1798, 2915, 2039, 2703, 2133, 2729, 1121, 549, 1472, 645, 1165, 925, 1043, 637, 298, 2979, 52, 3479, -76, 3312, -100, 2976, 238, 1976, 1459, 2457, 1533, 2436, 1282, 2699, -257, 3255, -576, 3402, -608, 3268, -566, 3157, -420, 3135, 968, 2473, 788, 1072, 737, 778, 1168, 936, 2437, 2540, 3245, 3048, 3375, 3265, 3289, 3314, 2932, 3352, 2555, 3235, 1468, 2839, 3357, 1601, 3451, 2255, 2634, 1776, 2908, 1545, 3206, 1526, 1365, 2384, 3195, 2469, 3442, 2910, 2461, 2109, 1435, 1013, 1699, 788, 1735, 818, 1655, 1073, 1365, 2240, 288, 1567, 397, 1475, 3547, 2379, 3504, 2442, 1491, 2022, 404, 1288, 1679, 1942, 1876, 1439, 2034, 1875, 2103, 1636)

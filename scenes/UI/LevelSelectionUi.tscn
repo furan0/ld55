@@ -85,7 +85,7 @@ text = "Level 2 : PoneyPoney~"
 
 [node name="Level3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Level 3 : ????"
+text = "Level 3 : same fight, less colors"
 
 [node name="Level4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
