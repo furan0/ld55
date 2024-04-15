@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="1_kvl2i"]
 
 [node name="Sword" instance=ExtResource("1_kvl2i")]
+MAX_HEALTH = 200
 
 [node name="MoveHandler" parent="." index="1"]
 MAX_SPEED = 250.0

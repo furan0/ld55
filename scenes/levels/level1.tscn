@@ -1,0 +1,1031 @@
+[gd_scene load_steps=25 format=3 uid="uid://cyl170n3ayyqe"]
+
+[ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="1_p1w34"]
+[ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="2_u7vm8"]
+[ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="3_nb84g"]
+[ext_resource type="Texture2D" uid="uid://drshoc1gcupsh" path="res://scenes/levels/decors/trash1.png" id="4_bqdmu"]
+[ext_resource type="PackedScene" uid="uid://deucexott6afu" path="res://scenes/levels/decors/poubelle.tscn" id="5_fml7q"]
+[ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="6_r5bl5"]
+[ext_resource type="PackedScene" uid="uid://c1j1j8r5unucw" path="res://scenes/levels/decors/arbre.tscn" id="7_koaxk"]
+[ext_resource type="Texture2D" uid="uid://2vhxn3cb4yc7" path="res://scenes/levels/decors/sol3.png" id="8_8gfk2"]
+[ext_resource type="Texture2D" uid="uid://xbnm4oerx8ja" path="res://scenes/levels/decors/sol1.png" id="9_1xb1o"]
+[ext_resource type="PackedScene" uid="uid://b4giumrwdfn52" path="res://scenes/levels/decors/roche.tscn" id="10_mrh0o"]
+[ext_resource type="PackedScene" uid="uid://s1lemdx2sdo0" path="res://scenes/levels/decors/mega_sol.tscn" id="11_rlkee"]
+[ext_resource type="PackedScene" uid="uid://cv2w473lfk1vb" path="res://scenes/levels/decors/voiturePropre.tscn" id="12_4ghdd"]
+[ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="13_siwnd"]
+[ext_resource type="PackedScene" uid="uid://cr2glfh08egjh" path="res://scenes/levels/decors/estafette_mal_barree.tscn" id="14_53igu"]
+[ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="15_tt6xn"]
+[ext_resource type="PackedScene" uid="uid://ckuqmql0ohxwm" path="res://scenes/characters/wololo/Player.tscn" id="16_6ypjp"]
+[ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="17_ca53x"]
+[ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="18_k3l0v"]
+[ext_resource type="PackedScene" uid="uid://chfsqu5g61j6j" path="res://scenes/levels/decors/grillageoblique.tscn" id="19_h53e5"]
+[ext_resource type="Texture2D" uid="uid://ijagk7f0tr4s" path="res://scenes/UI/ending/sol.png" id="20_aqosc"]
+[ext_resource type="PackedScene" uid="uid://c8wclqvfmybjp" path="res://scenes/levels/decors/buisson.tscn" id="21_a4umd"]
+[ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="22_m3nna"]
+[ext_resource type="PackedScene" uid="uid://bgj340ju0h55d" path="res://scenes/levels/decors/estarde.tscn" id="23_bsr0k"]
+[ext_resource type="PackedScene" uid="uid://cge7uchfm75vq" path="res://scenes/UI/ending/bafleanim.tscn" id="24_q71hg"]
+
+[node name="Tuto" type="Node2D"]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("player1") instance=ExtResource("1_p1w34")]
+unique_name_in_owner = true
+currentGameMode = 1
+player1 = NodePath("../Entities/Player")
+nbColorThres = 4
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target1") instance=ExtResource("2_u7vm8")]
+position = Vector2(4367, 7500)
+target1 = NodePath("../Entities/Player")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" parent="Camera" index="0"]
+position = Vector2(-9, -1)
+zoom = Vector2(0.33, 0.33)
+
+[node name="CameraTarget1" parent="Camera" index="1"]
+process_mode = 3
+position = Vector2(91, 4888)
+
+[node name="CameraTarget2" parent="Camera" index="2"]
+process_mode = 3
+position = Vector2(91, 4888)
+
+[node name="Arena" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Decors" type="Node2D" parent="Arena"]
+metadata/_edit_lock_ = true
+
+[node name="Sol2" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2049, 7120)
+rotation = 0.177733
+scale = Vector2(3.94703, 4.38728)
+texture = ExtResource("3_nb84g")
+
+[node name="Trash1" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2194, 7215)
+rotation = 0.679345
+texture = ExtResource("4_bqdmu")
+
+[node name="Poubelle" parent="Arena/Decors" instance=ExtResource("5_fml7q")]
+position = Vector2(4139, 6744)
+rotation = -0.164128
+
+[node name="Poubelle2" parent="Arena/Decors" instance=ExtResource("5_fml7q")]
+position = Vector2(4045, 6750)
+rotation = -0.0139495
+scale = Vector2(-1.75635, 1.75523)
+
+[node name="Trash2" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(3510.21, 6561.16)
+texture = ExtResource("6_r5bl5")
+
+[node name="Trash3" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(3438.21, 6327.16)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash4" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1462, 6539)
+texture = ExtResource("6_r5bl5")
+
+[node name="Trash5" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1545, 5978)
+texture = ExtResource("4_bqdmu")
+
+[node name="Arbre" parent="Arena/Decors" instance=ExtResource("7_koaxk")]
+z_index = 5
+position = Vector2(3994, 6534.63)
+rotation = 0.291051
+
+[node name="Sol3" type="Sprite2D" parent="Arena/Decors"]
+z_index = -230
+position = Vector2(4119, 6679)
+rotation = 0.568406
+scale = Vector2(2.65771, 2.39766)
+texture = ExtResource("8_8gfk2")
+
+[node name="Sol4" type="Sprite2D" parent="Arena/Decors"]
+z_index = -230
+position = Vector2(3186, 6541)
+rotation = 0.675219
+scale = Vector2(0.911647, 3.14593)
+texture = ExtResource("8_8gfk2")
+
+[node name="Sol5" type="Sprite2D" parent="Arena/Decors"]
+z_index = -3275
+position = Vector2(1814, 7444)
+rotation = -0.845595
+scale = Vector2(0.911647, 3.14593)
+texture = ExtResource("8_8gfk2")
+
+[node name="Sol1" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1436, 5903)
+rotation = -2.60587
+scale = Vector2(2.18916, 1.84508)
+texture = ExtResource("9_1xb1o")
+
+[node name="Roche2" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
+position = Vector2(390, 7735)
+
+[node name="Poubelle3" parent="Arena/Decors" instance=ExtResource("5_fml7q")]
+z_index = 105
+position = Vector2(386, 7841)
+rotation = 3.14159
+scale = Vector2(1.92, -2)
+
+[node name="Poubelle4" parent="Arena/Decors" instance=ExtResource("5_fml7q")]
+z_index = -385
+position = Vector2(1937, 7504)
+rotation = 0.00267953
+scale = Vector2(2.09002, 1.53272)
+
+[node name="Trash6" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(429, 7870)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash7" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(474, 7854)
+texture = ExtResource("6_r5bl5")
+
+[node name="Trash8" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(766, 7713)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash9" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(846, 7773)
+texture = ExtResource("6_r5bl5")
+
+[node name="Roche4" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
+position = Vector2(3876, 8248)
+
+[node name="Roche5" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
+position = Vector2(2193, 7466)
+rotation = -0.0848009
+scale = Vector2(1.7, 1.4)
+
+[node name="Arbre2" parent="Arena/Decors" instance=ExtResource("7_koaxk")]
+position = Vector2(1548, 7189)
+rotation = 0.401247
+scale = Vector2(0.506799, 0.506799)
+
+[node name="Arbre3" parent="Arena/Decors" instance=ExtResource("7_koaxk")]
+position = Vector2(1563, 7246)
+rotation = -2.8634
+scale = Vector2(0.507, -0.507)
+
+[node name="MegaSol" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(533, 5946)
+rotation = -0.292846
+
+[node name="MegaSol3" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2632, 5467)
+rotation = -0.292846
+
+[node name="MegaSol4" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2760, 5341)
+rotation = -1.11254
+
+[node name="MegaSol5" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2448, 5203)
+rotation = -1.11254
+
+[node name="MegaSol6" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2690, 5087)
+rotation = -1.11254
+
+[node name="MegaSol7" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2460, 5031)
+rotation = -2.81245
+scale = Vector2(0.702404, 0.702404)
+
+[node name="MegaSol8" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2364, 5303)
+rotation = -0.292846
+scale = Vector2(-1, -1)
+
+[node name="MegaSol9" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2492, 5177)
+rotation = -1.11254
+scale = Vector2(-1, -1)
+
+[node name="MegaSol10" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2180, 5039)
+rotation = -1.11254
+scale = Vector2(-1, -1)
+
+[node name="MegaSol11" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2422, 4923)
+rotation = -1.11254
+scale = Vector2(-1, -1)
+
+[node name="MegaSol12" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2192, 4867)
+rotation = -2.81245
+scale = Vector2(-1, -1)
+
+[node name="MegaSol13" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2869, 5166)
+rotation = -0.292846
+scale = Vector2(-1, -1)
+
+[node name="MegaSol14" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2997, 5040)
+rotation = -1.11254
+scale = Vector2(-1, -1)
+
+[node name="MegaSol15" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2685, 4902)
+rotation = -1.11254
+scale = Vector2(-1, -1)
+
+[node name="MegaSol16" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2927, 4786)
+rotation = -1.11254
+scale = Vector2(-1, -1)
+
+[node name="MegaSol17" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2697, 4730)
+rotation = -2.81245
+scale = Vector2(-1, -1)
+
+[node name="MegaSol18" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2535, 5072)
+rotation = -1.80295
+scale = Vector2(-0.85, -0.85)
+
+[node name="MegaSol19" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2663, 4946)
+rotation = -2.62265
+scale = Vector2(-0.85, -0.85)
+
+[node name="MegaSol20" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2351, 4808)
+rotation = -2.62265
+scale = Vector2(-0.85, -0.85)
+
+[node name="MegaSol21" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2593, 4692)
+rotation = -2.62265
+scale = Vector2(-0.85, -0.85)
+
+[node name="MegaSol22" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -2600
+position = Vector2(2363, 4636)
+rotation = -4.32256
+scale = Vector2(-0.85, -0.85)
+
+[node name="Trash10" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1632, 7308)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash11" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1604, 7309)
+texture = ExtResource("6_r5bl5")
+
+[node name="VoiturePropre2" parent="Arena/Decors" instance=ExtResource("12_4ghdd")]
+position = Vector2(3589.21, 6535.16)
+rotation = 2.87188
+scale = Vector2(2.03152, -1.5)
+
+[node name="VoiturePropre3" parent="Arena/Decors" instance=ExtResource("12_4ghdd")]
+modulate = Color(0.784314, 0.843137, 1, 1)
+position = Vector2(3391, 6453)
+rotation = 2.87188
+scale = Vector2(2.03152, -1.5)
+
+[node name="Sol7" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -1540
+position = Vector2(3623, 6579)
+rotation = 2.52224
+scale = Vector2(3.74914, -1.24714)
+texture = ExtResource("3_nb84g")
+
+[node name="Sol8" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -1540
+position = Vector2(3476, 6568)
+rotation = -0.614887
+scale = Vector2(3.74914, -1.24714)
+texture = ExtResource("3_nb84g")
+
+[node name="Sol14" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -1540
+position = Vector2(3072.21, 6344.5)
+rotation = 2.52224
+scale = Vector2(3.74914, -1.24714)
+texture = ExtResource("3_nb84g")
+
+[node name="Sol15" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -1540
+position = Vector2(2925.21, 6333.5)
+rotation = -0.614887
+scale = Vector2(3.74914, -1.24714)
+texture = ExtResource("3_nb84g")
+
+[node name="Sol12" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.788235)
+z_index = -1540
+position = Vector2(147, 5404)
+rotation = 1.5711
+scale = Vector2(3.74914, -1.87783)
+texture = ExtResource("3_nb84g")
+
+[node name="Sol13" type="Sprite2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.788235)
+z_index = -1705
+position = Vector2(518, 5518)
+rotation = 1.58357
+scale = Vector2(-3.41951, -1.51417)
+texture = ExtResource("3_nb84g")
+
+[node name="Arbre4" parent="Arena/Decors" instance=ExtResource("7_koaxk")]
+position = Vector2(4683, 7136)
+rotation = 0.888432
+scale = Vector2(-0.716, 0.716)
+
+[node name="Sol9" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2046, 6498)
+rotation = 0.159309
+scale = Vector2(2.08, 2.08)
+texture = ExtResource("8_8gfk2")
+
+[node name="Sol10" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2265, 6550)
+rotation = 0.18171
+scale = Vector2(2.32, 1)
+texture = ExtResource("9_1xb1o")
+
+[node name="Trash12" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1770, 6817)
+rotation = 2.22405
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash13" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2124, 6791)
+rotation = 0.554959
+scale = Vector2(0.684516, 0.684516)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash14" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2477, 6997)
+rotation = 0.554959
+scale = Vector2(0.684516, 0.684516)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash15" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1824, 6814)
+rotation = -0.246624
+texture = ExtResource("6_r5bl5")
+
+[node name="Poubelle5" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2464, 7022)
+rotation = -1.27478
+scale = Vector2(1.35542, 1.79552)
+texture = ExtResource("13_siwnd")
+
+[node name="Sol11" type="Sprite2D" parent="Arena/Decors"]
+z_index = -1295
+position = Vector2(2495, 7014)
+rotation = -1.86783
+texture = ExtResource("3_nb84g")
+
+[node name="Trash16" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(2497, 7030)
+texture = ExtResource("6_r5bl5")
+
+[node name="MegaSol2" parent="Arena/Decors" instance=ExtResource("11_rlkee")]
+z_index = -4096
+position = Vector2(4375, 7605)
+rotation = -2.21098
+
+[node name="EstafetteMalBarree" parent="Arena/Decors" instance=ExtResource("14_53igu")]
+position = Vector2(91, 4888)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Arena"]
+position = Vector2(93, 4888)
+
+[node name="Polygon2D" type="Polygon2D" parent="Arena/NavigationRegion2D"]
+visible = false
+polygon = PackedVector2Array(1392, 2254, 1504, 2054, 1674, 1978, 1966, 1904, 2402, 2102, 2420, 2234, 2408, 2508, 2230, 2540, 2168, 2618, 2037, 2645, 1818, 2660, 1544, 2412, 1480, 2438, 1389, 2373)
+
+[node name="MurailleDebut" parent="Arena" instance=ExtResource("15_tt6xn")]
+position = Vector2(91, 4888)
+metadata/_edit_lock_ = true
+
+[node name="render" parent="Arena/MurailleDebut" index="0"]
+position = Vector2(119, 62)
+points = PackedVector2Array(3601, 1285, 4332, 1632, 4679, 2161, 4722, 2492, 4578, 2727, 4402, 2908, 4231, 3074, 4028, 3026, 3830, 2871, 3590, 2850, 3355, 2924, 3264, 3036, 2923, 2924, 2773, 2716, 2517, 2497, 2325, 2273, 2129, 2086, 1859, 1938, 1635, 1943, 1469, 1884, 1266, 1839, 865, 1929, 510, 1944, -193, 2439, -994, 2340)
+
+[node name="edges" parent="Arena/MurailleDebut" index="1"]
+visible = true
+points = PackedVector2Array(3724, 1541, 4334, 1825, 4628, 2274, 4662, 2513, 4559, 2683, 4294, 2948, 4213, 2924, 4010, 2765, 3690, 2738, 3361, 2842, 3325, 2903, 3141, 2840, 3014, 2647, 2738, 2412, 2350, 2012, 2030, 1836, 1798, 1832, 1384, 1726, 950, 1828, 560, 1836, 3755, 4186, 5300, 2049)
+
+[node name="MurailleCentre" parent="Arena" instance=ExtResource("15_tt6xn")]
+position = Vector2(91, 4888)
+metadata/_edit_lock_ = true
+
+[node name="render" parent="Arena/MurailleCentre" index="0"]
+position = Vector2(314, -413)
+points = PackedVector2Array(-1448, -452, -215, -78, 45, -1194, 503, -1904, 888, -2811, 1719, -2791, 2403, -2919, 2531, -3803, 3672, -3703, 4313, -3775, 5810, -4174, 7563, -4174, 8019, -3546, 8148, -2891, 7991, -2420, 7364, -2335, 6451, -2549, 5610, -2591, 4798, -2534, 3814, -2249, 3102, -1836, 2802, -1195, 1302, -737, 1067, -146, 1258, 285, 1442, 260, 1740, -242, 2255, -184, 2826, 6, 3010, 279, 2928, 724, 2623, 1225, 2751, 1494, 3432, 1771)
+
+[node name="edges" parent="Arena/MurailleCentre" index="1"]
+visible = true
+points = PackedVector2Array(1758, 1451, 1849, 1136, 1816, 776, 1519, 589, 1241, 514, 919, 350, 450, 317, 445, 1076, 697, 1375, 908, 1473, 1101, 1506)
+
+[node name="MurailleMilieu" parent="Arena" instance=ExtResource("15_tt6xn")]
+position = Vector2(91, 4888)
+
+[node name="render" parent="Arena/MurailleMilieu" index="0"]
+position = Vector2(314, -413)
+points = PackedVector2Array(973, 1733, 1315, 1711, 1363, 1535, 1342, 1289, 1139, 1167, 877, 1097, 557, 932, 306, 916, 306, 1151, 306, 1439, 455, 1647, 625, 1723, 795, 1755, 1021, 1731)
+
+[node name="edges" parent="Arena/MurailleMilieu" index="1"]
+visible = true
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(91, 4888)
+
+[node name="Player" parent="Entities" instance=ExtResource("16_6ypjp")]
+unique_name_in_owner = true
+position = Vector2(1946, 1599)
+
+[node name="sol" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.290196)
+z_index = -3000
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(91, 4888)
+texture = ExtResource("17_ca53x")
+polygon = PackedVector2Array(-1899, -291, -349, -2904, 943, -4655, 4364, -5410, 8383, -5410, 9338, -2745, 6716, -2446, 3751, -1063, 6017, 1375, 6183, 4773, 1395, 4417, -262, 3454)
+metadata/_edit_lock_ = true
+
+[node name="sol2" type="Polygon2D" parent="."]
+z_index = -2314
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(1561, 3421)
+texture = ExtResource("18_k3l0v")
+polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
+
+[node name="sol4" type="Polygon2D" parent="."]
+z_index = -2314
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(3084, 5972)
+rotation = -0.209934
+texture = ExtResource("18_k3l0v")
+polygon = PackedVector2Array(780.991, 1329.95, 1259.77, 1453.44, 1252, 2093, 1088, 2111, 552, 2107, 415.975, 1737.84)
+
+[node name="sol5" type="Polygon2D" parent="."]
+z_index = -2314
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(2513, 6609)
+rotation = -0.711053
+texture = ExtResource("18_k3l0v")
+polygon = PackedVector2Array(835.09, 1558.72, 1385.26, 1767.34, 1177.68, 2026.72, 1088, 2111, 552, 2107, 415.975, 1737.84)
+
+[node name="sol3" type="Polygon2D" parent="."]
+z_index = -2999
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(1721, 5754)
+texture = ExtResource("18_k3l0v")
+polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
+
+[node name="GrillageOblique" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(598, 6686)
+scale = Vector2(-1, 1)
+
+[node name="GrillageOblique2" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(460, 6568)
+scale = Vector2(-1, 1)
+
+[node name="GrillageOblique3" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(323, 6448)
+scale = Vector2(-1, 1)
+
+[node name="GrillageOblique4" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(190, 6331)
+scale = Vector2(-1, 1)
+
+[node name="GrillageOblique5" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(55, 6219)
+scale = Vector2(-1, 1)
+
+[node name="GrillageOblique6" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-61, 6061)
+rotation = 0.893579
+scale = Vector2(-1, 0.85)
+skew = -0.734784
+
+[node name="GrillageOblique7" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-131, 5857)
+rotation = 0.893579
+scale = Vector2(-1, 0.85)
+skew = -0.734784
+
+[node name="GrillageOblique8" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-157, 5596)
+rotation = 2.04553
+scale = Vector2(1, 0.85)
+skew = 0.733038
+
+[node name="GrillageOblique9" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-129, 5389)
+rotation = 2.04553
+scale = Vector2(1, 0.85)
+skew = 0.733038
+
+[node name="GrillageOblique10" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-100, 5179)
+rotation = 2.04553
+scale = Vector2(1, 0.85)
+skew = 0.733038
+
+[node name="GrillageOblique11" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-69.9999, 4963)
+rotation = 2.04553
+scale = Vector2(1, 0.85)
+skew = 0.733038
+
+[node name="GrillageOblique12" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-40.9999, 4751)
+rotation = 2.04553
+scale = Vector2(1, 0.85)
+skew = 0.733038
+
+[node name="GrillageOblique13" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(-18, 4563)
+rotation = 2.04553
+scale = Vector2(0.820137, 0.85)
+skew = 0.733038
+
+[node name="Sol" type="Sprite2D" parent="."]
+modulate = Color(0.470588, 0.470588, 0.470588, 0.819608)
+z_index = -2855
+position = Vector2(162, 6533)
+rotation = 0.651911
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol5" type="Sprite2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 0.45098)
+z_index = -2855
+position = Vector2(72.0001, 6641)
+rotation = 0.651911
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol32" type="Sprite2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 0.45098)
+z_index = -2855
+position = Vector2(72.0001, 6641)
+rotation = 0.651911
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol6" type="Sprite2D" parent="."]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 0.662745)
+z_index = -2855
+position = Vector2(22.9997, 6732)
+rotation = 0.651911
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol7" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -2855
+position = Vector2(-112, 6815)
+rotation = 0.651911
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol8" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -2855
+position = Vector2(-261, 6948)
+rotation = 0.651911
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol9" type="Sprite2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 0.45098)
+z_index = -670
+position = Vector2(-471.495, 6031.17)
+rotation = 1.01404
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol10" type="Sprite2D" parent="."]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 0.662745)
+z_index = -670
+position = Vector2(-520.496, 6122.17)
+rotation = 1.01404
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol11" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-655.495, 6205.17)
+rotation = 1.01404
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol12" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-804.495, 6338.17)
+rotation = 1.01404
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol13" type="Sprite2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 0.45098)
+z_index = -670
+position = Vector2(-499, 5989)
+rotation = 1.30948
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol14" type="Sprite2D" parent="."]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 0.662745)
+z_index = -670
+position = Vector2(-624.159, 6063.02)
+rotation = 1.30948
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol21" type="Sprite2D" parent="."]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 0.662745)
+z_index = -670
+position = Vector2(-529, 6039)
+rotation = 1.30948
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol15" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-759.159, 6146.02)
+rotation = 1.30948
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol16" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-908.159, 6279.02)
+rotation = 1.30948
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol17" type="Sprite2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 0.45098)
+z_index = -670
+position = Vector2(-376.109, 6603.13)
+rotation = 6.84787
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol18" type="Sprite2D" parent="."]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 0.662745)
+z_index = -670
+position = Vector2(-425.11, 6694.13)
+rotation = 6.84787
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol19" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-560.11, 6777.13)
+rotation = 6.84787
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol26" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-1000, 6751)
+rotation = 6.84787
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol27" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -670
+position = Vector2(-1000, 6751)
+rotation = 6.84787
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol20" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -1805
+position = Vector2(-955, 6201)
+rotation = 7.0434
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol28" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -1805
+position = Vector2(-1282, 6318)
+rotation = 7.65925
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol30" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -1805
+position = Vector2(-1114, 6308)
+rotation = 7.65925
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol29" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -1805
+position = Vector2(-1398, 6390)
+rotation = 7.59218
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol33" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = -1805
+position = Vector2(-1234, 6817)
+rotation = 6.79753
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol22" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = 1640
+position = Vector2(-501, 7099)
+rotation = 6.38732
+scale = Vector2(1.52762, 1.76366)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol23" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = 1640
+position = Vector2(-249, 7117)
+rotation = 6.46666
+scale = Vector2(1.52762, 1.76366)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol24" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.85098)
+z_index = 1640
+position = Vector2(192, 7012)
+rotation = 8.78218
+scale = Vector2(1.52762, 1.76366)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol25" type="Sprite2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 0.709804)
+z_index = 1640
+position = Vector2(318, 6921)
+rotation = 8.81215
+scale = Vector2(1.52762, 1.76366)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol2" type="Sprite2D" parent="."]
+modulate = Color(0.470588, 0.470588, 0.470588, 0.819608)
+z_index = -2855
+position = Vector2(-323, 5937)
+rotation = 1.12155
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol3" type="Sprite2D" parent="."]
+modulate = Color(0.470588, 0.470588, 0.470588, 0.819608)
+z_index = -2855
+position = Vector2(-1093, 5688)
+rotation = -0.306185
+scale = Vector2(3.07105, 4.59579)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol4" type="Sprite2D" parent="."]
+modulate = Color(0.470588, 0.470588, 0.470588, 0.819608)
+z_index = -2855
+position = Vector2(-323, 5937)
+rotation = 1.12155
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="Sol31" type="Sprite2D" parent="."]
+modulate = Color(0.470588, 0.470588, 0.470588, 0.819608)
+z_index = -2855
+position = Vector2(-1117, 5578)
+rotation = -0.368945
+scale = Vector2(-3.071, 4.596)
+texture = ExtResource("20_aqosc")
+
+[node name="buisson" parent="." instance=ExtResource("21_a4umd")]
+position = Vector2(544, 6059)
+rotation = 0.751602
+
+[node name="Roche" parent="." instance=ExtResource("10_mrh0o")]
+position = Vector2(-54, 5724)
+rotation = -0.431178
+scale = Vector2(0.919085, 0.919085)
+
+[node name="Arbre" parent="." instance=ExtResource("7_koaxk")]
+position = Vector2(126, 4598)
+scale = Vector2(0.717592, 0.717592)
+
+[node name="Bafle" parent="." instance=ExtResource("22_m3nna")]
+position = Vector2(1495, 5913)
+
+[node name="Sol1" type="Sprite2D" parent="."]
+position = Vector2(999, 5737)
+rotation = 0.868673
+scale = Vector2(1.51504, 2.87931)
+texture = ExtResource("9_1xb1o")
+
+[node name="Sol34" type="Sprite2D" parent="."]
+position = Vector2(1016, 5859)
+rotation = 0.868673
+scale = Vector2(1.51504, 2.87931)
+texture = ExtResource("9_1xb1o")
+
+[node name="Sol35" type="Sprite2D" parent="."]
+position = Vector2(1099, 5791)
+rotation = -1.58215
+scale = Vector2(1.51383, 2.5261)
+texture = ExtResource("9_1xb1o")
+
+[node name="Sol36" type="Sprite2D" parent="."]
+position = Vector2(1171.82, 5817.85)
+rotation = 0.868673
+scale = Vector2(1.515, 2.879)
+texture = ExtResource("9_1xb1o")
+
+[node name="Sol37" type="Sprite2D" parent="."]
+position = Vector2(1188.82, 5939.85)
+rotation = 0.868673
+scale = Vector2(1.515, 2.879)
+texture = ExtResource("9_1xb1o")
+
+[node name="Sol38" type="Sprite2D" parent="."]
+position = Vector2(1271.82, 5871.85)
+rotation = -1.58215
+scale = Vector2(1.515, 2.879)
+texture = ExtResource("9_1xb1o")
+
+[node name="estrade" parent="." instance=ExtResource("23_bsr0k")]
+position = Vector2(2205, 4908)
+scale = Vector2(1.48, 1.48)
+
+[node name="estrade2" parent="." instance=ExtResource("23_bsr0k")]
+position = Vector2(2457, 4823)
+scale = Vector2(1.48, 1.48)
+
+[node name="bafle" parent="." instance=ExtResource("24_q71hg")]
+z_index = 1235
+position = Vector2(2308, 4660)
+scale = Vector2(0.36, 0.36)
+
+[node name="bafle2" parent="." instance=ExtResource("24_q71hg")]
+z_index = 1760
+position = Vector2(2450, 4618)
+scale = Vector2(0.36, 0.36)
+
+[node name="bafle3" parent="." instance=ExtResource("24_q71hg")]
+z_index = 1020
+position = Vector2(2579, 4581)
+scale = Vector2(0.36, 0.36)
+
+[node name="Bafle2" parent="." instance=ExtResource("22_m3nna")]
+position = Vector2(2643, 4670)
+scale = Vector2(0.807854, 0.807854)
+
+[node name="Bafle3" parent="." instance=ExtResource("22_m3nna")]
+position = Vector2(2040, 4935)
+scale = Vector2(0.884916, 0.884916)
+
+[node name="buisson2" parent="." instance=ExtResource("21_a4umd")]
+position = Vector2(2542, 4541)
+
+[node name="buisson3" parent="." instance=ExtResource("21_a4umd")]
+position = Vector2(2335, 4487)
+
+[node name="buisson4" parent="." instance=ExtResource("21_a4umd")]
+position = Vector2(2350, 4571)
+
+[node name="Poubelle" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(3098, 4692)
+rotation = 0.523626
+
+[node name="GrillageOblique14" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(2968, 6175)
+rotation = 0.205403
+scale = Vector2(1, 1.28)
+
+[node name="GrillageOblique15" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(2813, 6297)
+rotation = 0.156472
+scale = Vector2(1, 1.31999)
+
+[node name="GrillageOblique16" parent="." instance=ExtResource("19_h53e5")]
+position = Vector2(2084, 6693)
+scale = Vector2(-1, 1)
+
+[node name="Poubelle2" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(3061, 6165)
+
+[node name="Trash2" type="Sprite2D" parent="."]
+position = Vector2(2995, 6178)
+texture = ExtResource("6_r5bl5")
+
+[node name="Trash3" type="Sprite2D" parent="."]
+position = Vector2(3116, 6160)
+rotation = 0.67803
+texture = ExtResource("6_r5bl5")
+
+[node name="Poubelle3" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4362, 7784)
+
+[node name="Poubelle4" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4292, 7747)
+rotation = 0.336454
+scale = Vector2(1.75895, 1.4942)
+
+[node name="Poubelle6" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4338, 7717)
+rotation = 0.336454
+scale = Vector2(1.75895, 1.4942)
+
+[node name="Poubelle7" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4284, 7683)
+rotation = 0.336454
+scale = Vector2(1.75895, 1.4942)
+
+[node name="Poubelle5" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4408, 7726)
+scale = Vector2(-1.93147, 1.53924)
+
+[node name="Poubelle8" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4450, 7693)
+
+[node name="Poubelle9" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4228, 7697)
+rotation = 0.388777
+scale = Vector2(-1.759, 1.494)
+
+[node name="Poubelle10" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4370, 7701)
+rotation = 0.336454
+scale = Vector2(1.75895, 1.4942)
+
+[node name="Poubelle11" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4580, 7567)
+rotation = 0.336454
+scale = Vector2(1.75895, 1.4942)
+
+[node name="Poubelle12" parent="." instance=ExtResource("5_fml7q")]
+position = Vector2(4499, 7623)
+scale = Vector2(-1.93147, 1.53924)
+
+[node name="Trash1" type="Sprite2D" parent="."]
+position = Vector2(4370, 7805)
+texture = ExtResource("4_bqdmu")
+
+[node name="Trash4" type="Sprite2D" parent="."]
+position = Vector2(4506, 7646)
+rotation = 0.8461
+texture = ExtResource("4_bqdmu")
+
+[editable path="Camera"]
+[editable path="Arena/MurailleDebut"]
+[editable path="Arena/MurailleCentre"]
+[editable path="Arena/MurailleMilieu"]
