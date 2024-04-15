@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8p7qwp2hqf8g"]
+[gd_scene load_steps=27 format=3 uid="uid://8p7qwp2hqf8g"]
 
 [ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_g6nrv"]
 [ext_resource type="Texture2D" uid="uid://c1bnu6pvy38vi" path="res://scenes/levels/decors/voiture.png" id="2_cb7ll"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c8wclqvfmybjp" path="res://scenes/levels/decors/buisson.tscn" id="21_w7p4u"]
 [ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="22_y48nh"]
 [ext_resource type="PackedScene" uid="uid://ckuqmql0ohxwm" path="res://scenes/characters/wololo/Player.tscn" id="24_jt6kv"]
+[ext_resource type="PackedScene" uid="uid://cnhb6w0apc0pa" path="res://scenes/logic/spawner.tscn" id="25_2bghw"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="25_dit65"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="26_h1mcf"]
 [ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="28_xb0ja"]
@@ -295,6 +296,337 @@ texture = ExtResource("5_88lgy")
 position = Vector2(2497, 7030)
 texture = ExtResource("8_2jxlv")
 
+[node name="sol" type="Polygon2D" parent="Arena/Decors"]
+modulate = Color(1, 1, 1, 0.290196)
+z_index = -3000
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(91, 4888)
+texture = ExtResource("18_nq6ru")
+polygon = PackedVector2Array(-1899, -291, -349, -2904, 943, -4655, 4364, -5410, 8383, -5410, 9338, -2745, 6716, -2446, 3751, -1063, 6017, 1375, 6183, 4773, 1395, 4417, -262, 3454)
+metadata/_edit_lock_ = true
+
+[node name="sol2" type="Polygon2D" parent="Arena/Decors"]
+z_index = -2314
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(2081, 4351)
+texture = ExtResource("19_6n0ej")
+polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
+
+[node name="sol4" type="Polygon2D" parent="Arena/Decors"]
+z_index = -2314
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(1519, 5001)
+rotation = -0.209934
+texture = ExtResource("19_6n0ej")
+polygon = PackedVector2Array(780.991, 1329.95, 1259.77, 1453.44, 1252, 2093, 1088, 2111, 552, 2107, 415.975, 1737.84)
+
+[node name="sol5" type="Polygon2D" parent="Arena/Decors"]
+z_index = -2314
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(679, 4466)
+rotation = -0.00882238
+texture = ExtResource("19_6n0ej")
+polygon = PackedVector2Array(835.09, 1558.72, 1385.26, 1767.34, 1177.68, 2026.72, 1088, 2111, 552, 2107, 415.975, 1737.84)
+
+[node name="sol3" type="Polygon2D" parent="Arena/Decors"]
+z_index = -2999
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(2434, 3960)
+texture = ExtResource("19_6n0ej")
+polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
+
+[node name="buisson" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(2573, 6239)
+rotation = 0.0993696
+scale = Vector2(1, 1)
+
+[node name="buisson5" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(2507, 6207)
+rotation = 3.02
+scale = Vector2(1.02275, -1.5661)
+
+[node name="Arbre" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(2526, 7060)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre2" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(2097, 7333)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre10" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(2191, 7041)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre11" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(-1040, 7216)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre12" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(2449, 7330)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre13" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(2475, 6795)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre14" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.843137, 0.843137, 0.843137, 1)
+position = Vector2(2283, 6738)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre15" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(2559, 6572)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre16" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(2351, 6544)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="MegaSol23" parent="Arena/Decors" instance=ExtResource("13_xbg1l")]
+z_index = -2600
+position = Vector2(2837, 5010)
+rotation = -0.292846
+
+[node name="MegaSol24" parent="Arena/Decors" instance=ExtResource("13_xbg1l")]
+z_index = -2600
+position = Vector2(4223, 4726)
+rotation = -1.11254
+
+[node name="MegaSol25" parent="Arena/Decors" instance=ExtResource("13_xbg1l")]
+z_index = -2600
+position = Vector2(3827, 4688)
+rotation = 2.84875
+
+[node name="GrillageOblique18" parent="Arena/Decors" instance=ExtResource("20_4c11e")]
+position = Vector2(3611, 6085)
+rotation = 3.14159
+scale = Vector2(1.67671, -1.67671)
+
+[node name="GrillageOblique21" parent="Arena/Decors" instance=ExtResource("20_4c11e")]
+position = Vector2(3369, 5883)
+rotation = 3.14159
+scale = Vector2(1.67671, -1.67671)
+
+[node name="GrillageOblique22" parent="Arena/Decors" instance=ExtResource("20_4c11e")]
+position = Vector2(3184, 5666)
+rotation = 3.14159
+scale = Vector2(1.67671, -1.67671)
+
+[node name="GrillageOblique23" parent="Arena/Decors" instance=ExtResource("20_4c11e")]
+position = Vector2(2935, 5492)
+rotation = 3.14159
+scale = Vector2(1.67671, -1.67671)
+
+[node name="buisson6" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(3196, 5803)
+rotation = 3.02
+scale = Vector2(1.02275, -1.5661)
+
+[node name="buisson7" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(3466, 6075)
+rotation = -0.121593
+scale = Vector2(0.960094, 1.4836)
+
+[node name="Arbre17" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3363, 6558)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre18" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(3618, 6490)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre19" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(3605, 6226)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre20" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(3916, 6140)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre21" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(4243, 6105)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre22" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(4599, 6086)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre23" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(4713, 6229)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre24" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(4374, 6372)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre25" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3709, 5178)
+rotation = -3.14143
+scale = Vector2(0.882924, -1.0359)
+
+[node name="Arbre26" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(3656, 5064)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre27" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3983, 5029)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre31" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3983, 5029)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre28" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(4339, 5010)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre29" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(4320, 5118)
+rotation = 3.14159
+scale = Vector2(1.11095, -1.86516)
+
+[node name="Arbre30" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.952941, 0.905882, 0.854902, 1)
+position = Vector2(4196, 5239)
+rotation = 3.14159
+scale = Vector2(1.0804, -1.31185)
+
+[node name="Arbre32" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3964, 5257)
+rotation = 3.14159
+scale = Vector2(0.957174, -1.47)
+
+[node name="Arbre33" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3964, 5257)
+rotation = 3.14159
+scale = Vector2(0.957174, -1.47)
+
+[node name="Arbre34" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3464, 6679)
+rotation = 3.14159
+scale = Vector2(1.27001, -1.44999)
+
+[node name="Arbre35" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3411, 6969)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre36" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+position = Vector2(3778, 6732)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre37" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.843137, 0.843137, 0.843137, 1)
+position = Vector2(3702, 6959)
+scale = Vector2(0.969986, 0.969986)
+
+[node name="Arbre38" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.762094, 0.821495, 0.750856, 1)
+position = Vector2(3479, 7225)
+scale = Vector2(1.37679, 1.44242)
+
+[node name="Arbre39" parent="Arena/Decors" instance=ExtResource("12_32xr8")]
+modulate = Color(0.91664, 0.91664, 0.91664, 1)
+position = Vector2(3822, 7253)
+scale = Vector2(1.37411, 1.34393)
+
+[node name="Sol6" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(999, 5737)
+rotation = 0.868673
+scale = Vector2(1.51504, 2.87931)
+texture = ExtResource("10_3wns1")
+
+[node name="Sol34" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1016, 5859)
+rotation = 0.868673
+scale = Vector2(1.51504, 2.87931)
+texture = ExtResource("10_3wns1")
+
+[node name="Sol35" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1099, 5791)
+rotation = -1.58215
+scale = Vector2(1.51383, 2.5261)
+texture = ExtResource("10_3wns1")
+
+[node name="Sol36" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1171.82, 5817.85)
+rotation = 0.868673
+scale = Vector2(1.515, 2.879)
+texture = ExtResource("10_3wns1")
+
+[node name="Sol37" type="Sprite2D" parent="Arena/Decors"]
+position = Vector2(1188.82, 5939.85)
+rotation = 0.868673
+scale = Vector2(1.515, 2.879)
+texture = ExtResource("10_3wns1")
+
+[node name="Bafle6" parent="Arena/Decors" instance=ExtResource("22_y48nh")]
+position = Vector2(2652, 6283)
+scale = Vector2(0.807854, 0.807854)
+
+[node name="buisson2" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(2563, 4860)
+
+[node name="buisson8" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(2743, 4722)
+
+[node name="buisson3" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(2432, 4749)
+
+[node name="buisson4" parent="Arena/Decors" instance=ExtResource("21_w7p4u")]
+position = Vector2(2277, 5171)
+scale = Vector2(1.14389, 1.75638)
+
+[node name="GrillageOblique14" parent="Arena/Decors" instance=ExtResource("20_4c11e")]
+position = Vector2(3296, 6461)
+scale = Vector2(1.27388, 1.36192)
+
+[node name="GrillageOblique15" parent="Arena/Decors" instance=ExtResource("20_4c11e")]
+position = Vector2(2610, 6471)
+rotation = 3.14159
+scale = Vector2(1.07118, -1.31999)
+
+[node name="Poubelle4" parent="Arena/Decors" instance=ExtResource("7_ydn7o")]
+position = Vector2(3290, 6071)
+
+[node name="Poubelle6" parent="Arena/Decors" instance=ExtResource("7_ydn7o")]
+position = Vector2(2014, 5328)
+
+[node name="Poubelle10" parent="Arena/Decors" instance=ExtResource("7_ydn7o")]
+position = Vector2(1418, 5932)
+scale = Vector2(2.12986, 1.77882)
+
+[node name="Poubelle11" parent="Arena/Decors" instance=ExtResource("7_ydn7o")]
+position = Vector2(2446, 6262)
+scale = Vector2(1.75895, 1.4942)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Arena"]
 position = Vector2(93, 4888)
 navigation_polygon = SubResource("NavigationPolygon_u3q0n")
@@ -332,339 +664,6 @@ points = PackedVector2Array(-92, 4156, 843, 2946, 1167, 3070, 1409, 3270, 1873, 
 visible = true
 points = PackedVector2Array(1027, 2130, 1274, 2326, 1620, 2490, 1834, 2629, 2714, 2604, 3580, 2600, 4336, 2518, 4450, 2468, 4631, 2219, 4767, 2137, 5055, 2226, 5078, 2470, 4913, 2876, 1185, 3096, 866, 2354)
 
-[node name="sol" type="Polygon2D" parent="Arena"]
-modulate = Color(1, 1, 1, 0.290196)
-z_index = -3000
-z_as_relative = false
-texture_repeat = 2
-position = Vector2(91, 4888)
-texture = ExtResource("18_nq6ru")
-polygon = PackedVector2Array(-1899, -291, -349, -2904, 943, -4655, 4364, -5410, 8383, -5410, 9338, -2745, 6716, -2446, 3751, -1063, 6017, 1375, 6183, 4773, 1395, 4417, -262, 3454)
-metadata/_edit_lock_ = true
-
-[node name="sol2" type="Polygon2D" parent="Arena"]
-z_index = -2314
-z_as_relative = false
-texture_repeat = 2
-position = Vector2(2081, 4351)
-texture = ExtResource("19_6n0ej")
-polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
-
-[node name="sol4" type="Polygon2D" parent="Arena"]
-z_index = -2314
-z_as_relative = false
-texture_repeat = 2
-position = Vector2(1519, 5001)
-rotation = -0.209934
-texture = ExtResource("19_6n0ej")
-polygon = PackedVector2Array(780.991, 1329.95, 1259.77, 1453.44, 1252, 2093, 1088, 2111, 552, 2107, 415.975, 1737.84)
-
-[node name="sol5" type="Polygon2D" parent="Arena"]
-z_index = -2314
-z_as_relative = false
-texture_repeat = 2
-position = Vector2(679, 4466)
-rotation = -0.00882238
-texture = ExtResource("19_6n0ej")
-polygon = PackedVector2Array(835.09, 1558.72, 1385.26, 1767.34, 1177.68, 2026.72, 1088, 2111, 552, 2107, 415.975, 1737.84)
-
-[node name="sol3" type="Polygon2D" parent="Arena"]
-z_index = -2999
-z_as_relative = false
-texture_repeat = 2
-position = Vector2(2434, 3960)
-texture = ExtResource("19_6n0ej")
-polygon = PackedVector2Array(972, 1362, 1552, 1367, 1252, 2093, 1088, 2111, 552, 2107, 702, 1763)
-
-[node name="buisson" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(2573, 6239)
-rotation = 0.0993696
-
-[node name="buisson5" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(2507, 6207)
-rotation = 3.02
-scale = Vector2(1.02275, -1.5661)
-
-[node name="Arbre" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(2526, 7060)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre2" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(2097, 7333)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre3" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(2191, 7041)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre4" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(-1040, 7216)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre9" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(2449, 7330)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre5" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(2475, 6795)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre6" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.843137, 0.843137, 0.843137, 1)
-position = Vector2(2283, 6738)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre7" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(2559, 6572)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre8" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(2351, 6544)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="MegaSol23" parent="Arena" instance=ExtResource("13_xbg1l")]
-z_index = -2600
-position = Vector2(2837, 5010)
-rotation = -0.292846
-
-[node name="MegaSol24" parent="Arena" instance=ExtResource("13_xbg1l")]
-z_index = -2600
-position = Vector2(4223, 4726)
-rotation = -1.11254
-
-[node name="MegaSol25" parent="Arena" instance=ExtResource("13_xbg1l")]
-z_index = -2600
-position = Vector2(3827, 4688)
-rotation = 2.84875
-
-[node name="GrillageOblique18" parent="Arena" instance=ExtResource("20_4c11e")]
-position = Vector2(3611, 6085)
-rotation = 3.14159
-scale = Vector2(1.67671, -1.67671)
-
-[node name="GrillageOblique21" parent="Arena" instance=ExtResource("20_4c11e")]
-position = Vector2(3369, 5883)
-rotation = 3.14159
-scale = Vector2(1.67671, -1.67671)
-
-[node name="GrillageOblique22" parent="Arena" instance=ExtResource("20_4c11e")]
-position = Vector2(3184, 5666)
-rotation = 3.14159
-scale = Vector2(1.67671, -1.67671)
-
-[node name="GrillageOblique23" parent="Arena" instance=ExtResource("20_4c11e")]
-position = Vector2(2935, 5492)
-rotation = 3.14159
-scale = Vector2(1.67671, -1.67671)
-
-[node name="buisson6" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(3196, 5803)
-rotation = 3.02
-scale = Vector2(1.02275, -1.5661)
-
-[node name="buisson7" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(3466, 6075)
-rotation = 3.02
-scale = Vector2(-0.960094, -1.4836)
-
-[node name="Arbre10" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3363, 6558)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre11" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(3618, 6490)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre18" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(3605, 6226)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre19" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(3916, 6140)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre20" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(4243, 6105)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre21" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(4599, 6086)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre22" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(4713, 6229)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre23" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(4374, 6372)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre24" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3709, 5178)
-rotation = 0.000161588
-scale = Vector2(-0.882924, 1.0359)
-
-[node name="Arbre25" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(3656, 5064)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre26" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3983, 5029)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre31" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3983, 5029)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre27" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(4339, 5010)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre28" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(4320, 5118)
-rotation = 3.14159
-scale = Vector2(1.11095, -1.86516)
-
-[node name="Arbre30" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.952941, 0.905882, 0.854902, 1)
-position = Vector2(4196, 5239)
-rotation = 3.14159
-scale = Vector2(1.0804, -1.31185)
-
-[node name="Arbre29" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3964, 5257)
-rotation = 3.14159
-scale = Vector2(0.957174, -1.47)
-
-[node name="Arbre32" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3964, 5257)
-rotation = 3.14159
-scale = Vector2(0.957174, -1.47)
-
-[node name="Arbre12" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3464, 6679)
-rotation = 3.14159
-scale = Vector2(1.27001, -1.44999)
-
-[node name="Arbre13" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3411, 6969)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre14" parent="Arena" instance=ExtResource("12_32xr8")]
-position = Vector2(3778, 6732)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre15" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.843137, 0.843137, 0.843137, 1)
-position = Vector2(3702, 6959)
-scale = Vector2(0.969986, 0.969986)
-
-[node name="Arbre16" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.762094, 0.821495, 0.750856, 1)
-position = Vector2(3479, 7225)
-scale = Vector2(1.37679, 1.44242)
-
-[node name="Arbre17" parent="Arena" instance=ExtResource("12_32xr8")]
-modulate = Color(0.91664, 0.91664, 0.91664, 1)
-position = Vector2(3822, 7253)
-scale = Vector2(1.37411, 1.34393)
-
-[node name="Sol1" type="Sprite2D" parent="Arena"]
-position = Vector2(999, 5737)
-rotation = 0.868673
-scale = Vector2(1.51504, 2.87931)
-texture = ExtResource("10_3wns1")
-
-[node name="Sol34" type="Sprite2D" parent="Arena"]
-position = Vector2(1016, 5859)
-rotation = 0.868673
-scale = Vector2(1.51504, 2.87931)
-texture = ExtResource("10_3wns1")
-
-[node name="Sol35" type="Sprite2D" parent="Arena"]
-position = Vector2(1099, 5791)
-rotation = -1.58215
-scale = Vector2(1.51383, 2.5261)
-texture = ExtResource("10_3wns1")
-
-[node name="Sol36" type="Sprite2D" parent="Arena"]
-position = Vector2(1171.82, 5817.85)
-rotation = 0.868673
-scale = Vector2(1.515, 2.879)
-texture = ExtResource("10_3wns1")
-
-[node name="Sol37" type="Sprite2D" parent="Arena"]
-position = Vector2(1188.82, 5939.85)
-rotation = 0.868673
-scale = Vector2(1.515, 2.879)
-texture = ExtResource("10_3wns1")
-
-[node name="Bafle6" parent="Arena" instance=ExtResource("22_y48nh")]
-position = Vector2(2652, 6283)
-scale = Vector2(0.807854, 0.807854)
-
-[node name="buisson2" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(2563, 4860)
-
-[node name="buisson8" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(2743, 4722)
-
-[node name="buisson3" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(2432, 4749)
-
-[node name="buisson4" parent="Arena" instance=ExtResource("21_w7p4u")]
-position = Vector2(2277, 5171)
-scale = Vector2(1.14389, 1.75638)
-
-[node name="Poubelle" parent="Arena" instance=ExtResource("7_ydn7o")]
-position = Vector2(3195, 4954)
-rotation = 0.523626
-
-[node name="GrillageOblique14" parent="Arena" instance=ExtResource("20_4c11e")]
-position = Vector2(3296, 6461)
-scale = Vector2(1.27388, 1.36192)
-
-[node name="GrillageOblique15" parent="Arena" instance=ExtResource("20_4c11e")]
-position = Vector2(2610, 6471)
-scale = Vector2(-1.07118, 1.31999)
-
-[node name="Poubelle2" parent="Arena" instance=ExtResource("7_ydn7o")]
-position = Vector2(3290, 6071)
-
-[node name="Poubelle3" parent="Arena" instance=ExtResource("7_ydn7o")]
-position = Vector2(2014, 5328)
-
-[node name="Poubelle10" parent="Arena" instance=ExtResource("7_ydn7o")]
-position = Vector2(1418, 5932)
-scale = Vector2(2.12986, 1.77882)
-
-[node name="Poubelle11" parent="Arena" instance=ExtResource("7_ydn7o")]
-position = Vector2(2446, 6262)
-scale = Vector2(1.75895, 1.4942)
-
 [node name="Entities" type="Node2D" parent="."]
 position = Vector2(91, 4888)
 
@@ -684,26 +683,48 @@ faction = 1
 position = Vector2(3428, 817)
 
 [node name="Archer2" parent="Entities" instance=ExtResource("28_xb0ja")]
-position = Vector2(3245, 564)
+position = Vector2(3326, 742)
 
 [node name="Archer3" parent="Entities" instance=ExtResource("28_xb0ja")]
-position = Vector2(3310, 657)
+position = Vector2(3730, 843)
 
 [node name="spawn" type="Node2D" parent="."]
 
+[node name="Spawner" parent="spawn" instance=ExtResource("25_2bghw")]
+position = Vector2(3162, 5008)
+
+[node name="Spawner2" parent="spawn" instance=ExtResource("25_2bghw")]
+position = Vector2(4355, 5706)
+
 [node name="Sword" parent="." instance=ExtResource("25_dit65")]
-position = Vector2(3089, 6665)
+position = Vector2(3170, 6246)
 
 [node name="Sword5" parent="." instance=ExtResource("25_dit65")]
-position = Vector2(3121, 6750)
+position = Vector2(2930, 6454)
 faction = 1
 
 [node name="Sword2" parent="." instance=ExtResource("25_dit65")]
-position = Vector2(2784, 6669)
+position = Vector2(2804, 6334)
+
+[node name="Sword3" parent="." instance=ExtResource("25_dit65")]
+position = Vector2(4400, 4765)
+faction = 1
+
+[node name="Sword4" parent="." instance=ExtResource("25_dit65")]
+position = Vector2(4358, 4570)
+faction = 1
+
+[node name="Sword6" parent="." instance=ExtResource("25_dit65")]
+position = Vector2(4604, 4717)
+faction = 1
+
+[node name="Sword7" parent="." instance=ExtResource("25_dit65")]
+position = Vector2(4760, 5190)
+faction = 1
 
 [connection signal="noMoreRedPeon" from="GameManager" to="GameManager" method="forceVictory"]
 
 [editable path="Camera"]
+[editable path="Arena/Decors/Bafle6"]
 [editable path="Arena/MurailleDebut"]
 [editable path="Arena/MurailleCentre"]
-[editable path="Arena/Bafle6"]
