@@ -81,6 +81,9 @@ func doTuto():
 	
 	await get_tree().create_timer(awaitAfterHurt).timeout
 	
+	# On lance la musique énervée
+	game_manager.get_node("musique_manager").fade_to_intense()
+	
 	# On afiche le texte 3
 	dialog3.displayText(player)
 	await dialog3.triggerFinished

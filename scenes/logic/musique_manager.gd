@@ -2,8 +2,6 @@ extends Node
 
 func fade_stream(stream:AudioStreamPlayer,volume=0,temps=1.0):
 	get_tree().create_tween().tween_property(stream,"volume_db",volume,0.2)
-	$musiquetendue.finished.connect(fade_to_intense)
-	$musiquecalme.finished.connect(fade_to_calme)
 	
 
 func end_calme():
@@ -42,7 +40,10 @@ func fade_to_victoire(character=null):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().victory.connect(fade_to_victoire)
-	get_tree().create_timer(1.5).timeout.connect(fade_to_intense)
+	get_tree().create_timer(1.5).timeout.connect(fade_to_calme)
+	$musiquetendue.finished.connect(fade_to_intense)
+	$musiquecalme.finished.connect(fade_to_calme)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

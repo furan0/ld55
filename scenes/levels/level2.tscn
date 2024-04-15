@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dd4cal6lcet8g"]
+[gd_scene load_steps=40 format=3 uid="uid://dd4cal6lcet8g"]
 
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="1_qves6"]
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="2_2jfg4"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b2ktkbr8odp21" path="res://scenes/levels/TextTrigger.tscn" id="21_kl14r"]
 [ext_resource type="PackedScene" uid="uid://ckuqmql0ohxwm" path="res://scenes/characters/wololo/Player.tscn" id="21_ovkeg"]
 [ext_resource type="Texture2D" uid="uid://xijm7mwt2ufb" path="res://scenes/entities/FX/nuage.png" id="22_uywm2"]
+[ext_resource type="PackedScene" uid="uid://c3v5h0ag2e5dv" path="res://scenes/levels/MusicTrigger.tscn" id="23_dm7bg"]
 [ext_resource type="PackedScene" path="res://scenes/levels/decors/grillageoblique.tscn" id="23_stjjk"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="23_u77ah"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="24_twt6e"]
@@ -78,6 +79,10 @@ radius = 314.229
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hsa3e"]
 a = Vector2(-267, 187)
 b = Vector2(55, -127)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_krvlr"]
+a = Vector2(32, 174)
+b = Vector2(154, -211)
 
 [node name="Multi" type="Node2D"]
 y_sort_enabled = true
@@ -567,7 +572,7 @@ shape = SubResource("SegmentShape2D_kqsut")
 
 [node name="TextTriggerWrongCar" parent="Entities" instance=ExtResource("21_kl14r")]
 position = Vector2(1409, 858)
-texts = Array[String](["That one is waaaay to clean for me to \"borrow\" it", "I need something with a little bit more  [color=ce42f5]Oomf[/color]..."])
+texts = Array[String](["That one is waaaay to clean for me to \"borrow\" it", "I need something with a little more  [color=ce42f5]Oomf[/color]..."])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerWrongCar"]
 shape = SubResource("CircleShape2D_or26n")
@@ -585,6 +590,12 @@ texts = Array[String](["A dead end. That suck."])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TextTriggerDeadEnd"]
 shape = SubResource("SegmentShape2D_hsa3e")
+
+[node name="MusicTrigger" parent="Entities" instance=ExtResource("23_dm7bg")]
+position = Vector2(2159, 1839)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/MusicTrigger"]
+shape = SubResource("SegmentShape2D_krvlr")
 
 [node name="Cheval" parent="Entities" instance=ExtResource("23_u77ah")]
 position = Vector2(498, 2380)
