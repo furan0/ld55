@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6fp24m8hmin1"
+path="res://.godot/imported/fllocalm_session.mp3-c747cb5e56d11cb4f37607f8c656b608.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Music bonne cette fois/fllocalm_session.mp3"
+dest_files=["res://.godot/imported/fllocalm_session.mp3-c747cb5e56d11cb4f37607f8c656b608.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
