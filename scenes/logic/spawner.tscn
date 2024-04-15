@@ -1,14 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnhb6w0apc0pa"]
+[gd_scene load_steps=5 format=3 uid="uid://cnhb6w0apc0pa"]
 
 [ext_resource type="Script" path="res://scenes/logic/Spawner.gd" id="1_1bj0n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5v6f8"]
+radius = 48.0104
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5nkb"]
+radius = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysb2k"]
+radius = 51.0
 
 [node name="Spawner" type="Node2D" groups=["spawner"]]
 script = ExtResource("1_1bj0n")
 
-[node name="SpawnPoint1" type="Node2D" parent="."]
+[node name="SpawnPoint1" type="Area2D" parent="."]
 position = Vector2(-62, -72)
+priority = 1
 
-[node name="SpawnPoint2" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoint1"]
+shape = SubResource("CircleShape2D_5v6f8")
 
-[node name="SpawnPoint3" type="Node2D" parent="."]
+[node name="SpawnPoint2" type="Area2D" parent="."]
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoint2"]
+shape = SubResource("CircleShape2D_x5nkb")
+
+[node name="SpawnPoint3" type="Area2D" parent="."]
 position = Vector2(90, -65)
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoint3"]
+shape = SubResource("CircleShape2D_ysb2k")

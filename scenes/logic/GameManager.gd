@@ -28,6 +28,7 @@ signal defeat(looser : Character)
 @export_group("Spawner settings")
 var spawners := []
 @export var canSpawn := true
+@export var spawnAtInit := false
 @export var spawnLibrary : SpawnLibrary
 ## Spawn peons if Gaia count is lower or equal AND other threshold is met
 @export var nbGaiaThres := 5
@@ -55,6 +56,9 @@ func _ready():
 	parsePeon()
 	parseWololo()
 	parseSpawners()
+	
+	if spawnAtInit:
+		initialSpawn.call_deferred()
 
 func countPeon():
 	nbPeonsBlue = 0
@@ -125,6 +129,7 @@ func parsePeon():
 
 func addPeon(peon : Peon):
 	peon.deadSelf.connect(_callbackPeonDied)
+	peons.append(peon)
 	match peon.faction:
 		Character.EFaction.BLUE:
 			nbPeonsBlue += 1
@@ -170,3 +175,9 @@ func checkIfSpawnRequired():
 		print("Spawn required")
 		var rng = randi() % spawners.size()
 		spawners[rng].spawnGroup(spawnLibrary.getRandomGroup())
+
+func initialSpawn():
+	checkIfSpawnRequired()
+	if nbPeonsGaia <= nbGaiaThres:
+		get_tree().create_timer(0.3).timeout.connect(initialSpawn)
+			
