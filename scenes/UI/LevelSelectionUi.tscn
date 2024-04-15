@@ -105,7 +105,7 @@ offset_bottom = 821.0
 script = SubResource("GDScript_bkunk")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level1" to="." method="goToScene" binds= ["res://scenes/levels/tuto.tscn"]]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level2" to="." method="goToScene" binds= ["res://scenes/levels/level3.tscn"]]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level3" to="." method="goToScene" binds= ["res://scenes/levels/level2.tscn"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level2" to="." method="goToScene" binds= ["res://scenes/levels/level2.tscn"]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level3" to="." method="goToScene" binds= ["res://scenes/levels/level3.tscn"]]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Level4" to="." method="goToScene" binds= ["res://scenes/levels/level4.tscn"]]
 [connection signal="pressed" from="TextureButton" to="." method="requestPanelSwitch" binds= ["credit"]]

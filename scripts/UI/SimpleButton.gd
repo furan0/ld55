@@ -10,12 +10,15 @@ func _ready():
 
 func _on_click():
 	if !sceneToLoad.is_empty():
+		Global.unpauseGame()
 		Global.goto_scene(sceneToLoad)
 	elif reloadCurrentScene:
+		Global.unpauseGame()
 		Global.reloadCurrentScene()
 	elif goToNextLevel:
 		var manager = %GameManager
 		if manager != null:
+			Global.unpauseGame()
 			Global.goto_scene(manager.nextLevelPath)
 		else:
 			printerr("Game manager not found for next level load")

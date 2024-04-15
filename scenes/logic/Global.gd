@@ -31,49 +31,8 @@ func _ready():
 	var root = get_tree().root
 	currentScene = root.get_child(root.get_child_count() - 1)
 	
-	# Configure SilentWolf API
-	_initSilentWolf()
-	
 	# Configure random number generator
 	randomize()
-
-
-## SilentWolf API initialization. Used for leaderboard.
-func _initSilentWolf() -> void:
-	# Retrieve APi key from private file
-	var file := FileAccess.open("res://api_keys.json", FileAccess.READ)
-	if (file == null):
-		push_warning("Failed to open API keys file. SilentWolf API disabled.")
-		return
-	
-	var json := JSON.new()
-	var error := json.parse(file.get_as_text())
-	if (error != OK):
-		push_warning("Failed to parse API keys file. SilentWolf API disabled.")
-		return
-	
-	var apiKey : String = json.data["silentWolf"]
-	if (apiKey == null):
-		push_warning("Failed to find API key in json. SilentWolf API disabled.")
-		return
-	
-	# default verbose to ERROR_ONLY, except in debug mode (i.e. in editor)
-	var verboseLevel := 0
-	if (OS.is_debug_build()):
-		verboseLevel = 1
-		
-	# Finaly configure SilentWolf with retrieved API key
-	SilentWolf.configure({
-	"api_key": apiKey,
-	"game_id": "ldjam55",
-	"log_level": verboseLevel
-		})
-
-	print ("SilentWolf API properly configured")
-	
-	# Quick test DEBUG ONLY
-	# var sw_result: Dictionary = await SilentWolf.Scores.save_score("test", 4242).sw_save_score_complete
-	# print("Score persisted successfully: " + str(sw_result.score_id))
 
 
 func _process(_delta : float):

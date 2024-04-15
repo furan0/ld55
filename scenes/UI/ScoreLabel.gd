@@ -13,6 +13,9 @@ var isHighScore := false
 @export var highScoreTweenDuration := 0.2
 
 func _ready():
+	setupManager.call_deferred()
+
+func setupManager():
 	if game_manager == null:
 		game_manager = get_tree().get_first_node_in_group("manager")
 

@@ -15,6 +15,12 @@ var camera = null
 @export var cameraZoomTime := 1.0
 @export var cameraZoomWaiting := 0.0
 
+@onready var buttonFocusVictory = $VictoryAnim/NextLevelButton
+@onready var buttonFocusMulti = $MultiAnim/TryAgainButton
+@onready var buttonFocusLoose = $LooseAnim/TryAgainButton
+@onready var buttonFocusArena = $ArenaAnim/TryAgainButton
+
+
 signal uiShown()
 
 # Called when the node enters the scene tree for the first time.
@@ -46,13 +52,15 @@ func playVictory(victor : Character):
 	var color : Color = Character.getFactionColor(victor.faction)
 	sprite_victory.material.set_shader_parameter("overridecolor",color)
 	
-	_playAnimation(victor, "victory")
+	_playAnimation(victor, "victory", buttonFocusVictory)
+	
 
 func playDefeat(looser : Character):
 	var color : Color = Character.getFactionColor(looser.faction)
 	crying.material.set_shader_parameter("overridecolor",color)
 
-	_playAnimation(looser, "defeat")
+	_playAnimation(looser, "defeat", buttonFocusLoose)
+	
 
 func playMulti(victor : Character):
 	#retrieve colors
@@ -68,15 +76,15 @@ func playMulti(victor : Character):
 	sprite_victory_multi.material.set_shader_parameter("overridecolor",colorVictor)
 	crying_multi.material.set_shader_parameter("overridecolor",colorLooser)
 	
-	_playAnimation(victor, "multi")
+	_playAnimation(victor, "multi", buttonFocusMulti)
 
 func playArena(looser : Character):
 	var color : Color = Character.getFactionColor(looser.faction)
 	crying.material.set_shader_parameter("overridecolor",color)
 
-	_playAnimation(looser, "arena")
+	_playAnimation(looser, "arena", buttonFocusArena)
 
-func _playAnimation(target : Node2D, animName : String):
+func _playAnimation(target : Node2D, animName : String, focus = null):
 	await _doCameraMove(target)
 	
 	show()
@@ -86,6 +94,9 @@ func _playAnimation(target : Node2D, animName : String):
 		animation_specific_player.play(animName)
 	animation_fond_player.animation_finished.connect(functor)
 	animation_fond_player.play("EndAnimation")
+	
+	if focus != null:
+		focus.grab_focus.call_deferred()
 
 func _doCameraMove(target : Node2D):
 	# Disable camera tracking and start tween

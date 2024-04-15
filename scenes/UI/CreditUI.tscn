@@ -74,7 +74,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CreditUI" type="Control"]
+[node name="CreditUI" type="Control" node_paths=PackedStringArray("initialFocus")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,6 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_48xu6")
 script = ExtResource("1_uo0fe")
+initialFocus = NodePath("Button")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

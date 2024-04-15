@@ -41,7 +41,7 @@ func fade_to_victoire(character=null):
 func _ready():
 	get_parent().victory.connect(fade_to_victoire)
 	get_tree().create_timer(1.5).timeout.connect(fade_to_calme)
-	$musiquetendue.finished.connect(fade_to_intense)
+	$musiquetendue.finished.connect(fade_to_calme)
 	$musiquecalme.finished.connect(fade_to_calme)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

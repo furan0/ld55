@@ -143,7 +143,7 @@ position = Vector2(3163, 6876)
 faction = 1
 
 [node name="Target1" type="Node2D" parent="Tuto Assets"]
-position = Vector2(4038, 7386)
+position = Vector2(4112, 7557)
 
 [node name="Arena" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -1383,7 +1383,8 @@ position = Vector2(3984, -3180)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("15_deryw")
-texts = Array[String](["That's my girl !! [color=ce42f5]Pretty[/color] as ever !", "Now, time to go home"])
+texts = Array[String](["That's my girl !!
+[color=ce42f5]Pretty[/color] as ever !", "Now, time to go home"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/TriggerVictory"]
 position = Vector2(-326, -8)
