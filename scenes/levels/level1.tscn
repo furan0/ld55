@@ -22,11 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://c8wclqvfmybjp" path="res://scenes/levels/decors/buisson.tscn" id="21_a4umd"]
 [ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="22_m3nna"]
 [ext_resource type="PackedScene" uid="uid://bgj340ju0h55d" path="res://scenes/levels/decors/estarde.tscn" id="23_bsr0k"]
-[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="25_dwlk0"]
-[ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="26_548ed"]
+[ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="26_1piyo"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="26_a5s6r"]
 [ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="26_ods2g"]
 [ext_resource type="Texture2D" uid="uid://c1bnu6pvy38vi" path="res://scenes/levels/decors/voiture.png" id="27_3rq83"]
+[ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="27_iu66f"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bupk2"]
 vertices = PackedVector2Array(2940, 2158, 2941, 2158, 2449, 2170, 2501, -605, 3121, -586, 3120, -586, 2096, -562, 2095, -562, 3696, -542, 4096, -486, 4094, -486, 3454, -109, 3089, 25, 2809, -35, 2607, -263, 1547, -368, 1793, -475, 1792, -474, 4778, 1202, 4659, 1461, 3017, 1210, 3007, 1152, 3863, 794, 3992, 745, 4835, 966, 3050, 88, 2163, 605, 2188, 305, 4795, 421, 4308, 496, 4298, 438, 2701, 1459, 4635, 1628, 4386, 2030, 3860, 2090, 4681, -256, 4791, 13, 4795, 420, 4210, 241, 4466, -386, 3942, 56, 3588, 651, 2919, 955, 3260, 309, 2651, 770, 3107, 186, 1321, -98, 1824, 178, 963, 419, 2033, 352, 1798, 739, 871, 765, 1759, 802, 942, 1257, 1231, 1708, 1816, 900, 1691, 2170, 1297, 2087, 1969, 1023, 2297, 1365, 2572, 1508, 4674, 1863, 4660, 1947)
@@ -143,39 +143,16 @@ rotation = -2.60587
 scale = Vector2(2.18916, 1.84508)
 texture = ExtResource("9_1xb1o")
 
-[node name="Roche2" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
-position = Vector2(390, 7735)
-
-[node name="Poubelle3" parent="Arena/Decors" instance=ExtResource("5_fml7q")]
-z_index = 105
-position = Vector2(386, 7841)
-rotation = 3.14159
-scale = Vector2(1.92, -2)
-
-[node name="Trash6" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(429, 7870)
-texture = ExtResource("4_bqdmu")
-
-[node name="Trash7" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(474, 7854)
-texture = ExtResource("6_r5bl5")
-
-[node name="Trash8" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(766, 7713)
-texture = ExtResource("4_bqdmu")
-
-[node name="Trash9" type="Sprite2D" parent="Arena/Decors"]
-position = Vector2(846, 7773)
-texture = ExtResource("6_r5bl5")
-
 [node name="Roche4" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
 position = Vector2(1874, 5072)
+scale = Vector2(1.87446, 2.48614)
 
 [node name="Roche5" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
 position = Vector2(2262, 4824)
 
 [node name="Roche6" parent="Arena/Decors" instance=ExtResource("10_mrh0o")]
 position = Vector2(2077, 4972)
+scale = Vector2(1.9866, 1.52716)
 
 [node name="Arbre3" parent="Arena/Decors" instance=ExtResource("7_koaxk")]
 position = Vector2(3497, 4910)
@@ -528,7 +505,6 @@ skew = 0.733038
 [node name="buisson" parent="Arena" instance=ExtResource("21_a4umd")]
 position = Vector2(2573, 6239)
 rotation = 0.0993696
-scale = Vector2(1, 1)
 
 [node name="buisson5" parent="Arena" instance=ExtResource("21_a4umd")]
 position = Vector2(2507, 6207)
@@ -776,99 +752,81 @@ position = Vector2(1399, 2082)
 
 [node name="spawn" type="Node2D" parent="."]
 
-[node name="Archer" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(2724, 5450)
+[node name="Sword6" parent="." instance=ExtResource("26_a5s6r")]
+position = Vector2(1440, 5289)
 faction = 1
 
-[node name="Archer7" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(1900, 6681)
-faction = 0
-
-[node name="Archer10" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(2650, 4337)
+[node name="Sword7" parent="." instance=ExtResource("26_a5s6r")]
+position = Vector2(3667, 4472)
 faction = 1
 
-[node name="Archer13" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(4824, 5491)
+[node name="Sword9" parent="." instance=ExtResource("26_a5s6r")]
+position = Vector2(3429, 6704)
 faction = 1
 
-[node name="Archer14" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(4757, 6362)
+[node name="Sword10" parent="." instance=ExtResource("26_a5s6r")]
+position = Vector2(4596, 5568)
 faction = 1
 
-[node name="Archer15" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(4492, 6802)
+[node name="Cheval" parent="." instance=ExtResource("26_1piyo")]
+position = Vector2(2725, 5372)
 faction = 1
 
-[node name="Archer3" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(2861, 5418)
+[node name="Cheval5" parent="." instance=ExtResource("26_1piyo")]
+position = Vector2(2503, 4452)
 faction = 1
 
-[node name="Archer4" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(3026, 5434)
+[node name="Cheval2" parent="." instance=ExtResource("26_1piyo")]
+position = Vector2(2097, 6279)
 faction = 1
 
-[node name="Archer5" parent="." instance=ExtResource("25_dwlk0")]
-position = Vector2(2907, 5283)
+[node name="Cheval3" parent="." instance=ExtResource("26_1piyo")]
+position = Vector2(4580, 6710)
 faction = 1
 
-[node name="Cheval2" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(2722, 5290)
+[node name="Cheval4" parent="." instance=ExtResource("26_1piyo")]
+position = Vector2(4599, 5117)
 faction = 1
 
-[node name="Cheval3" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(2957, 5646)
+[node name="Archer" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(4364, 6066)
 faction = 1
 
-[node name="Cheval13" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(2239, 6519)
+[node name="Archer4" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(3118, 5423)
 faction = 1
 
-[node name="Cheval14" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(1139, 5307)
+[node name="Archer5" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(2872, 5483)
 faction = 1
 
-[node name="Cheval17" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(4069, 5977)
+[node name="Archer7" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(2914, 5315)
 faction = 1
 
-[node name="Cheval4" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(1291, 5992)
+[node name="Archer8" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(3010, 5489)
 faction = 1
 
-[node name="Cheval12" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(2611, 6926)
+[node name="Archer2" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(4301, 4590)
 faction = 1
 
-[node name="Cheval5" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(2909, 5058)
-faction = 1
-metadata/_edit_lock_ = true
-
-[node name="Cheval9" parent="." instance=ExtResource("26_548ed")]
-position = Vector2(4783, 5071)
+[node name="Archer3" parent="." instance=ExtResource("27_iu66f")]
+position = Vector2(1477, 6126)
 faction = 1
 
 [node name="Sword" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(1458, 4958)
-
-[node name="Sword6" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(1420, 5148)
-
-[node name="Sword7" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(1738, 5719)
+position = Vector2(2939, 5410)
+faction = 1
 
 [node name="Sword2" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(3968, 6894)
+position = Vector2(3105, 5339)
+faction = 1
 
 [node name="Sword3" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(3404, 6732)
-
-[node name="Sword4" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(3354, 6551)
-
-[node name="Sword5" parent="." instance=ExtResource("26_a5s6r")]
-position = Vector2(2033, 4512)
+position = Vector2(1783, 4683)
+faction = 1
 
 [connection signal="noMoreRedPeon" from="GameManager" to="GameManager" method="forceVictory"]
 
