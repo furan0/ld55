@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2r4xpnpn38x1"]
+[gd_scene load_steps=19 format=3 uid="uid://d2r4xpnpn38x1"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://pfaxr3ii4krq" path="res://scenes/entities/Rig2D/rig_pretre.tscn" id="8_h3pwf"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/ConvertionHandler.gd" id="9_3ocsr"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/TargetIndicator.gd" id="10_03c5p"]
-[ext_resource type="Script" path="res://scenes/characters/wololo/DialogBox.gd" id="15_em83q"]
-[ext_resource type="Theme" uid="uid://bnc7bmymnooik" path="res://scenes/UI/main_theme.tres" id="15_t8gw0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5v2n"]
 radius = 304.0
@@ -28,28 +26,16 @@ radius = 547.008
 radius = 37.0
 height = 90.0
 
-[sub_resource type="Resource" id="Resource_3gs42"]
-script = ExtResource("7_6lja1")
-expression = "not blockSelection"
-
-[sub_resource type="Resource" id="Resource_57tv1"]
-script = ExtResource("7_6lja1")
-expression = "not blockConversion"
-
 [sub_resource type="Resource" id="Resource_p7dyc"]
 script = ExtResource("7_6lja1")
 expression = "not hasTarget"
 
 [node name="Wololo" groups=["wololo"] instance=ExtResource("1_nuijn")]
-collision_layer = 8
-collision_mask = 9
 platform_floor_layers = 872349696
 script = ExtResource("2_n4dux")
 MAX_HEALTH = 300
 
 [node name="SelectorHandler" type="Area2D" parent="." index="0"]
-collision_layer = 0
-collision_mask = 4
 script = ExtResource("3_jcn6r")
 SelectionPositionRadius = 175.0
 
@@ -58,8 +44,6 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_i5v2n")
 
 [node name="ConvertionHandler" type="Area2D" parent="." index="1"]
-collision_layer = 0
-collision_mask = 4
 script = ExtResource("9_3ocsr")
 convertionMinigames = {
 0: ExtResource("5_ekpv1"),
@@ -102,7 +86,6 @@ script = ExtResource("5_r2ehe")
 script = ExtResource("6_vu2ye")
 to = NodePath("../../SelectingUnits")
 event = &"startSelection"
-guard = SubResource("Resource_3gs42")
 
 [node name="SelectingUnits" type="Node" parent="StateMachine/MainState/Alive/Selection" index="1"]
 script = ExtResource("5_r2ehe")
@@ -131,7 +114,6 @@ script = ExtResource("5_r2ehe")
 script = ExtResource("6_vu2ye")
 to = NodePath("../../Converting")
 event = &"conversion"
-guard = SubResource("Resource_57tv1")
 
 [node name="Converting" type="Node" parent="StateMachine/MainState/Alive/Convertion" index="1"]
 script = ExtResource("5_r2ehe")
@@ -177,43 +159,6 @@ inputProvider = 2
 position = Vector2(-10, 13)
 circleOffset = 76.0
 
-[node name="DialogBox" type="Node2D" parent="." index="9"]
-visible = false
-script = ExtResource("15_em83q")
-defaultText = "Yololooooooooooooooooooooooooooooooooo"
-displayTimePerLetter = 0.03
-
-[node name="PanelDialog" type="Panel" parent="DialogBox" index="0"]
-z_index = 4096
-offset_left = -386.0
-offset_top = -352.0
-offset_right = -103.0
-offset_bottom = -150.0
-theme = ExtResource("15_t8gw0")
-
-[node name="MarginContainer" type="MarginContainer" parent="DialogBox/PanelDialog" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 17
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 11
-theme_override_constants/margin_bottom = 10
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/PanelDialog/MarginContainer" index="0"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 35
-theme_override_font_sizes/bold_font_size = 35
-theme_override_font_sizes/italics_font_size = 35
-theme_override_font_sizes/bold_italics_font_size = 35
-bbcode_enabled = true
-text = "Yololooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
-scroll_active = false
-autowrap_mode = 2
-
 [connection signal="lookAtTarget" from="ConvertionHandler" to="." method="lookAt"]
 [connection signal="minigameFailed" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["mingameFailed"]]
 [connection signal="minigameSuccesful" from="ConvertionHandler" to="StateMachine" method="send_event" binds= ["minigameSucc"]]
@@ -226,10 +171,8 @@ autowrap_mode = 2
 [connection signal="state_exited" from="StateMachine/MainState/Alive/Convertion/Converting" to="MoveHandler" method="setCanMove" binds= [true]]
 [connection signal="state_entered" from="StateMachine/MainState/Alive/Convertion/ConversionSucc" to="ConvertionHandler" method="convertTarget"]
 [connection signal="state_entered" from="StateMachine/MainState/Dead" to="ConvertionHandler" method="stopAllConvertion"]
-[connection signal="convertion" from="InputHandler" to="DialogBox" method="forceFullDisplayOrHide"]
 [connection signal="convertion" from="InputHandler" to="StateMachine" method="send_event" binds= ["conversion"]]
 [connection signal="moveEnded" from="InputHandler" to="MoveHandler" method="moveToward" binds= [Vector2(0, 0)]]
 [connection signal="moveRequested" from="InputHandler" to="MoveHandler" method="moveToward"]
 [connection signal="selectEnded" from="InputHandler" to="StateMachine" method="send_event" binds= ["stopSelection"]]
-[connection signal="selectStarted" from="InputHandler" to="DialogBox" method="forceFullDisplayOrHide"]
 [connection signal="selectStarted" from="InputHandler" to="StateMachine" method="send_event" binds= ["startSelection"]]

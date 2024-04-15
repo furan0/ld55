@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dvbkfkqsdl5xc" path="res://scenes/UI/ending/VictoryUI.tscn" id="2_0g6ux"]
 [ext_resource type="Resource" uid="uid://m1mklle42rbt" path="res://ressources/StandardSpawn.tres" id="2_2clnu"]
 [ext_resource type="Script" path="res://scenes/logic/musique_manager.gd" id="4_0n6sg"]
-[ext_resource type="AudioStream" uid="uid://bq2ev12y5u0sn" path="res://assets/audio/Music bonne cette fois/loopflo_session.mp3" id="5_haeo7"]
+[ext_resource type="AudioStream" uid="uid://hgwmhhoobiq4" path="res://assets/audio/Music bonne cette fois/loopflo_session.mp3" id="5_haeo7"]
 [ext_resource type="AudioStream" uid="uid://bct3vjutc1xa4" path="res://assets/audio/endingvictoire_session.mp3" id="5_shxa7"]
 [ext_resource type="AudioStream" uid="uid://6fp24m8hmin1" path="res://assets/audio/Music bonne cette fois/fllocalm_session.mp3" id="6_j2qdv"]
-[ext_resource type="AudioStream" uid="uid://hlqfcf1u3u6f" path="res://assets/audio/Music bonne cette fois/Ignominiosa_Finis.mp3" id="8_xdif8"]
+[ext_resource type="AudioStream" uid="uid://cessttc46te6h" path="res://assets/audio/Music bonne cette fois/Ignominiosa_Finis.mp3" id="8_xdif8"]
 
 [node name="GameManager" type="Node" groups=["manager"]]
 script = ExtResource("1_kpebv")
