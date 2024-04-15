@@ -9,6 +9,10 @@ extends Node2D
 const hud := preload("res://scenes/entities/Rig2D/hud_life.tscn")
 var local_hud
 
+@export_group("FX param")
+const explosion := preload("res://scenes/entities/FX/smoke_low.tscn")
+const conv_fx := preload("res://scenes/entities/FX/conversion.tscn")
+
 var animator : AnimationPlayer
 var muppet : Node2D
 var key_frame : Node2D
@@ -29,6 +33,12 @@ func _override_mat(node : Node):
 			_override_mat(child)
 
 func _ready():
+	var fx := explosion.instantiate()
+	add_child(fx)
+	fx.position = position
+	fx.emitting = true
+	
+	
 	animator = get_node("AnimationPlayer")
 	muppet = get_node("muppet")
 	key_frame = get_node("keyframe")
@@ -76,6 +86,13 @@ func do_blink():
 	material.set_shader_parameter("blink_color",Color(Color.WHITE,0.0));
 
 func dead():
+	var fx := explosion.instantiate()
+	add_child(fx)
+	fx.position = position
+	fx.emitting = true
+	fx.modulate = Color.BLACK
+	
+	
 	for i in range(5):
 		for j in range(5):
 			await get_tree().physics_frame
@@ -87,3 +104,9 @@ func update_color():
 		return
 	var team := get_parent().get_parent().faction as Character.EFaction
 	set_color(Character.getFactionColor(team))
+	
+	var fx := conv_fx.instantiate()
+	add_child(fx)
+	fx.modulate = Character.getFactionColor(team)
+	fx.position = position
+	fx.emitting = true
