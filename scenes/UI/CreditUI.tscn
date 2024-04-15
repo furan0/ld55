@@ -1,6 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://p7o51iq35snm"]
+[gd_scene load_steps=14 format=3 uid="uid://p7o51iq35snm"]
 
+[ext_resource type="Theme" uid="uid://bnc7bmymnooik" path="res://scenes/UI/main_theme.tres" id="1_48xu6"]
 [ext_resource type="Script" path="res://scripts/UI/StandardUiPanel.gd" id="1_uo0fe"]
+[ext_resource type="Texture2D" uid="uid://c6biinj3mqb0b" path="res://scenes/UI/credit/a1.png" id="3_g2kfd"]
+[ext_resource type="Texture2D" uid="uid://crblxmhc7k17j" path="res://scenes/UI/credit/a2.png" id="4_c7p6l"]
+[ext_resource type="Texture2D" uid="uid://6jb2q2g3s8v7" path="res://scenes/UI/credit/a3.png" id="5_q6wea"]
+[ext_resource type="Texture2D" uid="uid://b8gvnwo24ns7w" path="res://scenes/UI/credit/b1.png" id="6_6anxu"]
+[ext_resource type="Texture2D" uid="uid://dpmfn3hwdfh8p" path="res://scenes/UI/credit/b2.png" id="7_voi53"]
+[ext_resource type="Texture2D" uid="uid://vtcymdiittie" path="res://scenes/UI/credit/b3.png" id="8_q8xp4"]
+[ext_resource type="Texture2D" uid="uid://css5sjifwm4nq" path="res://scenes/UI/credit/flo.png" id="9_u21d1"]
+[ext_resource type="Texture2D" uid="uid://cqrbf4nu5eiqx" path="res://assets/icons/furaune_light.png" id="10_6xwu7"]
+[ext_resource type="AudioStream" uid="uid://cbgmshpmwkah5" path="res://assets/audio/bordel_session.mp3" id="11_ig7j5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5oy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g2kfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c7p6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q6wea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c7p6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p2ep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6anxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_voi53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q8xp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_voi53")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="CreditUI" type="Control"]
 layout_mode = 3
@@ -9,6 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_48xu6")
 script = ExtResource("1_uo0fe")
 
 [node name="Label" type="Label" parent="."]
@@ -25,15 +76,89 @@ offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 65
-text = "Ceci est un crédit"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1013.0
-offset_top = 493.0
-offset_right = 1164.0
-offset_bottom = 524.0
-rotation = 0.774886
+offset_left = 934.0
+offset_top = 710.0
+offset_right = 1169.43
+offset_bottom = 784.883
+rotation = 0.109741
 text = "Let me out of here"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+z_index = -7
+color = Color(0.384314, 0.301961, 0.411765, 1)
+polygon = PackedVector2Array(-47, -85, 1294, -79, 1310, 884, -91, 852)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(982, 383)
+sprite_frames = SubResource("SpriteFrames_u5oy3")
+autoplay = "default"
+frame_progress = 0.645248
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(232, 361)
+sprite_frames = SubResource("SpriteFrames_7p2ep")
+autoplay = "default"
+frame_progress = 0.440817
+
+[node name="Flo" type="Sprite2D" parent="."]
+position = Vector2(618, 545)
+texture = ExtResource("9_u21d1")
+
+[node name="FurauneLight" type="Sprite2D" parent="."]
+position = Vector2(637, 117)
+scale = Vector2(0.723684, 0.723684)
+texture = ExtResource("10_6xwu7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ig7j5")
+autoplay = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 624.0
+offset_right = 486.0
+offset_bottom = 701.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "               FURANO
+ Game Designer, Dev & bouffe"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 701.0
+offset_right = 849.0
+offset_bottom = 778.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "               BACAXI
+Incredible ORGUE and music"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 827.0
+offset_top = 610.0
+offset_right = 1219.0
+offset_bottom = 687.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "             AUNE
+ Game Designer, bugs & art"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 242.0
+offset_right = 839.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "FROM TOULOUSE TO YOU"
 
 [connection signal="pressed" from="Button" to="." method="goBack"]
