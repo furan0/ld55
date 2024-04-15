@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ug5erxsoup0s"]
+[gd_scene load_steps=11 format=3 uid="uid://ug5erxsoup0s"]
 
 [ext_resource type="Script" path="res://scenes/levels/minigame/butine.gd" id="1_ngq3b"]
 [ext_resource type="Texture2D" uid="uid://bwpwqcd4iooil" path="res://scenes/levels/minigame/butine/panel.png" id="2_dyx5v"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cds6i8b8arqd7" path="res://scenes/levels/minigame/butine/fleure.png" id="4_uoskn"]
 [ext_resource type="Texture2D" uid="uid://da3chs0md6a1q" path="res://scenes/levels/minigame/butine/abeille.png" id="5_yudrt"]
 [ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="6_me6q8"]
-[ext_resource type="AudioStream" uid="uid://bwt5ua2dun2bj" path="res://assets/audio/ld55_uiclick_r1.wav" id="7_k0llf"]
-[ext_resource type="AudioStream" uid="uid://dy5coid223fmd" path="res://assets/audio/ld55_uiclick_r2.wav" id="8_ux0xm"]
+[ext_resource type="AudioStream" uid="uid://c0r3nswrhynwm" path="res://assets/audio/minjeureussi_session.wav" id="7_s1hy6"]
 
 [sub_resource type="Animation" id="Animation_osalx"]
 length = 0.001
@@ -132,5 +131,5 @@ autoplay = "loop"
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="."]
 script = ExtResource("6_me6q8")
-audio_clips = Array[AudioStream]([ExtResource("7_k0llf"), ExtResource("8_ux0xm")])
+audio_clips = Array[AudioStream]([ExtResource("7_s1hy6")])
 pitch_distortion = 0.3

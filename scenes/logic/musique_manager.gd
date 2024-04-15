@@ -16,7 +16,12 @@ func fade_to_intense():
 	$musiquetendue.play(0)
 
 func fade_to_lose(character=null):
-	fade_to_calme()
+	if $"..".currentGameMode == GameManager.EGameMode.MULTI:
+		return
+	fade_stream($musiquetendue,-80.0,0.2)
+	fade_stream($musiquecalme,-80.0,0.2)
+
+	$musicdefete.play()
 
 func fade_to_victoire(character=null):
 	fade_stream($musiquetendue,-80.0,0.2)

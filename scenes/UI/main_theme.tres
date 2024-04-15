@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bnc7bmymnooik"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bnc7bmymnooik"]
 
 [ext_resource type="Texture2D" uid="uid://dhq20i1dswmv5" path="res://scenes/UI/ending/button.png" id="1_8t8tc"]
 [ext_resource type="FontFile" uid="uid://ng3vt51l6nms" path="res://scenes/UI/Spicy Soup.otf" id="1_qan07"]
@@ -7,14 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b4jydnjuw5l3p" path="res://scenes/UI/bulle.png" id="5_35u4g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqs87"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sumhh"]
-texture = ExtResource("1_8t8tc")
-texture_margin_left = 19.6627
-texture_margin_top = 20.9676
-texture_margin_right = 32.7712
-texture_margin_bottom = 28.9157
-region_rect = Rect2(4.51749, 3.7352, 274.507, 155.374)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfncm"]
 texture = ExtResource("2_11lb4")
@@ -58,7 +50,7 @@ Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/fonts/font = ExtResource("1_qan07")
 Button/styles/disabled = SubResource("StyleBoxEmpty_lqs87")
-Button/styles/focus = SubResource("StyleBoxTexture_sumhh")
+Button/styles/focus = SubResource("StyleBoxTexture_vfncm")
 Button/styles/hover = SubResource("StyleBoxTexture_vfncm")
 Button/styles/normal = SubResource("StyleBoxTexture_85jwa")
 Button/styles/pressed = SubResource("StyleBoxTexture_ha00a")
