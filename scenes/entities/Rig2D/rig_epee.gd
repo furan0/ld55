@@ -13,6 +13,7 @@ func _ready():
 	state_machine.get_node("MainState/Alive/Status/Attacking/AttackAction").state_exited.connect(attackExited)
 	state_machine.get_node("MainState/Alive/Status/Selected").state_entered.connect(on_select)
 	state_machine.get_node("MainState/Alive/Status/Selected").state_exited.connect(deslect)
+	state_machine.get_node("MainState/Alive/Status/Idle/Aware").state_entered.connect(play_interogation)
 	
 	peon.lifeChanged.connect(on_pv_change)
 	peon.dead.connect(dead)
