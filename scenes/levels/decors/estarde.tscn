@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgj340ju0h55d"]
+
+[ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_3vdhb"]
+[ext_resource type="Texture2D" uid="uid://d1x05pykfsef6" path="res://scenes/levels/decors/estrade.png" id="2_nj3x2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2c4i"]
+radius = 34.9893
+height = 181.337
+
+[node name="estrade" type="Node2D"]
+script = ExtResource("1_3vdhb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -59)
+texture = ExtResource("2_nj3x2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.90735e-06, -54)
+rotation = 1.20117
+shape = SubResource("CapsuleShape2D_t2c4i")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dale8rfmyv15r"]
+
+[ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="1_i5u6d"]
+[ext_resource type="Texture2D" uid="uid://di2v7d454pkt7" path="res://scenes/levels/decors/grillage2.png" id="2_qccbl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2si8n"]
+size = Vector2(235, 20)
+
+[node name="Grillage" type="Node2D"]
+script = ExtResource("1_i5u6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -59)
+texture = ExtResource("2_qccbl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3.5, -5)
+shape = SubResource("RectangleShape2D_2si8n")
