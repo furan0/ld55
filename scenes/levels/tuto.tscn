@@ -1021,7 +1021,6 @@ texture = ExtResource("8_2ykhc")
 [node name="Trash14" type="Sprite2D" parent="Arena/Decors"]
 position = Vector2(3116, 6160)
 rotation = 0.67803
-scale = Vector2(1, 1)
 texture = ExtResource("8_2ykhc")
 
 [node name="Poubelle7" parent="Arena/Decors" instance=ExtResource("7_i1tus")]
@@ -1138,7 +1137,6 @@ position = Vector2(1070, 5193)
 [node name="buisson6" parent="Arena/Decors" instance=ExtResource("22_73c4q")]
 position = Vector2(726, 3307)
 rotation = -1.0999
-scale = Vector2(1, 1)
 
 [node name="VoiturePropre" parent="Arena/Decors" instance=ExtResource("14_x8gmg")]
 position = Vector2(496, 4450)

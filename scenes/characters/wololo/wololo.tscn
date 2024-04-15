@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2r4xpnpn38x1"]
+[gd_scene load_steps=21 format=3 uid="uid://d2r4xpnpn38x1"]
 
 [ext_resource type="PackedScene" uid="uid://b8a68p88th32d" path="res://scenes/characters/character.tscn" id="1_nuijn"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/InputHandler.gd" id="2_6ewwq"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://pfaxr3ii4krq" path="res://scenes/entities/Rig2D/rig_pretre.tscn" id="8_h3pwf"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/ConvertionHandler.gd" id="9_3ocsr"]
 [ext_resource type="Script" path="res://scenes/characters/wololo/TargetIndicator.gd" id="10_03c5p"]
+[ext_resource type="Script" path="res://scenes/characters/wololo/DialogBox.gd" id="15_em83q"]
+[ext_resource type="Theme" uid="uid://bnc7bmymnooik" path="res://scenes/UI/main_theme.tres" id="15_t8gw0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5v2n"]
 radius = 304.0
