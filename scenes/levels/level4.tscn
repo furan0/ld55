@@ -836,17 +836,6 @@ position = Vector2(1783, 4683)
 faction = 1
 
 [connection signal="noMoreRedPeon" from="GameManager" to="GameManager" method="forceVictory"]
-[connection signal="canAttack" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["canAttack"]]
-[connection signal="newTargetFound" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="set_expression_property" binds= ["hasTarget", true]]
-[connection signal="rushingToward" from="Cheval/AttackHandler" to="Cheval/MoveHandler" method="moveTo"]
-[connection signal="startRush" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["startRush"]]
-[connection signal="stopAttack" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["stopAttack"]]
-[connection signal="targetLost" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="set_expression_property" binds= ["hasTarget", false]]
-[connection signal="targetLost" from="Cheval/AttackHandler" to="Cheval/StateMachine" method="send_event" binds= ["targetLost"]]
-[connection signal="state_entered" from="Cheval/StateMachine/MainState/Dead" to="Cheval/SelectionHandler" method="setSelectionStatus" binds= [false]]
-[connection signal="released" from="Cheval/SelectionHandler" to="Cheval/StateMachine" method="send_event" binds= ["released"]]
-[connection signal="requestSelecPos" from="Cheval/SelectionHandler" to="Cheval/MoveHandler" method="moveTo"]
-[connection signal="selected" from="Cheval/SelectionHandler" to="Cheval/StateMachine" method="send_event" binds= ["selected"]]
 
 [editable path="Camera"]
 [editable path="Arena/MurailleDebut"]
