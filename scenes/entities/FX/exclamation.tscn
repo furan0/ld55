@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d11dbquypcdi0"]
+[gd_scene load_steps=8 format=3 uid="uid://d11dbquypcdi0"]
 
 [ext_resource type="Texture2D" uid="uid://c4sp3cqtdyhyb" path="res://scenes/entities/FX/exclamation.png" id="1_0xwir"]
+[ext_resource type="Script" path="res://scenes/entities/FX/exclamation.gd" id="1_lx1ar"]
 [ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="2_1etjm"]
 [ext_resource type="AudioStream" uid="uid://dy5coid223fmd" path="res://assets/audio/ld55_uiclick_r2.wav" id="3_nk56q"]
 
@@ -113,6 +114,7 @@ _data = {
 }
 
 [node name="Exclamation" type="Node2D"]
+script = ExtResource("1_lx1ar")
 
 [node name="Exclamation" type="Sprite2D" parent="."]
 position = Vector2(4, -43)
@@ -133,4 +135,4 @@ script = ExtResource("2_1etjm")
 audio_clips = Array[AudioStream]([ExtResource("3_nk56q")])
 pitch_distortion = -0.035
 
-[connection signal="animation_finished" from="AnimationPlayer" to="audio_effect" method="queue_free"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
