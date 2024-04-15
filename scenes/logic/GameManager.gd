@@ -91,6 +91,13 @@ func countPeon():
 	print("=> Gaia : " + str(nbPeonsGaia))
 	print("=> Blue : " + str(nbPeonsBlue))
 	print("=> Red : " + str(nbPeonsRed))
+	
+	if nbPeonsBlue <= 0:
+		noMoreBluePeon.emit()
+	if nbPeonsRed <= 0:
+		noMoreRedPeon.emit()
+	if nbPeonsGaia <= 0:
+		noMoreGaiaPeon.emit()
 
 func _callbackPeonDied(peon : Character):
 	score += pointForKills
