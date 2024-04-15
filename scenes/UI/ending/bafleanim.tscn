@@ -1,0 +1,185 @@
+[gd_scene load_steps=6 format=3 uid="uid://cge7uchfm75vq"]
+
+[ext_resource type="Texture2D" uid="uid://s522mhvooqdd" path="res://scenes/UI/ending/linemusic.png" id="1_kfgs3"]
+[ext_resource type="Texture2D" uid="uid://dmhvyyayu1y2p" path="res://scenes/UI/ending/baflegros.png" id="2_ak2l5"]
+
+[sub_resource type="Animation" id="Animation_x3try"]
+resource_name = "pulse"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Linemusic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-446.707, -82.7875), Vector2(-412.213, -81.0627), Vector2(-446.707, -82.7875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Linemusic:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Linemusic:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.72474, 1.72474), Vector2(1.86379, 1.86379), Vector2(1.72474, 1.72474)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Baflegros:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-436.359, 219.042), Vector2(-436.359, 219.042), Vector2(-436.359, 219.042), Vector2(-436.359, 219.042)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Baflegros:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Baflegros:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.72474, 1.72474), Vector2(1.96061, 1.50832), Vector2(1.37777, 1.94891), Vector2(1.72474, 1.72474)]
+}
+
+[sub_resource type="Animation" id="Animation_k133h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Linemusic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-446.707, -82.7875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Linemusic:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Linemusic:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.72474, 1.72474)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Baflegros:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-436.359, 219.042)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Baflegros:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Baflegros:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.72474, 1.72474)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcq2a"]
+_data = {
+"RESET": SubResource("Animation_k133h"),
+"pulse": SubResource("Animation_x3try")
+}
+
+[node name="bafle" type="Node2D"]
+position = Vector2(70.7143, -8.62369)
+
+[node name="Linemusic" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.407843)
+z_index = 1
+position = Vector2(-420.484, -81.4763)
+scale = Vector2(1.83045, 1.83045)
+texture = ExtResource("1_kfgs3")
+
+[node name="Baflegros" type="Sprite2D" parent="."]
+position = Vector2(-436.359, 219.042)
+scale = Vector2(1.90405, 1.56021)
+texture = ExtResource("2_ak2l5")
+offset = Vector2(-13.7772, -177.002)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gcq2a")
+}
+autoplay = "pulse"
+speed_scale = 1.2
