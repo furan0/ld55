@@ -23,6 +23,7 @@ func _ready():
 		#dead()
 
 func on_select():
+	play_exclamation()
 	$Circle.visible = true
 func deslect():
 	$Circle.visible = false

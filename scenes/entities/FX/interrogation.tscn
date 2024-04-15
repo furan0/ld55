@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwgffcccc78ck"]
+
+[ext_resource type="PackedScene" uid="uid://d11dbquypcdi0" path="res://scenes/entities/FX/exclamation.tscn" id="1_lsdkb"]
+[ext_resource type="Texture2D" uid="uid://m2w15ohroxik" path="res://scenes/entities/FX/interogation.png" id="2_plnar"]
+
+[node name="Exclamation" instance=ExtResource("1_lsdkb")]
+
+[node name="Exclamation" parent="." index="0"]
+texture = ExtResource("2_plnar")
+
+[node name="audio_effect" parent="." index="2"]
+volume_db = -9.521

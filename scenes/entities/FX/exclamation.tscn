@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://d11dbquypcdi0"]
+
+[ext_resource type="Texture2D" uid="uid://c4sp3cqtdyhyb" path="res://scenes/entities/FX/exclamation.png" id="1_0xwir"]
+[ext_resource type="Script" path="res://scripts/audio/audio_effect.gd" id="2_1etjm"]
+[ext_resource type="AudioStream" uid="uid://dy5coid223fmd" path="res://assets/audio/ld55_uiclick_r2.wav" id="3_nk56q"]
+
+[sub_resource type="Animation" id="Animation_68bov"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Exclamation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -43)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Exclamation:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Exclamation:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exclamation:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ei41i"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Exclamation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, -43), Vector2(4, -77), Vector2(4, -77), Vector2(4, -77), Vector2(4, -77), Vector2(4, -77)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Exclamation:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0704084, 0.184301, -0.16083, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Exclamation:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.29135, 1.29135), Vector2(1.29135, 1.29135), Vector2(1.29135, 1.29135), Vector2(1.29135, 1.29135), Vector2(1.29135, 1.29135)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exclamation:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3uie5"]
+_data = {
+"RESET": SubResource("Animation_68bov"),
+"start": SubResource("Animation_ei41i")
+}
+
+[node name="Exclamation" type="Node2D"]
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+position = Vector2(4, -43)
+texture = ExtResource("1_0xwir")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3uie5")
+}
+autoplay = "start"
+
+[node name="audio_effect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nk56q")
+volume_db = -80.0
+pitch_scale = 1.54
+bus = &"Sfx"
+script = ExtResource("2_1etjm")
+audio_clips = Array[AudioStream]([ExtResource("3_nk56q")])
+pitch_distortion = -0.035
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="queue_free"]

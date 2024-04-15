@@ -9,9 +9,11 @@ extends Node2D
 const hud := preload("res://scenes/entities/Rig2D/hud_life.tscn")
 var local_hud
 
-@export_group("FX param")
 const explosion := preload("res://scenes/entities/FX/smoke_low.tscn")
 const conv_fx := preload("res://scenes/entities/FX/conversion.tscn")
+const exclamation_fx := preload("res://scenes/entities/FX/exclamation.tscn")
+const interogation_fx := preload("res://scenes/entities/FX/interrogation.tscn")
+
 
 var animator : AnimationPlayer
 var muppet : Node2D
@@ -98,6 +100,16 @@ func dead():
 		for j in range(5):
 			await get_tree().physics_frame
 		material.set_shader_parameter("blink_color",Color(Color.BLACK,(i)/5.0));
+
+func play_exclamation():
+	var inst := exclamation_fx.instantiate()
+	get_tree().root.add_child(inst)
+	inst.global_position=global_position + Vector2.UP*100
+
+func play_interogation():
+	var inst := interogation_fx.instantiate()
+	get_tree().root.add_child(inst)
+	inst.global_position=global_position + Vector2.UP*100
 
 func update_color():
 	if not(get_parent().get_parent() is Character):
