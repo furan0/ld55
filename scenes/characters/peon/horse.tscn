@@ -7,6 +7,7 @@ radius = 745.081
 
 [node name="Cheval" instance=ExtResource("1_yht1l")]
 peonType = 2
+MAX_HEALTH = 200
 
 [node name="AttackHandler" parent="." index="0"]
 TargetWeigth = {

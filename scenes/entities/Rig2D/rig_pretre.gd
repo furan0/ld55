@@ -31,7 +31,8 @@ func target_lost():
 	$wololo_rt.play_sound()
 
 func no_target():
-	$wololo_rt.play_sound()
+	pass
+	#$wololo_rt.play_sound()
 
 func succ_conv():
 	$wololo.play_sound()
@@ -42,6 +43,7 @@ func convertion():
 	muppet.visible = false
 	key_frame.visible = true
 	animator.play("wololo")
+	$wololo.play_sound()
 	
 func on_pv_change(new_pv):
 	super.on_pv_change(new_pv)

@@ -30,7 +30,6 @@ func play_sound():
 	playing = true
 	if looping:
 		play(randf_range(0.0,stream.get_length()))
-		print("oui")
 		volume_db = initial_volume
 		get_tree().create_tween().tween_property(self,"volume_db",loop_attenuation,0.4)
 	
