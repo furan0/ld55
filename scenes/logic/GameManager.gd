@@ -86,6 +86,11 @@ func countPeon():
 				nbPeonsRed += 1
 			Character.EFaction.GAIA:
 				nbPeonsGaia += 1
+	
+	print("Check spawn")
+	print("=> Gaia : " + str(nbPeonsGaia))
+	print("=> Blue : " + str(nbPeonsBlue))
+	print("=> Red : " + str(nbPeonsRed))
 
 func _callbackPeonDied(peon : Character):
 	score += pointForKills
@@ -168,18 +173,13 @@ func parseSpawners():
 		spawner.newCharacterCreated.connect(_callbackNewCharacterCreated)
 
 func checkIfSpawnRequired():
+	countPeon()
+	
 	if spawners.is_empty() || spawnLibrary == null:
 		return
 	
-	countPeon()
-	
 	var colorCond : bool = min(nbPeonsRed, nbPeonsBlue) <= nbColorThres
 	var gaiaCond : bool = nbPeonsGaia <= nbGaiaThres
-	
-	print("Check spawn")
-	print("=> Gaia : " + str(nbPeonsGaia))
-	print("=> Blue : " + str(nbPeonsBlue))
-	print("=> Red : " + str(nbPeonsRed))
 	print("=> Color Cond : " + str(colorCond))
 	print("=> Gaia Cond : " + str(gaiaCond))
 	
