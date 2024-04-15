@@ -1,10 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4a4qfkwu06hv"]
+[gd_scene load_steps=15 format=3 uid="uid://b4a4qfkwu06hv"]
 
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="1_34fdf"]
-[ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="2_6ongp"]
 [ext_resource type="Texture2D" uid="uid://dwsdyra3net5r" path="res://scenes/levels/decors/roche.png" id="4_6ehds"]
-[ext_resource type="PackedScene" uid="uid://csnwttatywcsu" path="res://scenes/characters/wololo/Player1.tscn" id="5_wyrrg"]
-[ext_resource type="PackedScene" uid="uid://di4em2gl1wet1" path="res://scenes/characters/wololo/Player2.tscn" id="6_fq8db"]
 [ext_resource type="PackedScene" uid="uid://c1ng2bn7k1od2" path="res://scenes/characters/peon/Archer.tscn" id="7_ab2pd"]
 [ext_resource type="PackedScene" uid="uid://ba8ur4ji4meth" path="res://scenes/levels/decors/muraille.tscn" id="7_fghda"]
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="8_sk5f3"]
@@ -12,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://djuben8yppyac" path="res://scenes/levels/decors/trash2.png" id="10_ycw8m"]
 [ext_resource type="Texture2D" uid="uid://c4qsbaxlco7n4" path="res://scenes/levels/decors/sol2.png" id="11_v7igv"]
 [ext_resource type="Texture2D" uid="uid://2vhxn3cb4yc7" path="res://scenes/levels/decors/sol3.png" id="12_5ayhh"]
+[ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="13_1ncv5"]
 [ext_resource type="Texture2D" uid="uid://dyubgcjk2xane" path="res://scenes/levels/decors/poubelle.png" id="13_1rawv"]
+[ext_resource type="PackedScene" uid="uid://ckuqmql0ohxwm" path="res://scenes/characters/wololo/Player.tscn" id="13_gnhol"]
 [ext_resource type="Texture2D" uid="uid://c3genxcfcopev" path="res://scenes/levels/decors/arbre.png" id="14_pc0xh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0g87o"]
@@ -24,23 +23,12 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [node name="test" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Camera" parent="." instance=ExtResource("1_34fdf")]
+[node name="Camera" parent="." node_paths=PackedStringArray("target1") instance=ExtResource("1_34fdf")]
+target1 = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_0g87o")
-
-[node name="Peon" parent="." instance=ExtResource("2_6ongp")]
-position = Vector2(696, 151)
-faction = 1
-
-[node name="Peon3" parent="." instance=ExtResource("2_6ongp")]
-position = Vector2(-302, 66)
-faction = 0
-
-[node name="Peon2" parent="." instance=ExtResource("2_6ongp")]
-position = Vector2(-219, 380)
-faction = 0
 
 [node name="Muraille" parent="." instance=ExtResource("7_fghda")]
 
@@ -49,28 +37,11 @@ position = Vector2(-47, -316)
 points = PackedVector2Array(-877, 722, -1129, -18, -971, -371, -493, -546, 539, -337, 863, -547, 1063, -569, 1234, -521, 1349, -430, 1504, 154, 1444, 564, 1158, 685, 1127, 850, 1053, 1119, 267, 1230, -732, 1048, -897, 662)
 
 [node name="edges" parent="Muraille" index="1"]
-visible = false
 points = PackedVector2Array(-534, -675, -884, -549, -995, -330, -654, 578, 227, 701, 821, 623, 929, 215, 1174, 92, 1225, -93, 1066, -477, 860, -567, 533, -441, -309, -519)
-
-[node name="Player1" parent="." instance=ExtResource("5_wyrrg")]
-unique_name_in_owner = true
-position = Vector2(0, 400)
-
-[node name="Player2" parent="." instance=ExtResource("6_fq8db")]
-unique_name_in_owner = true
-position = Vector2(617, 29)
-
-[node name="Archer" parent="." instance=ExtResource("7_ab2pd")]
-position = Vector2(468, -83)
-faction = 1
-
-[node name="Archer2" parent="." instance=ExtResource("7_ab2pd")]
-position = Vector2(281, -102)
-faction = 1
 
 [node name="GameManager" parent="." instance=ExtResource("8_sk5f3")]
 unique_name_in_owner = true
-currentGameMode = 2
+currentGameMode = 1
 
 [node name="Decors" type="Node2D" parent="."]
 
@@ -117,5 +88,30 @@ texture = ExtResource("13_1rawv")
 position = Vector2(70, 2.99998)
 scale = Vector2(0.616883, 0.658824)
 texture = ExtResource("14_pc0xh")
+
+[node name="Archer" parent="." instance=ExtResource("7_ab2pd")]
+position = Vector2(146, -257)
+faction = 0
+
+[node name="Archer2" parent="." instance=ExtResource("7_ab2pd")]
+position = Vector2(68, -171)
+faction = 0
+
+[node name="Archer3" parent="." instance=ExtResource("7_ab2pd")]
+position = Vector2(38, -363)
+faction = 0
+
+[node name="Sword" parent="." instance=ExtResource("13_1ncv5")]
+position = Vector2(493, -206)
+
+[node name="Sword2" parent="." instance=ExtResource("13_1ncv5")]
+position = Vector2(349, -168)
+
+[node name="Sword3" parent="." instance=ExtResource("13_1ncv5")]
+position = Vector2(415, -348)
+
+[node name="Player" parent="." instance=ExtResource("13_gnhol")]
+unique_name_in_owner = true
+position = Vector2(-412, 115)
 
 [editable path="Muraille"]

@@ -10,7 +10,7 @@ class_name MoveHandler
 @export var MAX_SPEED := 300.0
 @export var acc_start := 0.4
 @export var acc_end := 0.4
-var current_speed := MAX_SPEED
+@onready var current_speed := MAX_SPEED
 @export var direction := Vector2.ZERO
 var targetDirection := Vector2.ZERO
 var useNaveMeshAgent := false
