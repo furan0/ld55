@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1ng2bn7k1od2"]
+[gd_scene load_steps=2 format=3 uid="uid://c1ng2bn7k1od2"]
 
 [ext_resource type="PackedScene" uid="uid://djyfw78hvalds" path="res://scenes/characters/peon/peon.tscn" id="1_pgdjn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_y324i"]
-radius = 669.061
 
 [node name="Archer" instance=ExtResource("1_pgdjn")]
 peonType = 1
@@ -20,9 +17,7 @@ attackRange = 550
 minAttackRange = 200
 rushMargin = 15
 attackHitPoint = 20
-
-[node name="CollisionShape2D" parent="AttackHandler/AreaAware" index="0"]
-shape = SubResource("CircleShape2D_y324i")
+displayRangeDebug = true
 
 [node name="toPostAttack" parent="StateMachine/MainState/Alive/Status/Attacking/AttackAction/Attack" index="0"]
 delay_seconds = 0.05

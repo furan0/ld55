@@ -362,7 +362,7 @@ unique_name_in_owner = true
 position = Vector2(2017, 1771)
 
 [node name="Cheval" parent="Entities" instance=ExtResource("23_bu7te")]
-position = Vector2(3705, 2270)
+position = Vector2(3799, 2370)
 
 [node name="Cheval2" parent="Entities" instance=ExtResource("23_bu7te")]
 position = Vector2(1271, 1120)
@@ -374,7 +374,7 @@ position = Vector2(1226, 950)
 position = Vector2(312, 2550)
 
 [node name="Archer" parent="Entities" instance=ExtResource("6_4xcts")]
-position = Vector2(3609, 2063)
+position = Vector2(3457, 2041)
 
 [node name="Archer2" parent="Entities" instance=ExtResource("6_4xcts")]
 position = Vector2(821, 1771)

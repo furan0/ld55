@@ -73,7 +73,12 @@ func processAttacking(_delta):
 		stopAttack.emit()
 		# Calculate new rush position
 		var targetDir := (targetPos - currentPos).normalized()
-		var desiredOffset := attackRange - rushMargin
+		var desiredOffset : float
+		if targetTooFar:
+			desiredOffset = attackRange - rushMargin
+		else:
+			#Target too close
+			desiredOffset = minAttackRange + rushMargin
 		var desiredPos := targetPos - targetDir * desiredOffset
 		rushingToward.emit(desiredPos)
 
@@ -152,7 +157,7 @@ func enableTargetLooking(enabled : bool):
 		lookForTarget()
 	isLookingForTarget = enabled
 
-func isTargetValid(body : Node2D) -> bool:
+func isTargetValid(body) -> bool:
 	if body == null:
 		return false
 	if not body is Character:
