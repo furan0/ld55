@@ -20,6 +20,11 @@ var sceneCurrentlyLoading : String = ""
 signal sceneSwitchStarted
 signal sceneSwitchCompleted
 
+##=== Data storage
+var save_data = {
+	"score" : 0
+}
+
 ## Global initialization
 func _ready():
 	# Retrieve currently loaded scene, ie the last one in the tree (after autoloads)
@@ -62,7 +67,7 @@ func _initSilentWolf() -> void:
 	"api_key": apiKey,
 	"game_id": "ldjam55",
 	"log_level": verboseLevel
-  	})
+		})
 
 	print ("SilentWolf API properly configured")
 	
@@ -75,7 +80,7 @@ func _process(_delta : float):
 	# If a scene is currently loading, update loading status
 	if (isANewSceneLoading):
 		var progress : Array[float] = [0.0]
-		var status := ResourceLoader.load_threaded_get_status(sceneCurrentlyLoading, progress) 
+		var status := ResourceLoader.load_threaded_get_status(sceneCurrentlyLoading, progress)
 		match status:
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 				$LoadingUI.loadPercent = progress[0]
@@ -145,3 +150,23 @@ func pauseGame():
 	
 func unpauseGame():
 	get_tree().paused = false
+
+func saveScore(score : int):
+	if OS.is_userfs_persistent():
+		# Create new ConfigFile object.
+		var config = ConfigFile.new()
+		config.set_value("Player1", "highScore", score)
+
+		# Save it to a file (overwrite if already exists).
+		config.save("user://scores.cfg")
+
+func getHighScore() -> int:
+	var config = ConfigFile.new()
+	# Load data from a file.
+	var err = config.load("user://scores.cfg")
+	
+	# If the file didn't load, ignore it.
+	if err != OK:
+		return 0
+		
+	return config.get_value("Player1", "highScore")

@@ -35,6 +35,11 @@ var spawners := []
 ## Spawn peons if color count is lower or equal AND other threshold is met
 @export var nbColorThres := 5
 
+@export_group("Score settings")
+@export var score := 0
+@export var pointForKills := 100
+var highScore := 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Set itself unpausable, then pause the game nextFrame
@@ -59,6 +64,12 @@ func _ready():
 	
 	if spawnAtInit:
 		initialSpawn.call_deferred()
+	
+	highScore = Global.getHighScore()
+
+func _exit_tree():
+	if score > highScore:
+		Global.saveScore(score)
 
 func countPeon():
 	nbPeonsBlue = 0
@@ -77,6 +88,8 @@ func countPeon():
 				nbPeonsGaia += 1
 
 func _callbackPeonDied(peon : Character):
+	score += pointForKills
+	
 	checkIfSpawnRequired()
 
 func _callbackWololoDied(wololo : Character):
@@ -180,4 +193,3 @@ func initialSpawn():
 	checkIfSpawnRequired()
 	if nbPeonsGaia <= nbGaiaThres:
 		get_tree().create_timer(0.3).timeout.connect(initialSpawn)
-			
