@@ -8,7 +8,7 @@ var force = 0.0  # Current shake strength.
 var force_power = 2  # Trauma exponent. Use [2, 3].
 
 func doShake(amount):
-	force = min(force + amount, 1.0)
+	force = min(force + amount, 0.4)
 
 func shake():
 	var amount = pow(force, force_power)
