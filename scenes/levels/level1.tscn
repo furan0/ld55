@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dlx1chj0841to"]
+[gd_scene load_steps=30 format=3 uid="uid://b74svanxpp25g"]
 
 [ext_resource type="PackedScene" uid="uid://oqr6act0nr3e" path="res://scenes/logic/GameManager.tscn" id="1_p1w34"]
 [ext_resource type="PackedScene" uid="uid://ctx1rymrrlspd" path="res://scenes/logic/Camera.tscn" id="2_u7vm8"]
@@ -18,10 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://ckuqmql0ohxwm" path="res://scenes/characters/wololo/Player.tscn" id="16_6ypjp"]
 [ext_resource type="Texture2D" uid="uid://54dy3ngrx5am" path="res://scenes/levels/decors/solsstrash.png" id="17_ca53x"]
 [ext_resource type="Texture2D" uid="uid://p6so4owu0axu" path="res://scenes/levels/decors/soltrash.png" id="18_k3l0v"]
-[ext_resource type="PackedScene" uid="uid://chfsqu5g61j6j" path="res://scenes/levels/decors/grillageoblique.tscn" id="19_h53e5"]
-[ext_resource type="PackedScene" uid="uid://c8wclqvfmybjp" path="res://scenes/levels/decors/buisson.tscn" id="21_a4umd"]
+[ext_resource type="PackedScene" path="res://scenes/levels/decors/grillageoblique.tscn" id="19_h53e5"]
+[ext_resource type="PackedScene" path="res://scenes/levels/decors/buisson.tscn" id="21_a4umd"]
 [ext_resource type="PackedScene" uid="uid://duafmgxlnim7x" path="res://scenes/levels/decors/bafle.tscn" id="22_m3nna"]
-[ext_resource type="PackedScene" uid="uid://bgj340ju0h55d" path="res://scenes/levels/decors/estarde.tscn" id="23_bsr0k"]
+[ext_resource type="PackedScene" path="res://scenes/levels/decors/estarde.tscn" id="23_bsr0k"]
 [ext_resource type="PackedScene" uid="uid://c33hpvjntowt4" path="res://scenes/characters/peon/horse.tscn" id="26_1piyo"]
 [ext_resource type="PackedScene" uid="uid://b11gtgdgs01mv" path="res://scenes/characters/peon/Sword.tscn" id="26_a5s6r"]
 [ext_resource type="Script" path="res://scenes/levels/decors/NodeYSorted.gd" id="26_ods2g"]
@@ -377,7 +377,6 @@ position = Vector2(119, 62)
 points = PackedVector2Array(-361, 3568, 867.242, 2036.76, 826, 1708, 560, 1308, 471, 622, 649, 120, 960, -381, 1290, -692, 1639, -807, 2147, -889, 2858, -908, 3988, -819, 4662, -591, 4890, -159, 4954, 412, 4985, 933, 4935, 1232, 4782, 1505, 4865, 1854, 5011, 2114, 5303, 2228, 6973, 3079, 7385, 3232)
 
 [node name="edges" parent="Arena/MurailleDebut" index="1"]
-visible = true
 points = PackedVector2Array(202, 3370, 1168, 2170, 1117, 1713, 856, 1306, 768, 773, 882, 278, 1034, 55, 1276, -300, 1549, -510, 2006, -675, 2406, -700, 3028, -700, 3441, -675, 3904, -637, 4184, -586, 4647, -434, 4907, -53, 4927, 303, 4977, 798, 4933, 1147, 4831, 1389, 4781, 1516, 4742, 1763, 4914, 2144, 5168, 2379, 5746, 2640, 6050, 2824)
 
 [node name="MurailleCentre" parent="Arena" instance=ExtResource("15_tt6xn")]
@@ -389,7 +388,6 @@ position = Vector2(314, -413)
 points = PackedVector2Array(-92, 4156, 843, 2946, 1221, 2928, 1511, 2873, 2088, 2858, 2822, 2835, 3344, 2785, 3810, 2744, 4314, 2654, 4577, 2771, 4832, 2979, 5196, 3134, 5539, 3376, 5862, 3564, 6729, 3948, 7234, 4076)
 
 [node name="edges" parent="Arena/MurailleCentre" index="1"]
-visible = true
 points = PackedVector2Array(1027, 2130, 1279, 2120, 1511, 2178, 1962, 2205, 3028, 2198, 3426, 2170, 3908, 2135, 4245, 2082, 4500, 2024, 4739, 1948, 4969, 1947, 5078, 2470, 4913, 2876, 1068, 2646, 866, 2354)
 
 [node name="sol" type="Polygon2D" parent="Arena"]
