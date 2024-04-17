@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsutykcmunj6m"]
 
 [ext_resource type="Script" path="res://scenes/UI/LoadingUI.gd" id="1_dtaya"]
-[ext_resource type="PackedScene" uid="uid://bnx2wauu57gqt" path="res://scenes/UI/Logo.tscn" id="2_g44iq"]
+[ext_resource type="PackedScene" path="res://scenes/UI/Logo.tscn" id="2_g44iq"]
 
 [node name="LoadingUI" type="CanvasLayer" node_paths=PackedStringArray("loadingBar")]
+process_mode = 3
 layer = 50
 script = ExtResource("1_dtaya")
 loadingBar = NodePath("Panel/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/LoadingBar")
