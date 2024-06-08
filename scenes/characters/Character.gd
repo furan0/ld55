@@ -10,6 +10,8 @@ signal deadSelf(me : Character)
 enum EFaction {BLUE, RED, GAIA}
 ## Listen to this player input 
 @export var faction : EFaction = EFaction.GAIA
+@export var can_be_converted : bool = true
+
 signal factionChanged()
 
 static func getFactionColor(faction_ : EFaction) -> Color:
@@ -41,6 +43,7 @@ var currentDirection : = Vector2.ZERO
 
 func _ready():
 	state_machine.set_expression_property("isMoving", false)
+	can_be_converted = faction == EFaction.GAIA # New Idea
 
 func _physics_process(_delta):
 	# Handle movement
@@ -55,8 +58,10 @@ func _process(_delta):
 	state_machine.set_expression_property("isMoving", get_position_delta().length() > MIN_TRAVEL_MOVE)
 
 func setFaction(newFaction : EFaction):
+	can_be_converted = false
 	faction = newFaction
 	factionChanged.emit()
+	
 
 func kill():
 	is_dead = true

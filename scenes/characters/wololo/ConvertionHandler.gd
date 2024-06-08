@@ -129,6 +129,8 @@ func isTargetValid(node : Node2D) -> bool :
 		return false
 	if node.is_dead:
 		return false
+	if not node.can_be_converted:
+		return false
 	if node.faction == wololo.faction:
 		return false
 		

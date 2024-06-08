@@ -26,3 +26,9 @@ shape = SubResource("CircleShape2D_8dha3")
 [node name="MoveHandler" parent="." index="1"]
 MAX_SPEED = 500.0
 acc_start = 0.1
+
+[node name="RigEpee" parent="Graphsime" index="0"]
+visible = false
+
+[node name="RigCheval" parent="Graphsime" index="2"]
+visible = true
